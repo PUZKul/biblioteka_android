@@ -33,13 +33,13 @@ public class BottomNavigation extends AppCompatActivity {
                             selectedFragment = new Profile();
                             break;
                         case R.id.bottom_nav_book:
-                            //selectedFragment = new NewPostSection();
+                            selectedFragment = new Profile();
                             break;
                         case R.id.bottom_nav_home:
-                            //selectedFragment = new HomeView();
+                            selectedFragment = new Profile();
                             break;
                     }
-                    getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
                     return true;
                 }
             };

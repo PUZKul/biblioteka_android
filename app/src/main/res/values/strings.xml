@@ -3,8 +3,6 @@
     <string name="home">Home</string>
     <string name="book">Book</string>
     <string name="profile">Profile</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu">Menu</string>
     <string name="avatar">Avatar</string>
     <string name="nick">Nick</string>
@@ -14,4 +12,18 @@
     <string name="Exp">exp</string>
     <string name="level">level</string>
     <string name="enter_your_password">Enter your password</string>
+    <string name="create_account">Create account</string>
+    <string name="todo">todo</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="library">Library</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="new_password">New password</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Save">Save</string>
 </resources>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:visibility="visible">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorPrimaryBackground">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120sp"
+            android:text="@string/create_account"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryGreen"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginRight="40sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nick" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40sp"
+            android:layout_marginRight="40sp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/register_editText_nick"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autofillHints=""
+                android:background="@drawable/btn_whitescene"
+                android:ems="10"
+                android:hapticFeedbackEnabled="false"
+                android:inputType="textPersonName"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/imgnick"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@drawable/btn_primary"
+                android:contentDescription="@string/todo"
+                android:scaleType="center"
+                app:srcCompat="@drawable/icon_nick" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40sp"
+            android:layout_marginRight="40sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/email" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40sp"
+            android:layout_marginRight="40sp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/register_editText_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autofillHints=""
+                android:background="@drawable/btn_whitescene"
+                android:ems="10"
+                android:hapticFeedbackEnabled="false"
+                android:inputType="textEmailAddress"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/imgMail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@drawable/btn_primary"
+                android:contentDescription="@string/todo"
+                android:scaleType="center"
+                app:srcCompat="@drawable/icon_email" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40sp"
+            android:layout_marginRight="40sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/password" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40sp"
+            android:layout_marginRight="40sp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/register_editText_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autofillHints=""
+                android:background="@drawable/btn_whitescene"
+                android:ems="10"
+                android:hapticFeedbackEnabled="false"
+                android:inputType="textPassword"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/imgPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@drawable/btn_primary"
+                android:contentDescription="@string/todo"
+                android:scaleType="center"
+                app:srcCompat="@drawable/icon_pass" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40sp"
+            android:layout_marginRight="40sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/repeat_password" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="40sp"
+            android:layout_marginRight="40sp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/register_editText_repeatPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autofillHints=""
+                android:background="@drawable/btn_whitescene"
+                android:ems="10"
+                android:hapticFeedbackEnabled="false"
+                android:inputType="textPassword"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/imgRepeatPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@drawable/btn_primary"
+                android:contentDescription="@string/todo"
+                android:scaleType="center"
+                app:srcCompat="@drawable/icon_pass" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100sp"
+            android:layout_marginRight="100sp">
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/register_btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/register"
+                android:layout_marginTop="15sp"
+                android:background="@drawable/btn_primary"
+                android:textColor="@color/colorWhite"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="130sp">
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/login_register_textasbatton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80sp"
+                android:layout_marginTop="70sp"
+                android:layout_marginRight="80sp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/login"
+                android:textColor="@color/colorPrimaryDark" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
