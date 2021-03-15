@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".readingAndHistory.ReadingAndHistory_Main">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_primary"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/readingAndHistory_button_reading"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Reading"
+            android:textColor="@color/colorPrimaryBackground" />
+
+        <Button
+            android:id="@+id/readingAndHistory_button_history"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="History"
+            android:textColor="@color/colorPrimaryBackground" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/readingAndHistory_fragment_reading"
+            android:name="kul.pl.biblioteka.readingAndHistory.ReadingFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            tools:layout="@layout/fragment_reading" />
+
+        <fragment
+            android:id="@+id/readingAndHistory_fragment_history"
+            android:name="kul.pl.biblioteka.readingAndHistory.HistoryFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            tools:layout="@layout/fragment_history" />
+    </LinearLayout>
+
+
+</LinearLayout>
