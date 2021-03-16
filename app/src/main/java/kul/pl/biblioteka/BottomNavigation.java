@@ -9,7 +9,9 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import kul.pl.biblioteka.homeView.HomeList;
 import kul.pl.biblioteka.profile.Profile;
+import kul.pl.biblioteka.readingAndHistory.ReadingAndHistory_Main;
 
 public class BottomNavigation extends AppCompatActivity {
 
@@ -33,10 +35,10 @@ public class BottomNavigation extends AppCompatActivity {
                             selectedFragment = new Profile();
                             break;
                         case R.id.bottom_nav_book:
-                            selectedFragment = new Profile();
+                            selectedFragment = new ReadingAndHistory_Main();
                             break;
                         case R.id.bottom_nav_home:
-                            selectedFragment = new Profile();
+                            selectedFragment = new HomeList();
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();

@@ -1,16 +1,20 @@
 package kul.pl.biblioteka.readingAndHistory;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import kul.pl.biblioteka.R;
 
-public class ReadingAndHistory_Main extends AppCompatActivity {
+public class ReadingAndHistory_Main extends Fragment {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_reading);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_reading, container, false);
     }
 }
