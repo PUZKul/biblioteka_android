@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="40dp"
+
+    android:background="@color/colorPrimaryBackground"
     android:fillViewport="true"
     android:visibility="visible"
     tools:context=".profile.Profile">
@@ -11,7 +14,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F1F1F1"
+        android:background="@color/colorPrimaryBackground"
         android:orientation="vertical">
 
         <LinearLayout
@@ -41,9 +44,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40sp"
-            android:layout_marginRight="40sp">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/Login_textViev_nick"
@@ -57,8 +58,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40sp"
-            android:layout_marginRight="40sp"
             android:orientation="horizontal">
 
             <EditText
@@ -87,9 +86,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40sp"
-            android:layout_marginRight="40sp">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/Login_textViev_password"
@@ -100,10 +97,8 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="330dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40sp"
-            android:layout_marginRight="40sp"
             android:orientation="horizontal">
 
             <EditText
@@ -131,14 +126,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100sp"
-            android:layout_marginRight="100sp">
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp">
 
             <Button
                 android:id="@+id/login_btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15sp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/btn_primary"
                 android:textColor="#FFFFFF"
                 android:text="@string/login"/>
@@ -147,8 +142,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="130sp">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/login_register_textasbatton"

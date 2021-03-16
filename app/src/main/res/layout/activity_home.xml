@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".homeView.HomeList">
+
+    <RelativeLayout
+        android:id="@+id/home_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/home_linear_topbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingHorizontal="18dp"
+            android:background="@drawable/main_motive">
+
+                <SearchView
+                    android:id="@+id/home_searchView_search"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginEnd="18dp"
+                    android:background="@drawable/btn_whitescene"
+                    android:ems="10"
+                    android:layout_weight="1"
+                    android:hint="@string/search">
+                </SearchView>
+
+            <ImageButton
+                android:id="@+id/home_btn_sort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_sort_24"/>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/home_linear_topbar"/>
+
+        <!--   TODO Pages   -->
+    </RelativeLayout>
+
+</ScrollView>

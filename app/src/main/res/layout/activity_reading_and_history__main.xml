@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
-            tools:layout="@layout/fragment_reading" />
+            tools:layout="@layout/reading_list_item" />
 
         <fragment
             android:id="@+id/readingAndHistory_fragment_history"
@@ -51,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
-            tools:layout="@layout/fragment_history" />
+            tools:layout="@layout/history_list_item" />
     </LinearLayout>
 
 
