@@ -36,7 +36,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:text="Title"
+                android:text="@string/title"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="18sp" />
 
@@ -82,7 +82,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:text="Publisher:"
+                    android:text="@string/publisher"
                     android:textColor="@color/colorPrimaryDark" />
 
                 <TextView
@@ -106,18 +106,24 @@
 
                 <RatingBar
                     android:id="@+id/list_rating"
-                    android:layout_width="254dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.2" />
+                    style="@android:style/Widget.DeviceDefault.RatingBar.Small"
+                    android:layout_width="5dp"
+                    android:layout_height="27dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="0.3"
+                    android:progressBackgroundTint="@color/colorAccent" />
 
                 <Button
                     android:id="@+id/list_button_more"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:layout_weight="0.4"
                     android:fontFamily="sans-serif-light"
-                    android:text="More..."
+                    android:text="@string/more"
                     android:textAlignment="center"
                     android:textSize="10sp" />
             </LinearLayout>
