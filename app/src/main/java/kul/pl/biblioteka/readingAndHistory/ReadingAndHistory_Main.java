@@ -11,6 +11,6 @@ public class ReadingAndHistory_Main extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reading_and_history__main);
+        setContentView(R.layout.fragment_reading);
     }
 }

@@ -26,5 +26,13 @@
     <string name="new_password">New password</string>
     <string name="Cancel">Cancel</string>
     <string name="Save">Save</string>
+<<<<<<< HEAD
     <string name="search">Search</string>
+=======
+    <string name="reading">Reading</string>
+    <string name="history">History</string>
+    <string name="title">Title</string>
+    <string name="publisher">Publisher:</string>
+    <string name="more">More...</string>
+>>>>>>> a52a3eda06cc5f268ec8d0f856fda81297417d61
 </resources>
