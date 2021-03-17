@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.readingAndHistory;
+package kul.pl.biblioteka.ui.fragments.readingAndHistory;
 
 import android.os.Bundle;
 

@@ -1,8 +1,10 @@
-package kul.pl.biblioteka;
+package kul.pl.biblioteka.ui.fragments.bookDetalist;
+
+import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import kul.pl.biblioteka.R;
 
 public class BookView extends AppCompatActivity {
 
