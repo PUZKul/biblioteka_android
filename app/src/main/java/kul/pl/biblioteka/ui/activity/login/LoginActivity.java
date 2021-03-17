@@ -25,9 +25,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initComponents();
+        setOnClickLisners();
+    }
+
+    private void setOnClickLisners() {
         loginBtn.setOnClickListener(loginOnClickLisner);
         registrationText.setOnClickListener(registrationOnClickLisner);
     }
+
     private View.OnClickListener registrationOnClickLisner = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -35,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         }
     };
+
     private View.OnClickListener loginOnClickLisner = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -42,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         }
     };
+
     private void initComponents(){
         loginETex=findViewById(R.id.login_nick_editText);
         passwordETex=findViewById(R.id.login_edittext_password);

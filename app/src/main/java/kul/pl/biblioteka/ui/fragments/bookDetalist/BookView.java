@@ -11,6 +11,6 @@ public class BookView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_view);
+        setContentView(R.layout.fragment_book_view);
     }
 }
