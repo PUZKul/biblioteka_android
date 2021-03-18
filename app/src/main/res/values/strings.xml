@@ -35,5 +35,6 @@
     <string name="date">Date</string>
     <string name="top_books">Top books</string>
     <string name="discover">Discover</string>
+    <string name="author">Author:</string>
 
 </resources>

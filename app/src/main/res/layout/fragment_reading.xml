@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:visibility="visible"
-    tools:context=".readingAndHistory.ReadingAndHistory_Main">
+    tools:context="ui.fragments.readingAndHistory.ReadingAndHistory_Main">
 
     <LinearLayout
         android:layout_width="match_parent"
