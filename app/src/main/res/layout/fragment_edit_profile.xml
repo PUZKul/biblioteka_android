@@ -1,189 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/editProfile_text_editProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100sp"
+            android:gravity="center"
+            android:text="@string/edit_profile"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40sp"
+            android:layout_marginRight="40sp"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/editProfile_text_editProfile"
+                android:id="@+id/editProfile_textViev_nick"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100sp"
-                android:gravity="center"
-                android:text="@string/edit_profile"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="30sp" />
+                android:layout_marginTop="40sp"
+                android:text="@string/nick" />
+        </LinearLayout>
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40sp"
+            android:layout_marginRight="40sp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editProfile_editText_nick"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="40sp"
-                android:layout_marginRight="40sp"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:background="@drawable/btn_whitescene"
+                android:ems="10"
+                android:inputType="text"
+                tools:ignore="LabelFor" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/editProfile_textViev_nick"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="40sp"
-                    android:text="@string/nick" />
-            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="40sp"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/editProfile_textViev_email"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="40sp"
-                android:layout_marginRight="40sp"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:text="@string/email" />
+        </LinearLayout>
 
-                <EditText
-                    android:id="@+id/editProfile_editText_nick"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autofillHints=""
-                    android:background="@drawable/btn_whitescene"
-                    android:ems="10"
-                    android:inputType="text" />
-            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40sp"
+            android:layout_marginRight="40sp"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/editProfile_editText_email"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10sp"
-                android:layout_marginLeft="40sp"
-                android:layout_marginRight="40sp"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:background="@drawable/btn_whitescene"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                tools:ignore="LabelFor" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/editProfile_textViev_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/email" />
-            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="40sp"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/editProfile_textViev_newPassword"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="40sp"
-                android:layout_marginRight="40sp"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:text="@string/new_password" />
+        </LinearLayout>
 
-                <EditText
-                    android:id="@+id/editProfile_editText_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autofillHints=""
-                    android:background="@drawable/btn_whitescene"
-                    android:ems="10"
-                    android:inputType="textEmailAddress" />
-            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40sp"
+            android:layout_marginRight="40sp"
 
-            <LinearLayout
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editProfile_editText_newPassword"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="40sp"
-                android:layout_marginRight="40sp"
-                android:layout_marginTop="10sp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/editProfile_textViev_newPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/new_password" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="40sp"
-                android:layout_marginRight="40sp"
-
-                android:orientation="vertical">
-
-                <EditText
-                    android:id="@+id/editProfile_editText_newPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autofillHints=""
-                    android:background="@drawable/btn_whitescene"
-                    android:ems="10"
-                    android:inputType="textPassword" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="40sp"
-                android:layout_marginRight="40sp"
-                android:layout_marginTop="10sp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/editProfile_textViev_repeatPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/repeat_password" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="40sp"
-                android:layout_marginRight="40sp"
-                android:orientation="vertical">
-
-                <EditText
-                    android:id="@+id/editProfile_editText_repeatPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/btn_whitescene"
-                    android:ems="10"
-                    android:inputType="textPassword"
-                    android:autofillHints="" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="50sp"
-                android:layout_marginLeft="30sp"
-                android:layout_marginRight="30sp"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/editProfile_btn_cancel"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10sp"
-                        android:layout_weight="1"
-                        android:background="@drawable/btn_secondary"
-                        android:text="@string/Cancel" />
-
-                    <Button
-                        android:id="@+id/editProfile_btn_save"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10sp"
-                        android:layout_weight="1"
-                        android:background="@drawable/btn_primary"
-                        android:text="@string/Save"
-                        android:textColor="@color/colorWhite" />
-                </LinearLayout>
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:background="@drawable/btn_whitescene"
+                android:ems="10"
+                android:inputType="textPassword"
+                tools:ignore="LabelFor" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="40sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/editProfile_textViev_repeatPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/repeat_password" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40sp"
+            android:layout_marginRight="40sp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editProfile_editText_repeatPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:background="@drawable/btn_whitescene"
+                android:ems="10"
+                android:inputType="textPassword"
+                tools:ignore="LabelFor" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30sp"
+            android:layout_marginTop="50sp"
+            android:layout_marginRight="30sp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                tools:ignore="UselessParent">
+
+                <Button
+                    android:id="@+id/editProfile_btn_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_secondary"
+                    android:text="@string/Cancel"
+                    tools:ignore="ButtonStyle" />
+
+                <Button
+                    android:id="@+id/editProfile_btn_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_primary"
+                    android:text="@string/Save"
+                    android:textColor="@color/colorWhite"
+                    tools:ignore="ButtonStyle" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
 </ScrollView>
 
