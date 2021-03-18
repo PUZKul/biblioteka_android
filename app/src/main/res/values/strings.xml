@@ -20,14 +20,12 @@
     <string name="register">Register</string>
     <string name="login">Login</string>
     <string name="library">Library</string>
-    <string name="edit_profile">Edit profile</string>
     <string name="new_password">New password</string>
     <string name="Cancel">Cancel</string>
     <string name="Save">Save</string>
     <string name="search">Search</string>
     <string name="reading">Reading</string>
     <string name="history">History</string>
-    <string name="title">Title</string>
     <string name="publisher">Publisher:</string>
     <string name="more">More...</string>
     <string name="edit_profile">Edit profile</string>

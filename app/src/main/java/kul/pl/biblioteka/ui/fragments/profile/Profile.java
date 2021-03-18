@@ -64,7 +64,7 @@ public class Profile extends Fragment {
     }
 
     private void openEditProfileFragment() {
-        //TO DO set fragment with rdit profile fragmnet
+        //TO DO add string
         getActivity().getSupportFragmentManager().beginTransaction().
                 add(((ViewGroup)getView().getParent()).getId(),new EditProfile(),"Edit profile")
                 .addToBackStack(getView().getClass().getName())

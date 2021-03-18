@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import kul.pl.biblioteka.R;
-import kul.pl.biblioteka.ui.fragments.home.HomeList;
+import kul.pl.biblioteka.ui.fragments.home.HomeFragment;
 import kul.pl.biblioteka.ui.fragments.profile.Profile;
 import kul.pl.biblioteka.ui.fragments.readingAndHistory.ReadingAndHistory_Main;
 
@@ -39,7 +39,7 @@ public class BottomNavigation extends AppCompatActivity {
                             selectedFragment = new ReadingAndHistory_Main();
                             break;
                         case R.id.bottom_nav_home:
-                            selectedFragment = new HomeList();
+                            selectedFragment = new HomeFragment();
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();

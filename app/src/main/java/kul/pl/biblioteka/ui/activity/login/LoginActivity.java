@@ -25,10 +25,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initComponents();
-        setOnClickLisners();
+        setOnClickListeners();
     }
 
-    private void setOnClickLisners() {
+    private void setOnClickListeners() {
         loginBtn.setOnClickListener(loginOnClickLisner);
         registrationText.setOnClickListener(registrationOnClickLisner);
     }

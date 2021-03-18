@@ -21,10 +21,10 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         initComponents();
-        setOnClickLisners();
+        setOnClickListeners();
     }
 
-    private void setOnClickLisners() {
+    private void setOnClickListeners() {
         registrationBtn.setOnClickListener(registrationOnClickLisner);
         loginText.setOnClickListener(loginOnClickLisner);
     }
