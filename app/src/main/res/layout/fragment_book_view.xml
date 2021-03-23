@@ -6,7 +6,7 @@
         android:layout_height="match_parent"
         android:fillViewport="true"
         android:visibility="visible"
-        tools:context=".ui.fragments.bookDetalist.BookView">
+        tools:context=".ui.fragments.bookView.BookViewFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

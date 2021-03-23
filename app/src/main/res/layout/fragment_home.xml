@@ -41,9 +41,10 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/home_resycleView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/home_linear_topbar"/>
+            android:layout_below="@+id/home_linear_topbar" />
 
         <!--   TODO Pages   -->
     </RelativeLayout>
