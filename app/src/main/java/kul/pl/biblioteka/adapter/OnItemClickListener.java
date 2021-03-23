@@ -1,5 +1,5 @@
 package kul.pl.biblioteka.adapter;
 
 public interface OnItemClickListener {
-    void onClick();
+    void onClick(String idBook);
 }
