@@ -14,7 +14,7 @@ import kul.pl.biblioteka.ui.fragments.home.HomeFragment;
 import kul.pl.biblioteka.ui.fragments.profile.Profile;
 import kul.pl.biblioteka.ui.fragments.readingAndHistory.ReadingAndHistory_Main;
 
-public class BottomNavigation extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottom_nav;
     @Override

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import kul.pl.biblioteka.R;
-import kul.pl.biblioteka.ui.activity.BottomNavigation;
+import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.activity.login.LoginActivity;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -32,7 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
     private View.OnClickListener registrationOnClickLisner = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(RegisterActivity.this, BottomNavigation.class);
+            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
             startActivity(intent);
         }
     };

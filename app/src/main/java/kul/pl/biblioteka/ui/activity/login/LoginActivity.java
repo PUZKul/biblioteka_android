@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import kul.pl.biblioteka.R;
-import kul.pl.biblioteka.ui.activity.BottomNavigation;
+import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.activity.register.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity {
@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
     private View.OnClickListener loginOnClickLisner = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(LoginActivity.this, BottomNavigation.class);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         }
     };

@@ -16,7 +16,7 @@ public class BookModel {
     private final boolean access;
     private final String imageUrl;
 
-    public BookModel(@JsonProperty("id")int id,
+    public BookModel(@JsonProperty("id") int id,
                      @JsonProperty("title") String title,
                      @JsonProperty("authors") String authors,
                      @JsonProperty("rating") double rating,
@@ -25,8 +25,7 @@ public class BookModel {
                      @JsonProperty("year") Date year,
                      @JsonProperty("publisher") String publisher,
                      @JsonProperty("access") boolean access,
-                     @JsonProperty("imageUrl") String imageUrl )
-    {
+                     @JsonProperty("imageUrl") String imageUrl) {
         this.id = id;
         this.title = title;
         this.authors = authors;
@@ -35,10 +34,9 @@ public class BookModel {
         this.pages = pages;
         this.year = year;
         this.publisher = publisher;
-        this.access=access;
-        this.imageUrl=imageUrl;
+        this.access = access;
+        this.imageUrl = imageUrl;
     }
-
 
     public boolean isAccess() {
         return access;
@@ -78,4 +76,5 @@ public class BookModel {
 
     public String getPublisher() {
         return publisher;
-    }}
+    }
+}

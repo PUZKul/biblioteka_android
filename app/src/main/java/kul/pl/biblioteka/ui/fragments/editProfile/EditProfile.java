@@ -10,7 +10,7 @@ import android.widget.Button;
 import androidx.fragment.app.Fragment;
 
 import kul.pl.biblioteka.R;
-import kul.pl.biblioteka.ui.activity.BottomNavigation;
+import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.fragments.dialogs.DialogListener;
 import kul.pl.biblioteka.ui.fragments.dialogs.DialogPasswordSecurity;
 
@@ -42,7 +42,7 @@ public class EditProfile extends Fragment implements DialogListener {
     }
 
     private void openProfileFragment(View view){
-        Intent intent = new Intent(view.getContext(), BottomNavigation.class);
+        Intent intent = new Intent(view.getContext(), MainActivity.class);
         startActivity(intent);
     }
 
@@ -69,7 +69,7 @@ public class EditProfile extends Fragment implements DialogListener {
     @Override
     public void applyPassword(String password) {
         //To do check password and toast
-        Intent intent=new Intent(getContext(), BottomNavigation.class);
+        Intent intent=new Intent(getContext(), MainActivity.class);
         startActivity(intent);
     }
 }
