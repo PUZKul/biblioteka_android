@@ -6,7 +6,12 @@ import kul.pl.biblioteka.models.BookModel;
 
 public interface HomeFragmentContract {
     interface Presenter{
-
+        void setListSortByName();
+        void setListSortByTitle();
+        void setListSortByRating();
+        void setListSortByDate();
+        void setListTopBooks();
+        void setListSortByDiscover();
     }
     interface View{
         void setList(List<BookModel> booksList);
