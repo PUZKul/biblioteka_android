@@ -97,16 +97,22 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
     };
 
     private void openBookViewFragment(String idBook) {
-        Bundle bundle = new Bundle();
-        bundle.putString("idBook", idBook);
-//TODO change code and add method
-        BookViewFragment bookViewFragment = new BookViewFragment();
-        bookViewFragment.setArguments(bundle);
-
+        createBookViewFragmentWithSetArguments(idBook);
         getActivity().getSupportFragmentManager().beginTransaction().
                 add(((ViewGroup) getView().getParent()).getId(), new BookViewFragment(), idBook)
                 .addToBackStack(getView().getClass().getName())
                 .commit();
+    }
+
+    private void createBookViewFragmentWithSetArguments(String argument){
+        BookViewFragment bookViewFragment = new BookViewFragment();
+        bookViewFragment.setArguments(getBundleAndPutString(argument));
+    }
+
+    private Bundle getBundleAndPutString(String string){
+        Bundle bundle = new Bundle();
+        bundle.putString("idBook", string);
+        return bundle;
     }
 
     @Override
