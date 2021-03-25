@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.OnItemClickListener;
 
@@ -22,16 +24,18 @@ public class HomeListViewHolder extends RecyclerView.ViewHolder implements View.
     private Button moreButton;
     private RatingBar ratingBar;
     private OnItemClickListener onItemClickListener;
+    private View view;
 
     public HomeListViewHolder(@NonNull View itemView, OnItemClickListener onItemClickListener) {
         super(itemView);
         setComponents(itemView);
+        view=itemView;
         this.onItemClickListener=onItemClickListener;
     }
 
 
     private void setComponents(View view) {
-        ratingBar=view.findViewById(R.id.ratingBar);
+        ratingBar=view.findViewById(R.id.list_rating);
         moreButton =view.findViewById(R.id.list_button_more);
         publisherTextView=view.findViewById(R.id.list_text_publisher);
         authorTextView=view.findViewById(R.id.list_text_author);
@@ -56,7 +60,7 @@ public class HomeListViewHolder extends RecyclerView.ViewHolder implements View.
     }
 
     public void setImageBook(Uri bookUri){
-        imageBook.setImageURI(bookUri);
+        Picasso.with(view.getContext()).load(bookUri).into(imageBook);;
     }
 
     @Override

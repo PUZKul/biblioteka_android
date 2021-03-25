@@ -6,7 +6,6 @@ public class BookModel {
 
     private int id;
     private String title;
-    //@SerializedName("authors")
     private String authors;
     private double rating;
     private double popularity;
