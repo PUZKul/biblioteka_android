@@ -1,35 +1,42 @@
 package kul.pl.biblioteka.ui.fragments.home;
 
-import kul.pl.biblioteka.api.API;
+import java.util.List;
 
-public class HomeFragmentPresenter implements HomeFragmentContract.Presenter {
+import kul.pl.biblioteka.dataAccess.APIListener;
+import kul.pl.biblioteka.dataAccess.LibraryAccess;
+import kul.pl.biblioteka.exception.ApiError;
+import kul.pl.biblioteka.models.BookModel;
+import kul.pl.biblioteka.utils.Sorting;
+
+public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, APIListener {
 
     private HomeFragmentContract.View view;
-    private API api;
+    private LibraryAccess api;
 
     public HomeFragmentPresenter(HomeFragmentContract.View view) {
         this.view = view;
-        this.api = new API();
+        this.api = LibraryAccess.getInstance();
+        api.setListener(this);
     }
 
     @Override
     public void setListSortByTitle() {
-        // view.setList();
+        api.getBooks(10,1, Sorting.TITLE);
     }
 
     @Override
     public void setListSortByRating() {
-        //view.setList();
+        api.getBooks(10,1, Sorting.RATING);
     }
 
     @Override
     public void setListSortByDate() {
-        //view.setList();
+        api.getBooks(10,1, Sorting.YEAR);
     }
 
     @Override
     public void setListTopBooks() {
-        //view.setList();
+        api.getBooks(10,1, Sorting.YEAR);
     }
 
     @Override
@@ -40,5 +47,20 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter {
     @Override
     public void setListByName(String bookName) {
         //view.setList();
+    }
+
+    @Override
+    public void onBookListReceive(List<BookModel> books) {
+        view.setList(books);
+    }
+
+    @Override
+    public void onErrorReceive(ApiError error) {
+        //todo
+    }
+
+    @Override
+    public void onBookReceive(BookModel book) {
+
     }
 }

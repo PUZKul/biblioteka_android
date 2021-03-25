@@ -36,6 +36,7 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
         initComponents(view);
         setOnClickListener();
         presenter = new HomeFragmentPresenter(this);
+        presenter.setListTopBooks();
         return view;
     }
 
@@ -55,13 +56,13 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
             new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-                    if (item.getGroupId() == R.id.bottom_sort_title) {
+                    if (item.getItemId() == R.id.bottom_sort_title) {
                         presenter.setListSortByTitle();
-                    } else if (item.getGroupId() == R.id.bottom_sort_date) {
+                    } else if (item.getItemId()  == R.id.bottom_sort_date) {
                         presenter.setListSortByDate();
-                    } else if (item.getGroupId() == R.id.bottom_sort_discover) {
+                    } else if (item.getItemId()  == R.id.bottom_sort_discover) {
                         presenter.setListSortByDiscover();
-                    } else if (item.getGroupId() == R.id.bottom_sort_ranting) {
+                    } else if (item.getItemId()  == R.id.bottom_sort_ranting) {
                         presenter.setListSortByRating();
                     } else {
                         presenter.setListTopBooks();
@@ -104,12 +105,12 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
                 .commit();
     }
 
-    private void createBookViewFragmentWithSetArguments(String argument){
+    private void createBookViewFragmentWithSetArguments(String argument) {
         BookViewFragment bookViewFragment = new BookViewFragment();
         bookViewFragment.setArguments(getBundleAndPutString(argument));
     }
 
-    private Bundle getBundleAndPutString(String string){
+    private Bundle getBundleAndPutString(String string) {
         Bundle bundle = new Bundle();
         bundle.putString("idBook", string);
         return bundle;

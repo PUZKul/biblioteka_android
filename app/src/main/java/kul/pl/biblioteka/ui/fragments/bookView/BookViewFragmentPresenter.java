@@ -1,21 +1,21 @@
 package kul.pl.biblioteka.ui.fragments.bookView;
 
-import kul.pl.biblioteka.api.API;
+import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.models.BookModel;
 
 public class BookViewFragmentPresenter implements BookViewFragmentContract.Presenter {
 
-    private API api;
+    private LibraryAccess api;
     private BookModel book;
     private BookViewFragmentContract.View view;
     private String idBook;
 
     public BookViewFragmentPresenter(BookViewFragmentContract.View view,String idBook) {
         this.view = view;
-        api = new API();
+        api = LibraryAccess.getInstance();
         view.startProgressBar();
         this.idBook=idBook;
-        book = setBook();
+        //book = setBook();
     }
 
     @Override
@@ -25,7 +25,7 @@ public class BookViewFragmentPresenter implements BookViewFragmentContract.Prese
         view.endProgressBar();
     }
 
-    private BookModel setBook() {
-        return api.getBook(idBook);
-    }
+   // private BookModel setBook() {
+   //     return api.getBook(idBook);
+   // }
 }

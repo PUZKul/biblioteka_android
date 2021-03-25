@@ -52,6 +52,6 @@ public class HistoryListViewHolder extends RecyclerView.ViewHolder implements Vi
 
     @Override
     public void onClick(View v) {
-        onItemClickListener.onClick();
+      //  onItemClickListener.onClick(1);
     }
 }

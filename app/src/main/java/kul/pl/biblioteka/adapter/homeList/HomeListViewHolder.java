@@ -61,6 +61,6 @@ public class HomeListViewHolder extends RecyclerView.ViewHolder implements View.
 
     @Override
     public void onClick(View v) {
-        onItemClickListener.onClick();
+        //onItemClickListener.onClick();
     }
 }
