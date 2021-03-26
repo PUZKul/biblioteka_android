@@ -92,27 +92,28 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
 
     private OnItemClickListener onItemClickListener = new OnItemClickListener() {
         @Override
-        public void onClick(String idBook) {
+        public void onClick(int idBook) {
             openBookViewFragment(idBook);
         }
     };
 
-    private void openBookViewFragment(String idBook) {
+    private void openBookViewFragment(int idBook) {
         createBookViewFragmentWithSetArguments(idBook);
+        int i =idBook;
         getActivity().getSupportFragmentManager().beginTransaction().
-                add(((ViewGroup) getView().getParent()).getId(), new BookViewFragment(), idBook)
+                add(((ViewGroup) getView().getParent()).getId(), new BookViewFragment())
                 .addToBackStack(getView().getClass().getName())
                 .commit();
     }
 
-    private void createBookViewFragmentWithSetArguments(String argument) {
+    private void createBookViewFragmentWithSetArguments(int argument) {
         BookViewFragment bookViewFragment = new BookViewFragment();
         bookViewFragment.setArguments(getBundleAndPutString(argument));
     }
 
-    private Bundle getBundleAndPutString(String string) {
+    private Bundle getBundleAndPutString(int argument) {
         Bundle bundle = new Bundle();
-        bundle.putString("idBook", string);
+        bundle.putInt("idBook", argument);
         return bundle;
     }
 

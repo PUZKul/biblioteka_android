@@ -46,6 +46,7 @@ public class HomeListRecycleViewAdapter extends RecyclerView.Adapter<HomeListVie
         holder.setTitleText(booksList.get(position).getTitle());
         holder.setPublisherText(booksList.get(position).getPublisher());
         holder.setRatingBar((float) booksList.get(position).getRating());
+        holder.setIdBook(booksList.get(position).getId());
     }
 
     @Override

@@ -8,7 +8,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Converter;
 import retrofit2.Response;
 
-public class ApiErrorParser {
+public class ApiErrorParser extends  Exception{
     public static ApiError parseError(Response<?> response) {
         Converter<ResponseBody, ApiError> converter =
                 LibraryAccess.getInstance()

@@ -36,7 +36,7 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, AP
 
     @Override
     public void setListTopBooks() {
-        api.getBooks(10,1, Sorting.YEAR);
+        api.getBooks(10,1, Sorting.POPULARITY);
     }
 
     @Override

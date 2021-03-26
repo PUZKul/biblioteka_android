@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bottom_navigation);
         bottom_nav = findViewById(R.id.bottom_nav);
         bottom_nav.setOnNavigationItemSelectedListener(navListener);
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new Profile()).addToBackStack(null).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new HomeFragment()).addToBackStack(null).commit();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =

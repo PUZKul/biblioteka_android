@@ -21,18 +21,18 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_edit_profile, container, false);
-        initComponents(view);
+        View view = inflater.inflate(R.layout.fragment_book_view, container, false);
+         initComponents(view);
         //ToDo add progresbar in layout
         presenter=new BookViewFragmentPresenter(this,getBookId());
-        presenter.setBookDetails();
+   //     presenter.setBookDetails();
         setOnClickListeners();
         return view;
     }
 
-    private String getBookId() {
-        //todo using bungle get idbook with HomeFragment
-        return null;
+    private int getBookId() {
+        Bundle bundle =new Bundle();
+        return bundle.getInt("idBook");
     }
 
     private void setOnClickListeners() {

@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso;
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.OnItemClickListener;
 
-public class HomeListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+public class HomeListViewHolder extends RecyclerView.ViewHolder{
 
     private ImageView imageBook;
     private TextView titleTextView;
@@ -25,14 +25,31 @@ public class HomeListViewHolder extends RecyclerView.ViewHolder implements View.
     private RatingBar ratingBar;
     private OnItemClickListener onItemClickListener;
     private View view;
+    private int idBook;
 
     public HomeListViewHolder(@NonNull View itemView, OnItemClickListener onItemClickListener) {
         super(itemView);
         setComponents(itemView);
+        setOnClickListener(view);
         view=itemView;
         this.onItemClickListener=onItemClickListener;
     }
 
+    public void setIdBook(int idBook) {
+        this.idBook = idBook;
+    }
+
+
+    private void setOnClickListener(View view){
+        moreButton.setOnClickListener(onMoreButtonClickListener);
+    }
+
+    private View.OnClickListener onMoreButtonClickListener= new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            onItemClickListener.onClick(idBook);
+        }
+    };
 
     private void setComponents(View view) {
         ratingBar=view.findViewById(R.id.list_rating);
@@ -61,10 +78,5 @@ public class HomeListViewHolder extends RecyclerView.ViewHolder implements View.
 
     public void setImageBook(Uri bookUri){
         Picasso.with(view.getContext()).load(bookUri).into(imageBook);;
-    }
-
-    @Override
-    public void onClick(View v) {
-        //onItemClickListener.onClick();
     }
 }

@@ -36,5 +36,6 @@
     <string name="top_books">Top books</string>
     <string name="discover">Discover</string>
     <string name="author">Author:</string>
+    <string name="one">1</string>
 
 </resources>
