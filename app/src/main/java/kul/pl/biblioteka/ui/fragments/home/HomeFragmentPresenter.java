@@ -51,7 +51,9 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, AP
 
     @Override
     public void onBookListReceive(List<BookModel> books) {
+        view.startProgressBar();
         view.setList(books);
+        view.endProgressBar();
     }
 
     @Override

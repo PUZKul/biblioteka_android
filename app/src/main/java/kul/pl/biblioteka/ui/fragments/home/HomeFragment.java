@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
+import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
     private RecyclerView recyclerView;
     private SearchView searchExitText;
     private HomeFragmentPresenter presenter;
+    private ProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -77,6 +79,7 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
         menu.getMenuInflater().inflate(R.menu.sort_list_menu, menu.getMenu());
         recyclerView = view.findViewById(R.id.home_resycleView);
         searchExitText = view.findViewById(R.id.home_searchView_search);
+        //progressBar=view.findViewById()
     }
 
     @Override
@@ -99,7 +102,6 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
 
     private void openBookViewFragment(int idBook) {
         createBookViewFragmentWithSetArguments(idBook);
-        int i =idBook;
         getActivity().getSupportFragmentManager().beginTransaction().
                 add(((ViewGroup) getView().getParent()).getId(), new BookViewFragment())
                 .addToBackStack(getView().getClass().getName())
@@ -125,5 +127,15 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
     @Override
     public String getSearchText() {
         return searchExitText.toString();
+    }
+
+    @Override
+    public void startProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void endProgressBar() {
+        progressBar.setVisibility(View.INVISIBLE);
     }
 }
