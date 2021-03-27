@@ -24,6 +24,5 @@ public interface BookViewFragmentContract {
     }
 
     interface Presenter {
-        void setBookDetails();
     }
 }

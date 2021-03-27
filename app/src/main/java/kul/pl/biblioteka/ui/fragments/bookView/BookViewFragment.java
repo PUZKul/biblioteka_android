@@ -24,15 +24,9 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
         View view = inflater.inflate(R.layout.fragment_book_view, container, false);
          initComponents(view);
         //ToDo add progresbar in layout
-        presenter=new BookViewFragmentPresenter(this,getBookId());
-   //     presenter.setBookDetails();
+        presenter=new BookViewFragmentPresenter(this,this.getArguments().getInt("idBook"));
         setOnClickListeners();
         return view;
-    }
-
-    private int getBookId() {
-        Bundle bundle =new Bundle();
-        return bundle.getInt("idBook");
     }
 
     private void setOnClickListeners() {

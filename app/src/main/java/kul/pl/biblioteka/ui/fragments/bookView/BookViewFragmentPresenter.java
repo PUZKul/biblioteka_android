@@ -10,26 +10,23 @@ import kul.pl.biblioteka.models.BookModel;
 public class BookViewFragmentPresenter implements BookViewFragmentContract.Presenter, APIListener {
 
     private LibraryAccess api;
-    private BookModel book;
     private BookViewFragmentContract.View view;
-    private int idBook;
 
     public BookViewFragmentPresenter(BookViewFragmentContract.View view,int idBook) {
         this.view = view;
         api = LibraryAccess.getInstance();
         view.startProgressBar();
-        this.idBook=idBook;
-        setBook();
+        api.setListener(this);
+        setBook(idBook);
     }
 
-    @Override
-    public void setBookDetails() {
+    private void setBookDetails(BookModel book) {
         view.setAuthor(book.getAuthors());
         //ToDo set book detalist  using all methods with view and gets with book
         view.endProgressBar();
     }
 
-    private void setBook() {
+    private void setBook(int idBook) {
         api.getBookById(idBook);
     }
 
@@ -45,6 +42,6 @@ public class BookViewFragmentPresenter implements BookViewFragmentContract.Prese
 
     @Override
     public void onBookReceive(BookModel book) {
-        this.book=book;
+        setBookDetails(book);
     }
 }

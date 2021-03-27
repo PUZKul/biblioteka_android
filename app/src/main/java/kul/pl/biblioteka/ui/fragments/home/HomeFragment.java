@@ -101,16 +101,16 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
     };
 
     private void openBookViewFragment(int idBook) {
-        createBookViewFragmentWithSetArguments(idBook);
         getActivity().getSupportFragmentManager().beginTransaction().
-                add(((ViewGroup) getView().getParent()).getId(), new BookViewFragment())
+                add(((ViewGroup) getView().getParent()).getId(),getBookViewFragmentWithSetArguments(idBook))
                 .addToBackStack(getView().getClass().getName())
                 .commit();
     }
 
-    private void createBookViewFragmentWithSetArguments(int argument) {
+    private BookViewFragment getBookViewFragmentWithSetArguments(int argument) {
         BookViewFragment bookViewFragment = new BookViewFragment();
         bookViewFragment.setArguments(getBundleAndPutString(argument));
+        return bookViewFragment;
     }
 
     private Bundle getBundleAndPutString(int argument) {
@@ -131,11 +131,13 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
 
     @Override
     public void startProgressBar() {
-        progressBar.setVisibility(View.VISIBLE);
+        //todo uncomment when will be added progressBar
+        //progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void endProgressBar() {
-        progressBar.setVisibility(View.INVISIBLE);
+        //todo uncomment when will be added progressBar
+        // progressBar.setVisibility(View.INVISIBLE);
     }
 }
