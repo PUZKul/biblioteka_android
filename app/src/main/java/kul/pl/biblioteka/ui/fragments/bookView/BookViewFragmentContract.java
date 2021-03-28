@@ -14,8 +14,6 @@ public interface BookViewFragmentContract {
 
         void setDate(String date);
 
-        void setAvailable(String available);
-
         void setStars(double number);
 
         void startProgressBar();

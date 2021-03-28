@@ -28,7 +28,6 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     private TextView publisherTextView;
     private TextView pagesCountTextView;
     private TextView yearTextView;
-    private TextView availableTextView;
     private RatingBar ratingBar;
     private ProgressBar progressBar;
     private Button backBtn;
@@ -79,7 +78,6 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
         publisherTextView = view.findViewById(R.id.BookView_text_Publisher);
         pagesCountTextView = view.findViewById(R.id.BookView_text_pages);
         yearTextView = view.findViewById(R.id.BookView_text_year);
-        availableTextView = view.findViewById(R.id.BookView_text_available);
         ratingBar = view.findViewById(R.id.ratingBar);
         backBtn = view.findViewById(R.id.BookView_button_back);
         borrowBtn=view.findViewById(R.id.BookView_button_borrow);
@@ -110,10 +108,6 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
         yearTextView.setText(date);
     }
 
-    @Override
-    public void setAvailable(String available) {
-        availableTextView.setText(available);
-    }
 
     @Override
     public void setStars(double number) {

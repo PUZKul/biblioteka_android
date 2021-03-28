@@ -33,7 +33,8 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_weight="0.5"
-            android:text="@string/author" />
+            android:text="@string/author"
+            android:textAlignment="textStart" />
 
         <TextView
             android:id="@+id/BookView_text_Author"
@@ -44,6 +45,7 @@
             android:layout_marginRight="20dp"
             android:layout_weight="0.5"
             android:text="@string/author_name_text"
+            android:textAlignment="textStart"
             android:textColor="@color/colorPrimaryDark" />
 
     </LinearLayout>
@@ -61,7 +63,8 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_weight="0.5"
-            android:text="@string/publisher" />
+            android:text="@string/publisher"
+            android:textAlignment="textStart" />
 
         <TextView
             android:id="@+id/BookView_text_Publisher"
@@ -72,6 +75,7 @@
             android:layout_marginRight="20dp"
             android:layout_weight="0.5"
             android:text="@string/publisher_name_text"
+            android:textAlignment="textStart"
             android:textColor="@color/colorPrimaryDark" />
     </LinearLayout>
 
@@ -88,7 +92,8 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_weight="0.4"
-            android:text="@string/pages" />
+            android:text="@string/pages"
+            android:textAlignment="textStart" />
 
         <TextView
             android:id="@+id/BookView_text_pages"
@@ -99,6 +104,7 @@
             android:layout_marginRight="20dp"
             android:layout_weight="0.5"
             android:text="@string/count_of_pages"
+            android:textAlignment="textStart"
             android:textColor="@color/colorPrimaryDark" />
     </LinearLayout>
 
@@ -115,7 +121,8 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_weight="0.5"
-            android:text="@string/year" />
+            android:text="@string/year"
+            android:textAlignment="textStart" />
 
         <TextView
             android:id="@+id/BookView_text_year"
@@ -126,35 +133,10 @@
             android:layout_marginRight="20dp"
             android:layout_weight="0.5"
             android:text="@string/yyyy_mm_dd"
+            android:textAlignment="textStart"
             android:textColor="@color/colorPrimaryDark" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/BookView_text_textAvailable"
-            android:layout_width="84dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_weight="0.4"
-            android:text="@string/available" />
-
-        <TextView
-            android:id="@+id/BookView_text_available"
-            android:layout_width="wrap_content"
-            android:layout_height="6dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_weight="0.5"
-            android:text="@string/count_of_available_copies"
-            android:textColor="@color/colorPrimaryDark" />
-    </LinearLayout>
 
     <RatingBar
         android:id="@+id/ratingBar"

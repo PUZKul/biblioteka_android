@@ -40,11 +40,11 @@
     <string name="author_name_text">Author name</string>
     <string name="publisher_name_text">Publisher name</string>
     <string name="pages">Pages:</string>
-    <string name="count_of_pages">count of pages</string>
+    <string name="count_of_pages">Count of pages</string>
     <string name="year">Year:</string>
     <string name="yyyy_mm_dd">YYYY-MM-DD</string>
     <string name="available">Available:</string>
-    <string name="count_of_available_copies">count of available copies</string>
+    <string name="count_of_available_copies">Count of available copies</string>
     <string name="back">Back</string>
     <string name="borrow">Borrow</string>
     <string name="borrowed">Borrowed:</string>
