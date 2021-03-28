@@ -1,5 +1,7 @@
 package kul.pl.biblioteka.ui.fragments.bookView;
 
+import android.net.Uri;
+
 import java.util.List;
 
 import kul.pl.biblioteka.dataAccess.APIListener;
@@ -23,13 +25,10 @@ public class BookViewFragmentPresenter implements BookViewFragmentContract.Prese
     private void setBookDetails(BookModel book) {
         view.setAuthor(book.getAuthors());
         view.setPublisher(book.getPublisher());
-        view.setPages(String.valueOf(book.getPages()));
+        view.setPages(book.getPages()+"");
         view.setStars(book.getRating());
-        view.setDate(book.getYear().toString());
-
-
-
-        //ToDo set book detalist  using all methods with view and gets with book
+        view.setDate(book.getYear()+"");
+        view.setImage(Uri.parse(book.getImageUrl()));
         view.endProgressBar();
     }
 

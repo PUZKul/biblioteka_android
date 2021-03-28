@@ -3,7 +3,7 @@
 <objectAnimator
     android:duration="1200"
     android:propertyName="rotation"
-    android:interpolator="Linear"
+
     android:repeatCount="infinite"
     android:repeatMode="restart"
     android:valueFrom="0"
@@ -12,7 +12,7 @@
     <objectAnimator
         android:duration="900"
         android:propertyName="ScaleX"
-        android:interpolator="Linear"
+
         android:repeatCount="infinite"
         android:repeatMode="reverse"
         android:valueFrom="1dp"
@@ -21,7 +21,7 @@
     <objectAnimator
         android:duration="900"
         android:propertyName="ScaleY"
-        android:interpolator="Linear"
+
         android:repeatCount="infinite"
         android:repeatMode="reverse"
         android:valueFrom="1dp"
