@@ -37,7 +37,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:text="Title"
+                android:text="@string/title"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="18sp" />
 
@@ -54,7 +54,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:text="Borrowed:"
+                    android:text="@string/borrowed"
                     android:textColor="@color/colorSecondaryDark" />
 
                 <TextView
@@ -65,7 +65,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:text="2021-02-20"
+                    android:text="@string/yyyy_mm_dd"
                     android:textColor="@color/colorPrimaryDark" />
             </LinearLayout>
 
@@ -82,7 +82,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:text="Returned"
+                    android:text="@string/returned"
                     android:textColor="@color/colorSecondaryDark" />
                 <TextView
                     android:id="@+id/FragmentHistory_text_Returned"
@@ -92,7 +92,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:text="2020-11-20"
+                    android:text="@string/yyyy_mm_dd"
                     android:textColor="@color/colorPrimaryDark" />
 
 

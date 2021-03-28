@@ -31,8 +31,8 @@ public class DialogPasswordSecurity extends AppCompatDialogFragment {
         LayoutInflater inflater=getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_password_security,null);
         builder.setView(view)
-                .setTitle("Nie wiem jakie")
-                .setPositiveButton("Check", new DialogInterface.OnClickListener() {
+                .setTitle("Check your password")
+                .setPositiveButton(R.string.check, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialogListener.applyPassword("password");

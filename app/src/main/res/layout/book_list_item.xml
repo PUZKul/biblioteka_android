@@ -47,7 +47,7 @@
 
                 <TextView
                     android:id="@+id/list_text_textAuthor"
-                    android:layout_width="99dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="20dp"
@@ -76,7 +76,7 @@
 
                 <TextView
                     android:id="@+id/list_text_textPublisher"
-                    android:layout_width="wrap_content"
+                    android:layout_width="7dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
@@ -115,6 +115,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="0.35"
                     android:max="5"
+                    android:numStars="5"
                     android:paddingTop="4dp" />
 
                 <Button

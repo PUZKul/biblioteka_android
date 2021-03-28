@@ -27,7 +27,7 @@
     <string name="reading">Reading</string>
     <string name="history">History</string>
     <string name="publisher">Publisher:</string>
-    <string name="more">More...</string>
+    <string name="more">More…</string>
     <string name="edit_profile">Edit profile</string>
     <string name="logout">Logout</string>
     <string name="title">Title</string>
@@ -37,5 +37,20 @@
     <string name="discover">Discover</string>
     <string name="author">Author:</string>
     <string name="one">1</string>
+    <string name="author_name_text">Author name</string>
+    <string name="publisher_name_text">Publisher name</string>
+    <string name="pages">Pages:</string>
+    <string name="count_of_pages">count of pages</string>
+    <string name="year">Year:</string>
+    <string name="yyyy_mm_dd">YYYY-MM-DD</string>
+    <string name="available">Available:</string>
+    <string name="count_of_available_copies">count of available copies</string>
+    <string name="back">Back</string>
+    <string name="borrow">Borrow</string>
+    <string name="borrowed">Borrowed:</string>
+    <string name="returned">Returned:</string>
+    <string name="how_much_days_ago">How much days ago</string>
+    <string name="click_to_return">Click To Return</string>
+    <string name="check">Check</string>
 
 </resources>

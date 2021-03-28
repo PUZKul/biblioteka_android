@@ -8,6 +8,15 @@
         android:visibility="visible"
         tools:context=".ui.fragments.bookView.BookViewFragment">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:indeterminate="true" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +26,8 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="334dp"
-        app:srcCompat="@drawable/book_wellmet" />
+        app:srcCompat="@drawable/book_wellmet"
+        tools:ignore="ContentDescription" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,23 +36,23 @@
 
         <TextView
             android:id="@+id/BookView_text_textAutor"
-            android:layout_width="55dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_weight="0.5"
-            android:text="Autor:" />
+            android:text="@string/author" />
 
         <TextView
-            android:id="@+id/BookView_text_Autor"
+            android:id="@+id/BookView_text_Author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_weight="0.5"
-            android:text="Marek Marecki"
+            android:text="@string/author_name_text"
             android:textColor="@color/colorPrimaryDark" />
 
     </LinearLayout>
@@ -60,7 +70,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_weight="0.5"
-            android:text="Publisher:" />
+            android:text="@string/publisher" />
 
         <TextView
             android:id="@+id/BookView_text_Publisher"
@@ -70,7 +80,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_weight="0.5"
-            android:text="Rozanet"
+            android:text="@string/publisher_name_text"
             android:textColor="@color/colorPrimaryDark" />
     </LinearLayout>
 
@@ -81,13 +91,13 @@
 
         <TextView
             android:id="@+id/BookView_text_textPages"
-            android:layout_width="17dp"
+            android:layout_width="33dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_weight="0.4"
-            android:text="Pages:" />
+            android:text="@string/pages" />
 
         <TextView
             android:id="@+id/BookView_text_pages"
@@ -97,7 +107,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_weight="0.5"
-            android:text="128"
+            android:text="@string/count_of_pages"
             android:textColor="@color/colorPrimaryDark" />
     </LinearLayout>
 
@@ -108,13 +118,13 @@
 
         <TextView
             android:id="@+id/BookView_text_textYear"
-            android:layout_width="wrap_content"
+            android:layout_width="3dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_weight="0.5"
-            android:text="Year:" />
+            android:text="@string/year" />
 
         <TextView
             android:id="@+id/BookView_text_year"
@@ -124,7 +134,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_weight="0.5"
-            android:text="2006-10-17"
+            android:text="@string/yyyy_mm_dd"
             android:textColor="@color/colorPrimaryDark" />
     </LinearLayout>
 
@@ -135,13 +145,13 @@
 
         <TextView
             android:id="@+id/BookView_text_textAvailable"
-            android:layout_width="41dp"
+            android:layout_width="84dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_weight="0.4"
-            android:text="Available:" />
+            android:text="@string/available" />
 
         <TextView
             android:id="@+id/BookView_text_available"
@@ -151,7 +161,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_weight="0.5"
-            android:text="7 copies"
+            android:text="@string/count_of_available_copies"
             android:textColor="@color/colorPrimaryDark" />
     </LinearLayout>
 
@@ -163,6 +173,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
+        android:numStars="5"
         android:progressBackgroundTint="@color/colorAccent" />
 
     <LinearLayout
@@ -180,7 +191,7 @@
             android:layout_marginRight="20dp"
             android:layout_weight="0.5"
             android:background="@drawable/btn_secondary"
-            android:text="Back"
+            android:text="@string/back"
             android:textAllCaps="false"
             android:textColor="@color/colorPrimaryDark" />
 
@@ -194,7 +205,7 @@
             android:layout_marginRight="20dp"
             android:layout_weight="0.5"
             android:background="@drawable/btn_primary"
-            android:text="Borrow"
+            android:text="@string/borrow"
             android:textAllCaps="false"
             android:textColor="#FFFFFF" />
     </LinearLayout>

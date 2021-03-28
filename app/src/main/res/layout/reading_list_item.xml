@@ -20,7 +20,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/book_wellmet" />
+                app:srcCompat="@drawable/book_wellmet"
+                tools:ignore="ContentDescription" />
 
 
             <LinearLayout
@@ -36,7 +37,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
-                    android:text="Title"
+                    android:text="@string/title"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="18sp" />
 
@@ -47,24 +48,24 @@
 
                     <TextView
                         android:id="@+id/FragmentReading_text_textBorrowed"
-                        android:layout_width="wrap_content"
+                        android:layout_width="118dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginTop="20dp"
-                        android:layout_marginRight="15dp"
+                        android:layout_marginEnd="15dp"
                         android:layout_weight="1"
-                        android:text="Borrowed:"
+                        android:text="@string/borrowed"
                         android:textColor="@color/colorSecondaryDark" />
 
                     <TextView
                         android:id="@+id/FragmentReading_text_dateOfBorrow"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginStart="5dp"
                         android:layout_marginTop="20dp"
-                        android:layout_marginRight="15dp"
+                        android:layout_marginEnd="15dp"
                         android:layout_weight="1"
-                        android:text="2021-02-20"
+                        android:text="@string/yyyy_mm_dd"
                         android:textColor="@color/colorPrimaryDark" />
                 </LinearLayout>
 
@@ -77,11 +78,11 @@
                         android:id="@+id/FragmentReading_text_timeAgo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="15dp"
+                        android:layout_marginEnd="15dp"
                         android:layout_weight="1"
-                        android:text="10 days ago"
+                        android:text="@string/how_much_days_ago"
                         android:textColor="@color/colorPrimaryDark" />
 
                     <Button
@@ -89,15 +90,16 @@
                         style="@style/Widget.AppCompat.Button.Borderless"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginStart="5dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="10dp"
                         android:layout_weight="0.4"
                         android:fontFamily="sans-serif-light"
-                        android:text="Click To Return"
+                        android:text="@string/click_to_return"
                         android:textAlignment="center"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="10sp" />
+                        android:textSize="10sp"
+                        tools:ignore="SmallSp" />
 
                 </LinearLayout>
 
