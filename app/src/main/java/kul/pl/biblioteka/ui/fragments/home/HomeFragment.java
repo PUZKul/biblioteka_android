@@ -138,6 +138,6 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
     @Override
     public void endProgressBar() {
         //todo uncomment when will be added progressBar
-        // progressBar.setVisibility(View.INVISIBLE);
+        //progressBar.setVisibility(View.INVISIBLE);
     }
 }

@@ -13,33 +13,33 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import org.w3c.dom.Text;
+import com.squareup.picasso.Picasso;
+
 
 import kul.pl.biblioteka.R;
+import kul.pl.biblioteka.ui.fragments.home.HomeFragment;
 
-public class BookViewFragment extends Fragment implements BookViewFragmentContract.View{
+public class BookViewFragment extends Fragment implements BookViewFragmentContract.View {
 
-    private ImageView imageTextView;
+    private ImageView imageView;
     private TextView authorTextView;
     private TextView publisherTextView;
     private TextView pagesCountTextView;
     private TextView yearTextView;
     private TextView availableTextView;
     private RatingBar ratingBar;
-   // private ProgressBar progressBar;
+    // private ProgressBar progressBar;
     private Button backBtn;
     private Button borrowBtn;
     private BookViewFragmentPresenter presenter;
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_book_view, container, false);
-         initComponents(view);
-       // progressBar = view.findViewById(R.id.progressBar);
-        presenter=new BookViewFragmentPresenter(this,this.getArguments().getInt("idBook"));
-        setOnClickListeners();
+       initComponents(view);
+        // progressBar = view.findViewById(R.id.progressBar);
+       presenter = new BookViewFragmentPresenter(this, this.getArguments().getInt("idBook"));
+       setOnClickListeners();
         return view;
     }
 
@@ -49,24 +49,27 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     }
 
     private final View.OnClickListener backOnClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openHomeFragment();
-            }
-        };
-
-    private final View.OnClickListener borrowOnClickListener = new View.OnClickListener(){
-         @Override
-        public void onClick(View v){
+        @Override
+        public void onClick(View v) {
+            openHomeFragment();
         }
     };
 
-    private void openHomeFragment(){
-        openHomeFragment();
+    private final View.OnClickListener borrowOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+        }
+    };
+
+    private void openHomeFragment() {
+        getActivity().getSupportFragmentManager().beginTransaction().
+                add(((ViewGroup) getView().getParent()).getId(),new HomeFragment())
+                .addToBackStack(getView().getClass().getName())
+                .commit();
     }
 
     private void initComponents(View view) {
-        imageTextView = view.findViewById(R.id.imageView);
+        imageView = view.findViewById(R.id.imageView);
         authorTextView = view.findViewById(R.id.BookView_text_Author);
         publisherTextView = view.findViewById(R.id.BookView_text_Publisher);
         pagesCountTextView = view.findViewById(R.id.BookView_text_pages);
@@ -74,6 +77,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
         availableTextView = view.findViewById(R.id.BookView_text_available);
         ratingBar = view.findViewById(R.id.ratingBar);
         backBtn = view.findViewById(R.id.BookView_button_back);
+        borrowBtn=view.findViewById(R.id.BookView_button_borrow);
     }
 
     @Override
@@ -93,7 +97,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
 
     @Override
     public void setImage(Uri uriImage) {
-        imageTextView.setImageURI(uriImage);
+       Picasso.with(getContext()).load(uriImage).into(imageView);
     }
 
     @Override
@@ -108,8 +112,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
 
     @Override
     public void setStars(double number) {
-        ratingBar.setRating((float) number);
-        ratingBar.setMax(5);
+       ratingBar.setRating((float) number);
     }
 
     @Override
@@ -119,6 +122,6 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
 
     @Override
     public void endProgressBar() {
-       // progressBar.setIndeterminate(false);
+        // progressBar.setIndeterminate(false);
     }
 }
