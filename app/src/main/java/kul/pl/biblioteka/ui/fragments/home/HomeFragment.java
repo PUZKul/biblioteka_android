@@ -39,6 +39,7 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
         setOnClickListener();
         presenter = new HomeFragmentPresenter(this);
         presenter.setListTopBooks();
+        presenter.setPaginationComponent(view);
         return view;
     }
 

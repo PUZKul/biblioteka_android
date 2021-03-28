@@ -12,6 +12,7 @@
         android:id="@+id/pageBar_linear_parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:gravity="center">
         <ImageButton
             android:id="@+id/pageBar_btn_previous"

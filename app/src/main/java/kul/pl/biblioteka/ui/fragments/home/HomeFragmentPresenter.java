@@ -32,11 +32,11 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, AP
         this.view = view;
         this.api = LibraryAccess.getInstance();
         api.setListener(this);
-        setPaginationComponent();
+        //setPaginationComponent();
     }
 
-    private void setPaginationComponent() {
-        pageBar = new PaginationBar(((Fragment) view).getActivity());
+    public void setPaginationComponent(View view) {
+        pageBar = new PaginationBar(view);
         pageBar.setOnNextClickListener(nextClickListener);
         pageBar.setOnPreviousClickListener(previousClickListener);
         pageBar.setOnPageClickListener(pageClickListener);
@@ -113,7 +113,7 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, AP
     private final View.OnClickListener pageClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            TextView text = ((Activity) view).findViewById(v.getId());
+            TextView text = pageBar.getView().findViewById(v.getId());
             String value = text.getText().toString();
             int clickedPage = Integer.parseInt(value) - 1;
             api.getBooks(LIMIT, clickedPage, currentSorting);

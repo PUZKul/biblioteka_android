@@ -16,7 +16,7 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
 public class PaginationBar {
-    private final Context view;
+    private final View view;
     private LinearLayout panel;
     private ImageButton previous, next;
     private TextView[] textViews;
@@ -26,8 +26,8 @@ public class PaginationBar {
     private boolean isFirst;
     private boolean isLast;
 
-    public PaginationBar(Context context) {
-        this.view = context;
+    public PaginationBar(View view) {
+        this.view = view;
         initComponents();
     }
 
@@ -65,7 +65,10 @@ public class PaginationBar {
         return currentPage - 1;
     }
 
-
+    public View getView() {
+        return view;
+    }
+    
     private void update(){
         setComponentsVisibility();
         if(totalPages >= 5){
@@ -150,7 +153,7 @@ public class PaginationBar {
 
     @SuppressLint("UseCompatLoadingForDrawables")
     private void emphasiseElement(TextView textView){
-        textView.setBackground(view.getDrawable(R.drawable.current_page));
+        textView.setBackground(view.getContext().getDrawable(R.drawable.current_page));
         textView.setTextColor(view.getResources().getColor(R.color.colorWhite));
     }
 
@@ -179,15 +182,17 @@ public class PaginationBar {
     }
 
     private void initComponents() {
-        previous = ((Activity) view).findViewById(R.id.pageBar_btn_previous);
-        next = ((Activity) view).findViewById(R.id.pageBar_btn_next);
+        previous = view.findViewById(R.id.pageBar_btn_previous);
+        next = view.findViewById(R.id.pageBar_btn_next);
 
         textViews = new TextView[5];
-        textViews[0] = ((Activity) view).findViewById(R.id.pageBar_text_first);
-        textViews[1] = ((Activity) view).findViewById(R.id.pageBar_text_middle1);
-        textViews[2] = ((Activity) view).findViewById(R.id.pageBar_text_middle2);
-        textViews[3] = ((Activity) view).findViewById(R.id.pageBar_text_middle3);
-        textViews[4] = ((Activity) view).findViewById(R.id.pageBar_text_last);
-        panel = ((Activity) view).findViewById(R.id.pageBar_linear_parent);
+        textViews[0] = view.findViewById(R.id.pageBar_text_first);
+        textViews[1] = view.findViewById(R.id.pageBar_text_middle1);
+        textViews[2] = view.findViewById(R.id.pageBar_text_middle2);
+        textViews[3] = view.findViewById(R.id.pageBar_text_middle3);
+        textViews[4] = view.findViewById(R.id.pageBar_text_last);
+        panel = view.findViewById(R.id.pageBar_linear_parent);
     }
+
+
 }
