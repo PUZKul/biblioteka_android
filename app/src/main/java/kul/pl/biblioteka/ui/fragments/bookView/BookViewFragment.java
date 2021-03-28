@@ -37,6 +37,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_book_view, container, false);
        initComponents(view);
+        //todo uncomment when will be added progressBar
         // progressBar = view.findViewById(R.id.progressBar);
        presenter = new BookViewFragmentPresenter(this, this.getArguments().getInt("idBook"));
        setOnClickListeners();
@@ -58,6 +59,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     private final View.OnClickListener borrowOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            //todo open dialog
         }
     };
 
@@ -117,11 +119,13 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
 
     @Override
     public void startProgressBar() {
+        //todo uncomment when will be added progressBar
         //progressBar.setIndeterminate(true);
     }
 
     @Override
     public void endProgressBar() {
-        // progressBar.setIndeterminate(false);
+        //todo uncomment when will be added progressBar
+        //progressBar.setIndeterminate(false);
     }
 }
