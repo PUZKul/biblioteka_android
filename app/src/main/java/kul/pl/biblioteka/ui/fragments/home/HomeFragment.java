@@ -77,7 +77,7 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
         sortBtn = view.findViewById(R.id.home_btn_sort);
         menu = new PopupMenu(view.getContext(), sortBtn);
         menu.getMenuInflater().inflate(R.menu.sort_list_menu, menu.getMenu());
-        recyclerView = view.findViewById(R.id.home_resycleView);
+        recyclerView = view.findViewById(R.id.home_recycleView);
         searchExitText = view.findViewById(R.id.home_searchView_search);
         //progressBar=view.findViewById()
     }

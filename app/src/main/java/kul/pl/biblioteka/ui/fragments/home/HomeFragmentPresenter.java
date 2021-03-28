@@ -13,6 +13,7 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, AP
     private HomeFragmentContract.View view;
     private LibraryAccess api;
 
+
     public HomeFragmentPresenter(HomeFragmentContract.View view) {
         this.view = view;
         this.api = LibraryAccess.getInstance();
