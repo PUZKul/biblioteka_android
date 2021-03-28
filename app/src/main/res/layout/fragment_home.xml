@@ -7,47 +7,64 @@
     android:orientation="vertical"
     tools:context=".ui.fragments.home.HomeFragment">
 
-    <RelativeLayout
-        android:id="@+id/home_container"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/home_resycleView"
+        <ProgressBar
+            android:id="@+id/home_progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="135dp"
+            android:layout_height="153dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RelativeLayout
+            android:id="@+id/home_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/home_linear_topbar" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:id="@+id/home_linear_topbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/main_motive"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingHorizontal="18dp">
-
-            <SearchView
-                android:id="@+id/home_searchView_search"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_marginVertical="5dp"
-                android:layout_marginEnd="18dp"
-                android:layout_weight="1"
-                android:background="@drawable/btn_whitescene"
-                android:ems="10"
-                android:hint="@string/search"></SearchView>
-
-            <ImageButton
-                android:id="@+id/home_btn_sort"
-                android:layout_width="wrap_content"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/home_resycleView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/icon_sort_24" />
+                android:layout_below="@+id/home_linear_topbar" />
 
-        </LinearLayout>
+            <LinearLayout
+                android:id="@+id/home_linear_topbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/main_motive"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="18dp">
+
+                <SearchView
+                    android:id="@+id/home_searchView_search"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginEnd="18dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_whitescene"
+                    android:ems="10"
+                    android:hint="@string/search"></SearchView>
+
+                <ImageButton
+                    android:id="@+id/home_btn_sort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_sort_24" />
+
+            </LinearLayout>
 
 
-    </RelativeLayout>
+        </RelativeLayout>
 
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
