@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="180dp"
     android:orientation="vertical"
     tools:context="kul.pl.biblioteka.ui.fragments.home.HomeFragment">
 
@@ -11,6 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#D2E4BD"
         android:orientation="horizontal">
 
         <ImageView
@@ -34,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="10dp"
                 android:text="@string/title"
                 android:textColor="@color/colorPrimaryDark"
@@ -42,58 +43,58 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="44dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/list_text_textAuthor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_weight="1"
+                    android:layout_width="72dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="0.4"
                     android:text="@string/author"
                     android:textColor="@color/colorPrimaryDark" />
 
                 <TextView
                     android:id="@+id/list_text_author"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
                     android:layout_weight="1"
-                    android:text="Marek Marecki"
+                    android:text="@string/author_name_text"
+                    android:textAlignment="textStart"
                     android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/list_text_textPublisher"
-                    android:layout_width="7dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="0.5"
                     android:text="@string/publisher"
                     android:textColor="@color/colorPrimaryDark" />
 
                 <TextView
                     android:id="@+id/list_text_publisher"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:text="Rozamet"
+                    android:text="@string/publisher_name_text"
+                    android:textAlignment="textStart"
                     android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold" />
 
@@ -101,30 +102,28 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="38dp"
                 android:orientation="horizontal">
 
                 <RatingBar
 
                     android:id="@+id/list_rating"
-                    style="@android:style/Widget.DeviceDefault.RatingBar.Small"
-                    android:layout_width="5dp"
-                    android:layout_height="27dp"
+                    style="@style/Widget.AppCompat.RatingBar.Indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="2dp"
                     android:layout_marginRight="10dp"
-                    android:layout_weight="0.35"
-                    android:max="5"
                     android:numStars="5"
-                    android:paddingTop="4dp" />
+                    android:progressBackgroundTint="@color/colorAccent" />
 
                 <Button
                     android:id="@+id/list_button_more"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="0.4"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="0.5"
                     android:fontFamily="sans-serif-light"
                     android:text="@string/more"
                     android:textAlignment="center"

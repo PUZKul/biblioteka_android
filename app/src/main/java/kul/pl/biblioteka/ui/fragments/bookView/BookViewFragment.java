@@ -28,27 +28,15 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     private TextView publisherTextView;
     private TextView pagesCountTextView;
     private TextView yearTextView;
-    private TextView availableTextView;
     private RatingBar ratingBar;
-
     private ProgressBar progressBar;
-
-    // private ProgressBar progressBar;
-
     private Button backBtn;
     private Button borrowBtn;
     private BookViewFragmentPresenter presenter;
-    private AnimatorSet animatorSet;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_book_view, container, false);
-
-         initComponents(view);
-       // progressBar = view.findViewById(R.id.progressBar);
-        presenter=new BookViewFragmentPresenter(this,this.getArguments().getInt("idBook"));
-        setOnClickListeners();
-
        initComponents(view);
         //todo uncomment when will be added progressBar
         // progressBar = view.findViewById(R.id.progressBar);
@@ -90,7 +78,6 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
         publisherTextView = view.findViewById(R.id.BookView_text_Publisher);
         pagesCountTextView = view.findViewById(R.id.BookView_text_pages);
         yearTextView = view.findViewById(R.id.BookView_text_year);
-        availableTextView = view.findViewById(R.id.BookView_text_available);
         ratingBar = view.findViewById(R.id.ratingBar);
         backBtn = view.findViewById(R.id.BookView_button_back);
         borrowBtn=view.findViewById(R.id.BookView_button_borrow);
@@ -121,10 +108,6 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
         yearTextView.setText(date);
     }
 
-    @Override
-    public void setAvailable(String available) {
-        availableTextView.setText(available);
-    }
 
     @Override
     public void setStars(double number) {
@@ -133,31 +116,12 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
 
     @Override
     public void startProgressBar() {
-
-       // if(animatorSet==null){
-            //animatorSet= (AnimatorSet) AnimatorInflater.loadAnimator(BookViewFragment.this,R.animator.loading_animation);
-           // animatorSet.setTarget(progressBar);
-          //  progressBar.setIndeterminate(true);
-       // }
-
-
-        //todo uncomment when will be added progressBar
-        //progressBar.setIndeterminate(true);
-
+           // progressBar.setIndeterminate(true);
     }
 
     @Override
     public void endProgressBar() {
-
-        // if(animatorSet==null) {
-        //   animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(BookViewFragment.this, R.animator.loading_animation);
-        // animatorSet.setTarget(progressBar);
-        //  progressBar.setIndeterminate(false);
-    //}
-
-
-        //todo uncomment when will be added progressBar
-        //progressBar.setIndeterminate(false);
-
+        // progressBar.setIndeterminate(false);
     }
+
 }

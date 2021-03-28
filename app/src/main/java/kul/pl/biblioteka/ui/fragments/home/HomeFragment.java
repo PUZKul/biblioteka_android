@@ -80,7 +80,7 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
         menu.getMenuInflater().inflate(R.menu.sort_list_menu, menu.getMenu());
         recyclerView = view.findViewById(R.id.home_recycleView);
         searchExitText = view.findViewById(R.id.home_searchView_search);
-        //progressBar=view.findViewById()
+        progressBar=view.findViewById(R.id.home_progressBar);
     }
 
     @Override
@@ -132,13 +132,11 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
 
     @Override
     public void startProgressBar() {
-        //todo uncomment when will be added progressBar
-        //progressBar.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void endProgressBar() {
-        //todo uncomment when will be added progressBar
-        //progressBar.setVisibility(View.INVISIBLE);
+        progressBar.setVisibility(View.INVISIBLE);
     }
 }
