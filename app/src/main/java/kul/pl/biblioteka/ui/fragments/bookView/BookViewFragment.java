@@ -34,7 +34,6 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     private Button backBtn;
     private Button borrowBtn;
     private BookViewFragmentPresenter presenter;
-    private AnimatorSet animatorSet;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -123,12 +122,12 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
 
     @Override
     public void startProgressBar() {
-            progressBar.setIndeterminate(true);
+           // progressBar.setIndeterminate(true);
     }
 
     @Override
     public void endProgressBar() {
-         progressBar.setIndeterminate(false);
+        // progressBar.setIndeterminate(false);
     }
 
 }
