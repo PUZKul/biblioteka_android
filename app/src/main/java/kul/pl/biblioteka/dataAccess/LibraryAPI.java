@@ -5,6 +5,7 @@ import java.util.List;
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.exception.ApiErrorParser;
 import kul.pl.biblioteka.models.BookModel;
+import kul.pl.biblioteka.utils.PageHolder;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -17,12 +18,12 @@ abstract class LibraryAPI {
     }
 
 
-    protected Callback<List<BookModel>> callbackForBooksList = new Callback<List<BookModel>>() {
+    protected Callback<PageHolder<BookModel>> callbackForBooksList = new Callback<PageHolder<BookModel>>() {
         @Override
-        public void onResponse(Call<List<BookModel>> call, Response<List<BookModel>> response) {
+        public void onResponse(Call<PageHolder<BookModel>> call, Response<PageHolder<BookModel>> response) {
             if (response.isSuccessful()) {
-                List<BookModel> books = response.body();
-                listener.onBookListReceive(books);
+                PageHolder<BookModel> page = response.body();
+                listener.onBookListReceive(page);
             } else {
                 ApiError apiError = ApiErrorParser.parseError(response);
                 listener.onErrorReceive(apiError);
@@ -30,7 +31,7 @@ abstract class LibraryAPI {
         }
 
         @Override
-        public void onFailure(Call<List<BookModel>> call, Throwable t) {
+        public void onFailure(Call<PageHolder<BookModel>> call, Throwable t) {
             System.out.println("nie dziala");
         }
     };

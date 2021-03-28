@@ -15,6 +15,7 @@ import kul.pl.biblioteka.dataAccess.APIListener;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.BookModel;
+import kul.pl.biblioteka.utils.PageHolder;
 import kul.pl.biblioteka.utils.PaginationBar;
 import kul.pl.biblioteka.utils.Sorting;
 
@@ -76,10 +77,11 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, AP
     }
 
     @Override
-    public void onBookListReceive(List<BookModel> books) {
+    public void onBookListReceive(PageHolder<BookModel> page) {
         view.startProgressBar();
-        view.setList(books);
+        view.setList(page.getContent());
         view.endProgressBar();
+        pageBar.setPage(page);
     }
 
     @Override

@@ -1,8 +1,10 @@
 package kul.pl.biblioteka.utils;
 
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -145,6 +147,7 @@ public class PaginationBar {
         }
     }
 
+
     @SuppressLint("UseCompatLoadingForDrawables")
     private void emphasiseElement(TextView textView){
         textView.setBackground(view.getDrawable(R.drawable.current_page));
@@ -178,7 +181,6 @@ public class PaginationBar {
     private void initComponents() {
         previous = ((Activity) view).findViewById(R.id.pageBar_btn_previous);
         next = ((Activity) view).findViewById(R.id.pageBar_btn_next);
-
 
         textViews = new TextView[5];
         textViews[0] = ((Activity) view).findViewById(R.id.pageBar_text_first);

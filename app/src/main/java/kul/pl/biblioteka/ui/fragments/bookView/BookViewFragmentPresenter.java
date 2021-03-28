@@ -8,6 +8,7 @@ import kul.pl.biblioteka.dataAccess.APIListener;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.BookModel;
+import kul.pl.biblioteka.utils.PageHolder;
 
 public class BookViewFragmentPresenter implements BookViewFragmentContract.Presenter, APIListener {
 
@@ -37,7 +38,7 @@ public class BookViewFragmentPresenter implements BookViewFragmentContract.Prese
     }
 
     @Override
-    public void onBookListReceive(List<BookModel> books) {
+    public void onBookListReceive(PageHolder<BookModel> page) {
 
     }
 
