@@ -79,7 +79,7 @@
                 tools:ignore="RtlCompat" />
 
             <TextView
-                android:id="@+id/profile_textView_readBooksLabel"
+                android:id="@+id/welcome_btn_register"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_row="3"
@@ -110,7 +110,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/profile_textView_nick" />
 
             <TextView
-                android:id="@+id/profile_textView_currentBooksLabel"
+                android:id="@+id/welcome_btn_login"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_row="3"
@@ -139,7 +139,7 @@
                 android:textSize="32sp"
                 app:layout_constraintEnd_toStartOf="@+id/separator"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_textView_currentBooksLabel" />
+                app:layout_constraintTop_toBottomOf="@+id/welcome_btn_login" />
 
             <TextView
                 android:id="@+id/profile_textView_currentBooks"
@@ -155,7 +155,7 @@
                 android:textSize="32sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/separator"
-                app:layout_constraintTop_toBottomOf="@+id/profile_textView_readBooksLabel" />
+                app:layout_constraintTop_toBottomOf="@+id/welcome_btn_register" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <RelativeLayout

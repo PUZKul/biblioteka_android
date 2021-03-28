@@ -52,5 +52,7 @@
     <string name="how_much_days_ago">How much days ago</string>
     <string name="click_to_return">Click To Return</string>
     <string name="check">Check</string>
+    <string name="go_to_the_library">Go to the Library</string>
+    <string name="welcome_in_library">Welcome in Library</string>
 
 </resources>

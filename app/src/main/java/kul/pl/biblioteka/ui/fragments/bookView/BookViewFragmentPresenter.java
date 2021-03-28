@@ -22,6 +22,13 @@ public class BookViewFragmentPresenter implements BookViewFragmentContract.Prese
 
     private void setBookDetails(BookModel book) {
         view.setAuthor(book.getAuthors());
+        view.setPublisher(book.getPublisher());
+        view.setPages(String.valueOf(book.getPages()));
+        view.setStars(book.getRating());
+        view.setDate(book.getYear().toString());
+
+
+
         //ToDo set book detalist  using all methods with view and gets with book
         view.endProgressBar();
     }

@@ -1,5 +1,7 @@
 package kul.pl.biblioteka.ui.fragments.bookView;
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,10 +28,11 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     private TextView yearTextView;
     private TextView availableTextView;
     private RatingBar ratingBar;
-   // private ProgressBar progressBar;
+    private ProgressBar progressBar;
     private Button backBtn;
     private Button borrowBtn;
     private BookViewFragmentPresenter presenter;
+    private AnimatorSet animatorSet;
 
 
 
@@ -37,7 +40,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_book_view, container, false);
          initComponents(view);
-       // progressBar = view.findViewById(R.id.progressBar);
+        progressBar = view.findViewById(R.id.progressBar);
         presenter=new BookViewFragmentPresenter(this,this.getArguments().getInt("idBook"));
         setOnClickListeners();
         return view;
@@ -114,11 +117,21 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
 
     @Override
     public void startProgressBar() {
-        //progressBar.setIndeterminate(true);
+       // if(animatorSet==null){
+            //animatorSet= (AnimatorSet) AnimatorInflater.loadAnimator(BookViewFragment.this,R.animator.loading_animation);
+           // animatorSet.setTarget(progressBar);
+          //  progressBar.setIndeterminate(true);
+       // }
+
     }
 
     @Override
     public void endProgressBar() {
-       // progressBar.setIndeterminate(false);
+        // if(animatorSet==null) {
+        //   animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(BookViewFragment.this, R.animator.loading_animation);
+        // animatorSet.setTarget(progressBar);
+        //  progressBar.setIndeterminate(false);
+    //}
+
     }
 }
