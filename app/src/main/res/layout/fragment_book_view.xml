@@ -17,7 +17,7 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="334dp"
-        app:srcCompat="@drawable/book_wellmet"
+
         tools:ignore="ContentDescription" />
 
     <LinearLayout
@@ -152,6 +152,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <Button
@@ -162,7 +163,6 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="20dp"
-            android:layout_weight="0.5"
             android:background="@drawable/btn_secondary"
             android:text="@string/back"
             android:textAllCaps="false"
@@ -176,7 +176,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="20dp"
-            android:layout_weight="0.5"
+
             android:background="@drawable/btn_primary"
             android:text="@string/borrow"
             android:textAllCaps="false"

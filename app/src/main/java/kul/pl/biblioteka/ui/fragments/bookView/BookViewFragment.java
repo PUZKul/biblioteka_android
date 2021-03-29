@@ -67,9 +67,9 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
 
     private void openHomeFragment() {
         getActivity().getSupportFragmentManager().beginTransaction().
-                add(((ViewGroup) getView().getParent()).getId(),new HomeFragment())
-                .addToBackStack(getView().getClass().getName())
-                .commit();
+        replace(((ViewGroup) getView().getParent()).getId(),new HomeFragment())
+        .addToBackStack(getView().getClass().getName())
+        .commit();
     }
 
     private void initComponents(View view) {
