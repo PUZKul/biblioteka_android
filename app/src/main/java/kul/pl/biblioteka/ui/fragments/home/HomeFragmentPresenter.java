@@ -15,6 +15,7 @@ import kul.pl.biblioteka.dataAccess.APIListener;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.BookModel;
+import kul.pl.biblioteka.utils.Direction;
 import kul.pl.biblioteka.utils.PageHolder;
 import kul.pl.biblioteka.utils.PaginationBar;
 import kul.pl.biblioteka.utils.Sorting;
@@ -27,6 +28,7 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, AP
     private LibraryAccess api;
     private PaginationBar pageBar;
     private Sorting currentSorting;
+    private Direction currentDirection;
 
     public HomeFragmentPresenter(HomeFragmentContract.View view) {
         this.view = view;
@@ -51,19 +53,22 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, AP
     @Override
     public void setListSortByRating() {
         currentSorting = Sorting.RATING;
-        api.getBooks(LIMIT,0, currentSorting);
+        currentDirection = Direction.DESC;
+        api.getBooks(LIMIT,0, currentSorting, currentDirection);
     }
 
     @Override
     public void setListSortByDate() {
         currentSorting = Sorting.YEAR;
-        api.getBooks(LIMIT,0, currentSorting);
+        currentDirection = Direction.DESC;
+        api.getBooks(LIMIT,0, currentSorting, currentDirection);
     }
 
     @Override
     public void setListTopBooks() {
         currentSorting = Sorting.POPULARITY;
-        api.getBooks(LIMIT,0, currentSorting);
+        currentDirection = Direction.DESC;
+        api.getBooks(LIMIT,0, currentSorting, currentDirection);
     }
 
     @Override
@@ -98,14 +103,14 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, AP
     private View.OnClickListener previousClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            api.getBooks(LIMIT, pageBar.previousPage(), currentSorting);
+            api.getBooks(LIMIT, pageBar.previousPage(), currentSorting, currentDirection);
         }
     };
 
     private View.OnClickListener nextClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            api.getBooks(LIMIT, pageBar.nextPage(), currentSorting);
+            api.getBooks(LIMIT, pageBar.nextPage(), currentSorting, currentDirection);
         }
     };
 
@@ -116,7 +121,7 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, AP
             TextView text = pageBar.getView().findViewById(v.getId());
             String value = text.getText().toString();
             int clickedPage = Integer.parseInt(value) - 1;
-            api.getBooks(LIMIT, clickedPage, currentSorting);
+            api.getBooks(LIMIT, clickedPage, currentSorting, currentDirection);
         }
     };
 
