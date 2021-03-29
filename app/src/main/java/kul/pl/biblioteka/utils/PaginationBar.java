@@ -50,11 +50,9 @@ public class PaginationBar {
     }
 
     public void setOnPageClickListener(View.OnClickListener listener){
-        textViews[0].setOnClickListener(listener);
-        textViews[1].setOnClickListener(listener);
-        textViews[2].setOnClickListener(listener);
-        textViews[3].setOnClickListener(listener);
-        textViews[4].setOnClickListener(listener);
+        for(TextView element: textViews){
+            element.setOnClickListener(listener);
+        }
     }
 
     public int nextPage(){
