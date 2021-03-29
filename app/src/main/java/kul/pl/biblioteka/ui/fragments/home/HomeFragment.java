@@ -19,6 +19,7 @@ import java.util.List;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.OnItemClickListener;
+import kul.pl.biblioteka.adapter.VerticalSpaceItemDecoration;
 import kul.pl.biblioteka.adapter.homeList.HomeListRecycleViewAdapter;
 import kul.pl.biblioteka.models.BookModel;
 import kul.pl.biblioteka.ui.fragments.bookView.BookViewFragment;
@@ -36,12 +37,15 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         initComponents(view);
+        setAdapter();
         setOnClickListener();
         presenter = new HomeFragmentPresenter(this);
         presenter.setListTopBooks();
         presenter.setPaginationComponent(view);
         return view;
     }
+
+
 
     private void setOnClickListener() {
         sortBtn.setOnClickListener(sortButtonOnClick);
@@ -90,7 +94,6 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
 
     @Override
     public void setList(List<BookModel> booksList) {
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(new HomeListRecycleViewAdapter(getContext(), booksList, onItemClickListener));
     }
 
@@ -120,10 +123,16 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
         return bundle;
     }
 
+    private void setAdapter() {
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL, false));
+        recyclerView.addItemDecoration(new VerticalSpaceItemDecoration(25));
+    }
+
     @Override
     public void showToast(String text) {
         Toast.makeText(getContext(), text, Toast.LENGTH_LONG).show();
     }
+
 
     @Override
     public String getSearchText() {
