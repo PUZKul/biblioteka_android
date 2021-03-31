@@ -9,6 +9,8 @@ public interface LoginActivityContract {
         void startProgressBar();
 
         void endProgressBar();
+
+        void openMainActivity();
     }
 
     interface Presenter {

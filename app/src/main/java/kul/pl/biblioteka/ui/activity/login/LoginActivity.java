@@ -15,6 +15,7 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.models.UserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.activity.register.RegisterActivity;
+import kul.pl.biblioteka.ui.fragments.home.HomeFragment;
 
 public class LoginActivity extends AppCompatActivity implements LoginActivityContract.View {
 
@@ -35,11 +36,11 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
     }
 
     private void setOnClickListeners() {
-        loginBtn.setOnClickListener(loginOnClickLisner);
-        registrationText.setOnClickListener(registrationOnClickLisner);
+        loginBtn.setOnClickListener(loginOnClickListener);
+        registrationText.setOnClickListener(registrationOnClickListener);
     }
 
-    private View.OnClickListener registrationOnClickLisner = new View.OnClickListener() {
+    private View.OnClickListener registrationOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             openRegisterActivity();
@@ -51,7 +52,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
         startActivity(intent);
     }
 
-    private View.OnClickListener loginOnClickLisner = new View.OnClickListener() {
+    private View.OnClickListener loginOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             presenter.onLoginClicked(new UserModel(
@@ -83,5 +84,11 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
     @Override
     public void endProgressBar() {
         progressBar.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void openMainActivity() {
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }
