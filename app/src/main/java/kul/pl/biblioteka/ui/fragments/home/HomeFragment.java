@@ -45,8 +45,6 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
         return view;
     }
 
-
-
     private void setOnClickListener() {
         sortBtn.setOnClickListener(sortButtonOnClick);
     }
@@ -132,7 +130,6 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
     public void showToast(String text) {
         Toast.makeText(getContext(), text, Toast.LENGTH_LONG).show();
     }
-
 
     @Override
     public String getSearchText() {

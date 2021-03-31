@@ -5,20 +5,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import kul.pl.biblioteka.R;
+import kul.pl.biblioteka.models.UserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.activity.register.RegisterActivity;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements LoginActivityContract.View {
 
     private EditText loginETex;
     private EditText passwordETex;
     private Button loginBtn;
     private TextView registrationText;
+    private ProgressBar progressBar;
+    private LoginActivityContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         initComponents();
         setOnClickListeners();
+        presenter=new LoginActivityPresenter(this);
     }
 
     private void setOnClickListeners() {
@@ -36,16 +42,23 @@ public class LoginActivity extends AppCompatActivity {
     private View.OnClickListener registrationOnClickLisner = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-            startActivity(intent);
+            openRegisterActivity();
         }
     };
+
+    private void openRegisterActivity(){
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(intent);
+    }
 
     private View.OnClickListener loginOnClickLisner = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
+            presenter.onLoginClicked(new UserModel(
+                    loginETex.getText().toString(),
+                    loginETex.getText().toString(),
+                    passwordETex.getText().toString()
+            ));
         }
     };
 
@@ -54,5 +67,21 @@ public class LoginActivity extends AppCompatActivity {
         passwordETex=findViewById(R.id.login_edittext_password);
         loginBtn=findViewById(R.id.login_btn_login);
         registrationText=findViewById(R.id.login_register_textViev);
+        progressBar=findViewById(R.id.login_progressBar);
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(this,message,Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void startProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void endProgressBar() {
+        progressBar.setVisibility(View.INVISIBLE);
     }
 }
