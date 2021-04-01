@@ -2,9 +2,6 @@ package kul.pl.biblioteka.utils;
 
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -19,7 +16,7 @@ public class PaginationBar {
     private final View view;
     private LinearLayout panel;
     private ImageButton previous, next;
-    private TextView[] textViews;
+    private Node[] nodes;
     private int currentPage;
     private int previousPage;
     private int totalPages;
@@ -50,8 +47,8 @@ public class PaginationBar {
     }
 
     public void setOnPageClickListener(View.OnClickListener listener){
-        for(TextView element: textViews){
-            element.setOnClickListener(listener);
+        for(Node node: nodes){
+            node.getTextView().setOnClickListener(listener);
         }
     }
 
@@ -69,8 +66,8 @@ public class PaginationBar {
     
     private void update(){
         setComponentsVisibility();
+        clearPreviousElement();
         if(totalPages >= 5){
-            clearPreviousElement();
             showCurrentPage();
             setPageNumbers();
         }
@@ -84,80 +81,72 @@ public class PaginationBar {
 
     private void setPageNumbers2() {
         for(int i=1; i<4; i++)
-            textViews[i].setText(String.valueOf(i + 1));
+            nodes[i].setValue(i + 1);
     }
 
     private void showCurrentPage2() {
-        clearElement(textViews[previousPage]);
-        emphasiseElement(textViews[currentPage]);
+        emphasiseElement(nodes[currentPage]);
     }
 
     private void setPageNumbers() {
         if (currentPage <= 2){
-            textViews[1].setText("2");
-            textViews[2].setText("3");
-            textViews[3].setText("4");
+            nodes[1].setValue(2);
+            nodes[2].setValue(3);
+            nodes[3].setValue(4);
         }
         else if(currentPage < totalPages-2){
             // in the middle
-            textViews[1].setText(String.valueOf(currentPage));     // one page back
-            textViews[2].setText(String.valueOf(currentPage + 1)); // current page (+1 because we count from 0)
-            textViews[3].setText(String.valueOf(currentPage + 2)); // one page forward
+            nodes[1].setValue(currentPage);     // one page back
+            nodes[2].setValue(currentPage + 1); // current page (+1 because we count from 0)
+            nodes[3].setValue(currentPage + 2); // one page forward
         }
         else if (currentPage == totalPages-1){
-            textViews[1].setText(String.valueOf(totalPages - 3));
-            textViews[2].setText(String.valueOf(totalPages-2));
-            textViews[3].setText(String.valueOf(totalPages-1));
+            nodes[1].setValue(totalPages - 3);
+            nodes[2].setValue(totalPages-2);
+            nodes[3].setValue(totalPages-1);
         }
-        textViews[4].setText(String.valueOf(totalPages));
+        nodes[4].setValue(totalPages);
     }
 
     private void showCurrentPage() {
         if(currentPage == 0){
-            emphasiseElement(textViews[0]);
+            emphasiseElement(nodes[0]);
         }
         else if (currentPage == 1){
-            emphasiseElement(textViews[1]);
+            emphasiseElement(nodes[1]);
         }
         else if(currentPage == totalPages - 2){
-            emphasiseElement(textViews[3]);
+            emphasiseElement(nodes[3]);
         }
         else if(currentPage == totalPages-1){
-            emphasiseElement(textViews[4]);
+            emphasiseElement(nodes[4]);
         }
         else{
-            emphasiseElement(textViews[2]);
+            emphasiseElement(nodes[2]);
         }
     }
 
     private void clearPreviousElement() {
-        if(previousPage == 0){
-            clearElement(textViews[0]);
-        }
-        else if (previousPage == 1){
-            clearElement(textViews[1]);
-        }
-        else if(previousPage == totalPages - 2){
-            clearElement(textViews[3]);
-        }
-        else if(previousPage == totalPages-1){
-            clearElement(textViews[4]);
-        }
-        else{
-            clearElement(textViews[2]);
+        for(Node node: nodes){
+            if(node.isActive()){
+                clearElement(node);
+                return;
+            }
         }
     }
 
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    private void emphasiseElement(TextView textView){
-        textView.setBackground(view.getContext().getDrawable(R.drawable.current_page));
-        textView.setTextColor(view.getResources().getColor(R.color.colorWhite));
+    private void emphasiseElement(Node node){
+        node.getTextView().setBackground(view.getContext().getDrawable(R.drawable.current_page));
+        node.getTextView().setTextColor(view.getResources().getColor(R.color.colorWhite));
+        node.setActive(true);
     }
 
-    private void clearElement(TextView textView){
-        textView.setBackground(null);
-        textView.setTextColor(view.getResources().getColor(R.color.colorSecondaryDark));
+    private void clearElement(Node node){
+        node.getTextView().setBackground(null);
+        node.getTextView().setTextColor(view.getResources().getColor(R.color.colorSecondaryDark));
+        node.setActive(false);
     }
 
     private void setComponentsVisibility(){
@@ -166,14 +155,14 @@ public class PaginationBar {
             else {
                 panel.setVisibility(VISIBLE);
                 for(int i = 0; i<5; i++){
-                    if(i<totalPages) textViews[i].setVisibility(VISIBLE);
-                    else textViews[i].setVisibility(GONE);
+                    if(i<totalPages) nodes[i].setVisibility(VISIBLE);
+                    else nodes[i].setVisibility(GONE);
                 }
             }
         }
         else{
             for(int i = 0; i<5; i++){
-                textViews[i].setVisibility(VISIBLE);
+                nodes[i].setVisibility(VISIBLE);
                 panel.setVisibility(VISIBLE);
             }
         }
@@ -183,14 +172,42 @@ public class PaginationBar {
         previous = view.findViewById(R.id.pageBar_btn_previous);
         next = view.findViewById(R.id.pageBar_btn_next);
 
-        textViews = new TextView[5];
-        textViews[0] = view.findViewById(R.id.pageBar_text_first);
-        textViews[1] = view.findViewById(R.id.pageBar_text_middle1);
-        textViews[2] = view.findViewById(R.id.pageBar_text_middle2);
-        textViews[3] = view.findViewById(R.id.pageBar_text_middle3);
-        textViews[4] = view.findViewById(R.id.pageBar_text_last);
+        nodes = new Node[5];
+        nodes[0] = new Node((TextView) view.findViewById(R.id.pageBar_text_first));
+        nodes[1] = new Node((TextView)view.findViewById(R.id.pageBar_text_middle1));
+        nodes[2] = new Node((TextView)view.findViewById(R.id.pageBar_text_middle2));
+        nodes[3] = new Node((TextView)view.findViewById(R.id.pageBar_text_middle3));
+        nodes[4] = new Node((TextView) view.findViewById(R.id.pageBar_text_last));
         panel = view.findViewById(R.id.pageBar_linear_parent);
     }
 
+    private class Node{
+        private final TextView textView;
+        private boolean active;
 
+        public Node(TextView textView) {
+            this.textView = textView;
+            active = false;
+        }
+
+        public void setVisibility(int n){
+            textView.setVisibility(n);
+        }
+
+        public TextView getTextView() {
+            return textView;
+        }
+
+        public boolean isActive() {
+            return active;
+        }
+
+        public void setActive(boolean active) {
+            this.active = active;
+        }
+
+        public void setValue(int value) {
+            textView.setText(String.valueOf(value));
+        }
+    }
 }

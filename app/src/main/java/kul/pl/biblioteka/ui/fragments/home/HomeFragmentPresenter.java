@@ -102,7 +102,7 @@ public class HomeFragmentPresenter extends APIAdapter implements HomeFragmentCon
         @Override
         public void onClick(View v) {
             if (currentSorting.equals(Sorting.SEARCH))
-                api.getSearchBooks(LIMIT, pageBar.previousPage(), currentSearch);
+                api.getSearchBooks(LIMIT, pageBar.nextPage(), currentSearch);
             else
                 api.getBooks(LIMIT, pageBar.nextPage(), currentSorting, currentDirection);
         }
@@ -115,7 +115,7 @@ public class HomeFragmentPresenter extends APIAdapter implements HomeFragmentCon
             String value = text.getText().toString();
             int clickedPage = Integer.parseInt(value) - 1;
             if (currentSorting.equals(Sorting.SEARCH))
-                api.getSearchBooks(LIMIT, pageBar.previousPage(), currentSearch);
+                api.getSearchBooks(LIMIT, clickedPage, currentSearch);
             else
                 api.getBooks(LIMIT, clickedPage, currentSorting, currentDirection);
         }
