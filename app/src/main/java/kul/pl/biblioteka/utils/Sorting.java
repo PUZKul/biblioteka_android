@@ -4,5 +4,7 @@ public enum Sorting {
     TITLE,
     RATING,
     YEAR,
-    POPULARITY
+    POPULARITY,
+    SEARCH,
+    DISCOVER
 }

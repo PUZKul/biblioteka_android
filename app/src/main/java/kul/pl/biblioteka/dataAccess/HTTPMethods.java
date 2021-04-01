@@ -25,4 +25,10 @@ public interface HTTPMethods {
 
     @GET("api/library/books/id/{id}")
     Call<BookModel> getBookById(@Path("id") int bookId);
+
+    @GET("/api/library/books/search")
+    Call<PageHolder<BookModel>> getBooks(@Query("limit") int limit,
+                                         @Query("page") int page,
+                                         @Query("title") String title);
+
 }

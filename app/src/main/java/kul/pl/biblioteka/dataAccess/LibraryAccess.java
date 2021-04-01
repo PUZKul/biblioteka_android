@@ -42,6 +42,11 @@ public final class LibraryAccess extends LibraryAPI{
 
     }
 
+    public void getSearchBooks(int limit,int page,String title){
+        HTTPMethods.getBooks(limit,page,title)
+                .enqueue(callbackForBooksList);
+    }
+
     public Retrofit getRetrofit() {
         return retrofit;
     }
