@@ -65,7 +65,7 @@ public class HomeFragmentPresenter extends APIAdapter implements HomeFragmentCon
 
     @Override
     public void setListSortByDiscover() {
-        //todo implement method returned discover list books
+        api.getDiscoverBooks(LIMIT);
     }
 
     @Override
@@ -85,7 +85,7 @@ public class HomeFragmentPresenter extends APIAdapter implements HomeFragmentCon
 
     @Override
     public void onErrorReceive(ApiError error) {
-        //todo ask szymon when it do it
+        //todo show dialog window with informamation that don't hve internet
     }
 
     private View.OnClickListener previousClickListener = new View.OnClickListener() {
