@@ -31,4 +31,7 @@ public interface HTTPMethods {
                                          @Query("page") int page,
                                          @Query("title") String title);
 
+    @GET("/api/library/books/discover/{limit}")
+    Call<PageHolder<BookModel>> getBooks(@Query("limit") int limit);
+
 }
