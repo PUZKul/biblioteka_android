@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
         setContentView(R.layout.activity_login);
         initComponents();
         setOnClickListeners();
-        presenter=new LoginActivityPresenter(this);
+        presenter = new LoginActivityPresenter(this);
     }
 
     private void setOnClickListeners() {
@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
         }
     };
 
-    private void openRegisterActivity(){
+    private void openRegisterActivity() {
         Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(intent);
     }
@@ -63,17 +63,17 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
         }
     };
 
-    private void initComponents(){
-        loginETex=findViewById(R.id.login_nick_editText);
-        passwordETex=findViewById(R.id.login_edittext_password);
-        loginBtn=findViewById(R.id.login_btn_login);
-        registrationText=findViewById(R.id.login_register_textViev);
-        progressBar=findViewById(R.id.login_progressBar);
+    private void initComponents() {
+        loginETex = findViewById(R.id.login_nick_editText);
+        passwordETex = findViewById(R.id.login_edittext_password);
+        loginBtn = findViewById(R.id.login_btn_login);
+        registrationText = findViewById(R.id.login_register_textViev);
+        progressBar = findViewById(R.id.login_progressBar);
     }
 
     @Override
     public void showToast(String message) {
-        Toast.makeText(this,message,Toast.LENGTH_LONG).show();
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
     @Override

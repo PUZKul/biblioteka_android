@@ -1,7 +1,5 @@
 package kul.pl.biblioteka.dataAccess;
 
-import java.util.List;
-
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.BookModel;
 import kul.pl.biblioteka.utils.PageHolder;

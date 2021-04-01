@@ -47,7 +47,22 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
 
     private void setOnClickListener() {
         sortBtn.setOnClickListener(sortButtonOnClick);
+        searchExitText.setOnQueryTextListener(searchOnSearchListener);
     }
+
+    private  SearchView.OnQueryTextListener searchOnSearchListener = new SearchView.OnQueryTextListener() {
+        @Override
+        public boolean onQueryTextSubmit(String query) {
+            presenter.setListByName(searchExitText.getQuery().toString());
+            return false;
+        }
+
+        @Override
+        public boolean onQueryTextChange(String newText) {
+            presenter.setListByName(searchExitText.getQuery().toString());
+            return false;
+        }
+    };
 
     private View.OnClickListener sortButtonOnClick = new View.OnClickListener() {
         @Override
@@ -63,11 +78,11 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
                 public boolean onMenuItemClick(MenuItem item) {
                     if (item.getItemId() == R.id.bottom_sort_title) {
                         presenter.setListSortByTitle();
-                    } else if (item.getItemId()  == R.id.bottom_sort_date) {
+                    } else if (item.getItemId() == R.id.bottom_sort_date) {
                         presenter.setListSortByDate();
-                    } else if (item.getItemId()  == R.id.bottom_sort_discover) {
+                    } else if (item.getItemId() == R.id.bottom_sort_discover) {
                         presenter.setListSortByDiscover();
-                    } else if (item.getItemId()  == R.id.bottom_sort_ranting) {
+                    } else if (item.getItemId() == R.id.bottom_sort_ranting) {
                         presenter.setListSortByRating();
                     } else {
                         presenter.setListTopBooks();
@@ -82,7 +97,7 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
         menu.getMenuInflater().inflate(R.menu.sort_list_menu, menu.getMenu());
         recyclerView = view.findViewById(R.id.home_recycleView);
         searchExitText = view.findViewById(R.id.home_searchView_search);
-        progressBar=view.findViewById(R.id.home_progressBar);
+        progressBar = view.findViewById(R.id.home_progressBar);
     }
 
     @Override
@@ -104,7 +119,7 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
 
     private void openBookViewFragment(int idBook) {
         getActivity().getSupportFragmentManager().beginTransaction().
-                add(((ViewGroup) getView().getParent()).getId(),getBookViewFragmentWithSetArguments(idBook))
+                add(((ViewGroup) getView().getParent()).getId(), getBookViewFragmentWithSetArguments(idBook))
                 .addToBackStack(getView().getClass().getName())
                 .commit();
     }
@@ -117,7 +132,7 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
 
     private Bundle getBundleAndPutString(int argument) {
         Bundle bundle = new Bundle();
-        bundle.putInt("idBook", argument);
+        bundle.putInt(getString(R.string.idBook), argument);
         return bundle;
     }
 

@@ -56,7 +56,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/btn_whitescene"
                     android:ems="10"
-                    android:hint="@string/search"/>
+                    android:hint="@string/search" />
 
                 <ImageButton
                     android:id="@+id/home_btn_sort"

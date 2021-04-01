@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.ui.activity.NoLogin;
+package kul.pl.biblioteka.ui.fragments.NoLogin;
 
 import android.content.Intent;
 import android.os.Bundle;
