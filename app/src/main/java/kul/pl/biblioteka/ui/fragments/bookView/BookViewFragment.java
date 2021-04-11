@@ -1,28 +1,27 @@
 package kul.pl.biblioteka.ui.fragments.bookView;
 
-
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.skydoves.balloon.ArrowOrientation;
+import com.skydoves.balloon.Balloon;
+import com.skydoves.balloon.BalloonAnimation;
+import com.skydoves.balloon.OnBalloonClickListener;
 import com.squareup.picasso.Picasso;
 
+import org.jetbrains.annotations.NotNull;
 
-import java.util.Objects;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.ui.fragments.home.HomeFragment;
@@ -40,7 +39,8 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     private ProgressBar progressBar;
     private Button backBtn;
     private Button borrowBtn;
-    private ImageView infoBtn;
+    private Balloon balloon;
+    private ImageView infoImage;
     private BookViewFragmentPresenter presenter;
 
     @Override
@@ -57,30 +57,18 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
 
 
     private void setOnClickListeners() {
-        infoBtn.setOnClickListener(infoOnClickListener);
         backBtn.setOnClickListener(backOnClickListener);
         borrowBtn.setOnClickListener(borrowOnClickListener);
+        infoImage.setOnClickListener(infoImageOnClickedListener);
     }
 
-    private final View.OnClickListener infoOnClickListener = new View.OnClickListener() {
+    private final View.OnClickListener infoImageOnClickedListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            AlertDialog alertDialog = new AlertDialog.Builder(getActivity().getApplicationContext()).create();
-            alertDialog.setTitle("Information");
-            alertDialog.setMessage("Five books you can borrow and two books is available to reading in the library");
-            // Alert dialog button
-            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            // Alert dialog action goes here
-                            // onClick button code here
-                            dialog.dismiss();// use dismiss to cancel alert dialog
-                        }
-                    });
-            alertDialog.show();
+            initBalloon();
+            balloon.show(v);
         }
     };
-
 
     private final View.OnClickListener backOnClickListener = new View.OnClickListener() {
         @Override
@@ -114,10 +102,36 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
         yearTextView = view.findViewById(R.id.BookView_text_year);
         availabilityStatus = view.findViewById(R.id.BookView_text_available);
         ratingBar = view.findViewById(R.id.ratingBar);
-        infoBtn = view.findViewById(R.id.BookView_image_info);
         backBtn = view.findViewById(R.id.BookView_button_back);
         borrowBtn=view.findViewById(R.id.BookView_button_borrow);
+        infoImage=view.findViewById(R.id.BookView_image_info);
     }
+
+    private void initBalloon() {
+        balloon= new Balloon.Builder(getContext())
+                .setArrowSize(10)
+                .setArrowOrientation(ArrowOrientation.TOP)
+                .setArrowVisible(true)
+                .setWidthRatio(1.0f)
+                .setHeight(65)
+                .setTextSize(15f)
+                .setArrowPosition(0.62f)
+                .setCornerRadius(4f)
+                .setAlpha(0.9f)
+                .setText("7 na wynos, 0 w czytelni")
+                .setTextColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryGreen))
+                .setIconDrawable(ContextCompat.getDrawable(getContext(), R.drawable.info_icon))
+                .setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryBackground))
+                .setOnBalloonClickListener(onBalloonClickListener)
+                .setBalloonAnimation(BalloonAnimation.FADE)
+                .build();
+    }
+
+    private OnBalloonClickListener onBalloonClickListener = new OnBalloonClickListener() {
+        @Override
+        public void onBalloonClick(@NotNull View view) {
+        }
+    };
 
     @Override
     public void setTitle(String title) {
