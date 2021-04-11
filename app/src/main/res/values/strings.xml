@@ -43,7 +43,7 @@
     <string name="count_of_pages">Count of pages</string>
     <string name="year">Year:</string>
     <string name="yyyy_mm_dd">YYYY-MM-DD</string>
-    <string name="available">Available:</string>
+    <string name="available">Available status:</string>
     <string name="count_of_available_copies">Count of available copies</string>
     <string name="back">Back</string>
     <string name="borrow">Borrow</string>
@@ -55,5 +55,7 @@
     <string name="go_to_the_library">Go to the Library</string>
     <string name="welcome_in_library">Welcome in Library</string>
     <string name="idBook">idBook</string>
+    <string name="status">status</string>
+    <string name="title_of_the_book">Title of the book</string>
 
 </resources>

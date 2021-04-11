@@ -4,6 +4,9 @@ import android.net.Uri;
 
 public interface BookViewFragmentContract {
     interface View {
+
+        void setTitle(String title);
+
         void setAuthor(String author);
 
         void setPublisher(String publisher);
@@ -13,6 +16,8 @@ public interface BookViewFragmentContract {
         void setImage(Uri uriImage);
 
         void setDate(String date);
+
+        void setAvailabilyty(String status);
 
         void setStars(double number);
 
