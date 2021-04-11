@@ -1,12 +1,12 @@
 package kul.pl.biblioteka.models;
 
-public class UserModel {
+public class LoginUserModel {
 
     private String nick;
     private String email;
     private String password;
 
-    public UserModel(String nick, String email, String password) {
+    public LoginUserModel(String nick, String email, String password) {
         this.nick = nick;
         this.email = email;
         this.password = password;
