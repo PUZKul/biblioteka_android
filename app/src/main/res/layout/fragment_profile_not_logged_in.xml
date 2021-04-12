@@ -17,7 +17,9 @@
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/main_motive">
+            android:background="@drawable/main_motive"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
 
             <androidx.cardview.widget.CardView
@@ -137,6 +139,10 @@
                 android:id="@+id/welcome_button_GoToTheLibrary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="0dp"
                 android:background="@drawable/btn_primary"
                 android:gravity="center"
                 android:text="@string/go_to_the_library"

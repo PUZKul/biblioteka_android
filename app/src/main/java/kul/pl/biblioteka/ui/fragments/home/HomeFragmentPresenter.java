@@ -88,6 +88,11 @@ public class HomeFragmentPresenter extends APIAdapter implements HomeFragmentCon
         //todo show dialog window with informamation that don't hve internet
     }
 
+    @Override
+    public void onAvailableBook(Integer available) {
+
+    }
+
     private View.OnClickListener previousClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
