@@ -57,5 +57,6 @@
     <string name="idBook">idBook</string>
     <string name="status">status</string>
     <string name="title_of_the_book">Title of the book</string>
+    <string name="only_logged_in_users_can_borrow_the_book" />
 
 </resources>

@@ -1,6 +1,6 @@
 package kul.pl.biblioteka.ui.activity.login;
 
-import kul.pl.biblioteka.models.UserModel;
+import kul.pl.biblioteka.models.LoginUserModel;
 
 public interface LoginActivityContract {
     interface View {
@@ -14,6 +14,6 @@ public interface LoginActivityContract {
     }
 
     interface Presenter {
-        void onLoginClicked(UserModel user);
+        void onLoginClicked(LoginUserModel user);
     }
 }

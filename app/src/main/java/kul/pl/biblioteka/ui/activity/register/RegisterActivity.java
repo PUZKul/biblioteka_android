@@ -2,8 +2,6 @@ package kul.pl.biblioteka.ui.activity.register;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,41 +12,36 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import kul.pl.biblioteka.R;
-import kul.pl.biblioteka.models.UserModel;
+import kul.pl.biblioteka.models.RegistrationUserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.activity.login.LoginActivity;
 
-public class RegisterActivity extends AppCompatActivity  implements RegisterActivityContract.View{
+public class RegisterActivity extends AppCompatActivity implements RegisterActivityContract.View {
 
     private Button registrationBtn;
     private TextView loginText;
-    private EditText register_editText_nick;
-    private EditText register_editText_email;
-    private EditText register_editText_password;
-    private EditText register_editText_repeatPassword;
+    private EditText nickText;
+    private EditText emailText;
+    private EditText passwordText;
+    private EditText repeatPasswordText;
     private ProgressBar progressBar;
-    private String nick;
-    private String email;
-    private String password;
-    private String repeatPassword;
     private RegisterActivityContract.Presenter presenter;
-    private boolean correct;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         initComponents();
         setOnClickListeners();
-        presenter= new RegisterActivityPresenter( this);
+        presenter = new RegisterActivityPresenter(this);
     }
 
     private void setOnClickListeners() {
-        registrationBtn.setOnClickListener(registrationOnClickLisner);
-        loginText.setOnClickListener(loginOnClickLisner);
+        registrationBtn.setOnClickListener(registrationOnClickListener);
+        loginText.setOnClickListener(loginOnClickListener);
     }
 
-
-    private View.OnClickListener loginOnClickLisner = new View.OnClickListener() {
+    private View.OnClickListener loginOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
@@ -56,69 +49,35 @@ public class RegisterActivity extends AppCompatActivity  implements RegisterActi
         }
     };
 
-    private View.OnClickListener registrationOnClickLisner = new View.OnClickListener() {
+    private View.OnClickListener registrationOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
-            nick=register_editText_nick.getText().toString();
-            email=register_editText_email.getText().toString();
-            password=register_editText_password.getText().toString();
-            repeatPassword=register_editText_repeatPassword.getText().toString();
-            correct=false;
-
-            if(TextUtils.isEmpty(nick)){
-                register_editText_nick.setError("Nick cannot be empty!");
-                correct=true;
-            }
-            if (TextUtils.isEmpty(email)) {
-                register_editText_email.setError("E-mail cannot be empty!");
-                correct=true;
-            }else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
-            {
-                register_editText_email.setError("Incorrect E-mail address!");
-                correct=true;
-            }
-            if (TextUtils.isEmpty(password)){
-                register_editText_password.setError("Password cannot be empty!");
-                correct=true;
-            }
-            if(TextUtils.isEmpty(repeatPassword)){
-                register_editText_repeatPassword.setError("Please repeat your password!");
-                correct=true;
-            }else if(password!=repeatPassword){
-                register_editText_repeatPassword.setError("Please enter the correct password ");
-                correct=true;
-            }
-
-            presenter.onRegisterClicked(new UserModel(nick,email,password));
-            if(correct=true){
-
-                Intent intent=new Intent(RegisterActivity.this,MainActivity.class);
-                startActivity(intent);
-            }else
-                correct=false;
-
-
+            presenter.onRegisterClicked(new RegistrationUserModel(
+                    nickText.getText().toString()
+                    , passwordText.getText().toString()
+                    , repeatPasswordText.getText().toString()
+                    , emailText.getText().toString()));
         }
     };
 
     private void initComponents() {
-        registrationBtn=findViewById(R.id.register_btn_register);
-        loginText=findViewById(R.id.register_textasbatton_login);
-        register_editText_nick=findViewById(R.id.register_editText_nick);
-        register_editText_email=findViewById(R.id.register_editText_email);
-        register_editText_password=findViewById(R.id.register_editText_password);
-        register_editText_repeatPassword=findViewById(R.id.register_editText_repeatPassword);
+        registrationBtn = findViewById(R.id.register_btn_register);
+        loginText = findViewById(R.id.register_textasbatton_login);
+        nickText = findViewById(R.id.register_editText_nick);
+        emailText = findViewById(R.id.register_editText_email);
+        passwordText = findViewById(R.id.register_editText_password);
+        repeatPasswordText = findViewById(R.id.register_editText_repeatPassword);
+        progressBar = findViewById(R.id.registration_progressBar);
     }
+
     @Override
     public void showToast(String message) {
-        Toast.makeText(this, message,Toast.LENGTH_LONG).show();
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void startProgressBar() {
         progressBar.setVisibility(View.VISIBLE);
-
     }
 
     @Override
@@ -128,7 +87,7 @@ public class RegisterActivity extends AppCompatActivity  implements RegisterActi
 
     @Override
     public void openMainActivity() {
-        Intent intent= new Intent(RegisterActivity.this, MainActivity.class);
+        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
         startActivity(intent);
     }
 }

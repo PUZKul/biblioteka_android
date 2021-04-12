@@ -12,10 +12,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import kul.pl.biblioteka.R;
-import kul.pl.biblioteka.models.UserModel;
+import kul.pl.biblioteka.models.LoginUserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.activity.register.RegisterActivity;
-import kul.pl.biblioteka.ui.fragments.home.HomeFragment;
 
 public class LoginActivity extends AppCompatActivity implements LoginActivityContract.View {
 
@@ -55,7 +54,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
     private View.OnClickListener loginOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            presenter.onLoginClicked(new UserModel(
+            presenter.onLoginClicked(new LoginUserModel(
                     loginETex.getText().toString(),
                     loginETex.getText().toString(),
                     passwordETex.getText().toString()

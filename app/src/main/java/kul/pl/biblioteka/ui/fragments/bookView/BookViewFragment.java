@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LifecycleOwner;
 
 import com.skydoves.balloon.ArrowOrientation;
 import com.skydoves.balloon.Balloon;
@@ -21,7 +22,6 @@ import com.skydoves.balloon.OnBalloonClickListener;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
-
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.ui.fragments.home.HomeFragment;
@@ -53,8 +53,6 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
        setOnClickListeners();
         return view;
     }
-
-
 
     private void setOnClickListeners() {
         backBtn.setOnClickListener(backOnClickListener);
@@ -113,17 +111,18 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
                 .setArrowOrientation(ArrowOrientation.TOP)
                 .setArrowVisible(true)
                 .setWidthRatio(1.0f)
-                .setHeight(65)
+                .setHeight(78)
                 .setTextSize(15f)
                 .setArrowPosition(0.62f)
                 .setCornerRadius(4f)
                 .setAlpha(0.9f)
-                .setText("7 na wynos, 0 w czytelni")
-                .setTextColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryGreen))
+                .setText("You can access your profile from on now.")
+                .setTextColor(ContextCompat.getColor(getContext(), R.color.colorAccent))
                 .setIconDrawable(ContextCompat.getDrawable(getContext(), R.drawable.info_icon))
                 .setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryBackground))
                 .setOnBalloonClickListener(onBalloonClickListener)
                 .setBalloonAnimation(BalloonAnimation.FADE)
+                .setAutoDismissDuration(5000L)
                 .build();
     }
 
