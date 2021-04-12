@@ -34,4 +34,7 @@ public interface HTTPMethods {
     @GET("/api/library/books/discover/{limit}")
     Call<PageHolder<BookModel>> getBooks(@Path("limit") int limit);
 
+    @GET("/api/library/books/copies/available/{id}")
+    Call<Integer> getAvailableBook(@Path("id") int id);
+
 }

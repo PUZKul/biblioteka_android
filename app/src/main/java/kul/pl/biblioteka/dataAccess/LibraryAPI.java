@@ -1,7 +1,5 @@
 package kul.pl.biblioteka.dataAccess;
 
-import java.util.List;
-
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.exception.ApiErrorParser;
 import kul.pl.biblioteka.models.BookModel;
@@ -49,6 +47,24 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<BookModel> call, Throwable t) {
+
+        }
+    };
+
+    protected Callback<Integer> callbackForAvailableBook = new Callback<Integer>() {
+        @Override
+        public void onResponse(Call<Integer> call, Response<Integer> response) {
+            if (response.isSuccessful()) {
+                Integer available = response.body();
+                listener.onAvailableBook(available);
+            } else {
+                ApiError apiError = ApiErrorParser.parseError(response);
+                listener.onErrorReceive(apiError);
+            }
+        }
+
+        @Override
+        public void onFailure(Call<Integer> call, Throwable t) {
 
         }
     };

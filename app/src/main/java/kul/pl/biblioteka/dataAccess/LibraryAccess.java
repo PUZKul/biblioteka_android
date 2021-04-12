@@ -52,6 +52,11 @@ public final class LibraryAccess extends LibraryAPI{
                 .enqueue(callbackForBooksList);
     }
 
+    public void getAvailableBookNumber(int bookId){
+        HTTPMethods.getAvailableBook(bookId)
+                .enqueue(callbackForAvailableBook);
+    }
+
     public Retrofit getRetrofit() {
         return retrofit;
     }

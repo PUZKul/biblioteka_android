@@ -63,7 +63,8 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     private final View.OnClickListener infoImageOnClickedListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            initBalloon();
+            //todo add
+            initBalloon("");
             balloon.show(v);
         }
     };
@@ -105,7 +106,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
         infoImage=view.findViewById(R.id.BookView_image_info);
     }
 
-    private void initBalloon() {
+    private void initBalloon(String message) {
         balloon= new Balloon.Builder(getContext())
                 .setArrowSize(10)
                 .setArrowOrientation(ArrowOrientation.TOP)
@@ -116,7 +117,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
                 .setArrowPosition(0.62f)
                 .setCornerRadius(4f)
                 .setAlpha(0.9f)
-                .setText("You can access your profile from on now.")
+                .setText(message)
                 .setTextColor(ContextCompat.getColor(getContext(), R.color.colorAccent))
                 .setIconDrawable(ContextCompat.getDrawable(getContext(), R.drawable.info_icon))
                 .setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryBackground))

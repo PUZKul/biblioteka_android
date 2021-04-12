@@ -10,4 +10,6 @@ public interface APIListener {
     void onErrorReceive(ApiError error);
 
     void onBookReceive(BookModel book);
+
+    void onAvailableBook(Integer available);
 }

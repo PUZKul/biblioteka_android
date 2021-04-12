@@ -22,7 +22,7 @@ public class NoLoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_nologin);
+        setContentView(R.layout.fragment_profile_not_logged_in);
         initComponents();
 
     }
