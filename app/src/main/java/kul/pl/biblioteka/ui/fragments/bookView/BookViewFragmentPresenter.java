@@ -2,12 +2,6 @@ package kul.pl.biblioteka.ui.fragments.bookView;
 
 import android.net.Uri;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.List;
-import java.util.Locale;
-
-import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.APIListener;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.exception.ApiError;
@@ -36,7 +30,6 @@ public class BookViewFragmentPresenter implements BookViewFragmentContract.Prese
         view.setStars(book.getRating());
         view.setDate(Helper.getDefaultDateFormat(book.getYear()));
         view.setImage(Uri.parse(book.getImageUrl()));
-        view.setAvailabilyty("nie ma xD");
         view.endProgressBar();
     }
 

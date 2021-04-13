@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:background="#F1F1F1"
         android:orientation="vertical">
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,6 +37,14 @@
                 android:text="@string/history"
                 android:textColor="@color/colorPrimaryBackground" />
         </TableRow>
+
+        <FrameLayout
+            android:id="@+id/notLogReadingAndHistory_fragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </FrameLayout>
+
     </LinearLayout>
 
 </ScrollView>

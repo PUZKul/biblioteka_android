@@ -11,6 +11,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.ui.fragments.home.HomeFragment;
+import kul.pl.biblioteka.ui.fragments.notLoggedIn.hiatoryAndReading.NotLoggedInReadingAndHistory;
 import kul.pl.biblioteka.ui.fragments.notLoggedIn.profile.NotLoggedInProfileFragment;
 import kul.pl.biblioteka.ui.fragments.profile.Profile;
 import kul.pl.biblioteka.ui.fragments.readingAndHistory.ReadingAndHistory_Main;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new NotLoggedInProfileFragment();
                             break;
                         case R.id.bottom_nav_book:
-                            selectedFragment = new ReadingAndHistory_Main();
+                            selectedFragment = new NotLoggedInReadingAndHistory();
                             break;
                         case R.id.bottom_nav_home:
                             selectedFragment = new HomeFragment();
