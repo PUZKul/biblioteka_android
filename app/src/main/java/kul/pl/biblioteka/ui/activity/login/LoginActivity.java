@@ -55,6 +55,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
     private View.OnClickListener loginOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            startProgressBar();
             presenter.onLoginClicked(new LoginUserModel(
                     loginETex.getText().toString(),
                     loginETex.getText().toString(),

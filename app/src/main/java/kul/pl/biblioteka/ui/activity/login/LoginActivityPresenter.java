@@ -1,6 +1,5 @@
 package kul.pl.biblioteka.ui.activity.login;
 
-import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.exception.ApiError;
@@ -24,11 +23,10 @@ public class LoginActivityPresenter extends APIAdapter implements LoginActivityC
     public void onLoginClicked(LoginUserModel user) {
         view.startProgressBar();
         if (!validateDate(user)) {
-            view.showToast(String.valueOf(R.string.incorect_data));
+            view.showToast("Incorrect data");
             view.endProgressBar();
-        } else {
+        } else
             api.getAuthorization(new LoginApiUserModel(user.getNick(), user.getPassword()));
-        }
     }
 
     private boolean validateDate(LoginUserModel user) {
@@ -42,15 +40,17 @@ public class LoginActivityPresenter extends APIAdapter implements LoginActivityC
     public void onLoginSuccesses() {
         view.endProgressBar();
         view.openMainActivity();
+        view.showToast("Login successes");
     }
 
     @Override
     public void onNoInternet() {
+        view.endProgressBar();
         view.openOnInternetActivity();
     }
 
     @Override
     public void onErrorReceive(ApiError error) {
-        view.showToast(String.valueOf(R.string.incorect_data));
+        view.showToast("Incorrect data");
     }
 }
