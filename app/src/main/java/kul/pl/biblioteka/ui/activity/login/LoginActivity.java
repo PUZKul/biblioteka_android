@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.models.LoginUserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.noInternet.NoInternetActivity;
 import kul.pl.biblioteka.ui.activity.register.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginActivityContract.View {
@@ -88,6 +89,12 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
     @Override
     public void openMainActivity() {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void openOnInternetActivity() {
+        Intent intent=new Intent(LoginActivity.this, NoInternetActivity.class);
         startActivity(intent);
     }
 }

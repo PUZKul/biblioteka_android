@@ -50,7 +50,7 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
         searchExitText.setOnQueryTextListener(searchOnSearchListener);
     }
 
-    private  SearchView.OnQueryTextListener searchOnSearchListener = new SearchView.OnQueryTextListener() {
+    private SearchView.OnQueryTextListener searchOnSearchListener = new SearchView.OnQueryTextListener() {
         @Override
         public boolean onQueryTextSubmit(String query) {
             presenter.setListByName(searchExitText.getQuery().toString());

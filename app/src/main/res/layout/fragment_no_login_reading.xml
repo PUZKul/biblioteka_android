@@ -12,7 +12,6 @@
         android:id="@+id/fragmentNoLoginReading_image_LoginIn"
         android:layout_width="233dp"
         android:layout_height="203dp"
-        android:layout_marginTop="100dp"
         android:clickable="true"
         android:contentDescription="@string/clicktologinin"
         android:focusable="true"
@@ -21,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.193" />
+        app:layout_constraintVertical_bias="0.245" />
 
     <TextView
         android:id="@+id/fragmentNoLoginReading_text_LoginIn"

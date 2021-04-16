@@ -11,6 +11,8 @@ public interface LoginActivityContract {
         void endProgressBar();
 
         void openMainActivity();
+
+        void openOnInternetActivity();
     }
 
     interface Presenter {

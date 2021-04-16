@@ -2,14 +2,13 @@ package kul.pl.biblioteka.ui.fragments.bookView;
 
 import android.net.Uri;
 
-import kul.pl.biblioteka.dataAccess.APIListener;
+import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
-import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.BookModel;
 import kul.pl.biblioteka.utils.Helper;
 import kul.pl.biblioteka.utils.PageHolder;
 
-public class BookViewFragmentPresenter implements BookViewFragmentContract.Presenter, APIListener {
+public class BookViewFragmentPresenter extends APIAdapter implements BookViewFragmentContract.Presenter {
 
     private LibraryAccess api;
     private BookViewFragmentContract.View view;
@@ -43,12 +42,6 @@ public class BookViewFragmentPresenter implements BookViewFragmentContract.Prese
 
     }
 
-
-    @Override
-    public void onErrorReceive(ApiError error) {
-
-    }
-
     @Override
     public void onBookReceive(BookModel book) {
         setBookDetails(book);
@@ -58,4 +51,5 @@ public class BookViewFragmentPresenter implements BookViewFragmentContract.Prese
     public void onAvailableBook(Integer available) {
         view.setAvailabilyty(available.toString());
     }
+
 }

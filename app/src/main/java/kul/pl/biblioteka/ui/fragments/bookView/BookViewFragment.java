@@ -17,10 +17,7 @@ import androidx.fragment.app.Fragment;
 import com.skydoves.balloon.ArrowOrientation;
 import com.skydoves.balloon.Balloon;
 import com.skydoves.balloon.BalloonAnimation;
-import com.skydoves.balloon.OnBalloonClickListener;
 import com.squareup.picasso.Picasso;
-
-import org.jetbrains.annotations.NotNull;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.ui.fragments.home.HomeFragment;
@@ -82,8 +79,6 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
         }
     };
 
-    
-
     private void openHomeFragment() {
         getActivity().getSupportFragmentManager().beginTransaction().
         replace(((ViewGroup) getView().getParent()).getId(),new HomeFragment())
@@ -118,19 +113,12 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
                 .setAlpha(0.9f)
                 .setText(message)
                 .setTextColor(ContextCompat.getColor(getContext(), R.color.colorAccent))
-                .setIconDrawable(ContextCompat.getDrawable(getContext(), R.drawable.info_icon))
                 .setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryBackground))
-                .setOnBalloonClickListener(onBalloonClickListener)
                 .setBalloonAnimation(BalloonAnimation.FADE)
                 .setAutoDismissDuration(5000L)
                 .build();
     }
 
-    private OnBalloonClickListener onBalloonClickListener = new OnBalloonClickListener() {
-        @Override
-        public void onBalloonClick(@NotNull View view) {
-        }
-    };
 
     @Override
     public void setTitle(String title) {

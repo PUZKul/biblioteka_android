@@ -20,4 +20,19 @@ public abstract class APIAdapter implements APIListener {
     public void onErrorReceive(ApiError error) {
 
     }
+
+    @Override
+    public void onAvailableBook(Integer available) {
+
+    }
+
+    @Override
+    public void onLoginSuccesses() {
+
+    }
+
+    @Override
+    public void onNoInternet() {
+
+    }
 }

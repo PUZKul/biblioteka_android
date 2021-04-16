@@ -30,7 +30,7 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<PageHolder<BookModel>> call, Throwable t) {
-            System.out.println("nie dziala");
+            listener.onNoInternet();
         }
     };
     protected Callback<BookModel> callbackForBook = new Callback<BookModel>() {
@@ -47,7 +47,7 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<BookModel> call, Throwable t) {
-
+            listener.onNoInternet();
         }
     };
 
@@ -65,7 +65,24 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<Integer> call, Throwable t) {
+            listener.onNoInternet();
+        }
+    };
 
+    protected Callback<Void> callbackForLoginAuthorization = new Callback<Void>() {
+        @Override
+        public void onResponse(Call<Void> call, Response<Void> response) {
+            if(response.isSuccessful()){
+                    listener.onLoginSuccesses();
+            } else {
+                ApiError apiError = ApiErrorParser.parseError(response);
+                listener.onErrorReceive(apiError);
+            }
+        }
+
+        @Override
+        public void onFailure(Call<Void> call, Throwable t) {
+            listener.onNoInternet();
         }
     };
 }

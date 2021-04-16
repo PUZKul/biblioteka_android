@@ -12,4 +12,8 @@ public interface APIListener {
     void onBookReceive(BookModel book);
 
     void onAvailableBook(Integer available);
+
+    void onLoginSuccesses();
+
+    void onNoInternet();
 }

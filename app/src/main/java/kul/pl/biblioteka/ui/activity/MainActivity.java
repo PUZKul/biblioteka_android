@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
                     Fragment selectedFragment = null;
                     switch (item.getItemId()){
                         case R.id.bottom_nav_profile:
+                           // selectedFragment = new Profile();
                             selectedFragment = new NotLoggedInProfileFragment();
                             break;
                         case R.id.bottom_nav_book:

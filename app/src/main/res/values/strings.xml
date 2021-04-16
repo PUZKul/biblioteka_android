@@ -61,5 +61,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="clicktologinin">ClickToLoginIn</string>
     <string name="login_in">Login In</string>
+    <string name="incorect_data">Incorrect data</string>
 
 </resources>
