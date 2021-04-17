@@ -15,6 +15,7 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.models.RegistrationUserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.activity.login.LoginActivity;
+import kul.pl.biblioteka.utils.StringHelper;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterActivityContract.View {
 
@@ -90,4 +91,58 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
         Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void errorNickIncorrect() {
+        nickText.setError("Incorrect nick!");
+    }
+
+    @Override
+    public void errorNickExist() {
+        nickText.setError("Nick exist!");
+    }
+
+    @Override
+    public void errorNickIsEmpty() {
+        nickText.setError("Nick is empty!");
+    }
+
+    @Override
+    public void errorEmailExist() {
+        emailText.setError("Email exist!");
+    }
+
+    @Override
+    public void errorEmailIncorrect() {
+        emailText.setError("Incorrect email!");
+    }
+
+    @Override
+    public void errorEmailIsEmpty() {
+        emailText.setError("Email is empty!");
+    }
+
+    @Override
+    public void errorPasswordIsEmpty() {
+        passwordText.setError("Password is empty!");
+    }
+
+    @Override
+    public void errorPasswordIncorrect() {
+        passwordText.setError("Incorrect password!");
+    }
+
+    @Override
+    public void errorRepeatPasswordIsEmpty() {
+        repeatPasswordText.setError("Repeat your password!");
+    }
+
+    @Override
+    public void errorRepeatPasswordAreNotIdentical() {
+        repeatPasswordText.setError("Password are't identical!");
+    }
+
+
+
+
 }

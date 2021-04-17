@@ -17,28 +17,28 @@ public class RegisterActivityPresenter implements RegisterActivityContract.Prese
     public void onRegisterClicked(RegistrationUserModel user) {
         view.startProgressBar();
         if (user.getNick().isEmpty()) {
-            view.showToast("Nick is empty");
+            view.errorNickIsEmpty();
             view.endProgressBar();
         } else if (user.getEmail().isEmpty()) {
-            view.showToast("Email is empty");
+            view.errorEmailIsEmpty();
             view.endProgressBar();
         }else if (user.getPasswordFirst().isEmpty()) {
-            view.showToast("Password is empty");
+           view.errorPasswordIsEmpty();
             view.endProgressBar();
         }else if (user.getPasswordSecond().isEmpty()) {
-            view.showToast("Repeat password is empty");
+            view.errorRepeatPasswordIsEmpty();
             view.endProgressBar();
-        }else if (!StringHelper.validateLoginRegistration(user.getNick())) {
-            view.showToast("Incorrect nick");
+        } else if (!StringHelper.validateLoginRegistration(user.getNick())) {
+            view.errorNickIncorrect();
             view.endProgressBar();
         }else if (!StringHelper.validateEmailRegistration(user.getEmail())) {
-            view.showToast("Incorrect email");
+            view.errorEmailIncorrect();
             view.endProgressBar();
         }else if (!StringHelper.validatePasswordRegistration(user.getPasswordFirst())) {
-            view.showToast("Incorrect password");
+            view.errorPasswordIncorrect();
             view.endProgressBar();
         }else if (!StringHelper.validateTwoPasswordRegistration(user.getPasswordFirst(),user.getPasswordSecond())) {
-            view.showToast("Passwords aren't identical");
+            view.errorRepeatPasswordAreNotIdentical();
             view.endProgressBar();
         }else {
             view.endProgressBar();

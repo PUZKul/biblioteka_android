@@ -12,6 +12,22 @@ public interface RegisterActivityContract {
 
         void openMainActivity();
 
+        void errorNickIncorrect();
+        void errorNickExist();
+        void errorNickIsEmpty();
+
+
+        void errorEmailExist();
+        void errorEmailIncorrect();
+        void errorEmailIsEmpty();
+
+        void errorPasswordIsEmpty();
+        void errorPasswordIncorrect();
+
+        void errorRepeatPasswordIsEmpty();
+        void errorRepeatPasswordAreNotIdentical();
+
+
     }
 
     interface Presenter {
