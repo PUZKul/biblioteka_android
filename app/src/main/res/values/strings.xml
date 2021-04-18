@@ -63,5 +63,9 @@
     <string name="login_in">Login In</string>
     <string name="incorect_data">Incorrect data</string>
     <string name="login_successes">Login Successes</string>
+    <string name="your_reading_list_is_empty">Your reading list is empty</string>
+    <string name="add_new_book_now">Add new book now!</string>
+    <string name="your_history_is_empty">Your history is empty</string>
+    <string name="change_it">Change it!</string>
 
 </resources>

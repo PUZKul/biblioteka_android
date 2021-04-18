@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:visibility="visible"
     android:fillViewport="true"
-    tools:context=".ui.fragments.NoLoginReadingAndHistory.NoLoginReadingAndHistory_Main">
+    tools:context=".ui.fragments.notLoggedIn.hiatoryAndReading.NotLoggedInReadingAndHistory">
 
     <LinearLayout
         android:layout_width="match_parent"
