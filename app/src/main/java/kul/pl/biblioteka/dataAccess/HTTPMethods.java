@@ -2,9 +2,11 @@ package kul.pl.biblioteka.dataAccess;
 
 import kul.pl.biblioteka.models.BookModel;
 import kul.pl.biblioteka.models.LoginApiUserModel;
+import kul.pl.biblioteka.models.RegistrationApiUserModel;
 import kul.pl.biblioteka.utils.Direction;
 import kul.pl.biblioteka.utils.PageHolder;
 import kul.pl.biblioteka.utils.Sorting;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -43,5 +45,9 @@ public interface HTTPMethods {
     @Headers("Content-Type: application/json")
     @POST("login")
     Call<Void> authorize(@Body LoginApiUserModel user);
+
+    @Headers("Content-Type: application/json")
+    @POST("register")
+    Call<ResponseBody > registration(@Body RegistrationApiUserModel user);
 
 }

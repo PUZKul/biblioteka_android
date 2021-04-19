@@ -11,7 +11,7 @@ public class StringHelper {
     }
 
     public static boolean validatePasswordRegistration(String password) {
-        return password.matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,18}$");
+        return password.matches("^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[@!#$%^&+=().]).{8,25}$");
     }
 
     public static boolean validateTwoPasswordRegistration(String password1, String password2) {

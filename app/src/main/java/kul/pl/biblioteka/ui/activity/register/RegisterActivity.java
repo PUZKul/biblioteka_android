@@ -94,22 +94,12 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
 
     @Override
     public void errorNickIncorrect() {
-        nickText.setError("Incorrect nick!");
-    }
-
-    @Override
-    public void errorNickExist() {
-        nickText.setError("Nick exist!");
+        nickText.setError("Password should consist of numbers and letters and has between 3-12 characters");
     }
 
     @Override
     public void errorNickIsEmpty() {
         nickText.setError("Nick is empty!");
-    }
-
-    @Override
-    public void errorEmailExist() {
-        emailText.setError("Email exist!");
     }
 
     @Override
@@ -129,20 +119,11 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
 
     @Override
     public void errorPasswordIncorrect() {
-        passwordText.setError("Incorrect password!");
-    }
-
-    @Override
-    public void errorRepeatPasswordIsEmpty() {
-        repeatPasswordText.setError("Repeat your password!");
+        passwordText.setError("Password should include at least one numbers, one special character and one letter and has between 8-25 characters");
     }
 
     @Override
     public void errorRepeatPasswordAreNotIdentical() {
         repeatPasswordText.setError("Password are't identical!");
     }
-
-
-
-
 }

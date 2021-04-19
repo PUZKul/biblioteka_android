@@ -16,4 +16,7 @@ public interface APIListener {
     void onLoginSuccesses();
 
     void onNoInternet();
+
+    void onRegistrationSuccesses();
+
 }

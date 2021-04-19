@@ -35,4 +35,9 @@ public abstract class APIAdapter implements APIListener {
     public void onNoInternet() {
 
     }
+
+    @Override
+    public void onRegistrationSuccesses() {
+
+    }
 }

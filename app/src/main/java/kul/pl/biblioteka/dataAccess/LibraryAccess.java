@@ -2,6 +2,7 @@ package kul.pl.biblioteka.dataAccess;
 
 
 import kul.pl.biblioteka.models.LoginApiUserModel;
+import kul.pl.biblioteka.models.RegistrationApiUserModel;
 import kul.pl.biblioteka.utils.Direction;
 import kul.pl.biblioteka.utils.Sorting;
 import retrofit2.Retrofit;
@@ -65,5 +66,10 @@ public final class LibraryAccess extends LibraryAPI{
     public void getAuthorization(LoginApiUserModel user){
         HTTPMethods.authorize(user)
                 .enqueue(callbackForLoginAuthorization);
+    }
+
+    public void getRegistration(RegistrationApiUserModel user){
+        HTTPMethods.registration(user)
+                .enqueue(callbackForRegistration);
     }
 }

@@ -19,21 +19,21 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/EmptyReadingOrHistory_button_reading"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="@string/reading"
-                android:textColor="@color/colorPrimaryBackground" />
-
-            <Button
                 android:id="@+id/EmptyReadingOrHistory_button_history"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="@string/history"
+                android:textColor="@color/colorPrimaryBackground" />
+
+            <Button
+                android:id="@+id/EmptyReadingOrHistory_button_reading"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/reading"
                 android:textColor="@color/colorPrimaryBackground" />
         </TableRow>
 

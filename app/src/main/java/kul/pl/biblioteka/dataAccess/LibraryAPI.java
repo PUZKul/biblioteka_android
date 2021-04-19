@@ -4,6 +4,7 @@ import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.exception.ApiErrorParser;
 import kul.pl.biblioteka.models.BookModel;
 import kul.pl.biblioteka.utils.PageHolder;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -82,6 +83,23 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<Void> call, Throwable t) {
+            listener.onNoInternet();
+        }
+    };
+
+    protected Callback<ResponseBody  > callbackForRegistration = new Callback<ResponseBody >() {
+        @Override
+        public void onResponse(Call<ResponseBody  > call, Response<ResponseBody  > response) {
+            if(response.isSuccessful()){
+                listener.onRegistrationSuccesses();
+            } else {
+                ApiError apiError = ApiErrorParser.parseError(response);
+                listener.onErrorReceive(apiError);
+            }
+        }
+
+        @Override
+        public void onFailure(Call<ResponseBody  > call, Throwable t) {
             listener.onNoInternet();
         }
     };
