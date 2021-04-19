@@ -95,7 +95,17 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
 
     @Override
     public void openOnInternetActivity() {
-        Intent intent=new Intent(LoginActivity.this, NoInternetActivity.class);
+        Intent intent = new Intent(LoginActivity.this, NoInternetActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void errorEmptyLogin() {
+        loginETex.setError("Login is empty");
+    }
+
+    @Override
+    public void errorEmptyPassword() {
+        passwordETex.setError("Password is empty");
     }
 }

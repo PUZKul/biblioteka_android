@@ -13,6 +13,10 @@ public interface LoginActivityContract {
         void openMainActivity();
 
         void openOnInternetActivity();
+
+        void errorEmptyLogin();
+
+        void errorEmptyPassword();
     }
 
     interface Presenter {
