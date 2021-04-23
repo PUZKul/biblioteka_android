@@ -5,7 +5,6 @@ import android.widget.TextView;
 
 import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
-import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.BookModel;
 import kul.pl.biblioteka.utils.Direction;
 import kul.pl.biblioteka.utils.PageHolder;
@@ -84,13 +83,14 @@ public class HomeFragmentPresenter extends APIAdapter implements HomeFragmentCon
     }
 
     @Override
-    public void onErrorReceive(ApiError error) {
-        //todo show dialog window with informamation that don't hve internet
+    public void onAvailableBook(Integer available) {
+
     }
 
     @Override
-    public void onAvailableBook(Integer available) {
-
+    public void onNoInternet() {
+        view.openOnInternetActivity();
+        view.endProgressBar();
     }
 
     private View.OnClickListener previousClickListener = new View.OnClickListener() {

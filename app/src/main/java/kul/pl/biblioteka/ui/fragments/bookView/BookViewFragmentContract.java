@@ -17,13 +17,15 @@ public interface BookViewFragmentContract {
 
         void setDate(String date);
 
-        void setAvailabilyty(String status);
+        void setAvailability(String status);
 
         void setStars(double number);
 
         void startProgressBar();
 
         void endProgressBar();
+
+        void openOnInternetActivity();
     }
 
     interface Presenter {

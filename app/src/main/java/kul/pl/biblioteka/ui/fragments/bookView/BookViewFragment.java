@@ -1,5 +1,6 @@
 package kul.pl.biblioteka.ui.fragments.bookView;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,6 +21,9 @@ import com.skydoves.balloon.BalloonAnimation;
 import com.squareup.picasso.Picasso;
 
 import kul.pl.biblioteka.R;
+import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.login.LoginActivity;
+import kul.pl.biblioteka.ui.activity.noInternet.NoInternetActivity;
 import kul.pl.biblioteka.ui.fragments.home.HomeFragment;
 
 public class BookViewFragment extends Fragment implements BookViewFragmentContract.View {
@@ -151,7 +155,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     }
 
     @Override
-    public void setAvailabilyty(String status) {
+    public void setAvailability(String status) {
         availabilityStatus.setText(status);
     }
 
@@ -168,6 +172,12 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     @Override
     public void endProgressBar() {
         // progressBar.setIndeterminate(false);
+    }
+
+    @Override
+    public void openOnInternetActivity() {
+        Intent intent = new Intent(getActivity(), NoInternetActivity.class);
+        startActivity(intent);
     }
 
 }

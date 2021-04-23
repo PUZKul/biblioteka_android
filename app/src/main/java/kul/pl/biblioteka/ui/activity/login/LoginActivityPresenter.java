@@ -53,7 +53,7 @@ public class LoginActivityPresenter extends APIAdapter implements LoginActivityC
     @Override
     public void onNoInternet() {
         view.endProgressBar();
-        //w view.openOnInternetActivity();
+        view.openOnInternetActivity();
     }
 
     @Override

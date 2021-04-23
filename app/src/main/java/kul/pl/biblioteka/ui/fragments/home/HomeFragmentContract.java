@@ -29,5 +29,7 @@ public interface HomeFragmentContract {
         void startProgressBar();
 
         void endProgressBar();
-    }
+
+        void openOnInternetActivity();
+}
 }

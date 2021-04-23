@@ -15,6 +15,7 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.models.RegistrationUserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.activity.login.LoginActivity;
+import kul.pl.biblioteka.ui.activity.noInternet.NoInternetActivity;
 import kul.pl.biblioteka.utils.StringHelper;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterActivityContract.View {
@@ -125,5 +126,11 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
     @Override
     public void errorRepeatPasswordAreNotIdentical() {
         repeatPasswordText.setError("Password are't identical!");
+    }
+
+    @Override
+    public void openOnInternetActivity() {
+        Intent intent = new Intent(RegisterActivity.this, NoInternetActivity.class);
+        startActivity(intent);
     }
 }

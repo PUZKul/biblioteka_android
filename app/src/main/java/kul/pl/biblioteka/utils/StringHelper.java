@@ -3,11 +3,11 @@ package kul.pl.biblioteka.utils;
 public class StringHelper {
 
     public static boolean validateNickLogin(String nick) {
-        return nick.length() > 3;
+        return nick.length() >= 3;
     }
 
     public static boolean validatePasswordLogin(String password) {
-        return password.length() > 5;
+        return password.length() >= 8;
     }
 
     public static boolean validatePasswordRegistration(String password) {

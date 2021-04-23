@@ -6,7 +6,6 @@ import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.models.BookModel;
 import kul.pl.biblioteka.utils.Helper;
-import kul.pl.biblioteka.utils.PageHolder;
 
 public class BookViewFragmentPresenter extends APIAdapter implements BookViewFragmentContract.Presenter {
 
@@ -38,18 +37,19 @@ public class BookViewFragmentPresenter extends APIAdapter implements BookViewFra
     }
 
     @Override
-    public void onBookListReceive(PageHolder<BookModel> page) {
-
-    }
-
-    @Override
     public void onBookReceive(BookModel book) {
         setBookDetails(book);
     }
 
     @Override
     public void onAvailableBook(Integer available) {
-        view.setAvailabilyty(available.toString());
+        view.setAvailability(available.toString());
+    }
+
+    @Override
+    public void onNoInternet() {
+        view.endProgressBar();
+        view.openOnInternetActivity();
     }
 
 }

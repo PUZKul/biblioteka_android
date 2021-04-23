@@ -80,6 +80,7 @@ public class RegisterActivityPresenter extends APIAdapter implements RegisterAct
 
     @Override
     public void onNoInternet() {
-
+        view.endProgressBar();
+        view.openOnInternetActivity();
     }
 }
