@@ -21,9 +21,8 @@ import com.skydoves.balloon.BalloonAnimation;
 import com.squareup.picasso.Picasso;
 
 import kul.pl.biblioteka.R;
-import kul.pl.biblioteka.ui.activity.MainActivity;
-import kul.pl.biblioteka.ui.activity.login.LoginActivity;
 import kul.pl.biblioteka.ui.activity.noInternet.NoInternetActivity;
+import kul.pl.biblioteka.ui.fragments.dialogs.copiesOfBooks.CopiesOfBooksDialog;
 import kul.pl.biblioteka.ui.fragments.home.HomeFragment;
 
 public class BookViewFragment extends Fragment implements BookViewFragmentContract.View {
@@ -79,7 +78,8 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     private final View.OnClickListener borrowOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            //todo open dialog
+            CopiesOfBooksDialog dialog=new CopiesOfBooksDialog();
+            dialog.show(getActivity().getSupportFragmentManager(),"copies");
         }
     };
 
