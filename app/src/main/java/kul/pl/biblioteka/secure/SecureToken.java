@@ -15,10 +15,8 @@ public class SecureToken {
         sp.edit().putString(SP_TOKEN, encryptedToken).apply();
     }
 
-
     public static String load(Context ctx){
         String encryptedToken = ctx.getSharedPreferences(SP_LIBRARY, Context.MODE_PRIVATE).getString(SP_TOKEN, "");
         return AESCipher.decrypt(encryptedToken, ALIAS);
     }
-
 }

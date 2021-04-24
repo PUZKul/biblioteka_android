@@ -1,5 +1,7 @@
 package kul.pl.biblioteka.ui.activity;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -17,15 +19,22 @@ import kul.pl.biblioteka.ui.fragments.profile.Profile;
 import kul.pl.biblioteka.ui.fragments.readingAndHistory.ReadingAndHistory_Main;
 
 public class MainActivity extends AppCompatActivity {
-
     private BottomNavigationView bottom_nav;
+    @SuppressLint("StaticFieldLeak")
+    private static Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        MainActivity.context = getApplicationContext();
         setContentView(R.layout.activity_bottom_navigation);
         bottom_nav = findViewById(R.id.bottom_nav);
         bottom_nav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new HomeFragment()).commit();
+    }
+
+    public static Context getAppContext() {
+        return MainActivity.context;
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
