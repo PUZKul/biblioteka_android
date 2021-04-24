@@ -12,10 +12,6 @@ import static kul.pl.biblioteka.utils.Constants.SP_TOKEN;
 
 public class LocalDataAccess {
 
-    private static SharedPreferences getSP(){
-       return MainActivity.getAppContext().getSharedPreferences(SP_LIBRARY, Context.MODE_PRIVATE);
-    }
-
     public static boolean isLogin(){
         return getSP().getBoolean(SP_LOGIN, false);
     }
@@ -25,18 +21,20 @@ public class LocalDataAccess {
     }
 
     public static String getToken(){
-        //return SecureToken.load(MainActivity.getAppContext());
-        return getSP().getString(SP_TOKEN, "");
+        return SecureToken.load(MainActivity.getAppContext());
     }
 
     public static void setToken(String token){
-       // SecureToken.save(token, MainActivity.getAppContext());
-        getSP().edit().putString(SP_TOKEN, token).apply();
+        SecureToken.save(token, MainActivity.getAppContext());
     }
 
     public static void clean(){
         SharedPreferences sp = getSP();
         sp.edit().remove(SP_TOKEN).apply();
         sp.edit().remove(SP_LOGIN).apply();
+    }
+
+    private static SharedPreferences getSP(){
+        return MainActivity.getAppContext().getSharedPreferences(SP_LIBRARY, Context.MODE_PRIVATE);
     }
 }

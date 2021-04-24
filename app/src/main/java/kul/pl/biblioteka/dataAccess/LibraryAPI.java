@@ -1,5 +1,7 @@
 package kul.pl.biblioteka.dataAccess;
 
+import android.util.Log;
+
 import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.exception.ApiErrorParser;
