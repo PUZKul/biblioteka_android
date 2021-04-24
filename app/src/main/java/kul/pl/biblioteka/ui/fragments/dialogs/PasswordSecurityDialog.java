@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import kul.pl.biblioteka.R;
 
-public class DialogPasswordSecurity extends AppCompatDialogFragment {
+public class PasswordSecurityDialog extends AppCompatDialogFragment {
 
     private EditText password;
     private DialogListener dialogListener;

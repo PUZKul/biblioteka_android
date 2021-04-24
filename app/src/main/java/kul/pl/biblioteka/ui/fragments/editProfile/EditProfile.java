@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.fragments.dialogs.DialogListener;
-import kul.pl.biblioteka.ui.fragments.dialogs.DialogPasswordSecurity;
+import kul.pl.biblioteka.ui.fragments.dialogs.PasswordSecurityDialog;
 
 public class EditProfile extends Fragment implements DialogListener {
 
@@ -56,7 +56,7 @@ public class EditProfile extends Fragment implements DialogListener {
     }
 
     private void openDialogPasswordSecurity(View view){
-        DialogPasswordSecurity dialog=new DialogPasswordSecurity();
+        PasswordSecurityDialog dialog=new PasswordSecurityDialog();
         dialog.setDialogListener(this);
         dialog.show(getActivity().getSupportFragmentManager(),"Nie wiem jakie");
     }
