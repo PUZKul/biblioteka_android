@@ -2,6 +2,7 @@ package kul.pl.biblioteka.secure;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import static kul.pl.biblioteka.utils.Constants.SP_LIBRARY;
 import static kul.pl.biblioteka.utils.Constants.SP_TOKEN;

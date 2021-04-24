@@ -1,5 +1,6 @@
 package kul.pl.biblioteka.dataAccess;
 
+import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.exception.ApiErrorParser;
 import kul.pl.biblioteka.models.BookModel;
@@ -74,7 +75,12 @@ abstract class LibraryAPI {
         @Override
         public void onResponse(Call<Void> call, Response<Void> response) {
             if(response.isSuccessful()){
-                    listener.onLoginSuccesses();
+                String token = response.headers().get("Authorization");
+                LibraryAccess.getInstance().setToken(token);
+                LocalDataAccess.setToken(token);
+                LocalDataAccess.setLogin(true);
+
+                listener.onLoginSuccesses();
             } else {
                 ApiError apiError = ApiErrorParser.parseError(response);
                 listener.onErrorReceive(apiError);

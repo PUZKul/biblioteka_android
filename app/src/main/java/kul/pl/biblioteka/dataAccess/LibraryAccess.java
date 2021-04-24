@@ -12,6 +12,7 @@ public final class LibraryAccess extends LibraryAPI{
     private HTTPMethods HTTPMethods;
     private static LibraryAccess instance;
     private final Retrofit retrofit;
+    private String token;
 
     private LibraryAccess() {
         retrofit = new Retrofit.Builder()
@@ -21,6 +22,10 @@ public final class LibraryAccess extends LibraryAPI{
 
         HTTPMethods = retrofit.create(HTTPMethods.class);
         instance = this;
+    }
+
+    public void setToken(String token){
+        this.token = token;
     }
 
     public static LibraryAccess getInstance(){
