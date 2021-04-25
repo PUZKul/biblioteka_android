@@ -2,10 +2,14 @@ package kul.pl.biblioteka.dataAccess;
 
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.exception.ApiErrorParser;
 import kul.pl.biblioteka.models.BookModel;
+import kul.pl.biblioteka.models.CopiesOfBookModel;
 import kul.pl.biblioteka.models.UserModel;
 import kul.pl.biblioteka.utils.PageHolder;
 import okhttp3.ResponseBody;
@@ -38,6 +42,7 @@ abstract class LibraryAPI {
             listener.onNoInternet();
         }
     };
+
     protected Callback<BookModel> callbackForBook = new Callback<BookModel>() {
         @Override
         public void onResponse(Call<BookModel> call, Response<BookModel> response) {
@@ -126,6 +131,23 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<UserModel  > call, Throwable t) {
+            listener.onNoInternet();
+        }
+    };
+
+    protected Callback<List<CopiesOfBookModel>> callbackForCopiesOfBook = new Callback<List<CopiesOfBookModel>>() {
+        @Override
+        public void onResponse(Call<List<CopiesOfBookModel>> call, Response<List<CopiesOfBookModel>> response) {
+            if (response.isSuccessful()) {
+                listener.onCopiesOfBookReceive(response.body());
+            } else {
+                ApiError apiError = ApiErrorParser.parseError(response);
+                listener.onErrorReceive(apiError);
+            }
+        }
+
+        @Override
+        public void onFailure(Call<List<CopiesOfBookModel>> call, Throwable t) {
             listener.onNoInternet();
         }
     };

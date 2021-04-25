@@ -1,6 +1,7 @@
 package kul.pl.biblioteka.adapter.copiesOfBook;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,27 +12,24 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import kul.pl.biblioteka.R;
-import kul.pl.biblioteka.adapter.OnItemClickListener;
-import kul.pl.biblioteka.models.BookModel;
+import kul.pl.biblioteka.models.CopiesOfBookModel;
 
 public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<CopiesOfBookListViewHolder> {
 
     private Context context;
-    private List<BookModel> booksList;
-    private OnItemClickListener onItemClickListener;
+    private List<CopiesOfBookModel> booksList;
 
-    public CopiesOfBookListRecycleViewAdapter(Context context, List<BookModel> booksList, OnItemClickListener onItemClickListener) {
+    public CopiesOfBookListRecycleViewAdapter(Context context, List<CopiesOfBookModel> booksList) {
         this.context = context;
         this.booksList = booksList;
-        this.onItemClickListener= onItemClickListener;
     }
 
     @NonNull
     @Override
     public CopiesOfBookListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(context);
-        View view =  mInflater.inflate(R.layout.book_list_item, parent, false);
-        return new CopiesOfBookListViewHolder(view,onItemClickListener);
+        View view =  mInflater.inflate(R.layout.dialog_copies_of_books_element, parent, false);
+        return new CopiesOfBookListViewHolder(view);
     }
 
     @Override
@@ -40,8 +38,12 @@ public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<Cop
     }
 
     private void setBookDetails(CopiesOfBookListViewHolder holder, int position) {
-        holder.setBookId("");
-        holder.setStatus("");
+        holder.setBookId("#"+booksList.get(position).getId());
+        if(booksList.get(position).isAccess()){
+            holder.setStatus("Available");
+        } else{
+            holder.setStatus("Restricted access");
+        }
     }
 
     @Override

@@ -1,6 +1,9 @@
 package kul.pl.biblioteka.dataAccess;
 
+import java.util.List;
+
 import kul.pl.biblioteka.models.BookModel;
+import kul.pl.biblioteka.models.CopiesOfBookModel;
 import kul.pl.biblioteka.models.LoginApiUserModel;
 import kul.pl.biblioteka.models.RegistrationApiUserModel;
 import kul.pl.biblioteka.models.UserModel;
@@ -54,4 +57,6 @@ public interface HTTPMethods {
     @GET("/api/library/users")
     Call<UserModel> getUser(@Header("Authorization")String token);
 
+    @GET("/api/library/books/copies/{id}")
+    Call<List<CopiesOfBookModel>> getCopiesOfBookById(@Path("id") int bookId);
 }

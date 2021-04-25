@@ -1,6 +1,8 @@
 package kul.pl.biblioteka.adapter.copiesOfBook;
 
+import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,20 +15,24 @@ public class CopiesOfBookListViewHolder extends RecyclerView.ViewHolder{
 
     private TextView bookId;
     private TextView status;
+    private ImageView image;
     private OnItemClickListener onItemClickListener;
     private View view;
 
-    public CopiesOfBookListViewHolder(@NonNull View itemView, OnItemClickListener onItemClickListener) {
+    public CopiesOfBookListViewHolder(@NonNull View itemView) {
         super(itemView);
         setComponents(itemView);
         view=itemView;
-        this.onItemClickListener=onItemClickListener;
     }
 
     private void setComponents(View view) {
-        //todo change id name
-        bookId=view.findViewById(R.id.list_rating);
-        status =view.findViewById(R.id.list_button_more);
+        bookId=view.findViewById(R.id.CopiesOfBook_text_copyNumber);
+        status =view.findViewById(R.id.CopiesOfBook_text_status);
+        image=view.findViewById(R.id.CopiesOfBook_image_bookmark);
+    }
+
+    public void setImage(Drawable image) {
+        this.image.setImageDrawable(image);
     }
 
     public void setBookId(String  bookId) {

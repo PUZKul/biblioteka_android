@@ -79,7 +79,10 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
         @Override
         public void onClick(View v) {
             CopiesOfBooksDialog dialog=new CopiesOfBooksDialog();
-            dialog.show(getActivity().getSupportFragmentManager(),"copies");
+            Bundle bundle=new Bundle();
+            bundle.putInt("id",presenter.getIdBook());
+            dialog.setArguments(bundle);
+            dialog.show(getActivity().getSupportFragmentManager(),presenter.getIdBook()+"");
         }
     };
 

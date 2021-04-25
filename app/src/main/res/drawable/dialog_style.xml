@@ -2,12 +2,8 @@
 <shape
     xmlns:android="http://schemas.android.com/apk/res/android">
     <solid
-        android:color="@android:color/darker_gray">
-    </solid>
-    <stroke
-        android:width="0dp"
         android:color="@color/colorPrimaryBackground">
-    </stroke>
+    </solid>
     <corners
         android:topLeftRadius="30sp"
         android:topRightRadius="30sp"
@@ -15,3 +11,5 @@
         android:bottomRightRadius="30sp">
     </corners>
 </shape>
+
+

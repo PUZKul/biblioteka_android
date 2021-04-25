@@ -2,7 +2,7 @@ package kul.pl.biblioteka.ui.fragments.dialogs.copiesOfBooks;
 
 import java.util.List;
 
-import kul.pl.biblioteka.models.BookModel;
+import kul.pl.biblioteka.models.CopiesOfBookModel;
 
 interface CopiesOfBooksDialogContract {
 
@@ -12,6 +12,6 @@ interface CopiesOfBooksDialogContract {
 
     interface View{
 
-        void setList(List<BookModel> books);
+        void setList(List<CopiesOfBookModel> books);
     }
 }

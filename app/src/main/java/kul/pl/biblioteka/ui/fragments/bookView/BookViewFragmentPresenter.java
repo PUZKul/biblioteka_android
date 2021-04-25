@@ -11,13 +11,19 @@ public class BookViewFragmentPresenter extends APIAdapter implements BookViewFra
 
     private LibraryAccess api;
     private BookViewFragmentContract.View view;
+    private int idBook;
 
     public BookViewFragmentPresenter(BookViewFragmentContract.View view,int idBook) {
         this.view = view;
         api = LibraryAccess.getInstance();
         view.startProgressBar();
+        this.idBook=idBook;
         api.setListener(this);
         setBook(idBook);
+    }
+
+    public int getIdBook() {
+        return idBook;
     }
 
     private void setBookDetails(BookModel book) {
