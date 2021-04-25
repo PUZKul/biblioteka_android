@@ -55,7 +55,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="15dp"
                     android:layout_weight="1"
-                    android:text="@string/data_of_reserve"
+                    android:text="@string/reserved"
                     android:textColor="@color/colorSecondaryDark" />
 
                 <TextView
@@ -87,7 +87,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <Button
-                    android:id="@+id/ReservationsFragment_button_clickToExtend"
+                    android:id="@+id/ReservationsFragment_button_clickToCancel"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                     android:layout_marginEnd="10dp"
                     android:layout_weight="0.4"
                     android:fontFamily="sans-serif-light"
-                    android:text="@string/extend"
+                    android:text="@string/Cancel"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="10sp"
