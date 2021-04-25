@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.ui.fragments.notLoggedIn.hiatoryAndReading;
+package kul.pl.biblioteka.ui.fragments.readingAndHistoryEmptyLists;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,19 +8,21 @@ import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.Objects;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.ui.fragments.notLoggedIn.hiatoryAndReading.notLoggedInHistory.NotLoggedInHistory;
 import kul.pl.biblioteka.ui.fragments.notLoggedIn.hiatoryAndReading.notLoggedInReading.NotLoggedInReading;
 
-public class NotLoggedInReadingAndHistory extends Fragment {
+public class EmptyReservationsReadingOrHistory extends Fragment {
 
-    private Button readingFragmentBtn;
-    private Button historyFragmentBtn;
+    private Button readingFragmentButton;
+    private Button historyFragmentButton;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_no_log_reading_and_history__main, container, false);
+        View view = inflater.inflate(R.layout.fragment_empty_reservations_reading_or_history, container, false);
         initComponents(view);
         setOnClickListener();
         setReadingFragment();
@@ -28,13 +30,13 @@ public class NotLoggedInReadingAndHistory extends Fragment {
     }
 
     private void initComponents(View view) {
-        readingFragmentBtn=view.findViewById(R.id.NoLoginReadingAndHistory_button_reading);
-        historyFragmentBtn=view.findViewById(R.id.NoLoginReadingAndHistory_button_history);
+        readingFragmentButton=view.findViewById(R.id.EmptyReadingOrHistory_button_reading);
+        historyFragmentButton=view.findViewById(R.id.EmptyReadingOrHistory_button_history);
     }
 
     private void  setOnClickListener(){
-        readingFragmentBtn.setOnClickListener(onReadingClickedListener);
-        historyFragmentBtn.setOnClickListener(onHistoryClickedListener);
+        readingFragmentButton.setOnClickListener(onReadingClickedListener);
+        historyFragmentButton.setOnClickListener(onHistoryClickedListener);
     }
 
     private final View.OnClickListener onReadingClickedListener= new View.OnClickListener() {
@@ -52,16 +54,16 @@ public class NotLoggedInReadingAndHistory extends Fragment {
     };
 
     private void setReadingFragment(){
-        getActivity().getSupportFragmentManager()
+        Objects.requireNonNull(getActivity()).getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.notLogReadingAndHistory_fragmentContainer,new NotLoggedInReading())
+                .replace(R.id.EmptyReadingOrHistory_fragmentContainer,new NotLoggedInReading())
                 .addToBackStack(null).commit();
     }
 
     private void setHistoryFragment(){
-        getActivity().getSupportFragmentManager()
+        Objects.requireNonNull(getActivity()).getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.notLogReadingAndHistory_fragmentContainer,new NotLoggedInHistory())
+                .replace(R.id.EmptyReadingOrHistory_fragmentContainer,new NotLoggedInHistory())
                 .addToBackStack(null).commit();
     }
 }

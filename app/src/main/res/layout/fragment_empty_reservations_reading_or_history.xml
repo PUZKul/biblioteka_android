@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     android:visibility="visible"
     android:fillViewport="true"
-    tools:context=".ui.fragments.notLoggedIn.hiatoryAndReading.NotLoggedInReadingAndHistory">
-
+    tools:context=".ui.fragments.readingAndHistoryEmptyLists.EmptyReservationsReadingOrHistory">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +19,16 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/NoLoginReadingAndHistory_button_reading"
+                android:id="@+id/EmptyReadingOrHistory_button_reservations"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="96dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:text="@string/reservations"
+                android:textColor="@color/colorPrimaryBackground" />
+
+            <Button
+                android:id="@+id/EmptyReadingOrHistory_button_reading"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -29,22 +37,24 @@
                 android:textColor="@color/colorPrimaryBackground" />
 
             <Button
-                android:id="@+id/NoLoginReadingAndHistory_button_history"
+                android:id="@+id/EmptyReadingOrHistory_button_history"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="@string/history"
                 android:textColor="@color/colorPrimaryBackground" />
+
         </TableRow>
 
         <FrameLayout
-            android:id="@+id/notLogReadingAndHistory_fragmentContainer"
+            android:id="@+id/EmptyReadingOrHistory_fragmentContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
         </FrameLayout>
 
     </LinearLayout>
+
 
 </ScrollView>

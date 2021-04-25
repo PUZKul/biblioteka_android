@@ -69,5 +69,9 @@
     <string name="change_it">Change it!</string>
     <string name="copy">Copy</string>
     <string name="copy_number">Copy number</string>
+    <string name="reservations">Reservations</string>
+    <string name="data_of_reserve">Data of reserve</string>
+    <string name="extend">Extend</string>
+    <string name="your_reservations_list_is_empty">Your reservations list is empty</string>
 
 </resources>
