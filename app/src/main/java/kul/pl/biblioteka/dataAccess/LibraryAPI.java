@@ -6,6 +6,7 @@ import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.exception.ApiErrorParser;
 import kul.pl.biblioteka.models.BookModel;
+import kul.pl.biblioteka.models.UserModel;
 import kul.pl.biblioteka.utils.PageHolder;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -81,7 +82,6 @@ abstract class LibraryAPI {
                 LibraryAccess.getInstance().setToken(token);
                 LocalDataAccess.setToken(token);
                 LocalDataAccess.setLogin(true);
-
                 listener.onLoginSuccesses();
             } else {
                 ApiError apiError = ApiErrorParser.parseError(response);
@@ -108,6 +108,24 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<ResponseBody  > call, Throwable t) {
+            listener.onNoInternet();
+        }
+    };
+
+    protected Callback<UserModel> callbackForUserDetails = new Callback<UserModel >() {
+        @Override
+        public void onResponse(Call<UserModel  > call, Response<UserModel  > response) {
+            if(response.isSuccessful()){
+                UserModel userModel=response.body();
+                listener.onUserDetailsReceive(userModel);
+            } else {
+                ApiError apiError = ApiErrorParser.parseError(response);
+                listener.onErrorReceive(apiError);
+            }
+        }
+
+        @Override
+        public void onFailure(Call<UserModel  > call, Throwable t) {
             listener.onNoInternet();
         }
     };

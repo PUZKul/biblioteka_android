@@ -2,6 +2,7 @@ package kul.pl.biblioteka.dataAccess;
 
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.BookModel;
+import kul.pl.biblioteka.models.UserModel;
 import kul.pl.biblioteka.utils.PageHolder;
 
 public abstract class APIAdapter implements APIListener {
@@ -38,6 +39,11 @@ public abstract class APIAdapter implements APIListener {
 
     @Override
     public void onRegistrationSuccesses() {
+
+    }
+
+    @Override
+    public void onUserDetailsReceive(UserModel user) {
 
     }
 }

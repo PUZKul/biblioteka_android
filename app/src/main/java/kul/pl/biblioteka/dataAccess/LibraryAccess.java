@@ -77,4 +77,9 @@ public final class LibraryAccess extends LibraryAPI{
         HTTPMethods.registration(user)
                 .enqueue(callbackForRegistration);
     }
+
+    public void getUserDetails(String token){
+        HTTPMethods.getUser(token)
+                .enqueue(callbackForUserDetails);
+    }
 }

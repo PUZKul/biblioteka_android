@@ -3,6 +3,7 @@ package kul.pl.biblioteka.dataAccess;
 import kul.pl.biblioteka.models.BookModel;
 import kul.pl.biblioteka.models.LoginApiUserModel;
 import kul.pl.biblioteka.models.RegistrationApiUserModel;
+import kul.pl.biblioteka.models.UserModel;
 import kul.pl.biblioteka.utils.Direction;
 import kul.pl.biblioteka.utils.PageHolder;
 import kul.pl.biblioteka.utils.Sorting;
@@ -51,6 +52,6 @@ public interface HTTPMethods {
     Call<ResponseBody > registration(@Body RegistrationApiUserModel user);
 
     @GET("/api/library/users")
-    Call<Integer> getUser();
+    Call<UserModel> getUser(@Header("Authorization")String token);
 
 }

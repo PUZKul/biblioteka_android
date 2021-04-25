@@ -2,6 +2,7 @@ package kul.pl.biblioteka.dataAccess;
 
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.BookModel;
+import kul.pl.biblioteka.models.UserModel;
 import kul.pl.biblioteka.utils.PageHolder;
 
 public interface APIListener {
@@ -18,5 +19,7 @@ public interface APIListener {
     void onNoInternet();
 
     void onRegistrationSuccesses();
+
+    void onUserDetailsReceive(UserModel user);
 
 }
