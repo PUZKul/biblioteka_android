@@ -50,4 +50,7 @@ public interface HTTPMethods {
     @POST("register")
     Call<ResponseBody > registration(@Body RegistrationApiUserModel user);
 
+    @GET("/api/library/users")
+    Call<Integer> getUser();
+
 }
