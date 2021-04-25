@@ -15,19 +15,19 @@
 
         <ProgressBar
             android:id="@+id/home_progressBar"
-            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large.Inverse"
             android:layout_width="160dp"
             android:layout_height="153dp"
             android:layout_marginVertical="220dp"
+            android:background="#FFFFFF"
             android:indeterminate="true"
             android:indeterminateTint="@color/colorPrimaryGreen"
-            android:progress="@android:integer/config_shortAnimTime"
             android:progressDrawable="@color/colorPrimaryDark"
             android:progressTint="@color/colorPrimaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <RelativeLayout
             android:id="@+id/home_container"
