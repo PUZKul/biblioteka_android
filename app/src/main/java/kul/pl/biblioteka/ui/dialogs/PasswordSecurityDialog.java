@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.ui.fragments.dialogs;
+package kul.pl.biblioteka.ui.dialogs;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
