@@ -22,7 +22,7 @@ import com.squareup.picasso.Picasso;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.ui.activity.noInternet.NoInternetActivity;
-import kul.pl.biblioteka.ui.fragments.dialogs.copiesOfBooks.CopiesOfBooksDialog;
+import kul.pl.biblioteka.ui.dialogs.copiesOfBooks.CopiesOfBooksDialog;
 import kul.pl.biblioteka.ui.fragments.home.HomeFragment;
 
 public class BookViewFragment extends Fragment implements BookViewFragmentContract.View {

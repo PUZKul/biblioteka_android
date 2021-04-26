@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="fill_vertical"
+    tools:context=".ui.fragments.home.HomeFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/first_window_progressBar"
+            android:layout_width="160dp"
+            android:layout_height="153dp"
+            android:layout_marginVertical="220dp"
+            android:background="#FFFFFF"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/colorPrimaryGreen"
+            android:progressDrawable="@color/colorPrimaryDark"
+            android:progressTint="@color/colorPrimaryDark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <RelativeLayout
+            android:id="@+id/first_window_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/first_window_recycle_view1"
+                android:layout_width="405dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/first_window_text_view_recommendedForYou"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="-26dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginRight="15sp" />
+
+            <TextView
+                android:id="@+id/first_window_text_view_recommendedForYou"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/first_window_linear_topbar"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="15sp"
+                android:layout_marginBottom="20sp"
+                android:text="@string/recommended_for_you"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:id="@+id/first_window_linear_topbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/main_motive"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="18dp">
+
+                <SearchView
+                    android:id="@+id/first_window_searchView_search"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginEnd="18dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_whitescene"
+                    android:ems="10"
+                    android:hint="@string/search" />
+
+                <ImageButton
+                    android:id="@+id/first_window_btn_sort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_sort_24" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <include
+            android:id="@+id/first_window_include"
+            layout="@layout/pagination_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/first_window_recycle_view2"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/first_window_recycle_view2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/first_window_text_view_theMostPopular"
+            tools:layout_editor_absoluteX="18dp" />
+
+        <TextView
+            android:id="@+id/first_window_text_view_theMostPopular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/the_most_popular"
+            android:textSize="24sp"
+            app:layout_constraintTop_toBottomOf="@+id/first_window_container"
+            tools:layout_editor_absoluteX="6dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+

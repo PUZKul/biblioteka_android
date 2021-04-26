@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.ui.fragments.dialogs.copiesOfBooks;
+package kul.pl.biblioteka.ui.dialogs.copiesOfBooks;
 
 import java.util.List;
 

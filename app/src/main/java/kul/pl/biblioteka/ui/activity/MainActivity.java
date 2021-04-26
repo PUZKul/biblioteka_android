@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import kul.pl.biblioteka.R;
+import kul.pl.biblioteka.ui.fragments.firstWindowFragment.FirstWindowFragment;
 import kul.pl.biblioteka.ui.fragments.home.HomeFragment;
 import kul.pl.biblioteka.ui.fragments.notLoggedIn.hiatoryAndReading.NotLoggedInReservationsReadingAndHistory;
 import kul.pl.biblioteka.ui.fragments.notLoggedIn.profile.NotLoggedInProfileFragment;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bottom_navigation);
         bottom_nav = findViewById(R.id.bottom_nav);
         bottom_nav.setOnNavigationItemSelectedListener(navListener);
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new FirstWindowFragment()).commit();
     }
 
     public static Context getAppContext() {
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new NotLoggedInReservationsReadingAndHistory();
                             break;
                         case R.id.bottom_nav_home:
-                            selectedFragment = new HomeFragment();
+                            selectedFragment = new FirstWindowFragment();
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();

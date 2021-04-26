@@ -1,10 +1,10 @@
-package kul.pl.biblioteka.ui.fragments.home;
+package kul.pl.biblioteka.ui.fragments.firstWindowFragment;
 
 import java.util.List;
 
 import kul.pl.biblioteka.models.BookModel;
 
-public interface HomeFragmentContract {
+public interface FirstWindowFragmentContract {
     interface Presenter {
         void setListSortByTitle();
 

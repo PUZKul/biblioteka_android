@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.ui.fragments.home;
+package kul.pl.biblioteka.ui.fragments.firstWindowFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,25 +26,36 @@ import kul.pl.biblioteka.models.BookModel;
 import kul.pl.biblioteka.ui.activity.noInternet.NoInternetActivity;
 import kul.pl.biblioteka.ui.fragments.bookView.BookViewFragment;
 
-public class HomeFragment extends Fragment implements HomeFragmentContract.View {
+
+public class FirstWindowFragment extends Fragment implements FirstWindowFragmentContract.View{
 
     private ImageButton sortBtn;
     private PopupMenu menu;
-    private RecyclerView recyclerView;
+    private RecyclerView recommendedRecyclerView;
+    private RecyclerView theMostPopularRecyclerView;
     private SearchView searchExitText;
-    private HomeFragmentPresenter presenter;
+    private FirstWindowFragmentPresenter presenter;
     private ProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_first_window_fragment, container, false);
         initComponents(view);
-        setAdapter();
+        setAdapters();
         setOnClickListener();
-        presenter = new HomeFragmentPresenter(this);
+        presenter = new FirstWindowFragmentPresenter(this);
         presenter.setListTopBooks();
         presenter.setPaginationComponent(view);
         return view;
+    }
+
+    private void initComponents(View view) {
+        sortBtn=view.findViewById(R.id.first_window_btn_sort);
+        menu=new PopupMenu(view.getContext(), sortBtn);
+        recommendedRecyclerView=view.findViewById(R.id.first_window_recycle_view1);
+        theMostPopularRecyclerView=view.findViewById(R.id.first_window_recycle_view2);
+        searchExitText=view.findViewById(R.id.first_window_searchView_search);
+        progressBar=view.findViewById(R.id.first_window_progressBar);
     }
 
     private void setOnClickListener() {
@@ -55,13 +66,13 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
     private SearchView.OnQueryTextListener searchOnSearchListener = new SearchView.OnQueryTextListener() {
         @Override
         public boolean onQueryTextSubmit(String query) {
-            presenter.setListByName(searchExitText.getQuery().toString());
+
             return false;
         }
 
         @Override
         public boolean onQueryTextChange(String newText) {
-            presenter.setListByName(searchExitText.getQuery().toString());
+
             return false;
         }
     };
@@ -93,18 +104,14 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
                 }
             };
 
-    private void initComponents(View view) {
-        sortBtn = view.findViewById(R.id.home_btn_sort);
-        menu = new PopupMenu(view.getContext(), sortBtn);
-        menu.getMenuInflater().inflate(R.menu.sort_list_menu, menu.getMenu());
-        recyclerView = view.findViewById(R.id.home_recycleView);
-        searchExitText = view.findViewById(R.id.home_searchView_search);
-        progressBar = view.findViewById(R.id.home_progressBar);
+    private void setAdapters() {
+        theMostPopularRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL, false));
+        theMostPopularRecyclerView.addItemDecoration(new VerticalSpaceItemDecoration(25));
     }
 
     @Override
     public void setList(List<BookModel> booksList) {
-        recyclerView.setAdapter(new HomeListRecycleViewAdapter(getContext(), booksList, onItemClickListener));
+        theMostPopularRecyclerView.setAdapter(new HomeListRecycleViewAdapter(getContext(), booksList, onItemClickListener));
     }
 
     private OnItemClickListener onItemClickListener = new OnItemClickListener() {
@@ -133,10 +140,6 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
         return bundle;
     }
 
-    private void setAdapter() {
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL, false));
-        recyclerView.addItemDecoration(new VerticalSpaceItemDecoration(25));
-    }
 
     @Override
     public void showToast(String text) {

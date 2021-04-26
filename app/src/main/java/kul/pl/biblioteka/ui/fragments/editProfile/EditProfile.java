@@ -11,8 +11,8 @@ import androidx.fragment.app.Fragment;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.ui.activity.MainActivity;
-import kul.pl.biblioteka.ui.fragments.dialogs.DialogListener;
-import kul.pl.biblioteka.ui.fragments.dialogs.PasswordSecurityDialog;
+import kul.pl.biblioteka.ui.dialogs.DialogListener;
+import kul.pl.biblioteka.ui.dialogs.PasswordSecurityDialog;
 
 public class EditProfile extends Fragment implements DialogListener {
 
