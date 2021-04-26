@@ -3,18 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_margin="20px"
-    android:background="@drawable/item_style"
+    android:layout_marginHorizontal="8dp"
+    app:cardCornerRadius="12dp"
+    tools:src="@color/colorWhite"
+    android:elevation="5dp"
     android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="169dp"
+        android:layout_width="148dp"
         android:layout_height="185dp">
 
         <ImageView
             android:id="@+id/CopiesOfBook_image_info"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="34dp"
+            android:layout_height="31dp"
             android:layout_gravity="center_horizontal"
             android:clickable="true"
             android:focusable="true"
@@ -23,6 +25,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/CopiesOfBook_text_status"
+            app:layout_constraintVertical_bias="0.0"
             tools:ignore="ContentDescription" />
 
         <TextView
@@ -44,16 +47,16 @@
 
         <ImageView
             android:id="@+id/CopiesOfBook_image_bookmark"
-            android:layout_width="37dp"
-            android:layout_height="59dp"
+            android:layout_width="51dp"
+            android:layout_height="65dp"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/bookmark_green"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.933"
+            app:layout_constraintHorizontal_bias="0.965"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.041" />
 
         <TextView
             android:id="@+id/CopiesOfBook_text_copyNumber"
@@ -75,19 +78,18 @@
 
         <TextView
             android:id="@+id/CopiesOfBook_text_textCopy"
-            android:layout_width="60dp"
-            android:layout_height="36dp"
+            android:layout_width="80dp"
+            android:layout_height="38dp"
             android:layout_gravity="center_horizontal"
             android:text="@string/copy"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="22sp"
+            android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.115" />
+            app:layout_constraintVertical_bias="0.108" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
