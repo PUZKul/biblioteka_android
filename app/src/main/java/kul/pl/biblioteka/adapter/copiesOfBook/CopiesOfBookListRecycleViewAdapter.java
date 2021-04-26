@@ -1,7 +1,6 @@
 package kul.pl.biblioteka.adapter.copiesOfBook;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +27,7 @@ public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<Cop
     @Override
     public CopiesOfBookListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(context);
-        View view =  mInflater.inflate(R.layout.dialog_copies_of_books_element, parent, false);
+        View view =  mInflater.inflate(R.layout.copies_of_books_item, parent, false);
         return new CopiesOfBookListViewHolder(view);
     }
 
