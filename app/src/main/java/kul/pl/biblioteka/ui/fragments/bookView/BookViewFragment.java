@@ -23,7 +23,7 @@ import com.squareup.picasso.Picasso;
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.ui.activity.noInternet.NoInternetActivity;
 import kul.pl.biblioteka.ui.dialogs.copiesOfBooks.CopiesOfBooksDialog;
-import kul.pl.biblioteka.ui.fragments.home.HomeFragment;
+import kul.pl.biblioteka.ui.fragments.firstWindowFragment.FirstWindowFragment;
 
 public class BookViewFragment extends Fragment implements BookViewFragmentContract.View {
 
@@ -88,7 +88,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
 
     private void openHomeFragment() {
         getActivity().getSupportFragmentManager().beginTransaction().
-        replace(((ViewGroup) getView().getParent()).getId(),new HomeFragment())
+        replace(((ViewGroup) getView().getParent()).getId(),new FirstWindowFragment())
         .addToBackStack(getView().getClass().getName())
         .commit();
     }

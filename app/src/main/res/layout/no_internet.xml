@@ -45,7 +45,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginRight="50dp"
             android:background="@drawable/btn_primary"
-            android:text="@string/back"
+            android:text="@string/try_again"
             android:textColor="@color/colorWhite"
             android:textSize="18sp" />
     </LinearLayout>

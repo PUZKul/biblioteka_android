@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
         setContentView(R.layout.activity_login);
         initComponents();
         setOnClickListeners();
-        presenter = new LoginActivityPresenter(this);
+        presenter = new LoginActivityPresenter(this,getApplicationContext());
     }
 
     private void setOnClickListeners() {

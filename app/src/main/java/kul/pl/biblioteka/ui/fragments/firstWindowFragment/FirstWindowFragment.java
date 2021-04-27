@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -22,6 +23,7 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.OnItemClickListener;
 import kul.pl.biblioteka.adapter.VerticalSpaceItemDecoration;
 import kul.pl.biblioteka.adapter.homeList.HomeListRecycleViewAdapter;
+import kul.pl.biblioteka.adapter.recommendedList.RecommendedListRecycleViewAdapter;
 import kul.pl.biblioteka.models.BookModel;
 import kul.pl.biblioteka.ui.activity.noInternet.NoInternetActivity;
 import kul.pl.biblioteka.ui.fragments.bookView.BookViewFragment;
@@ -36,6 +38,8 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
     private SearchView searchExitText;
     private FirstWindowFragmentPresenter presenter;
     private ProgressBar progressBar;
+    private TextView text1;
+    private TextView text2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -43,8 +47,9 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
         initComponents(view);
         setAdapters();
         setOnClickListener();
-        presenter = new FirstWindowFragmentPresenter(this);
+        presenter = new FirstWindowFragmentPresenter(this,getContext());
         presenter.setListTopBooks();
+        presenter.setListSortByDiscover();
         presenter.setPaginationComponent(view);
         return view;
     }
@@ -52,10 +57,13 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
     private void initComponents(View view) {
         sortBtn=view.findViewById(R.id.first_window_btn_sort);
         menu=new PopupMenu(view.getContext(), sortBtn);
+        menu.getMenuInflater().inflate(R.menu.sort_list_menu, menu.getMenu());
         recommendedRecyclerView=view.findViewById(R.id.first_window_recycle_view1);
         theMostPopularRecyclerView=view.findViewById(R.id.first_window_recycle_view2);
         searchExitText=view.findViewById(R.id.first_window_searchView_search);
         progressBar=view.findViewById(R.id.first_window_progressBar);
+        text1=view.findViewById(R.id.first_window_text_view_theMostPopular);
+        text2=view.findViewById(R.id.first_window_text_view_recommendedForYou);
     }
 
     private void setOnClickListener() {
@@ -72,7 +80,12 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
 
         @Override
         public boolean onQueryTextChange(String newText) {
-
+            hideComponents();
+            if(newText.isEmpty())
+                text1.setText("");
+            else
+                text1.setText("''"+newText+"''");
+            presenter.setListByName(newText);
             return false;
         }
     };
@@ -91,27 +104,50 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
                 public boolean onMenuItemClick(MenuItem item) {
                     if (item.getItemId() == R.id.bottom_sort_title) {
                         presenter.setListSortByTitle();
+                        hideComponents();
+                        text1.setText("Books sorted by title");
                     } else if (item.getItemId() == R.id.bottom_sort_date) {
                         presenter.setListSortByDate();
+                        hideComponents();
+                        text1.setText("Books sorted by date");
                     } else if (item.getItemId() == R.id.bottom_sort_discover) {
                         presenter.setListSortByDiscover();
+                        text1.setText("Discover books");
+                        hideComponents();
                     } else if (item.getItemId() == R.id.bottom_sort_ranting) {
                         presenter.setListSortByRating();
+                        text1.setText("Books sorted by rating");
+                        hideComponents();
                     } else {
                         presenter.setListTopBooks();
+                        hideComponents();
+                        text1.setText("Top books");
                     }
                     return true;
                 }
             };
 
+    private void hideComponents(){
+        recommendedRecyclerView.setVisibility(View.GONE);
+        text2.setVisibility(View.GONE);
+    }
+
+
     private void setAdapters() {
         theMostPopularRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL, false));
         theMostPopularRecyclerView.addItemDecoration(new VerticalSpaceItemDecoration(25));
+        recommendedRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1, GridLayoutManager.HORIZONTAL, false));
+        recommendedRecyclerView.addItemDecoration(new VerticalSpaceItemDecoration(25));
     }
 
     @Override
-    public void setList(List<BookModel> booksList) {
+    public void setTheMostPopularList(List<BookModel> booksList) {
         theMostPopularRecyclerView.setAdapter(new HomeListRecycleViewAdapter(getContext(), booksList, onItemClickListener));
+    }
+
+    @Override
+    public void setRecommendedList(List<BookModel> booksList) {
+        recommendedRecyclerView.setAdapter(new RecommendedListRecycleViewAdapter(getContext(), booksList, onItemClickListener));
     }
 
     private OnItemClickListener onItemClickListener = new OnItemClickListener() {
@@ -139,7 +175,6 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
         bundle.putInt(getString(R.string.idBook), argument);
         return bundle;
     }
-
 
     @Override
     public void showToast(String text) {

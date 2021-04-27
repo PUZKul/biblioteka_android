@@ -56,7 +56,7 @@ public final class LibraryAccess extends LibraryAPI{
 
     public void getDiscoverBooks(int limit){
         HTTPMethods.getBooks(limit)
-                .enqueue(callbackForBooksList);
+                .enqueue(callbackForDiscoverBooksList);
     }
 
     public void getAvailableBookNumber(int bookId){

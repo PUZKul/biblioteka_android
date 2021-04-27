@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.adapter.copiesOfBook;
+package kul.pl.biblioteka.adapter.copiesOfBookList;
 
 import android.content.Context;
 import android.view.LayoutInflater;

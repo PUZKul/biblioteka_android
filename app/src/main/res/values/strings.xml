@@ -75,5 +75,6 @@
     <string name="your_reservations_list_is_empty">Your reservations list is empty</string>
     <string name="recommended_for_you">Recommended for you</string>
     <string name="the_most_popular">The most popular</string>
+    <string name="try_again">Try again</string>
 
 </resources>

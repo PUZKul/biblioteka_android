@@ -17,7 +17,7 @@ import java.util.List;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.VerticalSpaceItemDecoration;
-import kul.pl.biblioteka.adapter.copiesOfBook.CopiesOfBookListRecycleViewAdapter;
+import kul.pl.biblioteka.adapter.copiesOfBookList.CopiesOfBookListRecycleViewAdapter;
 import kul.pl.biblioteka.models.CopiesOfBookModel;
 
 public class CopiesOfBooksDialog extends AppCompatDialogFragment implements CopiesOfBooksDialogContract.View{

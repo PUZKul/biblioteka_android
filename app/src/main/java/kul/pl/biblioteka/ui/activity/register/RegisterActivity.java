@@ -35,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
         setContentView(R.layout.activity_register);
         initComponents();
         setOnClickListeners();
-        presenter = new RegisterActivityPresenter(this);
+        presenter = new RegisterActivityPresenter(this,getApplicationContext());
     }
 
     private void setOnClickListeners() {

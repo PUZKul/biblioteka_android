@@ -20,7 +20,9 @@ public interface FirstWindowFragmentContract {
     }
 
     interface View {
-        void setList(List<BookModel> booksList);
+        void setTheMostPopularList(List<BookModel> booksList);
+
+        void setRecommendedList(List<BookModel> booksList);
 
         void showToast(String text);
 
@@ -31,5 +33,6 @@ public interface FirstWindowFragmentContract {
         void endProgressBar();
 
         void openOnInternetActivity();
+
     }
 }

@@ -7,6 +7,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import kul.pl.biblioteka.R;
+import kul.pl.biblioteka.dataAccess.InternetConnection;
 
 public class NoInternetActivity extends AppCompatActivity {
 
@@ -23,7 +24,8 @@ public class NoInternetActivity extends AppCompatActivity {
     private View.OnClickListener onBackClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            finish();
+            if(InternetConnection.isConnection(getApplicationContext()))
+                finish();
         }
     };
 }

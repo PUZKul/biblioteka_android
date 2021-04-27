@@ -54,4 +54,9 @@ public abstract class APIAdapter implements APIListener {
     public void onCopiesOfBookReceive(List<CopiesOfBookModel> book) {
 
     }
+
+    @Override
+    public void onDiscoverBookListReceive(PageHolder<BookModel> page) {
+
+    }
 }

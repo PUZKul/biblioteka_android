@@ -1,8 +1,5 @@
 package kul.pl.biblioteka.dataAccess;
 
-import android.util.Log;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
@@ -31,6 +28,24 @@ abstract class LibraryAPI {
             if (response.isSuccessful()) {
                 PageHolder<BookModel> page = response.body();
                 listener.onBookListReceive(page);
+            } else {
+                ApiError apiError = ApiErrorParser.parseError(response);
+                listener.onErrorReceive(apiError);
+            }
+        }
+
+        @Override
+        public void onFailure(Call<PageHolder<BookModel>> call, Throwable t) {
+            listener.onNoInternet();
+        }
+    };
+
+    protected Callback<PageHolder<BookModel>> callbackForDiscoverBooksList = new Callback<PageHolder<BookModel>>() {
+        @Override
+        public void onResponse(Call<PageHolder<BookModel>> call, Response<PageHolder<BookModel>> response) {
+            if (response.isSuccessful()) {
+                PageHolder<BookModel> page = response.body();
+                listener.onDiscoverBookListReceive(page);
             } else {
                 ApiError apiError = ApiErrorParser.parseError(response);
                 listener.onErrorReceive(apiError);

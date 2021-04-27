@@ -1,9 +1,11 @@
 package kul.pl.biblioteka.ui.fragments.firstWindowFragment;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
 import kul.pl.biblioteka.dataAccess.APIAdapter;
+import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.models.BookModel;
 
@@ -14,7 +16,7 @@ import kul.pl.biblioteka.utils.Sorting;
 
 import static kul.pl.biblioteka.utils.Constants.LIMIT;
 
-public class FirstWindowFragmentPresenter  extends APIAdapter implements FirstWindowFragmentContract.Presenter{
+public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWindowFragmentContract.Presenter {
 
     private FirstWindowFragmentContract.View view;
     private LibraryAccess api;
@@ -22,11 +24,13 @@ public class FirstWindowFragmentPresenter  extends APIAdapter implements FirstWi
     private Sorting currentSorting;
     private Direction currentDirection;
     private String currentSearch;
+    private Context context;
 
-    public FirstWindowFragmentPresenter(FirstWindowFragmentContract.View view) {
+    public FirstWindowFragmentPresenter(FirstWindowFragmentContract.View view,Context context) {
         this.view = view;
         this.api = LibraryAccess.getInstance();
         api.setListener(this);
+        this.context=context;
     }
 
     public void setPaginationComponent(View view) {
@@ -38,54 +42,67 @@ public class FirstWindowFragmentPresenter  extends APIAdapter implements FirstWi
 
     @Override
     public void setListSortByTitle() {
-        currentSorting = Sorting.TITLE;
-        api.getBooks(LIMIT, 0, currentSorting);
+        if (InternetConnection.isConnection(context)) {
+            currentSorting = Sorting.TITLE;
+            api.getBooks(LIMIT, 0, currentSorting);
+        }else
+            view.openOnInternetActivity();
     }
 
     @Override
     public void setListSortByRating() {
-        currentSorting = Sorting.RATING;
-        currentDirection = Direction.DESC;
-        api.getBooks(LIMIT, 0, currentSorting, currentDirection);
+        if (InternetConnection.isConnection(context)) {
+            currentSorting = Sorting.RATING;
+            currentDirection = Direction.DESC;
+            api.getBooks(LIMIT, 0, currentSorting, currentDirection);
+        }else
+            view.openOnInternetActivity();
     }
 
     @Override
     public void setListSortByDate() {
-        currentSorting = Sorting.YEAR;
-        currentDirection = Direction.DESC;
-        api.getBooks(LIMIT, 0, currentSorting, currentDirection);
+        if (InternetConnection.isConnection(context)) {
+            currentSorting = Sorting.YEAR;
+            currentDirection = Direction.DESC;
+            api.getBooks(LIMIT, 0, currentSorting, currentDirection);
+        }else
+            view.openOnInternetActivity();
     }
 
     @Override
     public void setListTopBooks() {
-        currentSorting = Sorting.POPULARITY;
-        currentDirection = Direction.DESC;
-        api.getBooks(LIMIT, 0, currentSorting, currentDirection);
+        if (InternetConnection.isConnection(context)) {
+            currentSorting = Sorting.POPULARITY;
+            currentDirection = Direction.DESC;
+            api.getBooks(LIMIT, 0, currentSorting, currentDirection);
+        }else
+            view.openOnInternetActivity();
     }
 
     @Override
     public void setListSortByDiscover() {
-        api.getDiscoverBooks(LIMIT);
+        if (InternetConnection.isConnection(context))
+            api.getDiscoverBooks(LIMIT);
+        else
+            view.openOnInternetActivity();
     }
 
     @Override
     public void setListByName(String search) {
-        currentSorting = Sorting.SEARCH;
-        currentSearch = search;
-        api.getSearchBooks(LIMIT, 0, currentSearch);
+        if(InternetConnection.isConnection(context)){
+            currentSorting = Sorting.SEARCH;
+            currentSearch = search;
+            api.getSearchBooks(LIMIT, 0, currentSearch);
+        }else
+            view.openOnInternetActivity();
     }
 
     @Override
     public void onBookListReceive(PageHolder<BookModel> page) {
         view.startProgressBar();
-        view.setList(page.getContent());
+        view.setTheMostPopularList(page.getContent());
         view.endProgressBar();
         pageBar.setPage(page);
-    }
-
-    @Override
-    public void onAvailableBook(Integer available) {
-
     }
 
     @Override
@@ -97,33 +114,52 @@ public class FirstWindowFragmentPresenter  extends APIAdapter implements FirstWi
     private View.OnClickListener previousClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (currentSorting.equals(Sorting.SEARCH))
-                api.getSearchBooks(LIMIT, pageBar.previousPage(), currentSearch);
-            else
-                api.getBooks(LIMIT, pageBar.previousPage(), currentSorting, currentDirection);
+            if(InternetConnection.isConnection(context)){
+                if (currentSorting.equals(Sorting.SEARCH))
+                    api.getSearchBooks(LIMIT, pageBar.previousPage(), currentSearch);
+                else
+                    api.getBooks(LIMIT, pageBar.previousPage(), currentSorting, currentDirection);
+            }else
+                view.openOnInternetActivity();
         }
     };
 
     private View.OnClickListener nextClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (currentSorting.equals(Sorting.SEARCH))
-                api.getSearchBooks(LIMIT, pageBar.nextPage(), currentSearch);
-            else
-                api.getBooks(LIMIT, pageBar.nextPage(), currentSorting, currentDirection);
+           if(InternetConnection.isConnection(context)){
+               if (currentSorting.equals(Sorting.SEARCH))
+                   api.getSearchBooks(LIMIT, pageBar.nextPage(), currentSearch);
+               else
+                   api.getBooks(LIMIT, pageBar.nextPage(), currentSorting, currentDirection);
+           }else
+               view.openOnInternetActivity();
         }
     };
 
     private final View.OnClickListener pageClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            TextView text = pageBar.getView().findViewById(v.getId());
-            String value = text.getText().toString();
-            int clickedPage = Integer.parseInt(value) - 1;
-            if (currentSorting.equals(Sorting.SEARCH))
-                api.getSearchBooks(LIMIT, clickedPage, currentSearch);
-            else
-                api.getBooks(LIMIT, clickedPage, currentSorting, currentDirection);
+            if(InternetConnection.isConnection(context)){
+                TextView text = pageBar.getView().findViewById(v.getId());
+                String value = text.getText().toString();
+                int clickedPage = Integer.parseInt(value) - 1;
+                if (currentSorting.equals(Sorting.SEARCH))
+                    api.getSearchBooks(LIMIT, clickedPage, currentSearch);
+                else
+                    api.getBooks(LIMIT, clickedPage, currentSorting, currentDirection);
+            }else
+                view.openOnInternetActivity();
         }
     };
+
+    @Override
+    public void onDiscoverBookListReceive(PageHolder<BookModel> page) {
+        if(InternetConnection.isConnection(context)){
+            if(this.currentSorting==null)
+                view.setTheMostPopularList(page.getContent());
+            view.setRecommendedList(page.getContent());
+        }else
+            view.openOnInternetActivity();
+    }
 }

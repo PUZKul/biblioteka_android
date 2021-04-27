@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.adapter.copiesOfBook;
+package kul.pl.biblioteka.adapter.copiesOfBookList;
 
 import android.graphics.drawable.Drawable;
 import android.view.View;

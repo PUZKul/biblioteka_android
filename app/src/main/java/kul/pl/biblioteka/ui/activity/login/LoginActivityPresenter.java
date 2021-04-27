@@ -1,6 +1,9 @@
 package kul.pl.biblioteka.ui.activity.login;
 
+import android.content.Context;
+
 import kul.pl.biblioteka.dataAccess.APIAdapter;
+import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.LoginApiUserModel;
@@ -11,20 +14,25 @@ public class LoginActivityPresenter extends APIAdapter implements LoginActivityC
 
     private LoginActivityContract.View view;
     private LibraryAccess api;
+    private Context context;
 
-    public LoginActivityPresenter(LoginActivityContract.View view) {
+    public LoginActivityPresenter(LoginActivityContract.View view, Context context) {
         this.view = view;
         api = LibraryAccess.getInstance();
         this.view = view;
         api.setListener(this);
+        this.context=context;
     }
 
     @Override
     public void onLoginClicked(LoginUserModel user) {
         view.startProgressBar();
         if (validateDate(user)) {
-            view.startProgressBar();
-            api.getAuthorization(new LoginApiUserModel(user.getNick(), user.getPassword()));
+           if(InternetConnection.isConnection(context)){
+               view.startProgressBar();
+               api.getAuthorization(new LoginApiUserModel(user.getNick(), user.getPassword()));
+           }else
+               view.openOnInternetActivity();
         }
     }
 

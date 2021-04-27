@@ -1,6 +1,9 @@
 package kul.pl.biblioteka.ui.activity.register;
 
+import android.content.Context;
+
 import kul.pl.biblioteka.dataAccess.APIAdapter;
+import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.RegistrationApiUserModel;
@@ -10,23 +13,28 @@ import kul.pl.biblioteka.utils.StringHelper;
 public class RegisterActivityPresenter extends APIAdapter implements RegisterActivityContract.Presenter {
     private RegisterActivityContract.View view;
     private LibraryAccess api;
+    private Context context;
 
-    public RegisterActivityPresenter(RegisterActivityContract.View view) {
+    public RegisterActivityPresenter(RegisterActivityContract.View view,Context context) {
         this.view = view;
         api = LibraryAccess.getInstance();
         api.setListener(this);
+        this.context=context;
     }
 
     @Override
     public void onRegisterClicked(RegistrationUserModel user) {
         if (!isEmptyFields(user)
                 && validateFields(user)) {
-            view.startProgressBar();
-            api.getRegistration(new RegistrationApiUserModel(
-                    user.getNick()
-                    , user.getEmail()
-                    , user.getPasswordFirst()
-            ));
+            if(InternetConnection.isConnection(context)){
+                view.startProgressBar();
+                api.getRegistration(new RegistrationApiUserModel(
+                        user.getNick()
+                        , user.getEmail()
+                        , user.getPasswordFirst()
+                ));
+            }else
+                view.openOnInternetActivity();
         }
     }
 

@@ -27,4 +27,6 @@ public interface APIListener {
 
     void onCopiesOfBookReceive(List<CopiesOfBookModel> book);
 
+    void onDiscoverBookListReceive(PageHolder<BookModel> page);
+
 }
