@@ -20,38 +20,6 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="30sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="40sp"
-            android:layout_marginRight="40sp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/editProfile_textViev_nick"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40sp"
-                android:text="@string/nick" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="40sp"
-            android:layout_marginRight="40sp"
-            android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/editProfile_editText_nick"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints=""
-                android:background="@drawable/btn_whitescene"
-                android:ems="10"
-                android:inputType="text"
-                tools:ignore="LabelFor" />
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -196,3 +164,35 @@
     </LinearLayout>
 </ScrollView>
 
+<!--<LinearLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--android:layout_marginLeft="40sp"-->
+<!--android:layout_marginRight="40sp"-->
+<!--android:orientation="vertical">-->
+
+<!--<TextView-->
+<!--    android:id="@+id/editProfile_textViev_nick"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_marginTop="40sp"-->
+<!--    android:text="@string/nick" />-->
+<!--</LinearLayout>-->
+
+<!--<LinearLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--android:layout_marginLeft="40sp"-->
+<!--android:layout_marginRight="40sp"-->
+<!--android:orientation="vertical">-->
+
+<!--<EditText-->
+<!--    android:id="@+id/editProfile_editText_nick"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:autofillHints=""-->
+<!--    android:background="@drawable/btn_whitescene"-->
+<!--    android:ems="10"-->
+<!--    android:inputType="text"-->
+<!--    tools:ignore="LabelFor" />-->
+<!--</LinearLayout>-->
