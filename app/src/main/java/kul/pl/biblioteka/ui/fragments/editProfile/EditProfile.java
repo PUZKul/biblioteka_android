@@ -10,6 +10,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -22,7 +23,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View {
 
     private EditText editEmail;
     private CheckBox checkBoxEditPassword;
-    private TextView textEditPassoword;
+    private TextView textEditPassword;
     private EditText editPassword;
     private TextView textRepeatEditPassword;
     private EditText repeatEditedPassword;
@@ -35,16 +36,17 @@ public class EditProfile extends Fragment implements EditProfileContract.View {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edit_profile, container, false);
         initComponents(view);
-        checkBoxStatus();
         setOnClickListeners();
         presenter = new EditProfilePresenter(this);
+        presenter.setUserDetails();
+        hideEditPasswordsFields();
         return view;
     }
 
     private void initComponents(View view) {
         editEmail = view.findViewById(R.id.editProfile_editText_email2);
         checkBoxEditPassword = view.findViewById(R.id.editProfile_checkBox_changePasswordCheckBox2);
-        textEditPassoword = view.findViewById(R.id.editProfile_textViev_newPassword2);
+        textEditPassword = view.findViewById(R.id.editProfile_textViev_newPassword2);
         editPassword = view.findViewById(R.id.editProfile_editText_newPassword2);
         textRepeatEditPassword = view.findViewById(R.id.editProfile_textViev_repeatPassword2);
         repeatEditedPassword = view.findViewById(R.id.editProfile_editText_repeatPassword2);
@@ -56,7 +58,15 @@ public class EditProfile extends Fragment implements EditProfileContract.View {
     private void setOnClickListeners() {
         cancelBtn.setOnClickListener(cancelOnClickListener());
         saveBtn.setOnClickListener(saveOnClickListener());
+        checkBoxEditPassword.setOnClickListener(checkBoxOnClickListener);
     }
+
+    private View.OnClickListener checkBoxOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            checkBoxStatus();
+        }
+    };
 
     private View.OnClickListener cancelOnClickListener() {
         return new View.OnClickListener() {
@@ -72,8 +82,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.onSaveClicked(new RegistrationUserModel((
-                        null),
+                presenter.onSaveClicked(new RegistrationUserModel(
                         editPassword.getText().toString()
                         , repeatEditedPassword.getText().toString()
                         , editEmail.getText().toString()));
@@ -81,10 +90,9 @@ public class EditProfile extends Fragment implements EditProfileContract.View {
         };
     }
 
-
     @Override
     public void showToast(String message) {
-        progressBar.setVisibility(View.VISIBLE);
+        Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -92,6 +100,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View {
         progressBar.setVisibility(View.VISIBLE);
     }
 
+    @Override
     public void endProgressBar() {
         progressBar.setVisibility(View.GONE);
     }
@@ -101,8 +110,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View {
         startActivity(intent);
     }
 
-    @Override
-    public void checkBoxStatus() {
+    private void checkBoxStatus() {
         if (!checkBoxEditPassword.isChecked()) {
             hideEditPasswordsFields();
         } else {
@@ -110,21 +118,20 @@ public class EditProfile extends Fragment implements EditProfileContract.View {
         }
     }
 
-    @Override
-    public void hideEditPasswordsFields() {
-        textEditPassoword.setVisibility(View.GONE);
+    private void hideEditPasswordsFields() {
+        textEditPassword.setVisibility(View.GONE);
         textRepeatEditPassword.setVisibility(View.GONE);
         editPassword.setVisibility(View.GONE);
         repeatEditedPassword.setVisibility(View.GONE);
     }
 
-    @Override
-    public void showEditPasswordsFields() {
-        textEditPassoword.setVisibility(View.VISIBLE);
+    private void showEditPasswordsFields() {
+        textEditPassword.setVisibility(View.VISIBLE);
         textRepeatEditPassword.setVisibility(View.VISIBLE);
         editPassword.setVisibility(View.VISIBLE);
         repeatEditedPassword.setVisibility(View.VISIBLE);
     }
+
     @Override
     public void setEmail(String email) {
         editEmail.setText(email);
@@ -145,27 +152,37 @@ public class EditProfile extends Fragment implements EditProfileContract.View {
         return repeatEditedPassword.getText().toString();
     }
 
+    @Override
+    public boolean isCheckedBoxEditPassword() {
+        return checkBoxEditPassword.isChecked();
+    }
 
+    @Override
+    public void openDialog() {
+        //todo open dialog check actual password
+    }
+
+    @Override
     public void errorEmailIncorrect() {
         editEmail.setError("Incorrect email!");
     }
 
 
+    @Override
     public void errorPasswordIncorrect() {
         editPassword.setError("Password should include at least one numbers, one special character and one letter and has between 8-25 characters");
     }
 
+    @Override
     public void errorRepeatPasswordAreNotIdentical() {
         repeatEditedPassword.setError("Password are't identical!");
     }
 
-
+    @Override
     public void openOnInternetActivity() {
         Intent intent = new Intent(MainActivity.getAppContext(), NoInternetActivity.class);
         startActivity(intent);
     }
-
-
 }
 
 

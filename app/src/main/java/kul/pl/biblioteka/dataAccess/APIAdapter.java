@@ -37,7 +37,6 @@ public abstract class APIAdapter implements APIListener {
 
     @Override
     public void onNoInternet() {
-
     }
 
     @Override

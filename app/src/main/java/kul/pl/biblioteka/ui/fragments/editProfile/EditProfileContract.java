@@ -13,12 +13,6 @@ public interface EditProfileContract {
 
         void openMainActivity();
 
-        void checkBoxStatus();
-
-        void hideEditPasswordsFields();
-
-        void showEditPasswordsFields();
-
         void errorEmailIncorrect();
 
         void errorPasswordIncorrect();
@@ -35,7 +29,9 @@ public interface EditProfileContract {
 
         String getRepeatPassword();
 
+        boolean isCheckedBoxEditPassword();
 
+        void openDialog();
     }
 
     interface Presenter {

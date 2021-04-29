@@ -6,9 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryBackground">
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -46,6 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
+            android:layout_marginEnd="10dp"
             android:autofillHints=""
             android:background="@drawable/btn_whitescene"
             android:ems="10"
@@ -91,19 +89,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ProgressBar
-            android:id="@+id/editProfile_progressBar2"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="159dp"
-            android:layout_height="166dp"
-            android:layout_gravity="center_horizontal"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.478" />
-
         <CheckBox
             android:id="@+id/editProfile_checkBox_changePasswordCheckBox2"
             android:layout_width="match_parent"
@@ -133,6 +118,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
+            android:layout_marginEnd="10dp"
             android:autofillHints=""
             android:background="@drawable/btn_whitescene"
             android:ems="10"
@@ -144,19 +130,33 @@
 
         <EditText
             android:id="@+id/editProfile_editText_email2"
-            android:layout_width="372dp"
-            android:layout_height="39dp"
+            android:layout_width="348dp"
+            android:layout_height="38dp"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
             android:autofillHints=""
             android:background="@drawable/btn_whitescene"
             android:ems="10"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.538"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editProfile_textViev_email2"
             tools:ignore="LabelFor" />
+
+        <ProgressBar
+            android:id="@+id/editProfile_progressBar2"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="159dp"
+            android:layout_height="166dp"
+            android:layout_gravity="center_horizontal"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.509" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
