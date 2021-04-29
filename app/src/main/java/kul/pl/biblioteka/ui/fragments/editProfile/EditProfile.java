@@ -135,13 +135,13 @@ public class EditProfile extends Fragment implements EditProfileContract.View {
     }
 
     @Override
-    public void getPassword() {
-
+    public String getPassword() {
+        return editPassword.getText().toString();
     }
 
     @Override
-    public void getRepeatPassword() {
-
+    public String getRepeatPassword() {
+        return repeatEditedPassword.getText().toString();
     }
 
 

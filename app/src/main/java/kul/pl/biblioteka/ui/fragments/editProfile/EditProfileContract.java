@@ -31,9 +31,9 @@ public interface EditProfileContract {
 
         String getEmail();
 
-        void getPassword();
+        String getPassword();
 
-        void getRepeatPassword();
+        String getRepeatPassword();
 
 
     }
