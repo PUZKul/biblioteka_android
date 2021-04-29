@@ -36,6 +36,8 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         initComponents(view);
         setOnClickListener();
+        presenter=new ProfileFragmentPresenter(this);
+        presenter.setUSeaDetails();
         return view;
     }
 
@@ -80,7 +82,6 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
     }
 
     private void openEditProfileFragment() {
-        //TO DO add string
         getActivity().getSupportFragmentManager().beginTransaction().
                 add(((ViewGroup)getView().getParent()).getId(),new EditProfile(),"Edit profile")
                 .addToBackStack(getView().getClass().getName())
@@ -89,7 +90,7 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
 
     private void openLoginActivity() {
         Intent intent = new Intent(getContext(), LoginActivity.class);
-        //To Do information toast
+        //todo toast information
         startActivity(intent);
     }
 
@@ -104,22 +105,22 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
     }
 
     @Override
-    public void setReadBooks(int readBooks) {
+    public void setReadBooks(String readBooks) {
     readBooksText.setText(readBooks);
     }
 
     @Override
-    public void setCurrentBooks(int currentBooks) {
+    public void setCurrentBooks(String currentBooks) {
     readBooksText.setText(currentBooks);
     }
 
     @Override
-    public void setCurrentLevel(int level) {
+    public void setCurrentLevel(String level) {
     currentLevelText.setText(level);
     }
 
     @Override
-    public void setNextLevel(int level) {
+    public void setNextLevel(String level) {
     nextLevelText.setText(level);
     }
 

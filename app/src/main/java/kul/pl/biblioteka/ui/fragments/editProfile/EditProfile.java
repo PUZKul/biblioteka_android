@@ -42,15 +42,15 @@ public class EditProfile extends Fragment implements EditProfileContract.View {
     }
 
     private void initComponents(View view) {
-        editEmail = view.findViewById(R.id.editProfile_editText_email);
-        checkBoxEditPassword = view.findViewById(R.id.editProfile_checkBox_changePasswordCheckBox);
-        textEditPassoword = view.findViewById(R.id.editProfile_textViev_newPassword);
-        editPassword = view.findViewById(R.id.editProfile_editText_newPassword);
-        textRepeatEditPassword = view.findViewById(R.id.editProfile_textViev_repeatPassword);
-        repeatEditedPassword = view.findViewById(R.id.editProfile_editText_repeatPassword);
-        progressBar = view.findViewById(R.id.editProfile_progressBar);
-        cancelBtn = view.findViewById(R.id.editProfile_btn_cancel);
-        saveBtn = view.findViewById(R.id.editProfile_btn_save);
+        editEmail = view.findViewById(R.id.editProfile_editText_email2);
+        checkBoxEditPassword = view.findViewById(R.id.editProfile_checkBox_changePasswordCheckBox2);
+        textEditPassoword = view.findViewById(R.id.editProfile_textViev_newPassword2);
+        editPassword = view.findViewById(R.id.editProfile_editText_newPassword2);
+        textRepeatEditPassword = view.findViewById(R.id.editProfile_textViev_repeatPassword2);
+        repeatEditedPassword = view.findViewById(R.id.editProfile_editText_repeatPassword2);
+        progressBar = view.findViewById(R.id.editProfile_progressBar2);
+        cancelBtn = view.findViewById(R.id.editProfile_btn_cancel2);
+        saveBtn = view.findViewById(R.id.editProfile_btn_save2);
     }
 
     private void setOnClickListeners() {
@@ -114,14 +114,16 @@ public class EditProfile extends Fragment implements EditProfileContract.View {
     public void hideEditPasswordsFields() {
         textEditPassoword.setVisibility(View.GONE);
         textRepeatEditPassword.setVisibility(View.GONE);
+        editPassword.setVisibility(View.GONE);
+        repeatEditedPassword.setVisibility(View.GONE);
     }
 
     @Override
     public void showEditPasswordsFields() {
-        textEditPassoword.setEnabled(true);
-        editPassword.setEnabled(true);
-        textRepeatEditPassword.setEnabled(true);
-        repeatEditedPassword.setEnabled(true);
+        textEditPassoword.setVisibility(View.VISIBLE);
+        textRepeatEditPassword.setVisibility(View.VISIBLE);
+        editPassword.setVisibility(View.VISIBLE);
+        repeatEditedPassword.setVisibility(View.VISIBLE);
     }
     @Override
     public void setEmail(String email) {

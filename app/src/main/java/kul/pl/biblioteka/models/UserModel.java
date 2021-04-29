@@ -19,4 +19,28 @@ public class UserModel {
         this.points = points;
         this.warnings = warnings;
     }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public int getMaxBooks() {
+        return maxBooks;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public int getWarnings() {
+        return warnings;
+    }
 }
