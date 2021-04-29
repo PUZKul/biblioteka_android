@@ -5,9 +5,11 @@ import android.content.Context;
 import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
+import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.RegistrationApiUserModel;
 import kul.pl.biblioteka.models.RegistrationUserModel;
+import kul.pl.biblioteka.models.UserModel;
 import kul.pl.biblioteka.utils.StringHelper;
 
 public class EditProfilePresenter extends APIAdapter implements EditProfileContract.Presenter {
@@ -15,31 +17,43 @@ public class EditProfilePresenter extends APIAdapter implements EditProfileContr
     private EditProfileContract.View view;
     private LibraryAccess api;
     private Context context;
+    private UserModel user;
 
-    public EditProfilePresenter(EditProfileContract.View view,Context context) {
+
+    public EditProfilePresenter(EditProfileContract.View view) {
         this.view = view;
         api = LibraryAccess.getInstance();
         api.setListener(this);
-        this.context=context;
+        this.context = context;
     }
 
     @Override
     public void onSaveClicked(RegistrationUserModel user) {
-        if (!isEmptyFields(user)
-                && validateFields(user)) {
-            if(InternetConnection.isConnection(context)){
+        if (validateFields(user)) {
+            if (InternetConnection.isConnection(context)) {
                 view.startProgressBar();
                 api.getRegistration(new RegistrationApiUserModel(
-                        user.getNick() //nie wiem jak tutaj to skombinować
+                        user.getNick()
                         , user.getEmail()
                         , user.getPasswordFirst()
                 ));
-            }else
+            } else
                 view.openOnInternetActivity();
         }
     }
 
+    @Override
+    public void setUserDetails() {
+        api.getUserDetails(LocalDataAccess.getToken());
+    }
 
+    @Override
+    public void onUserDetailsReceive(UserModel user) {
+        this.user = user;
+        view.getEmail();
+        view.getPassword();
+        view.getRepeatPassword();
+    }
 
     private boolean validateFields(RegistrationUserModel user) {
         if (!StringHelper.validateEmailRegistration(user.getEmail())) {
@@ -55,20 +69,6 @@ public class EditProfilePresenter extends APIAdapter implements EditProfileContr
         return true;
     }
 
-    private boolean isEmptyFields(RegistrationUserModel user) {
-        if (user.getEmail().isEmpty()) {
-            view.errorEmailIsEmpty();
-            return true;
-        } else if (user.getPasswordFirst().isEmpty()) {
-            view.errorPasswordIsEmpty();
-            return true;
-        } else if (user.getPasswordSecond().isEmpty()) {
-            view.errorPasswordIsEmpty();
-            return true;
-        }
-        return false;
-    }
-
 
     @Override
     public void onRegistrationSuccesses() {
@@ -80,7 +80,7 @@ public class EditProfilePresenter extends APIAdapter implements EditProfileContr
     @Override
     public void onErrorReceive(ApiError error) {
         view.endProgressBar();
-        if(error.getStatus()==409)
+        if (error.getStatus() == 409)
             view.showToast("User with given email already exist");
     }
 

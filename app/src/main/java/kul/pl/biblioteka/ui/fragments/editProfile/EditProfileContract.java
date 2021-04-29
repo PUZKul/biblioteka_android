@@ -4,7 +4,7 @@ import kul.pl.biblioteka.models.RegistrationUserModel;
 
 
 public interface EditProfileContract {
-    interface View{
+    interface View {
         void showToast(String message);
 
         void startProgressBar();
@@ -13,20 +13,35 @@ public interface EditProfileContract {
 
         void openMainActivity();
 
+        void checkBoxStatus();
+
+        void hideEditPasswordsFields();
+
+        void showEditPasswordsFields();
+
         void errorEmailIncorrect();
-
-        void errorEmailIsEmpty();
-
-        void errorPasswordIsEmpty();
 
         void errorPasswordIncorrect();
 
         void errorRepeatPasswordAreNotIdentical();
 
         void openOnInternetActivity();
+
+        void setEmail(String email);
+
+        String getEmail();
+
+        void getPassword();
+
+        void getRepeatPassword();
+
+
     }
 
     interface Presenter {
         void onSaveClicked(RegistrationUserModel user);
+
+        void setUserDetails();
+
     }
 }
