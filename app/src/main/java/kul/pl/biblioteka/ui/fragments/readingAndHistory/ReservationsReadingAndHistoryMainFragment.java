@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import kul.pl.biblioteka.R;
 
-public class ReservationsReadingAndHistory_Main extends Fragment {
+public class ReservationsReadingAndHistoryMainFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -34,15 +34,14 @@ public class EditProfile extends Fragment implements EditProfileContract.View {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edit_profile, container, false);
-        checkBoxStatus();
         initComponents(view);
+        checkBoxStatus();
         setOnClickListeners();
         presenter = new EditProfilePresenter(this);
         return view;
     }
 
     private void initComponents(View view) {
-        checkBoxStatus();
         editEmail = view.findViewById(R.id.editProfile_editText_email);
         checkBoxEditPassword = view.findViewById(R.id.editProfile_checkBox_changePasswordCheckBox);
         textEditPassoword = view.findViewById(R.id.editProfile_textViev_newPassword);

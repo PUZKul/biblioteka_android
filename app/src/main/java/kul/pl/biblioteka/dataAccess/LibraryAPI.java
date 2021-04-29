@@ -97,7 +97,7 @@ abstract class LibraryAPI {
     protected Callback<Void> callbackForLoginAuthorization = new Callback<Void>() {
         @Override
         public void onResponse(Call<Void> call, Response<Void> response) {
-            if(response.isSuccessful()){
+            if (response.isSuccessful()) {
                 String token = response.headers().get("Authorization");
                 LibraryAccess.getInstance().setToken(token);
                 LocalDataAccess.setToken(token);
@@ -115,10 +115,10 @@ abstract class LibraryAPI {
         }
     };
 
-    protected Callback<ResponseBody  > callbackForRegistration = new Callback<ResponseBody >() {
+    protected Callback<ResponseBody> callbackForRegistration = new Callback<ResponseBody>() {
         @Override
-        public void onResponse(Call<ResponseBody  > call, Response<ResponseBody  > response) {
-            if(response.isSuccessful()){
+        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            if (response.isSuccessful()) {
                 listener.onRegistrationSuccesses();
             } else {
                 ApiError apiError = ApiErrorParser.parseError(response);
@@ -127,16 +127,16 @@ abstract class LibraryAPI {
         }
 
         @Override
-        public void onFailure(Call<ResponseBody  > call, Throwable t) {
+        public void onFailure(Call<ResponseBody> call, Throwable t) {
             listener.onNoInternet();
         }
     };
 
-    protected Callback<UserModel> callbackForUserDetails = new Callback<UserModel >() {
+    protected Callback<UserModel> callbackForUserDetails = new Callback<UserModel>() {
         @Override
-        public void onResponse(Call<UserModel  > call, Response<UserModel  > response) {
-            if(response.isSuccessful()){
-                UserModel userModel=response.body();
+        public void onResponse(Call<UserModel> call, Response<UserModel> response) {
+            if (response.isSuccessful()) {
+                UserModel userModel = response.body();
                 listener.onUserDetailsReceive(userModel);
             } else {
                 ApiError apiError = ApiErrorParser.parseError(response);
@@ -145,7 +145,7 @@ abstract class LibraryAPI {
         }
 
         @Override
-        public void onFailure(Call<UserModel  > call, Throwable t) {
+        public void onFailure(Call<UserModel> call, Throwable t) {
             listener.onNoInternet();
         }
     };

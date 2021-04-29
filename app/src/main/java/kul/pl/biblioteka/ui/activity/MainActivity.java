@@ -12,9 +12,12 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import kul.pl.biblioteka.R;
+import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
 import kul.pl.biblioteka.ui.fragments.firstWindowFragment.FirstWindowFragment;
 import kul.pl.biblioteka.ui.fragments.notLoggedIn.hiatoryAndReading.NotLoggedInReservationsReadingAndHistory;
 import kul.pl.biblioteka.ui.fragments.notLoggedIn.profile.NotLoggedInProfileFragment;
+import kul.pl.biblioteka.ui.fragments.profile.ProfileFragment;
+import kul.pl.biblioteka.ui.fragments.readingAndHistory.ReservationsReadingAndHistoryMainFragment;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottom_nav;
@@ -42,13 +45,19 @@ public class MainActivity extends AppCompatActivity {
                     Fragment selectedFragment = null;
                     switch (item.getItemId()){
                         case R.id.bottom_nav_profile:
-                            selectedFragment = new NotLoggedInProfileFragment();
+                            if(!LocalDataAccess.isLogin())
+                                selectedFragment=new ProfileFragment();
+                            else
+                                selectedFragment = new NotLoggedInProfileFragment();
                             break;
                         case R.id.bottom_nav_book:
-                            selectedFragment = new NotLoggedInReservationsReadingAndHistory();
+                            if(LocalDataAccess.isLogin())
+                                selectedFragment=new ReservationsReadingAndHistoryMainFragment();
+                            else
+                                selectedFragment = new NotLoggedInReservationsReadingAndHistory();
                             break;
                         case R.id.bottom_nav_home:
-                            selectedFragment = new FirstWindowFragment();
+                                selectedFragment = new FirstWindowFragment();
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
