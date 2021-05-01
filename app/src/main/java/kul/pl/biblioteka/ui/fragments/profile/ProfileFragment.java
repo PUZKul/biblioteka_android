@@ -74,7 +74,7 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
                 if (item.getItemId() == R.id.bottom_menu_edit_profile) {
                     openEditProfileFragment();
                 } else {
-                    openLoginActivity();
+                    presenter.logoutUser();
                 }
                 return true;
             }
@@ -88,7 +88,8 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
                 .commit();
     }
 
-    private void openLoginActivity() {
+    @Override
+    public void openLoginActivity() {
         Intent intent = new Intent(getContext(), LoginActivity.class);
         //todo toast information
         startActivity(intent);

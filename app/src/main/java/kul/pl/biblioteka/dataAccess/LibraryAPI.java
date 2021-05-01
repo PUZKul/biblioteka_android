@@ -7,6 +7,7 @@ import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.exception.ApiErrorParser;
 import kul.pl.biblioteka.models.BookModel;
 import kul.pl.biblioteka.models.CopiesOfBookModel;
+import kul.pl.biblioteka.models.UserBookDetails;
 import kul.pl.biblioteka.models.UserModel;
 import kul.pl.biblioteka.utils.PageHolder;
 import okhttp3.ResponseBody;
@@ -163,6 +164,23 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<List<CopiesOfBookModel>> call, Throwable t) {
+            listener.onNoInternet();
+        }
+    };
+
+    protected Callback<UserBookDetails> callbackForUserBooksDetails = new Callback<UserBookDetails>() {
+        @Override
+        public void onResponse(Call<UserBookDetails> call, Response<UserBookDetails> response) {
+            if (response.isSuccessful()) {
+                listener.onUserBooksDetailsReceive(response.body());
+            } else {
+                ApiError apiError = ApiErrorParser.parseError(response);
+                listener.onErrorReceive(apiError);
+            }
+        }
+
+        @Override
+        public void onFailure(Call<UserBookDetails> call, Throwable t) {
             listener.onNoInternet();
         }
     };

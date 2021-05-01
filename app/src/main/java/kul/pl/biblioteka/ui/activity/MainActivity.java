@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     Fragment selectedFragment = null;
                     switch (item.getItemId()){
                         case R.id.bottom_nav_profile:
-                            if(!LocalDataAccess.isLogin())
+                            if(LocalDataAccess.isLogin())
                                 selectedFragment=new ProfileFragment();
                             else
                                 selectedFragment = new NotLoggedInProfileFragment();

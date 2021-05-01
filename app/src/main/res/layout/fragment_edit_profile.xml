@@ -7,7 +7,7 @@
     android:background="@color/colorPrimaryBackground">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/editProfile_btn_save2"

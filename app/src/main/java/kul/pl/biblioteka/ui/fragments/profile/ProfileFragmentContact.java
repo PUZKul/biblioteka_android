@@ -13,11 +13,15 @@ public interface ProfileFragmentContact {
         void setNextLevel(String level);
 
         void setExperience(int experience);
+
+        void openLoginActivity();
     }
 
     interface Presenter {
 
         void setUSeaDetails();
+
+        void logoutUser();
 
     }
 }

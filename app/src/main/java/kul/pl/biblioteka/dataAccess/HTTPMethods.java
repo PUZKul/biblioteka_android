@@ -6,6 +6,7 @@ import kul.pl.biblioteka.models.BookModel;
 import kul.pl.biblioteka.models.CopiesOfBookModel;
 import kul.pl.biblioteka.models.LoginApiUserModel;
 import kul.pl.biblioteka.models.RegistrationApiUserModel;
+import kul.pl.biblioteka.models.UserBookDetails;
 import kul.pl.biblioteka.models.UserModel;
 import kul.pl.biblioteka.utils.Direction;
 import kul.pl.biblioteka.utils.PageHolder;
@@ -59,4 +60,7 @@ public interface HTTPMethods {
 
     @GET("/api/library/books/copies/{id}")
     Call<List<CopiesOfBookModel>> getCopiesOfBookById(@Path("id") int bookId);
+
+    @GET("/api/library/users/bookDetails")
+    Call<UserBookDetails> getUserBooksDetails(@Header("Authorization")String token);
 }

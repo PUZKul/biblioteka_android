@@ -87,4 +87,9 @@ public final class LibraryAccess extends LibraryAPI{
         HTTPMethods.getCopiesOfBookById(idBook)
                 .enqueue(callbackForCopiesOfBook);
     }
+
+    public void getUserBooksDetails(String token){
+        HTTPMethods.getUserBooksDetails(token)
+                .enqueue(callbackForUserBooksDetails);
+    }
 }
