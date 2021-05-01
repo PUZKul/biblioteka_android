@@ -12,6 +12,7 @@ import java.util.List;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.models.CopiesOfBookModel;
+import kul.pl.biblioteka.utils.Helper;
 
 public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<CopiesOfBookListViewHolder> {
 
@@ -38,11 +39,18 @@ public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<Cop
 
     private void setBookDetails(CopiesOfBookListViewHolder holder, int position) {
         holder.setBookId("#"+booksList.get(position).getId());
-        if(booksList.get(position).isAccess()){
-            holder.setStatus("Available");
-        } else{
-            holder.setStatus("Restricted access");
+        if(!booksList.get(position).isBorrow()){
+            if(booksList.get(position).isAccess()){
+                holder.setStatus("Available");
+            } else{
+                holder.setStatus("Restricted access");
+            }
+        }else {
+            holder.setImage(R.drawable.bookmark_yellow);
+            holder.setStatus("Occupied ");
+            holder.setBalloon("Available from "+Helper.getDefaultDateFormat(booksList.get(position).getApproximateDate()));
         }
+
     }
 
     @Override

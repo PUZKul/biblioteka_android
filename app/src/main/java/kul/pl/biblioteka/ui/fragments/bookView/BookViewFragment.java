@@ -21,6 +21,7 @@ import com.skydoves.balloon.BalloonAnimation;
 import com.squareup.picasso.Picasso;
 
 import kul.pl.biblioteka.R;
+import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.activity.noInternet.NoInternetActivity;
 import kul.pl.biblioteka.ui.dialogs.copiesOfBooks.CopiesOfBooksDialog;
 import kul.pl.biblioteka.ui.fragments.firstWindowFragment.FirstWindowFragment;
@@ -108,7 +109,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     }
 
     private void initBalloon(String message) {
-        balloon= new Balloon.Builder(getContext())
+        balloon= new Balloon.Builder(MainActivity.getAppContext())
                 .setArrowSize(10)
                 .setArrowOrientation(ArrowOrientation.TOP)
                 .setArrowVisible(true)
@@ -119,8 +120,8 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
                 .setCornerRadius(4f)
                 .setAlpha(0.9f)
                 .setText(message)
-                .setTextColor(ContextCompat.getColor(getContext(), R.color.colorAccent))
-                .setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryBackground))
+                .setTextColor(ContextCompat.getColor(MainActivity.getAppContext(), R.color.colorAccent))
+                .setBackgroundColor(ContextCompat.getColor(MainActivity.getAppContext(), R.color.colorPrimaryBackground))
                 .setBalloonAnimation(BalloonAnimation.FADE)
                 .setAutoDismissDuration(5000L)
                 .build();

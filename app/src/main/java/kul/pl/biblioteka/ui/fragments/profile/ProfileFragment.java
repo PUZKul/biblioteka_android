@@ -112,7 +112,7 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
 
     @Override
     public void setCurrentBooks(String currentBooks) {
-    readBooksText.setText(currentBooks);
+    currentBooksText.setText(currentBooks);
     }
 
     @Override

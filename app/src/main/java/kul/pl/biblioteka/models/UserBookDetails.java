@@ -2,20 +2,20 @@ package kul.pl.biblioteka.models;
 
 public class UserBookDetails {
 
-    private long totalBooks;
+    private long totalBook;
 
-    private long currentBooks;
+    private long currentBook;
 
     public UserBookDetails(long totalBooks, long currentBooks) {
-        this.totalBooks = totalBooks;
-        this.currentBooks = currentBooks;
+        this.totalBook = totalBooks;
+        this.currentBook = currentBooks;
     }
 
     public long getTotalBooks() {
-        return totalBooks;
+        return totalBook;
     }
 
     public long getCurrentBooks() {
-        return currentBooks;
+        return currentBook;
     }
 }

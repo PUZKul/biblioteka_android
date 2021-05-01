@@ -27,12 +27,13 @@ public class ProfileFragmentPresenter extends APIAdapter implements ProfileFragm
     public void onUserDetailsReceive(UserModel user) {
         view.setNick(user.getUsername());
         view.setExperience(user.getPoints());
-        //todo create class count level
+        //todo create class counts level
     }
 
     @Override
     public void setUSeaDetails() {
         api.getUserDetails(LocalDataAccess.getToken());
+        api.getUserBooksDetails(LocalDataAccess.getToken());
     }
 
     @Override
