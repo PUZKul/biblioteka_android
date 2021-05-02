@@ -14,7 +14,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import kul.pl.biblioteka.R;
-import kul.pl.biblioteka.ui.activity.login.LoginActivity;
+import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.fragments.editProfile.EditProfile;
 
 
@@ -89,8 +89,8 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
     }
 
     @Override
-    public void openLoginActivity() {
-        Intent intent = new Intent(getContext(), LoginActivity.class);
+    public void openMainActivity() {
+        Intent intent = new Intent(getContext(), MainActivity.class);
         //todo toast information
         startActivity(intent);
     }

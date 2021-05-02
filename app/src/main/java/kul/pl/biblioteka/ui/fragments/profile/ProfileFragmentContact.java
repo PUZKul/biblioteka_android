@@ -14,7 +14,7 @@ public interface ProfileFragmentContact {
 
         void setExperience(int experience);
 
-        void openLoginActivity();
+        void openMainActivity();
     }
 
     interface Presenter {

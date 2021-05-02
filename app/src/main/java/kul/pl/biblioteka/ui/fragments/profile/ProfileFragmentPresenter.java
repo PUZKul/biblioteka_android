@@ -39,6 +39,6 @@ public class ProfileFragmentPresenter extends APIAdapter implements ProfileFragm
     @Override
     public void logoutUser() {
         LocalDataAccess.clean();
-        view.openLoginActivity();
+        view.openMainActivity();
     }
 }
