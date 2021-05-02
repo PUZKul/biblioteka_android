@@ -47,10 +47,10 @@
 
         <ImageView
             android:id="@+id/CopiesOfBook_image_bookmark"
-            android:layout_width="51dp"
-            android:layout_height="65dp"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/bookmark_green"
+            android:background="@drawable/bookmark_green"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.965"
@@ -63,7 +63,7 @@
             android:layout_width="84dp"
             android:layout_height="30dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:text="@string/copy_number"
             android:textAlignment="center"
             android:textSize="12sp"

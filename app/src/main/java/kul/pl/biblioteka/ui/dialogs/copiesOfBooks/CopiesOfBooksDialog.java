@@ -48,7 +48,7 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
     private View.OnClickListener onBackClicked=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-        //todo back to bookView fragment
+            dismiss();
         }
     };
 

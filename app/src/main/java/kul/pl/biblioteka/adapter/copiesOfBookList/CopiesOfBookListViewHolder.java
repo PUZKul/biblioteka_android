@@ -52,7 +52,7 @@ public class CopiesOfBookListViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void setImage(int image) {
-        this.image.setImageResource(image);
+        this.image.setBackgroundResource(image);
     }
 
     public void setBookId(String bookId) {
@@ -65,18 +65,19 @@ public class CopiesOfBookListViewHolder extends RecyclerView.ViewHolder {
 
     public void setBalloon(String message) {
         balloon = new Balloon.Builder(MainActivity.getAppContext())
-                .setArrowSize(10)
-                .setArrowOrientation(ArrowOrientation.TOP)
-                .setArrowVisible(true)
+                .setArrowVisible(false)
                 .setWidthRatio(1.0f)
                 .setHeight(78)
-                .setTextSize(15f)
+                .setTextSize(18f)
                 .setArrowPosition(0.62f)
                 .setCornerRadius(4f)
                 .setAlpha(0.9f)
                 .setText(message)
-                .setTextColor(ContextCompat.getColor(MainActivity.getAppContext(), R.color.colorPrimaryDark))
-                .setBackgroundColor(ContextCompat.getColor(MainActivity.getAppContext(), R.color.colorPrimaryBackground))
+                .setMarginBottom(5)
+                .setMarginLeft(16)
+                .setMarginRight(16)
+                .setTextColor(ContextCompat.getColor(MainActivity.getAppContext(), R.color.colorWhite))
+                .setBackgroundColor(ContextCompat.getColor(MainActivity.getAppContext(), R.color.colorPrimaryGreen))
                 .setBalloonAnimation(BalloonAnimation.FADE)
                 .setAutoDismissDuration(5000L)
                 .build();

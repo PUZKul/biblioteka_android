@@ -11,13 +11,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F1F1F1"
+        android:background="@color/colorPrimaryBackground"
         android:orientation="vertical">
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="334dp"
-
+        android:layout_height="500dp"
+        android:scaleType="fitCenter"
         tools:ignore="ContentDescription" />
 
         <LinearLayout
@@ -27,23 +27,22 @@
 
             <TextView
                 android:id="@+id/BookView_text_textTitle"
-                android:layout_width="16dp"
+                android:layout_width="85dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_weight="0.5"
                 android:text="@string/title"
                 android:textAlignment="textStart" />
 
             <TextView
                 android:id="@+id/BookView_text_title"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_weight="0.5"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
                 android:text="@string/title_of_the_book"
                 android:textAlignment="textStart"
                 android:textColor="@color/colorPrimaryDark" />
@@ -58,23 +57,22 @@
 
         <TextView
             android:id="@+id/BookView_text_textAutor"
-            android:layout_width="0dp"
+            android:layout_width="85dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:layout_weight="0.5"
             android:text="@string/author"
             android:textAlignment="textStart" />
 
         <TextView
             android:id="@+id/BookView_text_Author"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_weight="0.5"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
             android:text="@string/author_name_text"
             android:textAlignment="textStart"
             android:textColor="@color/colorPrimaryDark" />
@@ -88,23 +86,22 @@
 
         <TextView
             android:id="@+id/BookView_text_textPublisher"
-            android:layout_width="14dp"
+            android:layout_width="85dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:layout_weight="0.5"
             android:text="@string/publisher"
             android:textAlignment="textStart" />
 
         <TextView
             android:id="@+id/BookView_text_Publisher"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_weight="0.5"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
             android:text="@string/publisher_name_text"
             android:textAlignment="textStart"
             android:textColor="@color/colorPrimaryDark" />
@@ -117,22 +114,21 @@
 
         <TextView
             android:id="@+id/BookView_text_textPages"
-            android:layout_width="33dp"
+            android:layout_width="85dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:layout_weight="0.4"
             android:text="@string/pages"
             android:textAlignment="textStart" />
 
         <TextView
             android:id="@+id/BookView_text_pages"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
             android:layout_weight="0.5"
             android:text="@string/count_of_pages"
             android:textAlignment="textStart"
@@ -146,23 +142,22 @@
 
         <TextView
             android:id="@+id/BookView_text_textYear"
-            android:layout_width="3dp"
+            android:layout_width="85dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:layout_weight="0.5"
             android:text="@string/year"
             android:textAlignment="textStart" />
 
         <TextView
             android:id="@+id/BookView_text_year"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_weight="0.5"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
             android:text="@string/yyyy_mm_dd"
             android:textAlignment="textStart"
             android:textColor="@color/colorPrimaryDark" />
@@ -174,12 +169,11 @@
 
             <TextView
                 android:id="@+id/BookView_text_textAvailable"
-                android:layout_width="128dp"
+                android:layout_width="85dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_weight="0.4"
                 android:text="@string/available"
                 android:textAlignment="textStart" />
 
@@ -187,9 +181,9 @@
                 android:id="@+id/BookView_text_available"
                 android:layout_width="110dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_weight="0.3"
                 android:text="@string/status"
                 android:textAlignment="textStart"
@@ -198,7 +192,7 @@
             <ImageView
                 android:id="@+id/BookView_image_info"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="50dp"
@@ -216,13 +210,13 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:numStars="5"
-        android:progressBackgroundTint="@color/colorAccent" />
+        android:numStars="5" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="20px"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="30dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 

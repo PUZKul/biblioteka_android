@@ -42,13 +42,15 @@ public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<Cop
         if(!booksList.get(position).isBorrow()){
             if(booksList.get(position).isAccess()){
                 holder.setStatus("Available");
+                holder.setBalloon("Book is available to borrow and read at home");
             } else{
                 holder.setStatus("Restricted access");
+                holder.setBalloon("Book is available to borrow but it can be read only inside of the library");
             }
         }else {
             holder.setImage(R.drawable.bookmark_yellow);
             holder.setStatus("Occupied ");
-            holder.setBalloon("Available from "+Helper.getDefaultDateFormat(booksList.get(position).getApproximateDate()));
+            holder.setBalloon("Available from "+Helper.getShortDate(booksList.get(position).getApproximateDate()));
         }
 
     }

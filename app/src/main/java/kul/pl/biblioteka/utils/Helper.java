@@ -10,4 +10,9 @@ public class Helper {
         DateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd", Locale.ENGLISH);
         return dateFormat.format(date);
     }
+
+    public static String getShortDate(Date date){
+        DateFormat dateFormat = new SimpleDateFormat("MMMM dd", Locale.ENGLISH);
+        return dateFormat.format(date);
+    }
 }
