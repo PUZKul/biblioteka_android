@@ -15,6 +15,134 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/logo_png" />
+
+        <TextView
+            android:id="@+id/Login_textViev_Liblary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:color="#194B51"
+            android:gravity="center"
+            android:text="@string/library"
+            android:textColor="#194B51"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <TextView
+            android:id="@+id/Login_textViev_nick"
+            android:layout_width="43dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/nick"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.184"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Login_textViev_Liblary" />
+
+        <EditText
+            android:id="@+id/login_nick_editText"
+            android:layout_width="238dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:autofillHints=""
+            android:background="@drawable/btn_whitescene"
+            android:ems="10"
+            android:hapticFeedbackEnabled="false"
+            android:inputType="textPersonName"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Login_textViev_nick" />
+
+        <ImageView
+            android:id="@+id/imgnick"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_weight="4"
+            android:background="@drawable/btn_primary"
+            android:scaleType="center"
+            app:layout_constraintStart_toEndOf="@+id/login_edittext_password"
+            app:layout_constraintTop_toBottomOf="@+id/Login_textViev_password"
+            app:srcCompat="@drawable/icon_nick" />
+
+        <TextView
+            android:id="@+id/Login_textViev_password"
+            android:layout_width="74dp"
+            android:layout_height="31dp"
+            android:layout_marginTop="36dp"
+            android:text="@string/password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.189"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_nick_editText" />
+
+        <EditText
+            android:id="@+id/login_edittext_password"
+            android:layout_width="238dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:autofillHints=""
+            android:background="@drawable/btn_whitescene"
+            android:ems="10"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Login_textViev_password" />
+
+        <ImageView
+            android:id="@+id/imgPass"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_weight="4"
+            android:height="55dp"
+            android:background="@drawable/btn_primary"
+            android:scaleType="center"
+            app:layout_constraintStart_toEndOf="@+id/login_nick_editText"
+            app:layout_constraintTop_toBottomOf="@+id/Login_textViev_nick"
+            app:srcCompat="@drawable/icon_pass" />
+
+        <Button
+            android:id="@+id/login_btn_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/btn_primary"
+            android:text="@string/login"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.518"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_edittext_password" />
+
+        <TextView
+            android:id="@+id/login_register_textViev"
+            android:layout_width="413dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="24dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="25dp"
+            android:text="@string/register"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_btn_login" />
+
         <ProgressBar
             android:id="@+id/login_progressBar"
             style="?android:attr/progressBarStyle"
@@ -25,162 +153,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/linearLayout" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryBackground"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/logo_png" />
-
-                <TextView
-                    android:id="@+id/Login_textViev_Liblary"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:color="#194B51"
-                    android:gravity="center"
-                    android:text="@string/library"
-                    android:textColor="#194B51"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp">
-
-                <TextView
-                    android:id="@+id/Login_textViev_nick"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="50sp"
-                    android:text="@string/nick" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="40dp"
-                android:paddingTop="2dp"
-                android:paddingRight="40dp">
-
-                <EditText
-                    android:id="@+id/login_nick_editText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10sp"
-                    android:layout_weight="1"
-                    android:autofillHints=""
-                    android:background="@drawable/btn_whitescene"
-                    android:ems="10"
-                    android:hapticFeedbackEnabled="false"
-                    android:inputType="textPersonName"
-                    android:visibility="visible" />
-
-                <ImageView
-                    android:id="@+id/imgnick"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="4"
-                    android:background="@drawable/btn_primary"
-                    android:scaleType="center"
-                    app:srcCompat="@drawable/icon_nick" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp">
-
-                <TextView
-                    android:id="@+id/Login_textViev_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30sp"
-                    android:text="@string/password" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="40dp"
-                android:paddingTop="2dp"
-                android:paddingRight="40dp">
-
-                <EditText
-                    android:id="@+id/login_edittext_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="10sp"
-                    android:layout_weight="1"
-                    android:autofillHints=""
-                    android:background="@drawable/btn_whitescene"
-                    android:ems="10"
-                    android:inputType="textPassword" />
-
-                <ImageView
-                    android:id="@+id/imgPass"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="4"
-                    android:height="55dp"
-                    android:background="@drawable/btn_primary"
-                    android:scaleType="center"
-                    app:srcCompat="@drawable/icon_pass" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:gravity="center_horizontal">
-
-                <Button
-                    android:id="@+id/login_btn_login"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/btn_primary"
-                    android:text="@string/login"
-                    android:textColor="@color/colorWhite" />
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/login_register_textViev"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:paddingTop="25dp"
-                android:text="@string/register"
-                android:textColor="@color/colorPrimaryDark" />
-        </LinearLayout>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
