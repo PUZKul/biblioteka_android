@@ -62,12 +62,12 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
     };
 
     private void initComponents() {
-        registrationBtn = findViewById(R.id.register_btn_register);
-        loginText = findViewById(R.id.register_textasbatton_login);
-        nickText = findViewById(R.id.register_editText_nick);
-        emailText = findViewById(R.id.register_editText_email);
-        passwordText = findViewById(R.id.register_editText_password);
-        repeatPasswordText = findViewById(R.id.register_editText_repeatPassword);
+        registrationBtn = findViewById(R.id.registration_btn_register);
+        loginText = findViewById(R.id.registration_textView_login);
+        nickText = findViewById(R.id.registration_editText_nick);
+        emailText = findViewById(R.id.registration_editText_email);
+        passwordText = findViewById(R.id.registration_editText_password);
+        repeatPasswordText = findViewById(R.id.registration_editText_repeatPassword);
         progressBar = findViewById(R.id.registration_progressBar);
     }
 

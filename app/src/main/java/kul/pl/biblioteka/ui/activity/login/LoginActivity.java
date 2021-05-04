@@ -66,9 +66,9 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
 
     private void initComponents() {
         loginETex = findViewById(R.id.login_nick_editText);
-        passwordETex = findViewById(R.id.login_edittext_password);
-        loginBtn = findViewById(R.id.login_btn_login);
-        registrationText = findViewById(R.id.login_register_textViev);
+        passwordETex = findViewById(R.id.login_editText_password);
+        loginBtn = findViewById(R.id.login_bottom_login);
+        registrationText = findViewById(R.id.login_textView_register);
         progressBar = findViewById(R.id.login_progressBar);
     }
 

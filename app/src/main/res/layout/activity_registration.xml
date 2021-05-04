@@ -2,7 +2,6 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
@@ -14,7 +13,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/registration_textView_createAccount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
@@ -28,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/registration_textView_nick"
             android:layout_width="150dp"
             android:layout_height="26dp"
             android:layout_marginTop="52dp"
@@ -36,10 +35,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.199"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/registration_textView_createAccount" />
 
         <EditText
-            android:id="@+id/register_editText_nick"
+            android:id="@+id/registration_editText_nick"
             android:layout_width="260dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -52,22 +51,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.351"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/registration_textView_nick" />
 
         <ImageView
-            android:id="@+id/imgnick"
+            android:id="@+id/registration_image_nick"
             android:layout_width="35dp"
             android:layout_height="40dp"
             android:layout_weight="4"
             android:background="@drawable/btn_primary"
             android:contentDescription="@string/todo"
             android:scaleType="center"
-            app:layout_constraintStart_toEndOf="@+id/register_editText_nick"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintStart_toEndOf="@+id/registration_editText_nick"
+            app:layout_constraintTop_toBottomOf="@+id/registration_textView_nick"
             app:srcCompat="@drawable/icon_nick" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/registration_textView_email"
             android:layout_width="148dp"
             android:layout_height="26dp"
             android:layout_marginTop="16dp"
@@ -75,10 +74,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.197"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/register_editText_nick" />
+            app:layout_constraintTop_toBottomOf="@+id/registration_editText_nick" />
 
         <EditText
-            android:id="@+id/register_editText_email"
+            android:id="@+id/registration_editText_email"
             android:layout_width="260dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -91,22 +90,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.344"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintTop_toBottomOf="@+id/registration_textView_email" />
 
         <ImageView
-            android:id="@+id/imgMail"
+            android:id="@+id/registration_image_email"
             android:layout_width="35dp"
             android:layout_height="40dp"
             android:layout_weight="4"
             android:background="@drawable/btn_primary"
             android:contentDescription="@string/todo"
             android:scaleType="center"
-            app:layout_constraintStart_toEndOf="@+id/register_editText_email"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:layout_constraintStart_toEndOf="@+id/registration_editText_email"
+            app:layout_constraintTop_toBottomOf="@+id/registration_textView_email"
             app:srcCompat="@drawable/icon_email" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/registration_textView_password"
             android:layout_width="150dp"
             android:layout_height="26dp"
             android:layout_marginTop="16dp"
@@ -114,10 +113,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.191"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/register_editText_email" />
+            app:layout_constraintTop_toBottomOf="@+id/registration_editText_email" />
 
         <EditText
-            android:id="@+id/register_editText_password"
+            android:id="@+id/registration_editText_password"
             android:layout_width="260dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -130,22 +129,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.344"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            app:layout_constraintTop_toBottomOf="@+id/registration_textView_password" />
 
         <ImageView
-            android:id="@+id/imgPassword"
+            android:id="@+id/registration_image_password"
             android:layout_width="35dp"
             android:layout_height="40dp"
             android:layout_weight="4"
             android:background="@drawable/btn_primary"
             android:contentDescription="@string/todo"
             android:scaleType="center"
-            app:layout_constraintStart_toEndOf="@+id/register_editText_password"
-            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            app:layout_constraintStart_toEndOf="@+id/registration_editText_password"
+            app:layout_constraintTop_toBottomOf="@+id/registration_textView_password"
             app:srcCompat="@drawable/icon_pass" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/registration_textView_repeatPassword"
             android:layout_width="150dp"
             android:layout_height="26dp"
             android:layout_marginTop="16dp"
@@ -153,22 +152,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.191"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/register_editText_password" />
+            app:layout_constraintTop_toBottomOf="@+id/registration_editText_password" />
 
         <ImageView
-            android:id="@+id/imgRepeatPassword"
+            android:id="@+id/registration_image_repeatPassword"
             android:layout_width="35dp"
             android:layout_height="40dp"
             android:layout_weight="4"
             android:background="@drawable/btn_primary"
             android:contentDescription="@string/todo"
             android:scaleType="center"
-            app:layout_constraintStart_toEndOf="@+id/register_editText_repeatPassword"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintStart_toEndOf="@+id/registration_editText_repeatPassword"
+            app:layout_constraintTop_toBottomOf="@+id/registration_textView_repeatPassword"
             app:srcCompat="@drawable/icon_pass" />
 
         <EditText
-            android:id="@+id/register_editText_repeatPassword"
+            android:id="@+id/registration_editText_repeatPassword"
             android:layout_width="260dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -181,10 +180,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.331"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            app:layout_constraintTop_toBottomOf="@+id/registration_textView_repeatPassword" />
 
         <Button
-            android:id="@+id/register_btn_register"
+            android:id="@+id/registration_btn_register"
             android:layout_width="144dp"
             android:layout_height="37dp"
             android:layout_marginTop="60dp"
@@ -194,10 +193,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.473"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/register_editText_repeatPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/registration_editText_repeatPassword" />
 
         <TextView
-            android:id="@+id/register_textasbatton_login"
+            android:id="@+id/registration_textView_login"
             android:layout_width="236dp"
             android:layout_height="21dp"
             android:layout_marginTop="40dp"
@@ -208,7 +207,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.44"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/register_btn_register"
+            app:layout_constraintTop_toBottomOf="@+id/registration_btn_register"
             app:layout_constraintVertical_bias="0.0" />
 
         <ProgressBar
