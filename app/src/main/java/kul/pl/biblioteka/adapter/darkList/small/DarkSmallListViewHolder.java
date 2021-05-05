@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.adapter.darkList.smal;
+package kul.pl.biblioteka.adapter.darkList.small;
 
 import android.view.View;
 

@@ -22,9 +22,11 @@ import java.util.List;
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.OnItemClickListener;
 import kul.pl.biblioteka.adapter.VerticalSpaceItemDecoration;
+import kul.pl.biblioteka.adapter.darkList.small.DarkSmallListRecycleViewAdapter;
 import kul.pl.biblioteka.adapter.homeList.HomeListRecycleViewAdapter;
 import kul.pl.biblioteka.adapter.recommendedList.RecommendedListRecycleViewAdapter;
 import kul.pl.biblioteka.models.BookModel;
+import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.activity.noInternet.NoInternetActivity;
 import kul.pl.biblioteka.ui.fragments.bookView.BookViewFragment;
 
@@ -46,6 +48,7 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
         View view = inflater.inflate(R.layout.fragment_first_window_fragment, container, false);
         initComponents(view);
         setAdapters();
+        setDarkList();
         setOnClickListener();
         presenter = new FirstWindowFragmentPresenter(this,getContext());
         presenter.setListTopBooks();
@@ -64,6 +67,10 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
         progressBar=view.findViewById(R.id.first_window_progressBar);
         text1=view.findViewById(R.id.first_window_text_view_theMostPopular);
         text2=view.findViewById(R.id.first_window_text_view_recommendedForYou);
+    }
+
+    private void setDarkList(){
+        theMostPopularRecyclerView.setAdapter(new DarkSmallListRecycleViewAdapter(MainActivity.getAppContext()));
     }
 
     private void setOnClickListener() {

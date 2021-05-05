@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.adapter.darkList.smal;
+package kul.pl.biblioteka.adapter.darkList.small;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,14 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import kul.pl.biblioteka.R;
-import kul.pl.biblioteka.adapter.recommendedList.RecommendedListViewHolder;
 
 public class DarkSmallListRecycleViewAdapter extends RecyclerView.Adapter<DarkSmallListViewHolder>{
 
     private Context context;
+    private int itemCount;
 
     public DarkSmallListRecycleViewAdapter(Context context) {
         this.context = context;
+        itemCount=10;
     }
 
     @NonNull
@@ -34,6 +35,6 @@ public class DarkSmallListRecycleViewAdapter extends RecyclerView.Adapter<DarkSm
 
     @Override
     public int getItemCount() {
-        return 10;
+        return itemCount;
     }
 }
