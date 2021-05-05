@@ -28,10 +28,10 @@ public class ReadingListViewHolder extends RecyclerView.ViewHolder implements Vi
     }
 
     private void setComponents(View view) {
-        imageBook=view.findViewById(R.id.FragmentReading_text_title);
-        titleTextView=view.findViewById(R.id.FragmentReading_image);
-        borrowedTextView=view.findViewById(R.id.FragmentReading_text_dateOfBorrow);
-        timeAgoTextView=view.findViewById(R.id.FragmentReading_text_timeAgo);
+        imageBook=view.findViewById(R.id.reading_item_list_textView_title);
+        titleTextView=view.findViewById(R.id.reading_item_list_image);
+        borrowedTextView=view.findViewById(R.id.reading_item_list_textView_dateOfBorrow);
+        timeAgoTextView=view.findViewById(R.id.reading_item_list_textView_timeAgo);
     }
 
     private void setTimeAgoText(String timeAgoText){
