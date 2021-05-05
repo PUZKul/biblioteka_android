@@ -30,7 +30,8 @@ public class RecommendedListViewHolder extends RecyclerView.ViewHolder{
     public RecommendedListViewHolder(@NonNull View itemView, OnItemClickListener onItemClickListener) {
         super(itemView);
         setComponents(itemView);
-        setOnClickListener(view);
+        //todo set on click on item
+       // setOnClickListener(view);
         view=itemView;
         this.onItemClickListener=onItemClickListener;
     }
@@ -52,11 +53,11 @@ public class RecommendedListViewHolder extends RecyclerView.ViewHolder{
     };
 
     private void setComponents(View view) {
-        ratingBar=view.findViewById(R.id.list_rating);
+        ratingBar=view.findViewById(R.id.recommended_list_rating);
         moreButton =view.findViewById(R.id.list_button_more);
-        authorTextView=view.findViewById(R.id.list_text_author);
-        titleTextView=view.findViewById(R.id.list_text_title);
-        imageBook=view.findViewById(R.id.list_image);
+        authorTextView=view.findViewById(R.id.recommended_list_text_author);
+        titleTextView=view.findViewById(R.id.recommended_list_text_title);
+        imageBook=view.findViewById(R.id.recommended_list_image);
     }
 
     public void setRatingBar(float rating){

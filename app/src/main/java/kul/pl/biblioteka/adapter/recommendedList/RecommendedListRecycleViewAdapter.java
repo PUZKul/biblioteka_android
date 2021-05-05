@@ -31,7 +31,7 @@ public class RecommendedListRecycleViewAdapter extends RecyclerView.Adapter<Reco
     @Override
     public RecommendedListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(context);
-        View view =  mInflater.inflate(R.layout.recommended_book_item, parent, false);
+        View view =  mInflater.inflate(R.layout.item_recommended_book, parent, false);
         return new RecommendedListViewHolder(view,onItemClickListener);
     }
 

@@ -20,7 +20,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/list_image"
+            android:id="@+id/recommended_list_image"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
@@ -33,7 +33,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/list_text_title"
+                android:id="@+id/recommended_list_text_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -58,7 +58,7 @@
                     android:textColor="@color/colorPrimaryDark" />
 
                 <TextView
-                    android:id="@+id/list_text_author"
+                    android:id="@+id/recommended_list_text_author"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -104,7 +104,7 @@
 
                 <RatingBar
 
-                    android:id="@+id/list_rating"
+                    android:id="@+id/recommended_list_rating"
                     style="@style/Widget.AppCompat.RatingBar.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
