@@ -28,7 +28,7 @@ public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<Cop
     @Override
     public CopiesOfBookListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(context);
-        View view =  mInflater.inflate(R.layout.copies_of_books_item, parent, false);
+        View view =  mInflater.inflate(R.layout.item_list_copies_of_books, parent, false);
         return new CopiesOfBookListViewHolder(view);
     }
 
