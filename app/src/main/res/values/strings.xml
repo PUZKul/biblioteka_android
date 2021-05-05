@@ -77,5 +77,6 @@
     <string name="the_most_popular">The most popular</string>
     <string name="try_again">Try again</string>
     <string name="change_password">Change password</string>
+    <string name="no_signal">No Signal</string>
 
 </resources>
