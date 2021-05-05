@@ -22,6 +22,7 @@ import java.util.List;
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.OnItemClickListener;
 import kul.pl.biblioteka.adapter.VerticalSpaceItemDecoration;
+import kul.pl.biblioteka.adapter.darkList.large.DarkLargeListRecycleViewAdapter;
 import kul.pl.biblioteka.adapter.darkList.small.DarkSmallListRecycleViewAdapter;
 import kul.pl.biblioteka.adapter.homeList.HomeListRecycleViewAdapter;
 import kul.pl.biblioteka.adapter.recommendedList.RecommendedListRecycleViewAdapter;
@@ -71,6 +72,7 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
 
     private void setDarkList(){
         theMostPopularRecyclerView.setAdapter(new DarkSmallListRecycleViewAdapter(MainActivity.getAppContext()));
+        recommendedRecyclerView.setAdapter(new DarkLargeListRecycleViewAdapter(MainActivity.getAppContext()git ));
     }
 
     private void setOnClickListener() {
