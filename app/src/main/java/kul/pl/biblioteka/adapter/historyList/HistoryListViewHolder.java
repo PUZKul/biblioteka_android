@@ -27,10 +27,10 @@ public class HistoryListViewHolder extends RecyclerView.ViewHolder implements Vi
     }
 
     private void setComponents(View view) {
-        borrowedTextView=view.findViewById(R.id.FragmentHistory_text_dateOfBorrow);
-        returnedTextView=view.findViewById(R.id.FragmentHistory_text_Returned);
-        titleTextView=view.findViewById(R.id.FragmentHistory_image);
-        imageBook=view.findViewById(R.id.FragmentHistory_text_title);
+        borrowedTextView=view.findViewById(R.id.history_list_textView_dateOfBorrow);
+        returnedTextView=view.findViewById(R.id.history_list_textView_returned);
+        titleTextView=view.findViewById(R.id.history_list_image);
+        imageBook=view.findViewById(R.id.history_list_textView_title);
     }
 
 

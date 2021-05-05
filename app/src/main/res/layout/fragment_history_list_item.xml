@@ -14,7 +14,7 @@
 
 
         <ImageView
-            android:id="@+id/FragmentHistory_image"
+            android:id="@+id/history_list_image"
             android:layout_width="125dp"
             android:layout_height="165dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/FragmentHistory_text_title"
+            android:id="@+id/history_list_textView_title"
             android:layout_width="280dp"
             android:layout_height="24dp"
             android:layout_marginTop="15dp"
@@ -32,11 +32,11 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.057"
-            app:layout_constraintStart_toEndOf="@+id/FragmentHistory_image"
+            app:layout_constraintStart_toEndOf="@+id/history_list_image"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/FragmentHistory_text_textBorrowed"
+            android:id="@+id/history_list_textView_borrowed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -45,11 +45,11 @@
             android:textColor="@color/colorSecondaryDark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/FragmentHistory_image"
-            app:layout_constraintTop_toBottomOf="@+id/FragmentHistory_text_title" />
+            app:layout_constraintStart_toEndOf="@+id/history_list_image"
+            app:layout_constraintTop_toBottomOf="@+id/history_list_textView_title" />
 
         <TextView
-            android:id="@+id/FragmentHistory_text_textReturned"
+            android:id="@+id/history_list_textView_Returned"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -58,11 +58,11 @@
             android:textColor="@color/colorSecondaryDark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/FragmentHistory_image"
-            app:layout_constraintTop_toBottomOf="@+id/FragmentHistory_text_textBorrowed" />
+            app:layout_constraintStart_toEndOf="@+id/history_list_image"
+            app:layout_constraintTop_toBottomOf="@+id/history_list_textView_borrowed" />
 
         <TextView
-            android:id="@+id/FragmentHistory_text_dateOfBorrow"
+            android:id="@+id/history_list_textView_dateOfBorrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="84dp"
@@ -71,11 +71,11 @@
             android:textColor="@color/colorPrimaryDark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.025"
-            app:layout_constraintStart_toEndOf="@+id/FragmentHistory_text_textBorrowed"
-            app:layout_constraintTop_toBottomOf="@+id/FragmentHistory_text_title" />
+            app:layout_constraintStart_toEndOf="@+id/history_list_textView_borrowed"
+            app:layout_constraintTop_toBottomOf="@+id/history_list_textView_title" />
 
         <TextView
-            android:id="@+id/FragmentHistory_text_Returned"
+            android:id="@+id/history_list_textView_returned"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="84dp"
@@ -84,8 +84,8 @@
             android:textColor="@color/colorPrimaryDark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.125"
-            app:layout_constraintStart_toEndOf="@+id/FragmentHistory_text_textReturned"
-            app:layout_constraintTop_toBottomOf="@+id/FragmentHistory_text_dateOfBorrow" />
+            app:layout_constraintStart_toEndOf="@+id/history_list_textView_Returned"
+            app:layout_constraintTop_toBottomOf="@+id/history_list_textView_dateOfBorrow" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
