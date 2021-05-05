@@ -29,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         MainActivity.context = getApplicationContext();
         setContentView(R.layout.activity_bottom_navigation);
-        bottom_nav = findViewById(R.id.bottom_nav);
+        bottom_nav = findViewById(R.id.mainActivity_bottom_nav);
         bottom_nav.setOnNavigationItemSelectedListener(navListener);
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new FirstWindowFragment()).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.mainActivity_fragment_container, new FirstWindowFragment()).commit();
     }
 
     public static Context getAppContext() {
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                                 selectedFragment = new FirstWindowFragment();
                             break;
                     }
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).addToBackStack(null).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainActivity_fragment_container, selectedFragment).addToBackStack(null).commit();
                     return true;
                 }
             };
