@@ -32,7 +32,7 @@ import kul.pl.biblioteka.ui.activity.noInternet.NoInternetActivity;
 import kul.pl.biblioteka.ui.fragments.bookView.BookViewFragment;
 
 
-public class FirstWindowFragment extends Fragment implements FirstWindowFragmentContract.View{
+public class FirstWindowFragment extends Fragment implements FirstWindowFragmentContract.View {
 
     private ImageButton sortBtn;
     private PopupMenu menu;
@@ -51,7 +51,7 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
         setAdapters();
         setDarkList();
         setOnClickListener();
-        presenter = new FirstWindowFragmentPresenter(this,getContext());
+        presenter = new FirstWindowFragmentPresenter(this, getContext());
         presenter.setListTopBooks();
         presenter.setListSortByDiscover();
         presenter.setPaginationComponent(view);
@@ -59,18 +59,18 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
     }
 
     private void initComponents(View view) {
-        sortBtn=view.findViewById(R.id.first_window_btn_sort);
-        menu=new PopupMenu(view.getContext(), sortBtn);
+        sortBtn = view.findViewById(R.id.first_window_btn_sort);
+        menu = new PopupMenu(view.getContext(), sortBtn);
         menu.getMenuInflater().inflate(R.menu.sort_list_menu, menu.getMenu());
-        recommendedRecyclerView=view.findViewById(R.id.first_window_recycle_view1);
-        theMostPopularRecyclerView=view.findViewById(R.id.first_window_recycle_view2);
-        searchExitText=view.findViewById(R.id.first_window_searchView_search);
-        progressBar=view.findViewById(R.id.first_window_progressBar);
-        text1=view.findViewById(R.id.first_window_text_view_theMostPopular);
-        text2=view.findViewById(R.id.first_window_text_view_recommendedForYou);
+        recommendedRecyclerView = view.findViewById(R.id.first_window_recycle_view1);
+        theMostPopularRecyclerView = view.findViewById(R.id.first_window_recycle_view2);
+        searchExitText = view.findViewById(R.id.first_window_searchView_search);
+        progressBar = view.findViewById(R.id.first_window_progressBar);
+        text1 = view.findViewById(R.id.first_window_text_view_theMostPopular);
+        text2 = view.findViewById(R.id.first_window_text_view_recommendedForYou);
     }
 
-    private void setDarkList(){
+    private void setDarkList() {
         theMostPopularRecyclerView.setAdapter(new DarkSmallListRecycleViewAdapter(MainActivity.getAppContext()));
         recommendedRecyclerView.setAdapter(new DarkLargeListRecycleViewAdapter(MainActivity.getAppContext()));
     }
@@ -83,17 +83,16 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
     private SearchView.OnQueryTextListener searchOnSearchListener = new SearchView.OnQueryTextListener() {
         @Override
         public boolean onQueryTextSubmit(String query) {
-
             return false;
         }
 
         @Override
         public boolean onQueryTextChange(String newText) {
             hideComponents();
-            if(newText.isEmpty())
+            if (newText.isEmpty())
                 text1.setText("");
             else
-                text1.setText("''"+newText+"''");
+                text1.setText("''" + newText + "''");
             presenter.setListByName(newText);
             return false;
         }
@@ -136,11 +135,10 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
                 }
             };
 
-    private void hideComponents(){
+    private void hideComponents() {
         recommendedRecyclerView.setVisibility(View.GONE);
         text2.setVisibility(View.GONE);
     }
-
 
     private void setAdapters() {
         theMostPopularRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL, false));
@@ -207,6 +205,7 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
 
     @Override
     public void openOnInternetActivity() {
+        setDarkList();
         Intent intent = new Intent(getActivity(), NoInternetActivity.class);
         startActivity(intent);
     }

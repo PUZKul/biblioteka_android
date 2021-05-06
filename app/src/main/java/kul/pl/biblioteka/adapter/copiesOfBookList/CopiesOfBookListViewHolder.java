@@ -105,4 +105,8 @@ public class CopiesOfBookListViewHolder extends RecyclerView.ViewHolder {
                 .build();
     }
 
+    public void setBackground(){
+        view.setBackground(view.getResources().getDrawable(white_rounded_panel));
+    }
+
 }

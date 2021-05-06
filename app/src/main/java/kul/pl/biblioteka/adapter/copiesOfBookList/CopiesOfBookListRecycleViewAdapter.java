@@ -54,7 +54,6 @@ public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<Cop
             holder.setStatus("Occupied ");
             holder.setBalloon("Available from "+Helper.getShortDate(booksList.get(position).getApproximateDate()));
         }
-
     }
 
     @Override

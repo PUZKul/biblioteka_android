@@ -21,9 +21,11 @@ import com.skydoves.balloon.BalloonAnimation;
 import com.squareup.picasso.Picasso;
 
 import kul.pl.biblioteka.R;
+import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.activity.noInternet.NoInternetActivity;
 import kul.pl.biblioteka.ui.dialogs.copiesOfBooks.CopiesOfBooksDialog;
+import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.fragments.firstWindowFragment.FirstWindowFragment;
 
 public class BookViewFragment extends Fragment implements BookViewFragmentContract.View {
@@ -79,11 +81,18 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     private final View.OnClickListener borrowOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            CopiesOfBooksDialog dialog=new CopiesOfBooksDialog();
-            Bundle bundle=new Bundle();
-            bundle.putInt("id",presenter.getIdBook());
-            dialog.setArguments(bundle);
-            dialog.show(getActivity().getSupportFragmentManager(),presenter.getIdBook()+"");
+            if(InternetConnection.isConnection(MainActivity.getAppContext()))
+            {
+                CopiesOfBooksDialog dialog=new CopiesOfBooksDialog();
+                Bundle bundle=new Bundle();
+                bundle.putInt("id",presenter.getIdBook());
+                dialog.setArguments(bundle);
+                dialog.show(getActivity().getSupportFragmentManager(),presenter.getIdBook()+"");
+            }
+            else {
+                NoInternetDialog dialog=new NoInternetDialog();
+                dialog.show(getActivity().getSupportFragmentManager(),"No Inetnet");
+            }
         }
     };
 
@@ -183,8 +192,10 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
 
     @Override
     public void openOnInternetActivity() {
-        Intent intent = new Intent(getActivity(), NoInternetActivity.class);
-        startActivity(intent);
+        getActivity().getSupportFragmentManager().beginTransaction().
+                replace(((ViewGroup) getView().getParent()).getId(),new NoInternetDialog())
+                .addToBackStack(getView().getClass().getName())
+                .commit();
     }
 
 }
