@@ -15,6 +15,8 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.OnItemClickListener;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 
+import static kul.pl.biblioteka.R.drawable.*;
+
 public class CopiesOfBookListViewHolder extends RecyclerView.ViewHolder {
 
     private TextView bookId;
@@ -24,17 +26,38 @@ public class CopiesOfBookListViewHolder extends RecyclerView.ViewHolder {
     private View view;
     private Balloon balloon;
     private ImageView informationImage;
+    private boolean checked;
 
-    public CopiesOfBookListViewHolder(@NonNull View itemView) {
+    public CopiesOfBookListViewHolder(@NonNull View itemView,OnItemClickListener onItemClickListener) {
         super(itemView);
         setComponents(itemView);
         view = itemView;
-        setOnclickListeners();
+        setOnclickListeners(itemView);
+        checked =false;
+        this.onItemClickListener =onItemClickListener;
     }
 
-    private void setOnclickListeners() {
+    private void setOnclickListeners(View view) {
         informationImage.setOnClickListener(onImageClicked);
+        view.setOnClickListener(onItemClicked);
     }
+
+    private final View.OnClickListener onItemClicked = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if(!checked){
+                v.setBackground(v.getResources().getDrawable(R.drawable.clicked_item_style));
+                checked=true;
+                //todo add to sting helper
+                onItemClickListener.onClick(Integer.parseInt(bookId.getText().toString().replace("#","")));
+            }
+            else{
+                v.setBackground(v.getResources().getDrawable(white_rounded_panel));
+                onItemClickListener.onClick(0);
+                checked=false;
+            }
+        }
+    };
 
     private View.OnClickListener onImageClicked = new View.OnClickListener() {
         @Override

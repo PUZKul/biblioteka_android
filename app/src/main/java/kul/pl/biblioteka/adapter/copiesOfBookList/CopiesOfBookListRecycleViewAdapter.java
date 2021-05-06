@@ -11,13 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import kul.pl.biblioteka.R;
+import kul.pl.biblioteka.adapter.OnItemClickListener;
 import kul.pl.biblioteka.models.CopiesOfBookModel;
 import kul.pl.biblioteka.utils.Helper;
 
-public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<CopiesOfBookListViewHolder> {
+public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<CopiesOfBookListViewHolder> implements OnItemClickListener {
 
     private Context context;
     private List<CopiesOfBookModel> booksList;
+    private int idBook;
 
     public CopiesOfBookListRecycleViewAdapter(Context context, List<CopiesOfBookModel> booksList) {
         this.context = context;
@@ -29,7 +31,7 @@ public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<Cop
     public CopiesOfBookListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(context);
         View view =  mInflater.inflate(R.layout.item_list_copies_of_books, parent, false);
-        return new CopiesOfBookListViewHolder(view);
+        return new CopiesOfBookListViewHolder(view,this);
     }
 
     @Override
@@ -58,5 +60,14 @@ public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<Cop
     @Override
     public int getItemCount() {
         return booksList.size();
+    }
+
+    @Override
+    public void onClick(int idBook) {
+        this.idBook=idBook;
+    }
+
+    public int getIdBook() {
+        return idBook;
     }
 }

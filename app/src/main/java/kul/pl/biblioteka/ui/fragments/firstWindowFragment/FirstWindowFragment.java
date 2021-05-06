@@ -72,7 +72,7 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
 
     private void setDarkList(){
         theMostPopularRecyclerView.setAdapter(new DarkSmallListRecycleViewAdapter(MainActivity.getAppContext()));
-        recommendedRecyclerView.setAdapter(new DarkLargeListRecycleViewAdapter(MainActivity.getAppContext()git ));
+        recommendedRecyclerView.setAdapter(new DarkLargeListRecycleViewAdapter(MainActivity.getAppContext()));
     }
 
     private void setOnClickListener() {
