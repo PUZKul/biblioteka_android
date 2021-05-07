@@ -3,16 +3,12 @@ package kul.pl.biblioteka.adapter.reservationList;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.OnItemClickListener;
-import kul.pl.biblioteka.adapter.recommendedList.RecommendedListViewHolder;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 
 public class ReservationListRecycleViewAdapter extends RecyclerView.Adapter<ReservationListViewHolder> implements OnItemClickListener{

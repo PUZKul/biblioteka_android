@@ -184,4 +184,21 @@ abstract class LibraryAPI {
             listener.onNoInternet();
         }
     };
+
+    protected Callback<Integer> callbackForEditUserData = new Callback<Integer>() {
+        @Override
+        public void onResponse(Call<Integer> call, Response<Integer> response) {
+            if (response.isSuccessful()) {
+                listener.onEditUserReceive();
+            } else {
+                ApiError apiError = ApiErrorParser.parseError(response);
+                listener.onErrorReceive(apiError);
+            }
+        }
+
+        @Override
+        public void onFailure(Call<Integer> call, Throwable t) {
+            listener.onNoInternet();
+        }
+    };
 }

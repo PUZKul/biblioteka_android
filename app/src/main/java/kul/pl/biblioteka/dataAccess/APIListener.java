@@ -32,4 +32,6 @@ public interface APIListener {
 
     void onUserBooksDetailsReceive(UserBookDetails details);
 
+    void onEditUserReceive();
+
 }

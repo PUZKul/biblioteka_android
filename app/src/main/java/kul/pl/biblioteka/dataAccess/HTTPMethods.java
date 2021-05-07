@@ -4,6 +4,7 @@ import java.util.List;
 
 import kul.pl.biblioteka.models.BookModel;
 import kul.pl.biblioteka.models.CopiesOfBookModel;
+import kul.pl.biblioteka.models.EditUserModel;
 import kul.pl.biblioteka.models.LoginApiUserModel;
 import kul.pl.biblioteka.models.RegistrationApiUserModel;
 import kul.pl.biblioteka.models.UserBookDetails;
@@ -53,14 +54,18 @@ public interface HTTPMethods {
 
     @Headers("Content-Type: application/json")
     @POST("register")
-    Call<ResponseBody > registration(@Body RegistrationApiUserModel user);
+    Call<ResponseBody> registration(@Body RegistrationApiUserModel user);
 
     @GET("/api/library/users")
-    Call<UserModel> getUser(@Header("Authorization")String token);
+    Call<UserModel> getUser(@Header("Authorization") String token);
 
     @GET("/api/library/books/copies/{id}")
     Call<List<CopiesOfBookModel>> getCopiesOfBookById(@Path("id") int bookId);
 
     @GET("/api/library/users/bookDetails")
-    Call<UserBookDetails> getUserBooksDetails(@Header("Authorization")String token);
+    Call<UserBookDetails> getUserBooksDetails(@Header("Authorization") String token);
+
+    @GET("/api/library/users/edit")
+    Call<Integer> editUserData(@Header("Authorization") String token,
+                                            @Body EditUserModel user);
 }

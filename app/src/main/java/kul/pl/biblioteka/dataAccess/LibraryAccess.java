@@ -1,6 +1,7 @@
 package kul.pl.biblioteka.dataAccess;
 
 
+import kul.pl.biblioteka.models.EditUserModel;
 import kul.pl.biblioteka.models.LoginApiUserModel;
 import kul.pl.biblioteka.models.RegistrationApiUserModel;
 import kul.pl.biblioteka.utils.Direction;
@@ -91,5 +92,10 @@ public final class LibraryAccess extends LibraryAPI{
     public void getUserBooksDetails(String token){
         HTTPMethods.getUserBooksDetails(token)
                 .enqueue(callbackForUserBooksDetails);
+    }
+
+    public void editUserData(String token, EditUserModel user){
+        HTTPMethods.editUserData(token,user)
+                .enqueue(callbackForEditUserData);
     }
 }
