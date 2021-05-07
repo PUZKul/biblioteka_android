@@ -53,7 +53,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
         editPassword = view.findViewById(R.id.editProfile_editText_newPassword2);
         textRepeatEditPassword = view.findViewById(R.id.editProfile_textViev_repeatPassword2);
         repeatEditedPassword = view.findViewById(R.id.editProfile_editText_repeatPassword2);
-        progressBar = view.findViewById(R.id.editProfile_progressBar2);
+        progressBar = view.findViewById(R.id.editProfile_progresBar);
         cancelBtn = view.findViewById(R.id.editProfile_btn_cancel2);
         saveBtn = view.findViewById(R.id.editProfile_btn_save2);
     }
@@ -111,7 +111,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
 
     @Override
     public void endProgressBar() {
-        progressBar.setVisibility(View.GONE);
+        progressBar.setVisibility(View.INVISIBLE);
     }
 
     public void openMainActivity() {

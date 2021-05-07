@@ -20,8 +20,8 @@ public class ProfileFragmentPresenter extends APIAdapter implements ProfileFragm
 
     @Override
     public void onUserBooksDetailsReceive(UserBookDetails details) {
-        view.setReadBooks(details.getTotalBooks()+"");
-        view.setCurrentBooks(details.getCurrentBooks()+"");
+        view.setReadBooks(details.getTotalBooks() + "");
+        view.setCurrentBooks(details.getCurrentBooks() + "");
         view.endProgressBar();
     }
 

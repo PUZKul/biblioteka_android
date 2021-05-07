@@ -26,14 +26,13 @@ public class EditProfilePresenter extends APIAdapter implements EditProfileContr
 
     @Override
     public void onSaveClicked(RegistrationUserModel user) {
-        if(!view.isCheckedBoxEditPassword()){
-            if(StringHelper.validateEmailRegistration(user.getEmail())){
+        if (!view.isCheckedBoxEditPassword()) {
+            if (StringHelper.validateEmailRegistration(user.getEmail())) {
                 view.errorEmailIncorrect();
-            }
-            else {
+            } else {
                 view.openDialog();
             }
-        }else{
+        } else {
             if (validateFields(user)) {
                 view.openDialog();
             }
@@ -42,22 +41,26 @@ public class EditProfilePresenter extends APIAdapter implements EditProfileContr
 
     @Override
     public void setUserDetails() {
+        view.startProgressBar();
         api.getUserDetails(LocalDataAccess.getToken());
     }
 
     @Override
     public void changeUserData(EditUserModel model) {
-        api.editUserData(LocalDataAccess.getToken(),model);
+        view.startProgressBar();
+        api.editUserData(LocalDataAccess.getToken(), model);
     }
 
     @Override
     public void onEditUserReceive() {
+        view.startProgressBar();
         view.showToast("The data has been edited");
     }
 
     @Override
     public void onErrorReceive(ApiError error) {
-        System.out.println(error.getMessage());
+        view.endProgressBar();
+        view.showToast(error.getMessage());
     }
 
     @Override
