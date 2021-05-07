@@ -8,22 +8,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.OnItemClickListener;
+import kul.pl.biblioteka.ui.activity.MainActivity;
 
-public class HistoryListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+public class HistoryListViewHolder extends RecyclerView.ViewHolder{
 
     private ImageView imageBook;
     private TextView titleTextView;
     private  TextView borrowedTextView;
     private  TextView returnedTextView;
 
-    private OnItemClickListener onItemClickListener;
-
-    public HistoryListViewHolder(@NonNull View itemView, OnItemClickListener onItemClickListener) {
+    public HistoryListViewHolder(@NonNull View itemView) {
         super(itemView);
         setComponents(itemView);
-        this.onItemClickListener=onItemClickListener;
     }
 
     private void setComponents(View view) {
@@ -47,11 +47,6 @@ public class HistoryListViewHolder extends RecyclerView.ViewHolder implements Vi
     }
 
     public void setImageBook(Uri bookUri){
-        imageBook.setImageURI(bookUri);
-    }
-
-    @Override
-    public void onClick(View v) {
-      //  onItemClickListener.onClick(1);
+        Picasso.with(MainActivity.getAppContext()).load(bookUri).into(imageBook);;
     }
 }

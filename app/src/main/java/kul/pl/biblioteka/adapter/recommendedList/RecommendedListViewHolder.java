@@ -30,7 +30,6 @@ public class RecommendedListViewHolder extends RecyclerView.ViewHolder{
     public RecommendedListViewHolder(@NonNull View itemView, OnItemClickListener onItemClickListener) {
         super(itemView);
         setComponents(itemView);
-        //todo set on click on item
         setOnClickListener(itemView);
         view=itemView;
         this.onItemClickListener=onItemClickListener;
