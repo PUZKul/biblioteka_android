@@ -1,7 +1,7 @@
 package kul.pl.biblioteka.ui.fragments.profile;
 
 public interface ProfileFragmentContact {
-    interface viev {
+    interface view {
         void setNick(String nick);
 
         void setReadBooks(String readBooks);
@@ -15,6 +15,10 @@ public interface ProfileFragmentContact {
         void setExperience(int experience);
 
         void openMainActivity();
+
+        void startProgressBar();
+
+        void endProgressBar();
     }
 
     interface Presenter {

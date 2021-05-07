@@ -18,7 +18,7 @@ import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.fragments.editProfile.EditProfile;
 
 
-public class ProfileFragment extends Fragment implements ProfileFragmentContact.viev{
+public class ProfileFragment extends Fragment implements ProfileFragmentContact.view {
     private ProfileFragmentPresenter presenter;
 
 
@@ -30,6 +30,7 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
     private TextView currentLevelText;
     private TextView nextLevelText;
     private ProgressBar experienceProgress;
+    private ProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
         currentLevelText=view.findViewById(R.id.profile_textView_currentLvl);
         nextLevelText=view.findViewById(R.id.profile_textView_nextLvl);
         experienceProgress=view.findViewById(R.id.profile_progressBar_exp);
+        progressBar=view.findViewById(R.id.profile_progressBar);
     }
 
     private void setOnClickListener() {
@@ -93,6 +95,16 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
         Intent intent = new Intent(getContext(), MainActivity.class);
         //todo toast information
         startActivity(intent);
+    }
+
+    @Override
+    public void startProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void endProgressBar() {
+        progressBar.setVisibility(View.INVISIBLE);
     }
 
     @Override
