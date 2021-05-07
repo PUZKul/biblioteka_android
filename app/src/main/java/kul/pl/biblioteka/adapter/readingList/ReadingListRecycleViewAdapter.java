@@ -40,7 +40,7 @@ public class ReadingListRecycleViewAdapter extends RecyclerView.Adapter<ReadingL
         holder.setTitleText(booksList.get(position).getTitle());
         //todo add static method(Holder class) to added 30 day
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            String date= LocalDate.parse(Helper.getDefaultDateFormat(booksList.get(position).getDateIssued())).plusDays(30).toString();
+            String date = LocalDate.parse(Helper.getDefaultDateFormat(booksList.get(position).getDateIssued())).plusDays(30).toString();
             holder.setTimeAgoText(date);
         }
     }
