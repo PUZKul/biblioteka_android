@@ -49,23 +49,6 @@
             app:layout_constraintStart_toEndOf="@+id/reading_item_list_image"
             app:layout_constraintTop_toBottomOf="@+id/reading_item_list_textView_title" />
 
-        <Button
-            android:id="@+id/reading_item_list__button_return"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="197dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="4dp"
-            android:fontFamily="sans-serif-light"
-            android:text="@string/click_to_return"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.973"
-            app:layout_constraintStart_toEndOf="@+id/reading_item_list_image" />
-
         <TextView
             android:id="@+id/reading_item_list_textView_timeAgo"
             android:layout_width="wrap_content"
