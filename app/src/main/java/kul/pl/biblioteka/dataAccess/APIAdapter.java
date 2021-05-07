@@ -64,4 +64,9 @@ public abstract class APIAdapter implements APIListener {
     public void onUserBooksDetailsReceive(UserBookDetails details) {
 
     }
+
+    @Override
+    public void onEditUserReceive() {
+
+    }
 }

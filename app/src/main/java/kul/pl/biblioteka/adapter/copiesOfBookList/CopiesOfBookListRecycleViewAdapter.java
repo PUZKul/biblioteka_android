@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import kul.pl.biblioteka.R;
@@ -20,10 +21,12 @@ public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<Cop
     private Context context;
     private List<CopiesOfBookModel> booksList;
     private int idBook;
+    private List<CopiesOfBookListViewHolder> holders;
 
     public CopiesOfBookListRecycleViewAdapter(Context context, List<CopiesOfBookModel> booksList) {
         this.context = context;
         this.booksList = booksList;
+        holders=new ArrayList<>();
     }
 
     @NonNull
@@ -40,6 +43,7 @@ public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<Cop
     }
 
     private void setBookDetails(CopiesOfBookListViewHolder holder, int position) {
+        holders.add(holder);
         holder.setBookId("#"+booksList.get(position).getId());
         if(!booksList.get(position).isBorrow()){
             if(booksList.get(position).isAccess()){
@@ -64,6 +68,14 @@ public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<Cop
     @Override
     public void onClick(int idBook) {
         this.idBook=idBook;
+        cleanAll();
+    }
+
+    private void cleanAll(){
+        for (CopiesOfBookListViewHolder holder:holders){
+            if(holder.isChecked())
+                holder.clean();
+        }
     }
 
     public int getIdBook() {

@@ -4,6 +4,8 @@ import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
+import kul.pl.biblioteka.exception.ApiError;
+import kul.pl.biblioteka.models.EditUserModel;
 import kul.pl.biblioteka.models.RegistrationUserModel;
 import kul.pl.biblioteka.models.UserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
@@ -25,16 +27,15 @@ public class EditProfilePresenter extends APIAdapter implements EditProfileContr
     @Override
     public void onSaveClicked(RegistrationUserModel user) {
         if(!view.isCheckedBoxEditPassword()){
-            if(!StringHelper.validateEmailRegistration(user.getEmail())){
+            if(StringHelper.validateEmailRegistration(user.getEmail())){
                 view.errorEmailIncorrect();
-                //todo implement api method changed only email
+            }
+            else {
+                view.openDialog();
             }
         }else{
             if (validateFields(user)) {
-                if (InternetConnection.isConnection(MainActivity.getAppContext())) {
-                    view.startProgressBar();
-                    //todo implement api method changed only email)
-                }
+                view.openDialog();
             }
         }
     }
@@ -42,6 +43,21 @@ public class EditProfilePresenter extends APIAdapter implements EditProfileContr
     @Override
     public void setUserDetails() {
         api.getUserDetails(LocalDataAccess.getToken());
+    }
+
+    @Override
+    public void changeUserData(EditUserModel model) {
+        api.editUserData(LocalDataAccess.getToken(),model);
+    }
+
+    @Override
+    public void onEditUserReceive() {
+        view.showToast("The data has been edited");
+    }
+
+    @Override
+    public void onErrorReceive(ApiError error) {
+        System.out.println(error.getMessage());
     }
 
     @Override

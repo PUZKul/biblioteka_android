@@ -197,5 +197,4 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
                 .addToBackStack(getView().getClass().getName())
                 .commit();
     }
-
 }

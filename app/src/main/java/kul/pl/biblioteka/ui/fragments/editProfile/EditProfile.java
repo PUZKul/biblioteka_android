@@ -15,11 +15,14 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import kul.pl.biblioteka.R;
+import kul.pl.biblioteka.models.EditUserModel;
 import kul.pl.biblioteka.models.RegistrationUserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
-import kul.pl.biblioteka.ui.activity.noInternet.NoInternetActivity;
+import kul.pl.biblioteka.ui.dialogs.passwordSecurity.DialogListener;
+import kul.pl.biblioteka.ui.dialogs.passwordSecurity.PasswordSecurityDialog;
+import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 
-public class EditProfile extends Fragment implements EditProfileContract.View {
+public class EditProfile extends Fragment implements EditProfileContract.View, DialogListener {
 
     private EditText editEmail;
     private CheckBox checkBoxEditPassword;
@@ -82,10 +85,16 @@ public class EditProfile extends Fragment implements EditProfileContract.View {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.onSaveClicked(new RegistrationUserModel(
-                        editPassword.getText().toString()
-                        , repeatEditedPassword.getText().toString()
-                        , editEmail.getText().toString()));
+                if(checkBoxEditPassword.isChecked())
+                    presenter.onSaveClicked(new RegistrationUserModel(
+                            editPassword.getText().toString()
+                            , repeatEditedPassword.getText().toString()
+                            , editEmail.getText().toString()));
+                else
+                    presenter.onSaveClicked(new RegistrationUserModel(
+                            editPassword.getText().toString()
+                            , ""
+                            , ""));
             }
         };
     }
@@ -106,6 +115,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View {
     }
 
     public void openMainActivity() {
+        //todo change on fragment
         Intent intent = new Intent(MainActivity.getAppContext(), MainActivity.class);
         startActivity(intent);
     }
@@ -159,7 +169,9 @@ public class EditProfile extends Fragment implements EditProfileContract.View {
 
     @Override
     public void openDialog() {
-        //todo open dialog check actual password
+        PasswordSecurityDialog dialog=new PasswordSecurityDialog();
+        dialog.setListener(this);
+        dialog.show(getActivity().getSupportFragmentManager(),"password dialog");
     }
 
     @Override
@@ -180,8 +192,19 @@ public class EditProfile extends Fragment implements EditProfileContract.View {
 
     @Override
     public void openOnInternetActivity() {
-        Intent intent = new Intent(MainActivity.getAppContext(), NoInternetActivity.class);
-        startActivity(intent);
+        getActivity().getSupportFragmentManager().beginTransaction().
+                replace(((ViewGroup) getView().getParent()).getId(),new NoInternetDialog())
+                .addToBackStack(getView().getClass().getName())
+                .commit();
+    }
+
+    @Override
+    public void applyPassword(String password) {
+        presenter.changeUserData(new EditUserModel(
+                editEmail.getText().toString(),
+                editPassword.getText().toString(),
+                password
+        ));
     }
 }
 

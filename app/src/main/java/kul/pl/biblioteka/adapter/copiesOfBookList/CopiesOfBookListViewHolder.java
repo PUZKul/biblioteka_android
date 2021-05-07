@@ -42,14 +42,23 @@ public class CopiesOfBookListViewHolder extends RecyclerView.ViewHolder {
         view.setOnClickListener(onItemClicked);
     }
 
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void clean(){
+        view.setBackground(view.getResources().getDrawable(white_rounded_panel));
+        checked=false;
+    }
+
     private final View.OnClickListener onItemClicked = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if(!checked){
-                v.setBackground(v.getResources().getDrawable(R.drawable.clicked_item_style));
-                checked=true;
                 //todo add to sting helper
                 onItemClickListener.onClick(Integer.parseInt(bookId.getText().toString().replace("#","")));
+                v.setBackground(v.getResources().getDrawable(R.drawable.clicked_item_style));
+                checked=true;
             }
             else{
                 v.setBackground(v.getResources().getDrawable(white_rounded_panel));
@@ -108,5 +117,4 @@ public class CopiesOfBookListViewHolder extends RecyclerView.ViewHolder {
     public void setBackground(){
         view.setBackground(view.getResources().getDrawable(white_rounded_panel));
     }
-
 }

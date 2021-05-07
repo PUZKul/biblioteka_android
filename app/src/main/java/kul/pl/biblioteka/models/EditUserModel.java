@@ -6,12 +6,9 @@ public class EditUserModel {
     private String newPassword;
     private String oldPassword;
 
-    public EditUserModel(String email, String newPassword) {
+    public EditUserModel(String email, String newPassword, String oldPassword) {
         this.email = email;
         this.newPassword = newPassword;
-    }
-
-    public void setOldPassword(String oldPassword) {
         this.oldPassword = oldPassword;
     }
 }
