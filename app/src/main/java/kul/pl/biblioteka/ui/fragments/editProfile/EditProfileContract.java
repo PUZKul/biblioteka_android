@@ -20,7 +20,7 @@ public interface EditProfileContract {
 
         void errorRepeatPasswordAreNotIdentical();
 
-        void openOnInternetActivity();
+        void openNoInternetDialog();
 
         void setEmail(String email);
 

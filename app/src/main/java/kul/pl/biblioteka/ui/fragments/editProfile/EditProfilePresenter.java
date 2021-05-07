@@ -1,14 +1,14 @@
 package kul.pl.biblioteka.ui.fragments.editProfile;
 
+import android.os.CountDownTimer;
+
 import kul.pl.biblioteka.dataAccess.APIAdapter;
-import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.EditUserModel;
 import kul.pl.biblioteka.models.RegistrationUserModel;
 import kul.pl.biblioteka.models.UserModel;
-import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.utils.StringHelper;
 
 public class EditProfilePresenter extends APIAdapter implements EditProfileContract.Presenter {
@@ -67,6 +67,7 @@ public class EditProfilePresenter extends APIAdapter implements EditProfileContr
     public void onUserDetailsReceive(UserModel user) {
         this.user = user;
         view.setEmail(user.getEmail());
+        view.endProgressBar();
     }
 
     private boolean validateFields(RegistrationUserModel user) {
@@ -89,7 +90,17 @@ public class EditProfilePresenter extends APIAdapter implements EditProfileContr
 
     @Override
     public void onNoInternet() {
-        view.endProgressBar();
-        view.openOnInternetActivity();
+        CountDownTimer timer=new CountDownTimer(6000,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                view.endProgressBar();
+                view.openNoInternetDialog();
+            }
+        }.start();
     }
 }

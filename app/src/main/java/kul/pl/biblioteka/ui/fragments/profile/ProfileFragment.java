@@ -52,7 +52,7 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
         currentLevelText=view.findViewById(R.id.profile_textView_currentLvl);
         nextLevelText=view.findViewById(R.id.profile_textView_nextLvl);
         experienceProgress=view.findViewById(R.id.profile_progressBar_exp);
-        progressBar=view.findViewById(R.id.profile_progressBar);
+        progressBar=view.findViewById(R.id.progressBar);
     }
 
     private void setOnClickListener() {

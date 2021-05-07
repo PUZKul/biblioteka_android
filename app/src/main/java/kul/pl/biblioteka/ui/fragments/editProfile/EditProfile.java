@@ -2,6 +2,7 @@ package kul.pl.biblioteka.ui.fragments.editProfile;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -191,11 +192,9 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
     }
 
     @Override
-    public void openOnInternetActivity() {
-        getActivity().getSupportFragmentManager().beginTransaction().
-                replace(((ViewGroup) getView().getParent()).getId(),new NoInternetDialog())
-                .addToBackStack(getView().getClass().getName())
-                .commit();
+    public void openNoInternetDialog() {
+        NoInternetDialog dialog=new  NoInternetDialog();
+        dialog.show(getActivity().getSupportFragmentManager(),"No Internet dialog");
     }
 
     @Override
