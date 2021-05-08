@@ -26,9 +26,10 @@ import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.activity.noInternet.NoInternetActivity;
 import kul.pl.biblioteka.ui.dialogs.copiesOfBooks.CopiesOfBooksDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
+import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.fragments.firstWindowFragment.FirstWindowFragment;
 
-public class BookViewFragment extends Fragment implements BookViewFragmentContract.View {
+public class BookViewFragment extends Fragment implements BookViewFragmentContract.View, NoInternetDialogListener {
 
     private ImageView imageView;
     private TextView titleTextView;
@@ -90,11 +91,15 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
                 dialog.show(getActivity().getSupportFragmentManager(),presenter.getIdBook()+"");
             }
             else {
-                NoInternetDialog dialog=new NoInternetDialog();
-                dialog.show(getActivity().getSupportFragmentManager(),"No Inetnet");
+                openNoInternetDialog();
             }
         }
     };
+
+    private void openNoInternetDialog(){
+        NoInternetDialog dialog=new NoInternetDialog(this);
+        dialog.show(getActivity().getSupportFragmentManager(),"No Inetnet");
+    }
 
     private void openHomeFragment() {
         getActivity().getSupportFragmentManager().beginTransaction().
@@ -193,8 +198,13 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     @Override
     public void openOnInternetActivity() {
         getActivity().getSupportFragmentManager().beginTransaction().
-                replace(((ViewGroup) getView().getParent()).getId(),new NoInternetDialog())
+                replace(((ViewGroup) getView().getParent()).getId(),new NoInternetDialog(this))
                 .addToBackStack(getView().getClass().getName())
                 .commit();
+    }
+
+    @Override
+    public void goBackToTheFragment() {
+
     }
 }

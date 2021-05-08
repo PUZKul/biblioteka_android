@@ -18,6 +18,11 @@ import kul.pl.biblioteka.ui.activity.MainActivity;
 public class NoInternetDialog  extends AppCompatDialogFragment {
 
     private Button back;
+    private NoInternetDialogListener listener;
+
+    public NoInternetDialog(NoInternetDialogListener listener) {
+        this.listener = listener;
+    }
 
     @NonNull
     @Override
@@ -29,6 +34,14 @@ public class NoInternetDialog  extends AppCompatDialogFragment {
         setOnClickListener();
         builder.setView(view);
         return builder.create();
+    }
+
+    public void setOnClickedBack(){
+        listener.goBackToTheFragment();
+    }
+
+    public void closeDialog(){
+        dismiss();
     }
 
     private void initComponents(View view){

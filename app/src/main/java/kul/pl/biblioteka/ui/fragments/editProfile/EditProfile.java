@@ -2,7 +2,7 @@ package kul.pl.biblioteka.ui.fragments.editProfile;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,11 +19,12 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.models.EditUserModel;
 import kul.pl.biblioteka.models.RegistrationUserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.dialogs.passwordSecurity.DialogListener;
 import kul.pl.biblioteka.ui.dialogs.passwordSecurity.PasswordSecurityDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 
-public class EditProfile extends Fragment implements EditProfileContract.View, DialogListener {
+public class EditProfile extends Fragment implements EditProfileContract.View, DialogListener, NoInternetDialogListener {
 
     private EditText editEmail;
     private CheckBox checkBoxEditPassword;
@@ -35,6 +36,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
     private Button saveBtn;
     private ProgressBar progressBar;
     private EditProfileContract.Presenter presenter;
+    private  NoInternetDialog dialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
         presenter = new EditProfilePresenter(this);
         presenter.setUserDetails();
         hideEditPasswordsFields();
+        dialog =new  NoInternetDialog(this);
         return view;
     }
 
@@ -193,8 +196,8 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
 
     @Override
     public void openNoInternetDialog() {
-        NoInternetDialog dialog=new  NoInternetDialog();
         dialog.show(getActivity().getSupportFragmentManager(),"No Internet dialog");
+        dialog.setOnClickedBack();
     }
 
     @Override
@@ -205,6 +208,19 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
                 password
         ));
     }
+
+    @Override
+    public void goBackToTheFragment() {
+        Handler handler=new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                    presenter.setUserDetails();
+                    dialog.closeDialog();
+            }
+        },5000);
+    }
+
 }
 
 

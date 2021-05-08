@@ -90,7 +90,7 @@ public class EditProfilePresenter extends APIAdapter implements EditProfileContr
 
     @Override
     public void onNoInternet() {
-        CountDownTimer timer=new CountDownTimer(6000,1000) {
+        new CountDownTimer(6000,1000) {
             @Override
             public void onTick(long millisUntilFinished) {
 
