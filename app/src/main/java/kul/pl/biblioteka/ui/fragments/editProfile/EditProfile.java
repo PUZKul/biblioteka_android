@@ -220,7 +220,6 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
             }
         },5000);
     }
-
 }
 
 
