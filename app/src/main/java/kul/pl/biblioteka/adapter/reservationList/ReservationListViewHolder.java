@@ -1,5 +1,6 @@
 package kul.pl.biblioteka.adapter.reservationList;
 
+import android.net.Uri;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -7,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.OnItemClickListener;
@@ -19,12 +22,14 @@ public class ReservationListViewHolder extends RecyclerView.ViewHolder{
     private TextView timeAgoTextView;
     private Button cancel;
     private OnItemClickListener onItemClickListener;
+    private View view;
 
     public ReservationListViewHolder(@NonNull View itemView,OnItemClickListener onItemClickListener) {
         super(itemView);
         this.onItemClickListener=onItemClickListener;
         initComponents(itemView);
         setOnCLickListeners();
+        view=itemView;
     }
 
     private void initComponents(View itemView) {
@@ -46,4 +51,20 @@ public class ReservationListViewHolder extends RecyclerView.ViewHolder{
             // onItemClickListener.onClick();
         }
     };
+
+    public void setImageBook(Uri bookUri){
+        Picasso.with(view.getContext()).load(bookUri).into(imageBook);;
+    }
+
+    public void setTitleTextView(String title) {
+        titleTextView.setText(title);
+    }
+
+    public void setReservationTextView(String reservation) {
+        this.reservationTextView.setText(reservation);
+    }
+
+    public void setTimeAgoTextView(String timeAgo) {
+        this.timeAgoTextView.setText(timeAgo);
+    }
 }
