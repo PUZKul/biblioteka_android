@@ -26,7 +26,6 @@
         android:id="@+id/fragmentNoLoginReading_text_LoginIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
         android:text="@string/login_in"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/FragmentNoLogin_text_historyInfo"
