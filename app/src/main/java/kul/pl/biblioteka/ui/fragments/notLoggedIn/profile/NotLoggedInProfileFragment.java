@@ -78,6 +78,4 @@ public class NotLoggedInProfileFragment extends Fragment {
         loginBtn=view.findViewById(R.id.welcome_btn_login);
         registrationBtn=view.findViewById(R.id.welcome_btn_register);
     }
-
-
 }
