@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:visibility="visible"
     android:fillViewport="true"
-    tools:context=".ui.fragments.notLoggedIn.hiatoryAndReading.NotLoggedInReservationsReadingAndHistory">
+    tools:context=".ui.fragments.notLoggedIn.historyAndReading.NotLoggedInReservationsReadingAndHistory">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,7 +51,6 @@
             android:id="@+id/notLogReadingAndHistory_fragmentContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
         </FrameLayout>
 
     </LinearLayout>

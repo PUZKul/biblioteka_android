@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.ui.fragments.notLoggedIn.hiatoryAndReading.notLoggedInHistory;
+package kul.pl.biblioteka.ui.fragments.notLoggedIn.historyAndReading.notLoggedInReading;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,21 +13,22 @@ import androidx.fragment.app.Fragment;
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.ui.activity.login.LoginActivity;
 
-public class NotLoggedInHistory extends Fragment {
+public class NotLoggedInReading  extends Fragment {
+
     private ImageView loginImage;
     private TextView loginText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_no_login_history, container, false);
+        View view = inflater.inflate(R.layout.fragment_no_login_reading, container, false);
         initComponents(view);
         setOnClickListener();
         return view;
     }
 
     private void initComponents(View view) {
-        loginImage=view.findViewById(R.id.fragmentNoLoginHistory_image_LoginIn);
-        loginText=view.findViewById(R.id.fragmentNoLoginHistory_text_LoginIn);
+        loginImage=view.findViewById(R.id.fragmentNoLoginReading_image_LoginIn);
+        loginText=view.findViewById(R.id.fragmentNoLoginReading_text_LoginIn);
     }
 
     private void setOnClickListener(){

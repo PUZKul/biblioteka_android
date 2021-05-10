@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.ui.fragments.notLoggedIn.hiatoryAndReading;
+package kul.pl.biblioteka.ui.fragments.notLoggedIn.historyAndReading;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,9 +10,9 @@ import androidx.fragment.app.Fragment;
 
 
 import kul.pl.biblioteka.R;
-import kul.pl.biblioteka.ui.fragments.notLoggedIn.hiatoryAndReading.notLoggedInHistory.NotLoggedInHistory;
-import kul.pl.biblioteka.ui.fragments.notLoggedIn.hiatoryAndReading.notLoggedInReading.NotLoggedInReading;
-import kul.pl.biblioteka.ui.fragments.notLoggedIn.hiatoryAndReading.notLoggedInReservations.NotLoggedInReservations;
+import kul.pl.biblioteka.ui.fragments.notLoggedIn.historyAndReading.notLoggedInHistory.NotLoggedInHistory;
+import kul.pl.biblioteka.ui.fragments.notLoggedIn.historyAndReading.notLoggedInReading.NotLoggedInReading;
+import kul.pl.biblioteka.ui.fragments.notLoggedIn.historyAndReading.notLoggedInReservations.NotLoggedInReservations;
 
 public class NotLoggedInReservationsReadingAndHistory extends Fragment {
 

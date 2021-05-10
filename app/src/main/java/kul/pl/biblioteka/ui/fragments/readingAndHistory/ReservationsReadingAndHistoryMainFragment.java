@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import kul.pl.biblioteka.R;
-import kul.pl.biblioteka.ui.fragments.notLoggedIn.hiatoryAndReading.notLoggedInHistory.NotLoggedInHistory;
-import kul.pl.biblioteka.ui.fragments.notLoggedIn.hiatoryAndReading.notLoggedInReading.NotLoggedInReading;
 import kul.pl.biblioteka.ui.fragments.readingAndHistoryEmptyLists.EmptyHistoryFragment;
 import kul.pl.biblioteka.ui.fragments.readingAndHistoryEmptyLists.EmptyReadingFragment;
 import kul.pl.biblioteka.ui.fragments.readingAndHistoryEmptyLists.EmptyReservationsFragment;

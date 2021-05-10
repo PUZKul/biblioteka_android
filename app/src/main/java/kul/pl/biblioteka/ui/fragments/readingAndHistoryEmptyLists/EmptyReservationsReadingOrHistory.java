@@ -11,8 +11,8 @@ import androidx.fragment.app.Fragment;
 import java.util.Objects;
 
 import kul.pl.biblioteka.R;
-import kul.pl.biblioteka.ui.fragments.notLoggedIn.hiatoryAndReading.notLoggedInHistory.NotLoggedInHistory;
-import kul.pl.biblioteka.ui.fragments.notLoggedIn.hiatoryAndReading.notLoggedInReading.NotLoggedInReading;
+import kul.pl.biblioteka.ui.fragments.notLoggedIn.historyAndReading.notLoggedInHistory.NotLoggedInHistory;
+import kul.pl.biblioteka.ui.fragments.notLoggedIn.historyAndReading.notLoggedInReading.NotLoggedInReading;
 
 public class EmptyReservationsReadingOrHistory extends Fragment {
 

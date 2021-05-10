@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.ui.fragments.notLoggedIn.hiatoryAndReading.notLoggedInReservations;
+package kul.pl.biblioteka.ui.fragments.notLoggedIn.historyAndReading.notLoggedInReservations;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

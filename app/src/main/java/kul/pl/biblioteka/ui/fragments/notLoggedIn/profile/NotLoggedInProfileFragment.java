@@ -74,8 +74,8 @@ public class NotLoggedInProfileFragment extends Fragment {
     }
 
     private void initComponents(View view) {
-        homeFragmentBtn =view.findViewById(R.id.welcome_button_GoToTheLibrary);
-        loginBtn=view.findViewById(R.id.welcome_btn_login);
-        registrationBtn=view.findViewById(R.id.welcome_btn_register);
+        homeFragmentBtn =view.findViewById(R.id.no_internet_profile_welcome_button_GoToTheLibrary);
+        loginBtn=view.findViewById(R.id.no_internet_profile_welcome_btn_login);
+        registrationBtn=view.findViewById(R.id.no_internet_profile_welcome_btn_register);
     }
 }
