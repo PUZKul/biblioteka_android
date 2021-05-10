@@ -82,7 +82,6 @@
     <string name="password_is_empty">Password is empty</string>
     <string name="no_internet_dialog">No Internet dialog</string>
     <string name="incorrect_data">Incorrect data</string>
-    <string name="incorrect_data">Incorrect data</string>
     <string name="no_internet_message">Operation unavailable. Still no internet.</string>
 
 </resources>

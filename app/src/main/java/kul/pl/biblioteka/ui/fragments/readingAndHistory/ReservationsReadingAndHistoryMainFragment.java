@@ -9,9 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import kul.pl.biblioteka.R;
-import kul.pl.biblioteka.ui.fragments.readingAndHistoryEmptyLists.EmptyHistoryFragment;
-import kul.pl.biblioteka.ui.fragments.readingAndHistoryEmptyLists.EmptyReadingFragment;
-import kul.pl.biblioteka.ui.fragments.readingAndHistoryEmptyLists.EmptyReservationsFragment;
+import kul.pl.biblioteka.ui.fragments.readingAndHistory.reservation.ReservationsFragment;
 
 public class ReservationsReadingAndHistoryMainFragment extends Fragment {
 
@@ -65,21 +63,21 @@ public class ReservationsReadingAndHistoryMainFragment extends Fragment {
     private void setReservationFragment(){
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.readingAndHistory_fragmentContainer,new EmptyReservationsFragment())
+                .replace(R.id.readingAndHistory_fragmentContainer,new ReservationsFragment())
                 .addToBackStack(null).commit();
     }
 
     private void setReadingFragment(){
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.readingAndHistory_fragmentContainer,new EmptyReadingFragment())
+                .replace(R.id.readingAndHistory_fragmentContainer,new ReadingFragment())
                 .addToBackStack(null).commit();
     }
 
     private void setHistoryFragment(){
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.readingAndHistory_fragmentContainer,new EmptyHistoryFragment())
+                .replace(R.id.readingAndHistory_fragmentContainer,new HistoryFragment())
                 .addToBackStack(null).commit();
     }
 }

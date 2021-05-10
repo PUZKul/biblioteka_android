@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.ui.fragments.firstWindowFragment;
+package kul.pl.biblioteka.ui.fragments.firstWindow;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.ui.fragments.firstWindowFragment;
+package kul.pl.biblioteka.ui.fragments.firstWindow;
 
 import android.content.Intent;
 import android.os.Bundle;

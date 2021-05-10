@@ -1,6 +1,5 @@
 package kul.pl.biblioteka.ui.fragments.bookView;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -24,11 +23,10 @@ import com.squareup.picasso.Picasso;
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.ui.activity.MainActivity;
-import kul.pl.biblioteka.ui.activity.noInternet.NoInternetActivity;
 import kul.pl.biblioteka.ui.dialogs.copiesOfBooks.CopiesOfBooksDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
-import kul.pl.biblioteka.ui.fragments.firstWindowFragment.FirstWindowFragment;
+import kul.pl.biblioteka.ui.fragments.firstWindow.FirstWindowFragment;
 
 public class BookViewFragment extends Fragment implements BookViewFragmentContract.View, NoInternetDialogListener {
 

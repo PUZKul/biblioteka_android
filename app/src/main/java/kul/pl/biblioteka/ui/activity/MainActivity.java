@@ -13,7 +13,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
-import kul.pl.biblioteka.ui.fragments.firstWindowFragment.FirstWindowFragment;
+import kul.pl.biblioteka.ui.fragments.firstWindow.FirstWindowFragment;
 import kul.pl.biblioteka.ui.fragments.notLoggedIn.historyAndReading.NotLoggedInReservationsReadingAndHistory;
 import kul.pl.biblioteka.ui.fragments.notLoggedIn.profile.NotLoggedInProfileFragment;
 import kul.pl.biblioteka.ui.fragments.profile.ProfileFragment;
