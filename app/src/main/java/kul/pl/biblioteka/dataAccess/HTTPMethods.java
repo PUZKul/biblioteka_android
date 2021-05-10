@@ -5,6 +5,7 @@ import java.util.List;
 import kul.pl.biblioteka.models.BookModel;
 import kul.pl.biblioteka.models.CopiesOfBookModel;
 import kul.pl.biblioteka.models.EditUserModel;
+import kul.pl.biblioteka.models.HistoryBookModel;
 import kul.pl.biblioteka.models.LoginApiUserModel;
 import kul.pl.biblioteka.models.RegistrationApiUserModel;
 import kul.pl.biblioteka.models.UserBookDetails;
@@ -69,4 +70,9 @@ public interface HTTPMethods {
     @PUT("/api/library/users/edit")
     Call<Integer> editUserData(@Header("Authorization") String token,
                                             @Body EditUserModel user);
+
+    @GET("/api/library/users/history")
+    Call<PageHolder<HistoryBookModel>> getHistoryBooks(@Query("limit") int limit,
+                                                 @Query("page") int page,
+                                                 @Header("Authorization") String token);
 }

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import kul.pl.biblioteka.R;
+import kul.pl.biblioteka.ui.fragments.readingAndHistory.history.HistoryFragment;
 import kul.pl.biblioteka.ui.fragments.readingAndHistory.reservation.ReservationsFragment;
 
 public class ReservationsReadingAndHistoryMainFragment extends Fragment {

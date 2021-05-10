@@ -28,10 +28,9 @@ public class HistoryListViewHolder extends RecyclerView.ViewHolder{
     private void setComponents(View view) {
         borrowedTextView=view.findViewById(R.id.history_list_textView_dateOfBorrow);
         returnedTextView=view.findViewById(R.id.history_list_textView_returned);
-        titleTextView=view.findViewById(R.id.history_list_image);
-        imageBook=view.findViewById(R.id.history_list_textView_title);
+        titleTextView=view.findViewById(R.id.history_list_textView_title);
+        imageBook=view.findViewById(R.id.history_list_image);
     }
-
 
     public void setReturnedText(String date){
         returnedTextView.setText(date);
@@ -48,4 +47,5 @@ public class HistoryListViewHolder extends RecyclerView.ViewHolder{
     public void setImageBook(Uri bookUri){
         Picasso.with(MainActivity.getAppContext()).load(bookUri).into(imageBook);;
     }
+
 }

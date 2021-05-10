@@ -98,4 +98,9 @@ public final class LibraryAccess extends LibraryAPI{
         HTTPMethods.editUserData(token,user)
                 .enqueue(callbackForEditUserData);
     }
+
+    public void getHistoryBooks(int limit,int page,String token){
+        HTTPMethods.getHistoryBooks(limit,page,token)
+                .enqueue(callbackForHistoryOfBook);
+    }
 }
