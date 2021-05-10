@@ -56,7 +56,9 @@ public class NoInternetDialog  extends AppCompatDialogFragment {
         @Override
         public void onClick(View v) {
             if(InternetConnection.isConnection(MainActivity.getAppContext()))
-                 dismiss();
+                 listener.goBackToTheFragment();
+            else
+                listener.showToast();
         }
     };
 }

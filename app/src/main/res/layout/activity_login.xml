@@ -4,12 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@color/colorPrimaryBackground"
     android:fillViewport="true"
     android:visibility="visible"
     tools:context=".ui.activity.login.LoginActivity">
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -54,7 +52,7 @@
 
         <EditText
             android:id="@+id/login_nick_editText"
-            android:layout_width="238dp"
+            android:layout_width="270dp"
             android:layout_height="40dp"
             android:layout_weight="1"
             android:autofillHints=""
@@ -92,7 +90,7 @@
 
         <EditText
             android:id="@+id/login_editText_password"
-            android:layout_width="238dp"
+            android:layout_width="270dp"
             android:layout_height="40dp"
             android:layout_weight="1"
             android:autofillHints=""
@@ -150,6 +148,7 @@
             android:layout_height="196dp"
             android:indeterminate="false"
             android:progressDrawable="@drawable/progressbar"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.449"

@@ -2,6 +2,7 @@ package kul.pl.biblioteka.ui.activity.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,10 +15,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.models.LoginUserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
-import kul.pl.biblioteka.ui.activity.noInternet.NoInternetActivity;
 import kul.pl.biblioteka.ui.activity.register.RegisterActivity;
+import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
+import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 
-public class LoginActivity extends AppCompatActivity implements LoginActivityContract.View {
+public class LoginActivity extends AppCompatActivity implements LoginActivityContract.View, NoInternetDialogListener {
 
     private EditText loginETex;
     private EditText passwordETex;
@@ -25,6 +27,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
     private TextView registrationText;
     private ProgressBar progressBar;
     private LoginActivityContract.Presenter presenter;
+    private NoInternetDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +35,8 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
         setContentView(R.layout.activity_login);
         initComponents();
         setOnClickListeners();
-        presenter = new LoginActivityPresenter(this,getApplicationContext());
+        dialog=new NoInternetDialog(this);
+        presenter = new LoginActivityPresenter(this);
     }
 
     private void setOnClickListeners() {
@@ -94,18 +98,39 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
     }
 
     @Override
-    public void openOnInternetActivity() {
-        Intent intent = new Intent(LoginActivity.this, NoInternetActivity.class);
-        startActivity(intent);
+    public void openOnInternetDialog() {
+        dialog.show(getSupportFragmentManager(),getString(R.string.no_internet_dialog));
+        dialog.setOnClickedBack();
     }
 
     @Override
     public void errorEmptyLogin() {
-        loginETex.setError("Login is empty");
+        loginETex.setError(getString(R.string.login_is_empty));
     }
 
     @Override
     public void errorEmptyPassword() {
-        passwordETex.setError("Password is empty");
+        passwordETex.setError(getString(R.string.password_is_empty));
+    }
+
+    @Override
+    public void goBackToTheFragment() {
+        Handler handler=new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                presenter.onLoginClicked(new LoginUserModel(
+                        loginETex.getText().toString(),
+                        loginETex.getText().toString(),
+                        passwordETex.getText().toString()
+                ));
+                    dialog.closeDialog();
+            }
+        },5000);
+    }
+
+    @Override
+    public void showToast() {
+        Toast.makeText(this, R.string.no_internet_message, Toast.LENGTH_LONG).show();
     }
 }

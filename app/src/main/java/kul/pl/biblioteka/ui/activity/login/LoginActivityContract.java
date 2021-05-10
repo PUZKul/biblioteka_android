@@ -12,7 +12,7 @@ public interface LoginActivityContract {
 
         void openMainActivity();
 
-        void openOnInternetActivity();
+        void openOnInternetDialog();
 
         void errorEmptyLogin();
 

@@ -220,6 +220,11 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
             }
         },5000);
     }
+
+    @Override
+    public void showToast() {
+        Toast.makeText(MainActivity.getAppContext(),"Operation unavailable. Still no internet.", Toast.LENGTH_LONG).show();
+    }
 }
 
 

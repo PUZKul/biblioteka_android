@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -206,5 +207,10 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     @Override
     public void goBackToTheFragment() {
 
+    }
+
+    @Override
+    public void showToast() {
+        Toast.makeText(MainActivity.getAppContext(),"Operation unavailable. Still no internet.", Toast.LENGTH_LONG).show();
     }
 }

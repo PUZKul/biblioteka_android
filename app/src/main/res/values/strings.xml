@@ -78,5 +78,11 @@
     <string name="try_again">Try again</string>
     <string name="change_password">Change password</string>
     <string name="no_signal">No Signal</string>
+    <string name="login_is_empty">Login is empty</string>
+    <string name="password_is_empty">Password is empty</string>
+    <string name="no_internet_dialog">No Internet dialog</string>
+    <string name="incorrect_data">Incorrect data</string>
+    <string name="incorrect_data">Incorrect data</string>
+    <string name="no_internet_message">Operation unavailable. Still no internet.</string>
 
 </resources>
