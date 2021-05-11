@@ -17,6 +17,8 @@ public interface FirstWindowFragmentContract {
         void setListSortByDiscover();
 
         void setListByName(String bookName);
+
+        void setFirstLists();
     }
 
     interface View {
@@ -32,7 +34,7 @@ public interface FirstWindowFragmentContract {
 
         void endProgressBar();
 
-        void openOnInternetActivity();
+        void openOnInternetDialog();
 
     }
 }

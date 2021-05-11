@@ -1,7 +1,7 @@
 package kul.pl.biblioteka.ui.fragments.firstWindow;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,11 +28,12 @@ import kul.pl.biblioteka.adapter.homeList.HomeListRecycleViewAdapter;
 import kul.pl.biblioteka.adapter.recommendedList.RecommendedListRecycleViewAdapter;
 import kul.pl.biblioteka.models.BookModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
-import kul.pl.biblioteka.ui.activity.noInternet.NoInternetActivity;
+import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
+import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.fragments.bookView.BookViewFragment;
 
 
-public class FirstWindowFragment extends Fragment implements FirstWindowFragmentContract.View {
+public class FirstWindowFragment extends Fragment implements FirstWindowFragmentContract.View, NoInternetDialogListener {
 
     private ImageButton sortBtn;
     private PopupMenu menu;
@@ -43,6 +44,7 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
     private ProgressBar progressBar;
     private TextView text1;
     private TextView text2;
+    private NoInternetDialog dialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -52,8 +54,8 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
         setDarkList();
         setOnClickListener();
         presenter = new FirstWindowFragmentPresenter(this, getContext());
-        presenter.setListTopBooks();
-        presenter.setListSortByDiscover();
+        dialog =new  NoInternetDialog(this);
+        presenter.setFirstLists();
         presenter.setPaginationComponent(view);
         return view;
     }
@@ -204,9 +206,26 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
     }
 
     @Override
-    public void openOnInternetActivity() {
+    public void openOnInternetDialog() {
         setDarkList();
-        Intent intent = new Intent(getActivity(), NoInternetActivity.class);
-        startActivity(intent);
+        dialog.show(getActivity().getSupportFragmentManager(),"No Internet dialog");
+        dialog.setOnClickedBack();
+    }
+
+    @Override
+    public void goBackToTheFragment() {
+        Handler handler=new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                presenter.setFirstLists();
+                dialog.closeDialog();
+            }
+        },5000);
+    }
+
+    @Override
+    public void showToast() {
+        Toast.makeText(MainActivity.getAppContext(),"Operation unavailable. Still no internet.", Toast.LENGTH_LONG).show();
     }
 }

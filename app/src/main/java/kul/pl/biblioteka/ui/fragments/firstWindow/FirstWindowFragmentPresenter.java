@@ -1,6 +1,7 @@
 package kul.pl.biblioteka.ui.fragments.firstWindow;
 
 import android.content.Context;
+import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 
@@ -9,6 +10,7 @@ import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.models.BookModel;
 
+import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.utils.Direction;
 import kul.pl.biblioteka.utils.PageHolder;
 import kul.pl.biblioteka.utils.PaginationBar;
@@ -46,7 +48,17 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
             currentSorting = Sorting.TITLE;
             api.getBooks(LIMIT, 0, currentSorting);
         }else
-            view.openOnInternetActivity();
+            openNoInternetDialog();
+    }
+
+    private void openNoInternetDialog(){
+        Handler handler=new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                view.openOnInternetDialog();
+            }
+        },5000);
     }
 
     @Override
@@ -56,7 +68,7 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
             currentDirection = Direction.DESC;
             api.getBooks(LIMIT, 0, currentSorting, currentDirection);
         }else
-            view.openOnInternetActivity();
+            openNoInternetDialog();
     }
 
     @Override
@@ -66,7 +78,7 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
             currentDirection = Direction.DESC;
             api.getBooks(LIMIT, 0, currentSorting, currentDirection);
         }else
-            view.openOnInternetActivity();
+            openNoInternetDialog();
     }
 
     @Override
@@ -76,7 +88,7 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
             currentDirection = Direction.DESC;
             api.getBooks(LIMIT, 0, currentSorting, currentDirection);
         }else
-            view.openOnInternetActivity();
+            openNoInternetDialog();
     }
 
     @Override
@@ -84,7 +96,7 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
         if (InternetConnection.isConnection(context))
             api.getDiscoverBooks(LIMIT);
         else
-            view.openOnInternetActivity();
+            openNoInternetDialog();
     }
 
     @Override
@@ -94,7 +106,16 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
             currentSearch = search;
             api.getSearchBooks(LIMIT, 0, currentSearch);
         }else
-            view.openOnInternetActivity();
+            openNoInternetDialog();
+    }
+
+    @Override
+    public void setFirstLists() {
+        if(InternetConnection.isConnection(MainActivity.getAppContext())){
+            setListTopBooks();
+            setListSortByDiscover();
+        }else
+            openNoInternetDialog();
     }
 
     @Override
@@ -107,7 +128,7 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
 
     @Override
     public void onNoInternet() {
-        view.openOnInternetActivity();
+        view.openOnInternetDialog();
         view.endProgressBar();
     }
 
@@ -120,7 +141,7 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
                 else
                     api.getBooks(LIMIT, pageBar.previousPage(), currentSorting, currentDirection);
             }else
-                view.openOnInternetActivity();
+                openNoInternetDialog();
         }
     };
 
@@ -133,7 +154,7 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
                else
                    api.getBooks(LIMIT, pageBar.nextPage(), currentSorting, currentDirection);
            }else
-               view.openOnInternetActivity();
+               openNoInternetDialog();
         }
     };
 
@@ -149,7 +170,7 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
                 else
                     api.getBooks(LIMIT, clickedPage, currentSorting, currentDirection);
             }else
-                view.openOnInternetActivity();
+                openNoInternetDialog();
         }
     };
 
@@ -160,6 +181,6 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
                 view.setTheMostPopularList(page.getContent());
             view.setRecommendedList(page.getContent());
         }else
-            view.openOnInternetActivity();
+            openNoInternetDialog();
     }
 }
