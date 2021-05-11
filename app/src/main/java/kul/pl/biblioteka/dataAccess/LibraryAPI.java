@@ -220,4 +220,21 @@ abstract class LibraryAPI {
         }
     };
 
+    protected Callback<Long> callbackForReserveBook = new Callback<Long>() {
+        @Override
+        public void onResponse(Call<Long> call, Response<Long> response) {
+            if (response.isSuccessful()) {
+                listener.onReserveBook();
+            } else {
+                ApiError apiError = ApiErrorParser.parseError(response);
+                listener.onErrorReceive(apiError);
+            }
+        }
+
+        @Override
+        public void onFailure(Call<Long> call, Throwable t) {
+            listener.onNoInternet();
+        }
+    };
+
 }

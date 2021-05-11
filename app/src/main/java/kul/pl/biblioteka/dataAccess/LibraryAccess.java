@@ -103,4 +103,9 @@ public final class LibraryAccess extends LibraryAPI{
         HTTPMethods.getHistoryBooks(limit,page,token)
                 .enqueue(callbackForHistoryOfBook);
     }
+
+    public void reserveBook(String token,long idBook){
+        HTTPMethods.reserveBook(token,idBook)
+                .enqueue(callbackForReserveBook);
+    }
 }

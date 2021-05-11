@@ -16,11 +16,9 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.VerticalSpaceItemDecoration;
 import kul.pl.biblioteka.adapter.darkList.small.DarkSmallListRecycleViewAdapter;
 import kul.pl.biblioteka.adapter.historyList.HistoryListRecycleViewAdapter;
-import kul.pl.biblioteka.adapter.reservationList.ReservationListRecycleViewAdapter;
 import kul.pl.biblioteka.models.HistoryBookModel;
-import kul.pl.biblioteka.models.ReservationBookModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
-import kul.pl.biblioteka.ui.fragments.readingAndHistoryEmptyLists.EmptyReservationsFragment;
+import kul.pl.biblioteka.ui.fragments.readingAndHistory.empty.EmptyReservationsFragment;
 
 public class HistoryFragment extends Fragment implements HistoryFragmentContact.View {
 

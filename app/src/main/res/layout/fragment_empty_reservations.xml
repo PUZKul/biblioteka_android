@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/reservations"
     android:orientation="vertical"
-    tools:context=".ui.fragments.readingAndHistoryEmptyLists.EmptyReservationsFragment">
+    tools:context=".ui.fragments.readingAndHistory.empty.EmptyReservationsFragment">
 
 
     <ImageView

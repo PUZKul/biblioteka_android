@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.ui.fragments.readingAndHistoryEmptyLists;
+package kul.pl.biblioteka.ui.fragments.readingAndHistory.empty;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

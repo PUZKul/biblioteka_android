@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.ui.fragments.readingAndHistoryEmptyLists;
+package kul.pl.biblioteka.ui.fragments.readingAndHistory.empty;
 
 import android.content.Intent;
 import android.os.Bundle;

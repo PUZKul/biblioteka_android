@@ -36,4 +36,6 @@ public interface APIListener {
     void onEditUserReceive();
 
     void onHistoryBooksReceive(PageHolder<HistoryBookModel> books);
+
+    void onReserveBook();
 }

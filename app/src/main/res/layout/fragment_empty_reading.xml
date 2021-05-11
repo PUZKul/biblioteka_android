@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/reading"
     android:orientation="vertical"
-    tools:context=".ui.fragments.readingAndHistoryEmptyLists.EmptyReadingFragment">
+    tools:context=".ui.fragments.readingAndHistory.empty.EmptyReadingFragment">
 
 
     <ImageView

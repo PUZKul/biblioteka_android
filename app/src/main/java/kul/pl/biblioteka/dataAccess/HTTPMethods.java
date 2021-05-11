@@ -75,4 +75,8 @@ public interface HTTPMethods {
     Call<PageHolder<HistoryBookModel>> getHistoryBooks(@Query("limit") int limit,
                                                  @Query("page") int page,
                                                  @Header("Authorization") String token);
+
+    @PUT("/api/library/users/reserve/{bookCopyId}")
+    Call<Long> reserveBook(@Header("Authorization") String token,
+                           @Path("bookCopyId") long bookCopyId);
 }
