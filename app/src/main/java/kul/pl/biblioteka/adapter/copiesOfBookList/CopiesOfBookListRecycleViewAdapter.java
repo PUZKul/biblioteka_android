@@ -20,7 +20,7 @@ public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<Cop
 
     private Context context;
     private List<CopiesOfBookModel> booksList;
-    private int idBook;
+    private long idBook;
     private List<CopiesOfBookListViewHolder> holders;
 
     public CopiesOfBookListRecycleViewAdapter(Context context, List<CopiesOfBookModel> booksList) {
@@ -78,7 +78,7 @@ public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<Cop
         }
     }
 
-    public int getIdBook() {
+    public long getIdBook() {
         return idBook;
     }
 }

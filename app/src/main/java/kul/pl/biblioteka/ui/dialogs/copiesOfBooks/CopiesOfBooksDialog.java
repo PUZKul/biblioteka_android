@@ -3,9 +3,12 @@ package kul.pl.biblioteka.ui.dialogs.copiesOfBooks;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,13 +22,20 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.VerticalSpaceItemDecoration;
 import kul.pl.biblioteka.adapter.copiesOfBookList.CopiesOfBookListRecycleViewAdapter;
 import kul.pl.biblioteka.models.CopiesOfBookModel;
+import kul.pl.biblioteka.models.LoginUserModel;
+import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
+import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 
-public class CopiesOfBooksDialog extends AppCompatDialogFragment implements CopiesOfBooksDialogContract.View{
+public class CopiesOfBooksDialog extends AppCompatDialogFragment implements CopiesOfBooksDialogContract.View, NoInternetDialogListener {
 
     private RecyclerView recyclerView;
     private Button back;
     private Button borrow;
     private CopiesOfBooksDialogPresenter presenter;
+    private CopiesOfBookListRecycleViewAdapter copiesOfBookListRecycleViewAdapter;
+    private ProgressBar progressBar;
+    private NoInternetDialog dialog;
 
     @NonNull
     @Override
@@ -37,6 +47,7 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
         presenter=new CopiesOfBooksDialogPresenter(this,this.getArguments().getInt("id"));
         setOnClickListener();
         builder.setView(view);
+        dialog=new NoInternetDialog(this);
         return builder.create();
     }
 
@@ -55,7 +66,8 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
     private View.OnClickListener onBorrowClicked=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            //todo borrow book
+            setDisableButtons();
+            presenter.reserveBook(copiesOfBookListRecycleViewAdapter.getIdBook());
         }
     };
 
@@ -63,12 +75,64 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
         back=view.findViewById(R.id.chose_book_option_btn_cancel);
         borrow=view.findViewById(R.id.chose_book_option_btn_confirm);
         recyclerView=view.findViewById(R.id.chose_book_option_btn_recycle_view);
+        progressBar=view.findViewById(R.id.copiesOfBook_progressBar);
     }
 
     @Override
     public void setList(List<CopiesOfBookModel> books) {
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),1,GridLayoutManager.HORIZONTAL,false));
-        recyclerView.setAdapter(new CopiesOfBookListRecycleViewAdapter(getContext(), books));
+        copiesOfBookListRecycleViewAdapter=new CopiesOfBookListRecycleViewAdapter(getContext(), books);
+        recyclerView.setAdapter(copiesOfBookListRecycleViewAdapter);
         recyclerView.addItemDecoration(new VerticalSpaceItemDecoration(25));
+    }
+
+    @Override
+    public void goBackToTheFragment() {
+        Handler handler=new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                presenter.reserveBook(copiesOfBookListRecycleViewAdapter.getIdBook());
+                dialog.closeDialog();
+            }
+        },5000);
+
+    }
+
+    @Override
+    public void showToast() {
+        Toast.makeText(MainActivity.getAppContext(), R.string.no_internet_message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showSuccessReservationBookToast() {
+        Toast.makeText(MainActivity.getAppContext(), getString(R.string.you_booked_a_book),Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void startProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void endProgressBar() {
+        progressBar.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void openOnInternetDialog() {
+        dialog.show(getFragmentManager(),getString(R.string.no_internet_dialog));
+        dialog.setOnClickedBack();
+    }
+
+    @Override
+    public void setEnableButtons() {
+        back.setEnabled(true);
+        borrow.setEnabled(true);
+    }
+
+    private void setDisableButtons(){
+        back.setEnabled(false);
+        borrow.setEnabled(false);
     }
 }

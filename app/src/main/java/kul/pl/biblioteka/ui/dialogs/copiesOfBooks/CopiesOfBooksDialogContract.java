@@ -8,10 +8,22 @@ interface CopiesOfBooksDialogContract {
 
     interface Presenter{
 
+        void reserveBook(long idBook);
+
     }
 
     interface View{
 
         void setList(List<CopiesOfBookModel> books);
+
+        void showSuccessReservationBookToast();
+
+        void startProgressBar();
+
+        void endProgressBar();
+
+        void openOnInternetDialog();
+
+        void setEnableButtons();
     }
 }
