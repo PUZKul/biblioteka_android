@@ -2,6 +2,7 @@ package kul.pl.biblioteka.ui.fragments.bookView;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,14 +45,15 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     private Balloon balloon;
     private ImageView infoImage;
     private BookViewFragmentPresenter presenter;
+    private NoInternetDialog noInternetDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_book_view, container, false);
        initComponents(view);
-        //todo uncomment when will be added progressBar
-        // progressBar = view.findViewById(R.id.progressBar);
+        noInternetDialog=new NoInternetDialog(this);
        presenter = new BookViewFragmentPresenter(this, this.getArguments().getInt("idBook"));
+       presenter.setBook();
        setOnClickListeners();
         return view;
     }
@@ -65,7 +67,6 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     private final View.OnClickListener infoImageOnClickedListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            //todo add
             initBalloon("");
             balloon.show(v);
         }
@@ -95,11 +96,6 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
         }
     };
 
-    private void openNoInternetDialog(){
-        NoInternetDialog dialog=new NoInternetDialog(this);
-        dialog.show(getActivity().getSupportFragmentManager(),"No Inetnet");
-    }
-
     private void openHomeFragment() {
         getActivity().getSupportFragmentManager().beginTransaction().
         replace(((ViewGroup) getView().getParent()).getId(),new FirstWindowFragment())
@@ -119,6 +115,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
         backBtn = view.findViewById(R.id.BookView_button_back);
         borrowBtn=view.findViewById(R.id.BookView_button_borrow);
         infoImage=view.findViewById(R.id.BookView_image_info);
+        progressBar = view.findViewById(R.id.BookView_progressBar);
     }
 
     private void initBalloon(String message) {
@@ -142,7 +139,6 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
                 .setAutoDismissDuration(5000L)
                 .build();
     }
-
 
     @Override
     public void setTitle(String title) {
@@ -186,25 +182,30 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
 
     @Override
     public void startProgressBar() {
-           // progressBar.setIndeterminate(true);
+            progressBar.setIndeterminate(true);
     }
 
     @Override
     public void endProgressBar() {
-        // progressBar.setIndeterminate(false);
+         progressBar.setIndeterminate(false);
     }
 
     @Override
-    public void openOnInternetActivity() {
-        getActivity().getSupportFragmentManager().beginTransaction().
-                replace(((ViewGroup) getView().getParent()).getId(),new NoInternetDialog(this))
-                .addToBackStack(getView().getClass().getName())
-                .commit();
+    public void openNoInternetDialog() {
+        noInternetDialog.show(getActivity().getSupportFragmentManager(),"No Internet dialog");
+        noInternetDialog.setOnClickedBack();
     }
 
     @Override
     public void goBackToTheFragment() {
-
+        Handler handler=new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                presenter.setBook();
+                noInternetDialog.closeDialog();
+            }
+        },5000);
     }
 
     @Override

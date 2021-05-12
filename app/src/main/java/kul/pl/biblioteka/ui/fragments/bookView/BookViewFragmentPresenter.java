@@ -1,10 +1,13 @@
 package kul.pl.biblioteka.ui.fragments.bookView;
 
 import android.net.Uri;
+import android.os.Handler;
 
 import kul.pl.biblioteka.dataAccess.APIAdapter;
+import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.models.BookModel;
+import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.utils.Helper;
 
 public class BookViewFragmentPresenter extends APIAdapter implements BookViewFragmentContract.Presenter {
@@ -19,7 +22,6 @@ public class BookViewFragmentPresenter extends APIAdapter implements BookViewFra
         view.startProgressBar();
         this.idBook=idBook;
         api.setListener(this);
-        setBook(idBook);
     }
 
     public int getIdBook() {
@@ -37,9 +39,13 @@ public class BookViewFragmentPresenter extends APIAdapter implements BookViewFra
         view.endProgressBar();
     }
 
-    private void setBook(int idBook) {
-        api.getBookById(idBook);
-        api.getAvailableBookNumber(idBook);
+    @Override
+    public void setBook() {
+        if(InternetConnection.isConnection(MainActivity.getAppContext())){
+            api.getBookById(idBook);
+            api.getAvailableBookNumber(idBook);
+        }else
+            view.openNoInternetDialog();
     }
 
     @Override
@@ -54,8 +60,13 @@ public class BookViewFragmentPresenter extends APIAdapter implements BookViewFra
 
     @Override
     public void onNoInternet() {
-        view.endProgressBar();
-        view.openOnInternetActivity();
+        Handler handler=new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                view.endProgressBar();
+                view.openNoInternetDialog();
+            }
+        },5000);
     }
-
 }

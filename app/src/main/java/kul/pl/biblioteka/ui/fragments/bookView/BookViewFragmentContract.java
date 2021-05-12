@@ -25,9 +25,11 @@ public interface BookViewFragmentContract {
 
         void endProgressBar();
 
-        void openOnInternetActivity();
+        void openNoInternetDialog();
     }
 
     interface Presenter {
+
+        void setBook();
     }
 }
