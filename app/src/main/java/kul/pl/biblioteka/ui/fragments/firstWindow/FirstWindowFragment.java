@@ -213,6 +213,11 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
     }
 
     @Override
+    public void refreshWindow() {
+        presenter.setFirstLists();
+    }
+
+    @Override
     public void goBackToTheFragment() {
         Handler handler=new Handler();
         handler.postDelayed(new Runnable() {

@@ -5,7 +5,7 @@
         android:title="@string/title"/>
     <item
         android:id="@+id/bottom_sort_ranting"
-        android:title="@string/ranting"/>
+        android:title="@string/ranking"/>
     <item
         android:id="@+id/bottom_sort_date"
         android:title="@string/date"/>

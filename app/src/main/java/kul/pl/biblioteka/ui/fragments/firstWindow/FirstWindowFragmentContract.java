@@ -36,5 +36,7 @@ public interface FirstWindowFragmentContract {
 
         void openOnInternetDialog();
 
+        void refreshWindow();
+
     }
 }
