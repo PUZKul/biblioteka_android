@@ -1,6 +1,6 @@
 package kul.pl.biblioteka.ui.fragments.readingAndHistory.history;
 
-import java.util.List;
+import android.os.Handler;
 
 import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
@@ -11,14 +11,14 @@ import kul.pl.biblioteka.models.HistoryBookModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.utils.PageHolder;
 
-public class HistoryFragmentPresenter extends APIAdapter implements HistoryFragmentContact.Presenter{
+public class HistoryFragmentPresenter extends APIAdapter implements HistoryFragmentContact.Presenter {
 
     private HistoryFragmentContact.View view;
     private LibraryAccess api;
 
     public HistoryFragmentPresenter(HistoryFragmentContact.View view) {
         this.view = view;
-        this.api=LibraryAccess.getInstance();
+        this.api = LibraryAccess.getInstance();
         api.setListener(this);
     }
 
@@ -28,16 +28,26 @@ public class HistoryFragmentPresenter extends APIAdapter implements HistoryFragm
         setHistoryBookList();
     }
 
-    private void setHistoryBookList(){
-        if(InternetConnection.isConnection(MainActivity.getAppContext())){
-            view.startProgressBar();
-            api.getHistoryBooks(10,0,LocalDataAccess.getToken());
-        }
+    private void setHistoryBookList() {
+        view.startProgressBar();
+        if (InternetConnection.isConnection(MainActivity.getAppContext()))
+            api.getHistoryBooks(10, 0, LocalDataAccess.getToken());
+        else openNoInternetDialog();
+    }
+
+    private void openNoInternetDialog() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                view.openOnInternetDialog();
+            }
+        }, 5000);
     }
 
     @Override
     public void onHistoryBooksReceive(PageHolder<HistoryBookModel> books) {
-        if(books.getContent().size()!=0)
+        if (books.getContent().size() != 0)
             view.setList(books.getContent());
         else
             view.setEmptyLayout();

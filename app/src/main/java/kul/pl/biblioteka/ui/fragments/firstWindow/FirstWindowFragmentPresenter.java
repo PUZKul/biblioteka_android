@@ -128,6 +128,7 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
 
     @Override
     public void onNoInternet() {
+        //todo change it
         view.openOnInternetDialog();
         view.endProgressBar();
     }

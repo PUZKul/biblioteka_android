@@ -16,6 +16,8 @@ public interface HistoryFragmentContact {
         void startProgressBar();
 
         void endProgressBar();
+
+        void openOnInternetDialog();
     }
     interface Presenter{
         void setList();
