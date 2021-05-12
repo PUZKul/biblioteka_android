@@ -43,7 +43,6 @@ public class RegisterActivityPresenter extends APIAdapter implements RegisterAct
                     }
                 },5000);
             }
-
         }
     }
 

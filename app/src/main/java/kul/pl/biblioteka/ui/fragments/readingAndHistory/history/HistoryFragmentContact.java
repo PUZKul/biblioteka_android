@@ -1,9 +1,11 @@
 package kul.pl.biblioteka.ui.fragments.readingAndHistory.history;
 
+
+import android.view.View;
+
 import java.util.List;
 
 import kul.pl.biblioteka.models.HistoryBookModel;
-import kul.pl.biblioteka.models.ReservationBookModel;
 
 public interface HistoryFragmentContact {
     interface View{
@@ -18,8 +20,12 @@ public interface HistoryFragmentContact {
         void endProgressBar();
 
         void openOnInternetDialog();
+
+
     }
     interface Presenter{
         void setList();
+
+        void setPaginationComponent(android.view.View view);
     }
 }

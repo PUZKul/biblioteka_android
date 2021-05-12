@@ -23,7 +23,6 @@ import kul.pl.biblioteka.adapter.OnItemClickListener;
 import kul.pl.biblioteka.adapter.VerticalSpaceItemDecoration;
 import kul.pl.biblioteka.adapter.homeList.HomeListRecycleViewAdapter;
 import kul.pl.biblioteka.models.BookModel;
-import kul.pl.biblioteka.ui.activity.noInternet.NoInternetActivity;
 import kul.pl.biblioteka.ui.fragments.bookView.BookViewFragment;
 
 public class HomeFragment extends Fragment implements HomeFragmentContract.View {
@@ -160,7 +159,6 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
 
     @Override
     public void openOnInternetActivity() {
-        Intent intent = new Intent(getActivity(), NoInternetActivity.class);
-        startActivity(intent);
+
     }
 }
