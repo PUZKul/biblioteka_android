@@ -2,6 +2,7 @@ package kul.pl.biblioteka.ui.fragments.profile;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,18 +11,20 @@ import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
+import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.fragments.editProfile.EditProfile;
 
 
-public class ProfileFragment extends Fragment implements ProfileFragmentContact.view {
+public class ProfileFragment extends Fragment implements ProfileFragmentContact.view, NoInternetDialogListener {
+
     private ProfileFragmentPresenter presenter;
-
-
     private PopupMenu menu;
     private ImageButton menuButton;
     private TextView nickText;
@@ -31,12 +34,14 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
     private TextView nextLevelText;
     private ProgressBar experienceProgress;
     private ProgressBar progressBar;
+    private NoInternetDialog dialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         initComponents(view);
         setOnClickListener();
+        dialog=new NoInternetDialog(this);
         presenter=new ProfileFragmentPresenter(this);
         presenter.setUSeaDetails();
         return view;
@@ -140,5 +145,28 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
     @Override
     public void setExperience(int experience) {
         experienceProgress.setProgress(experience);
+    }
+
+    @Override
+    public void openOnInternetDialog() {
+        dialog.show(getActivity().getSupportFragmentManager(),"No Internet dialog");
+        dialog.setOnClickedBack();
+    }
+
+    @Override
+    public void goBackToTheFragment() {
+        Handler handler=new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                presenter.setUSeaDetails();
+                dialog.closeDialog();
+            }
+        },5000);
+    }
+
+    @Override
+    public void showToast() {
+        Toast.makeText(MainActivity.getAppContext(),"Operation unavailable. Still no internet.", Toast.LENGTH_LONG).show();
     }
 }

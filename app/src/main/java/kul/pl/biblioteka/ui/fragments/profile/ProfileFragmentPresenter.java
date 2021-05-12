@@ -1,10 +1,14 @@
 package kul.pl.biblioteka.ui.fragments.profile;
 
+import android.os.Handler;
+
 import kul.pl.biblioteka.dataAccess.APIAdapter;
+import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
 import kul.pl.biblioteka.models.UserBookDetails;
 import kul.pl.biblioteka.models.UserModel;
+import kul.pl.biblioteka.ui.activity.MainActivity;
 
 public class ProfileFragmentPresenter extends APIAdapter implements ProfileFragmentContact.Presenter {
 
@@ -35,8 +39,19 @@ public class ProfileFragmentPresenter extends APIAdapter implements ProfileFragm
 
     @Override
     public void setUSeaDetails() {
-        api.getUserDetails(LocalDataAccess.getToken());
-        api.getUserBooksDetails(LocalDataAccess.getToken());
+        if(InternetConnection.isConnection(MainActivity.getAppContext())){
+            api.getUserDetails(LocalDataAccess.getToken());
+            api.getUserBooksDetails(LocalDataAccess.getToken());
+        }else
+        {
+            Handler handler=new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    view.openOnInternetDialog();
+                }
+            },5000);
+        }
     }
 
     @Override
