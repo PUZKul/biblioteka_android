@@ -2,6 +2,7 @@ package kul.pl.biblioteka.ui.activity.register;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,9 +16,10 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.models.RegistrationUserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.activity.login.LoginActivity;
-import kul.pl.biblioteka.ui.activity.noInternet.NoInternetActivity;
+import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
+import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 
-public class RegisterActivity extends AppCompatActivity implements RegisterActivityContract.View {
+public class RegisterActivity extends AppCompatActivity implements RegisterActivityContract.View , NoInternetDialogListener {
 
     private Button registrationBtn;
     private TextView loginText;
@@ -27,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
     private EditText repeatPasswordText;
     private ProgressBar progressBar;
     private RegisterActivityContract.Presenter presenter;
+    private NoInternetDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
         setContentView(R.layout.activity_registration);
         initComponents();
         setOnClickListeners();
+        dialog=new NoInternetDialog(this);
         presenter = new RegisterActivityPresenter(this,getApplicationContext());
     }
 
@@ -128,8 +132,29 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
     }
 
     @Override
-    public void openOnInternetActivity() {
-        Intent intent = new Intent(RegisterActivity.this, NoInternetActivity.class);
-        startActivity(intent);
+    public void openOnInternetDialog() {
+        dialog.show(getSupportFragmentManager(),getString(R.string.no_internet_dialog));
+        dialog.setOnClickedBack();
+    }
+
+    @Override
+    public void goBackToTheFragment() {
+        Handler handler=new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                presenter.onRegisterClicked(new RegistrationUserModel(
+                        nickText.getText().toString()
+                        , passwordText.getText().toString()
+                        , repeatPasswordText.getText().toString()
+                        , emailText.getText().toString()));
+                dialog.closeDialog();
+            }
+        },5000);
+    }
+
+    @Override
+    public void showToast() {
+        Toast.makeText(this, R.string.no_internet_message, Toast.LENGTH_LONG).show();
     }
 }

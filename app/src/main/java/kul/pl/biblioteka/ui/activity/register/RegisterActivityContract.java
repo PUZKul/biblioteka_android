@@ -26,7 +26,7 @@ public interface RegisterActivityContract {
 
         void errorRepeatPasswordAreNotIdentical();
 
-        void openOnInternetActivity();
+        void openOnInternetDialog();
     }
 
     interface Presenter {

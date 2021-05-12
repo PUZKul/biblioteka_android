@@ -1,6 +1,7 @@
 package kul.pl.biblioteka.ui.activity.register;
 
 import android.content.Context;
+import android.os.Handler;
 
 import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
@@ -33,8 +34,16 @@ public class RegisterActivityPresenter extends APIAdapter implements RegisterAct
                         , user.getEmail()
                         , user.getPasswordFirst()
                 ));
-            }else
-                view.openOnInternetActivity();
+            }else{
+                Handler handler=new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        view.openOnInternetDialog();
+                    }
+                },5000);
+            }
+
         }
     }
 
@@ -89,6 +98,6 @@ public class RegisterActivityPresenter extends APIAdapter implements RegisterAct
     @Override
     public void onNoInternet() {
         view.endProgressBar();
-        view.openOnInternetActivity();
+        view.openOnInternetDialog();
     }
 }
