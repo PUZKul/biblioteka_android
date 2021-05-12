@@ -29,11 +29,11 @@ public class ReadingFragmentPresenter extends APIAdapter implements ReadingFragm
     }
 
     private void setHistoryBookList() {
-        view.startProgressBar();
+      //  view.startProgressBar();
         //if (InternetConnection.isConnection(MainActivity.getAppContext()))
             //todo getReadingBooks
        // else
-             openNoInternetDialog();
+            // openNoInternetDialog();
     }
 
     private void openNoInternetDialog() {

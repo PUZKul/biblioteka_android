@@ -17,6 +17,7 @@ import kul.pl.biblioteka.ui.fragments.firstWindow.FirstWindowFragment;
 import kul.pl.biblioteka.ui.fragments.notLoggedIn.historyAndReading.NotLoggedInReservationsReadingAndHistory;
 import kul.pl.biblioteka.ui.fragments.notLoggedIn.profile.NotLoggedInProfileFragment;
 import kul.pl.biblioteka.ui.fragments.profile.ProfileFragment;
+import kul.pl.biblioteka.ui.fragments.readingAndHistory.ReservationsReadingAndHistoryMainFragment;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottom_nav;
