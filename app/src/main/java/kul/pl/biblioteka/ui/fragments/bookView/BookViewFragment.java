@@ -38,6 +38,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     private TextView pagesCountTextView;
     private TextView yearTextView;
     private TextView availabilityStatus;
+    private TextView numberOfStars;
     private RatingBar ratingBar;
     private ProgressBar progressBar;
     private Button backBtn;
@@ -116,6 +117,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
         borrowBtn=view.findViewById(R.id.BookView_button_borrow);
         infoImage=view.findViewById(R.id.BookView_image_info);
         progressBar = view.findViewById(R.id.BookView_progressBar);
+        numberOfStars=view.findViewById(R.id.BookView_text_numberOfStars);
     }
 
     private void initBalloon(String message) {
@@ -163,6 +165,11 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     @Override
     public void setImage(Uri uriImage) {
        Picasso.with(getContext()).load(uriImage).into(imageView);
+    }
+
+    @Override
+    public void setNumberOfStars(String number) {
+        numberOfStars.setText(number);
     }
 
     @Override

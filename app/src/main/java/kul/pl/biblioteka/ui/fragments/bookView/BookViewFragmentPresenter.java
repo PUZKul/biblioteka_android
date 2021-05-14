@@ -36,6 +36,7 @@ public class BookViewFragmentPresenter extends APIAdapter implements BookViewFra
         view.setStars(book.getRating());
         view.setDate(Helper.getDefaultDateFormat(book.getYear()));
         view.setImage(Uri.parse(book.getImageUrl()));
+        view.setNumberOfStars((book.getRating()+"").substring(0,4)+"/5");
         view.endProgressBar();
     }
 

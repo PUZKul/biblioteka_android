@@ -31,8 +31,8 @@
     <string name="edit_profile">Edit profile</string>
     <string name="logout">Logout</string>
     <string name="title">Title</string>
-    <string name="ranking">ranking</string>
-    <string name="date">Date</string>
+    <string name="ranking">Ranking</string>
+    <string name="date">The latest books</string>
     <string name="top_books">Top books</string>
     <string name="discover">Discover</string>
     <string name="author">Author:</string>
@@ -84,5 +84,6 @@
     <string name="incorrect_data">Incorrect data</string>
     <string name="no_internet_message">Operation unavailable. Still no internet.</string>
     <string name="you_booked_a_book">You booked a book</string>
+    <string name="sort_by">Sort by</string>
 
 </resources>

@@ -26,6 +26,8 @@ public interface BookViewFragmentContract {
         void endProgressBar();
 
         void openNoInternetDialog();
+
+        void setNumberOfStars(String number);
     }
 
     interface Presenter {

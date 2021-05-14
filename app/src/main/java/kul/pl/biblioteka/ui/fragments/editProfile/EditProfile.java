@@ -23,6 +23,8 @@ import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.dialogs.passwordSecurity.DialogListener;
 import kul.pl.biblioteka.ui.dialogs.passwordSecurity.PasswordSecurityDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
+import kul.pl.biblioteka.ui.fragments.firstWindow.FirstWindowFragment;
+import kul.pl.biblioteka.ui.fragments.profile.ProfileFragment;
 
 public class EditProfile extends Fragment implements EditProfileContract.View, DialogListener, NoInternetDialogListener {
 
@@ -79,8 +81,10 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.getAppContext(), MainActivity.class);
-                startActivity(intent);
+                getActivity().getSupportFragmentManager().beginTransaction().
+                        add(((ViewGroup)getView().getParent()).getId(),new ProfileFragment(),"Profile")
+                        .addToBackStack(getView().getClass().getName())
+                        .commit();
             }
         };
     }
@@ -119,9 +123,10 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
     }
 
     public void openMainActivity() {
-        //todo change on fragment
-        Intent intent = new Intent(MainActivity.getAppContext(), MainActivity.class);
-        startActivity(intent);
+        getActivity().getSupportFragmentManager().beginTransaction().
+                add(((ViewGroup)getView().getParent()).getId(),new FirstWindowFragment(),"First window")
+                .addToBackStack(getView().getClass().getName())
+                .commit();
     }
 
     private void checkBoxStatus() {
