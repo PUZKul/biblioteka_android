@@ -7,7 +7,7 @@
     <color name="colorAccent">#CACD22</color>
     <color name="colorSecondaryDark">#272727</color>
     <color name="colorWhite">#fff</color>
-    <color name="colorDarkGray">#5B5B5B</color>
-    <color name="colorGray">#80B1B1B1</color>
+    <color name="colorDarkGray">#ACACAC</color>
+    <color name="colorGray">#80C3C3C3</color>
     <color name="colorAquamarine">#E4F4ED</color>
 </resources>

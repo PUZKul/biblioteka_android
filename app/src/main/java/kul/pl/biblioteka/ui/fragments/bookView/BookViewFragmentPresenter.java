@@ -3,6 +3,8 @@ package kul.pl.biblioteka.ui.fragments.bookView;
 import android.net.Uri;
 import android.os.Handler;
 
+import java.text.DecimalFormat;
+
 import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
@@ -36,8 +38,13 @@ public class BookViewFragmentPresenter extends APIAdapter implements BookViewFra
         view.setStars(book.getRating());
         view.setDate(Helper.getDefaultDateFormat(book.getYear()));
         view.setImage(Uri.parse(book.getImageUrl()));
-        view.setNumberOfStars((book.getRating()+"").substring(0,4)+"/5");
+        view.setNumberOfStars(getStringRating(book.getRating()));
         view.endProgressBar();
+    }
+
+    private String getStringRating(double rating) {
+        DecimalFormat format = new DecimalFormat("0.00");
+        return format.format(rating)+ "/5";
     }
 
     @Override
