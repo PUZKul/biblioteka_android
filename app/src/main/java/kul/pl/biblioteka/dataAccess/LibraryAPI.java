@@ -237,4 +237,20 @@ abstract class LibraryAPI {
         }
     };
 
+    protected Callback<Integer> callbackForCancelReservation = new Callback<Integer>() {
+        @Override
+        public void onResponse(Call<Integer> call, Response<Integer> response) {
+            if (response.isSuccessful()) {
+                listener.onCancelReservation();
+            } else {
+                ApiError apiError = ApiErrorParser.parseError(response);
+                listener.onErrorReceive(apiError);
+            }
+        }
+
+        @Override
+        public void onFailure(Call<Integer> call, Throwable t) {
+            listener.onNoInternet();
+        }
+    };
 }

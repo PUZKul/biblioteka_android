@@ -27,12 +27,14 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
     private Direction currentDirection;
     private String currentSearch;
     private Context context;
+    private boolean firstOpen;
 
     public FirstWindowFragmentPresenter(FirstWindowFragmentContract.View view,Context context) {
         this.view = view;
         this.api = LibraryAccess.getInstance();
         api.setListener(this);
         this.context=context;
+        firstOpen=true;
     }
 
     public void setPaginationComponent(View view) {
@@ -83,6 +85,11 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
 
     @Override
     public void setListTopBooks() {
+            setTopBooks();
+
+    }
+
+    private void  setTopBooks(){
         if (InternetConnection.isConnection(context)) {
             currentSorting = Sorting.POPULARITY;
             currentDirection = Direction.DESC;
@@ -176,9 +183,11 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
     @Override
     public void onDiscoverBookListReceive(PageHolder<BookModel> page) {
         if(InternetConnection.isConnection(context)){
-            if(this.currentSorting==null)
+            if(firstOpen){
+                view.setRecommendedList(page.getContent());
+                firstOpen=false;
+            }else
                 view.setTheMostPopularList(page.getContent());
-            view.setRecommendedList(page.getContent());
         }else
             openNoInternetDialog();
     }

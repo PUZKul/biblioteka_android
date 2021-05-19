@@ -108,4 +108,9 @@ public final class LibraryAccess extends LibraryAPI{
         HTTPMethods.reserveBook(token,idBook)
                 .enqueue(callbackForReserveBook);
     }
+
+    public void cancelReservation(String token,int idBook){
+        HTTPMethods.cancelReservation(token,idBook)
+                .enqueue(callbackForCancelReservation);
+    }
 }

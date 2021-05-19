@@ -79,4 +79,8 @@ public interface HTTPMethods {
     @GET("/api/library/users/reserve/{bookCopyId}")
     Call<Long> reserveBook(@Header("Authorization") String token,
                            @Path("bookCopyId") long bookCopyId);
+
+    @GET("/api/library/users/reservations/cancel/{reservationId}")
+    Call<Integer> cancelReservation(@Header("Authorization") String token,
+                           @Path("reservationId") int reservationId);
 }
