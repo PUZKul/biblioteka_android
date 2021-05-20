@@ -83,4 +83,9 @@ public interface HTTPMethods {
     @GET("/api/library/users/reservations/cancel/{reservationId}")
     Call<Integer> cancelReservation(@Header("Authorization") String token,
                            @Path("reservationId") int reservationId);
+
+    @GET("/api/library/users/currentBooks")
+    Call<PageHolder<HistoryBookModel>> getCurrentBooks(@Query("limit") int limit,
+                                                       @Query("page") int page,
+                                                       @Header("Authorization") String token);
 }

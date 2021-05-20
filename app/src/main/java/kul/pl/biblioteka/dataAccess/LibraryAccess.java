@@ -113,4 +113,9 @@ public final class LibraryAccess extends LibraryAPI{
         HTTPMethods.cancelReservation(token,idBook)
                 .enqueue(callbackForCancelReservation);
     }
+
+    public void getCurrentBooks(int limit,int page,String token){
+        HTTPMethods.getCurrentBooks(limit,page,token)
+                .enqueue(callbackForCurrentOfBook);
+    }
 }

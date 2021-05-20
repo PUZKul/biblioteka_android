@@ -40,4 +40,6 @@ public interface APIListener {
     void onReserveBook();
 
     void onCancelReservation();
+
+    void onCurrentBooksReceive(PageHolder<HistoryBookModel> books);
 }

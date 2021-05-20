@@ -253,4 +253,21 @@ abstract class LibraryAPI {
             listener.onNoInternet();
         }
     };
+
+    protected Callback<PageHolder<HistoryBookModel>> callbackForCurrentOfBook = new Callback<PageHolder<HistoryBookModel>>() {
+        @Override
+        public void onResponse(Call<PageHolder<HistoryBookModel>> call, Response<PageHolder<HistoryBookModel>> response) {
+            if (response.isSuccessful()) {
+                listener.onCurrentBooksReceive(response.body());
+            } else {
+                ApiError apiError = ApiErrorParser.parseError(response);
+                listener.onErrorReceive(apiError);
+            }
+        }
+
+        @Override
+        public void onFailure(Call<PageHolder<HistoryBookModel>> call, Throwable t) {
+            listener.onNoInternet();
+        }
+    };
 }

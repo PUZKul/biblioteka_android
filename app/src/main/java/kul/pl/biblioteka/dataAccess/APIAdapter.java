@@ -80,4 +80,14 @@ public abstract class APIAdapter implements APIListener {
     public void onReserveBook() {
 
     }
+
+    @Override
+    public void onCancelReservation() {
+
+    }
+
+    @Override
+    public void onCurrentBooksReceive(PageHolder<HistoryBookModel> books) {
+
+    }
 }
