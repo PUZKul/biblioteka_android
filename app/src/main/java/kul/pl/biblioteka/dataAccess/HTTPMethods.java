@@ -90,7 +90,7 @@ public interface HTTPMethods {
                                                        @Query("page") int page,
                                                        @Header("Authorization") String token);
 
-    @GET("/api/library/users/reservationBooks")
+    @GET("/api/library/users/reservations")
     Call<PageHolder<ReservationBookModel>> getReservationBooks(@Query("limit") int limit,
                                                                @Query("page") int page,
                                                                @Header("Authorization") String token);

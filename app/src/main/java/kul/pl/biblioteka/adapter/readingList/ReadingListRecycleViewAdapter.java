@@ -1,11 +1,13 @@
 package kul.pl.biblioteka.adapter.readingList;
 
 import android.net.Uri;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.time.LocalDate;
@@ -33,16 +35,13 @@ public class ReadingListRecycleViewAdapter extends RecyclerView.Adapter<ReadingL
         return new ReadingListViewHolder(view);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull ReadingListViewHolder holder, int position) {
         holder.setBorrowedText(Helper.getShortDate(booksList.get(position).getDateIssued()));
         holder.setImageBook(Uri.parse(booksList.get(position).getImageUrl()));
         holder.setTitleText(booksList.get(position).getTitle());
-        //todo add static method(Holder class) to added 30 day
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            String date = LocalDate.parse(Helper.getDefaultDateFormat(booksList.get(position).getDateReturn())).plusDays(30).toString();
-            holder.setTimeAgoText(date);
-        }
+        holder.setTimeAgoText(Helper.getDefaultDateFormat(booksList.get(position).getDateIssued()));
     }
 
     @Override

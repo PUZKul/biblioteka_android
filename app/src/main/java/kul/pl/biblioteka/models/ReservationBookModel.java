@@ -10,7 +10,7 @@ public class ReservationBookModel {
     private String bookId;
     private String title;
     private String bookCopyId;
-    private String imageUri;
+    private String imageUrl;
     private Date dateReservation;
     private Date dateBorrow;
 
@@ -21,7 +21,7 @@ public class ReservationBookModel {
         this.bookId = bookId;
         this.title = title;
         this.bookCopyId = bookCopyId;
-        this.imageUri = imageUri;
+        this.imageUrl = imageUri;
         this.dateReservation = dateReservation;
         this.dateBorrow = dateBorrow;
     }
@@ -43,7 +43,7 @@ public class ReservationBookModel {
     }
 
     public String getImageUri() {
-        return imageUri;
+        return imageUrl;
     }
 
     public String getBookCopyId() {

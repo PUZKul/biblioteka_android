@@ -18,6 +18,7 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.VerticalSpaceItemDecoration;
 import kul.pl.biblioteka.adapter.darkList.small.DarkSmallListRecycleViewAdapter;
 import kul.pl.biblioteka.adapter.historyList.HistoryListRecycleViewAdapter;
+import kul.pl.biblioteka.adapter.readingList.ReadingListRecycleViewAdapter;
 import kul.pl.biblioteka.models.HistoryBookModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
@@ -51,7 +52,7 @@ public class ReadingFragment extends Fragment implements ReadingFragmentContact.
 
     @Override
     public void setList(List<HistoryBookModel> books) {
-        recyclerView.setAdapter(new HistoryListRecycleViewAdapter(MainActivity.getAppContext(),books));
+        recyclerView.setAdapter(new ReadingListRecycleViewAdapter(books));
     }
 
     @Override

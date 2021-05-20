@@ -33,7 +33,7 @@ public class ReservationListViewHolder extends RecyclerView.ViewHolder{
     }
 
     private void initComponents(View itemView) {
-        imageBook=imageBook.findViewById(R.id.reservation_item_list_image);
+        imageBook=itemView.findViewById(R.id.reservation_item_list_image);
         titleTextView=itemView.findViewById(R.id.reservation_item_list_text_title);
         reservationTextView=itemView.findViewById(R.id.reservation_item_list_text_dateOfBorrow);
         timeAgoTextView=itemView.findViewById(R.id.reservation_item_list_text_timeAgo);

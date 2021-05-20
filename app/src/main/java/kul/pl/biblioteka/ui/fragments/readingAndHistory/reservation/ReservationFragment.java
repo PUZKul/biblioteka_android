@@ -18,7 +18,10 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.VerticalSpaceItemDecoration;
 import kul.pl.biblioteka.adapter.darkList.small.DarkSmallListRecycleViewAdapter;
 import kul.pl.biblioteka.adapter.historyList.HistoryListRecycleViewAdapter;
+import kul.pl.biblioteka.adapter.readingList.ReadingListRecycleViewAdapter;
+import kul.pl.biblioteka.adapter.reservationList.ReservationListRecycleViewAdapter;
 import kul.pl.biblioteka.models.HistoryBookModel;
+import kul.pl.biblioteka.models.ReservationBookModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
@@ -50,8 +53,8 @@ public class ReservationFragment extends Fragment implements ReservationFragment
     }
 
     @Override
-    public void setList(List<HistoryBookModel> books) {
-        recyclerView.setAdapter(new HistoryListRecycleViewAdapter(MainActivity.getAppContext(),books));
+    public void setList(List<ReservationBookModel> books) {
+        recyclerView.setAdapter(new ReservationListRecycleViewAdapter(books));
     }
 
     @Override
