@@ -8,6 +8,7 @@ import kul.pl.biblioteka.models.EditUserModel;
 import kul.pl.biblioteka.models.HistoryBookModel;
 import kul.pl.biblioteka.models.LoginApiUserModel;
 import kul.pl.biblioteka.models.RegistrationApiUserModel;
+import kul.pl.biblioteka.models.ReservationBookModel;
 import kul.pl.biblioteka.models.UserBookDetails;
 import kul.pl.biblioteka.models.UserModel;
 import kul.pl.biblioteka.utils.Direction;
@@ -88,4 +89,9 @@ public interface HTTPMethods {
     Call<PageHolder<HistoryBookModel>> getCurrentBooks(@Query("limit") int limit,
                                                        @Query("page") int page,
                                                        @Header("Authorization") String token);
+
+    @GET("/api/library/users/reservationBooks")
+    Call<PageHolder<ReservationBookModel>> getReservationBooks(@Query("limit") int limit,
+                                                               @Query("page") int page,
+                                                               @Header("Authorization") String token);
 }

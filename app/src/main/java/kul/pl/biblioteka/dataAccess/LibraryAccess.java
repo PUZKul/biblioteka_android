@@ -118,4 +118,9 @@ public final class LibraryAccess extends LibraryAPI{
         HTTPMethods.getCurrentBooks(limit,page,token)
                 .enqueue(callbackForCurrentOfBook);
     }
+
+    public void getReservationBooks(int limit,int page,String token){
+        HTTPMethods.getReservationBooks(limit,page,token)
+                .enqueue(callbackForReservationOfBook);
+    }
 }

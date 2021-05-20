@@ -6,6 +6,7 @@ import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.BookModel;
 import kul.pl.biblioteka.models.CopiesOfBookModel;
 import kul.pl.biblioteka.models.HistoryBookModel;
+import kul.pl.biblioteka.models.ReservationBookModel;
 import kul.pl.biblioteka.models.UserBookDetails;
 import kul.pl.biblioteka.models.UserModel;
 import kul.pl.biblioteka.utils.PageHolder;
@@ -42,4 +43,6 @@ public interface APIListener {
     void onCancelReservation();
 
     void onCurrentBooksReceive(PageHolder<HistoryBookModel> books);
+
+    void onReservationBooksReceive(PageHolder<ReservationBookModel> books);
 }

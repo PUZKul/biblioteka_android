@@ -29,11 +29,12 @@ public class ReadingFragmentPresenter extends APIAdapter implements ReadingFragm
     }
 
     private void setHistoryBookList() {
-      //  view.startProgressBar();
-        //if (InternetConnection.isConnection(MainActivity.getAppContext()))
-            //todo getReadingBooks
-       // else
-            // openNoInternetDialog();
+        view.startProgressBar();
+        if (InternetConnection.isConnection(MainActivity.getAppContext())){
+            api.getCurrentBooks(10,0,LocalDataAccess.getToken());
+        }else {
+            openNoInternetDialog();
+        }
     }
 
     private void openNoInternetDialog() {
@@ -46,9 +47,8 @@ public class ReadingFragmentPresenter extends APIAdapter implements ReadingFragm
         }, 5000);
     }
 
-    //todo change to onReadingReceive
     @Override
-    public void onHistoryBooksReceive(PageHolder<HistoryBookModel> books) {
+    public void onCurrentBooksReceive(PageHolder<HistoryBookModel> books) {
         if (books.getContent().size() != 0)
             view.setList(books.getContent());
         else

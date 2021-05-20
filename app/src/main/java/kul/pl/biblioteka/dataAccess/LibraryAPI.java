@@ -8,6 +8,7 @@ import kul.pl.biblioteka.exception.ApiErrorParser;
 import kul.pl.biblioteka.models.BookModel;
 import kul.pl.biblioteka.models.CopiesOfBookModel;
 import kul.pl.biblioteka.models.HistoryBookModel;
+import kul.pl.biblioteka.models.ReservationBookModel;
 import kul.pl.biblioteka.models.UserBookDetails;
 import kul.pl.biblioteka.models.UserModel;
 import kul.pl.biblioteka.utils.PageHolder;
@@ -266,6 +267,22 @@ abstract class LibraryAPI {
         }
         @Override
         public void onFailure(Call<PageHolder<HistoryBookModel>> call, Throwable t) {
+            listener.onNoInternet();
+        }
+    };
+
+    protected Callback<PageHolder<ReservationBookModel>> callbackForReservationOfBook = new Callback<PageHolder<ReservationBookModel>>() {
+        @Override
+        public void onResponse(Call<PageHolder<ReservationBookModel>> call, Response<PageHolder<ReservationBookModel>> response) {
+            if (response.isSuccessful()) {
+                listener.onReservationBooksReceive(response.body());
+            } else {
+                ApiError apiError = ApiErrorParser.parseError(response);
+                listener.onErrorReceive(apiError);
+            }
+        }
+        @Override
+        public void onFailure(Call<PageHolder<ReservationBookModel>> call, Throwable t) {
             listener.onNoInternet();
         }
     };
