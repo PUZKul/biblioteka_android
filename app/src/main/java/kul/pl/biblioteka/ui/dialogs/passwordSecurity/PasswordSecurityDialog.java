@@ -17,7 +17,7 @@ import kul.pl.biblioteka.R;
 public class PasswordSecurityDialog   extends AppCompatDialogFragment {
 
     private EditText password;
-    private DialogListener listener;
+    private DialogPasswordSecurityListener listener;
 
     @NonNull
     @Override
@@ -33,7 +33,7 @@ public class PasswordSecurityDialog   extends AppCompatDialogFragment {
         return builder.create();
     }
 
-    public void setListener(DialogListener listener) {
+    public void setListener(DialogPasswordSecurityListener listener) {
         this.listener = listener;
     }
 

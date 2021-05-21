@@ -1,21 +1,21 @@
 
 package kul.pl.biblioteka.models;
 
-        import java.util.Date;
+import java.util.Date;
 
 public class ReservationBookModel {
 
     private int id;
     private String userId;
-    private String bookId;
+    private int bookId;
     private String title;
-    private String bookCopyId;
+    private int bookCopyId;
     private String imageUrl;
     private Date dateReservation;
     private Date dateBorrow;
 
 
-    public ReservationBookModel(int id, String userId, String bookId, String bookCopyId, String title, String imageUri, Date dateReservation, Date dateBorrow) {
+    public ReservationBookModel(int id, String userId, int bookId, int bookCopyId, String title, String imageUri, Date dateReservation, Date dateBorrow) {
         this.id = id;
         this.userId = userId;
         this.bookId = bookId;
@@ -34,7 +34,7 @@ public class ReservationBookModel {
         return userId;
     }
 
-    public String getBookId() {
+    public int getBookId() {
         return bookId;
     }
 
@@ -46,7 +46,7 @@ public class ReservationBookModel {
         return imageUrl;
     }
 
-    public String getBookCopyId() {
+    public int getBookCopyId() {
         return bookCopyId;
     }
 

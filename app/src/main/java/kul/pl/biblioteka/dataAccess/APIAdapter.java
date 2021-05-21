@@ -83,7 +83,7 @@ public abstract class APIAdapter implements APIListener {
     }
 
     @Override
-    public void onCancelReservation() {
+    public void onCancelReservationReceive() {
 
     }
 

@@ -14,46 +14,51 @@ import com.squareup.picasso.Picasso;
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.OnItemClickListener;
 
-public class ReservationListViewHolder extends RecyclerView.ViewHolder{
+public class ReservationListViewHolder extends RecyclerView.ViewHolder {
 
     private ImageView imageBook;
     private TextView titleTextView;
-    private  TextView reservationTextView;
+    private TextView reservationTextView;
     private TextView timeAgoTextView;
     private Button cancel;
     private OnItemClickListener onItemClickListener;
     private View view;
+    private int idBook;
 
-    public ReservationListViewHolder(@NonNull View itemView,OnItemClickListener onItemClickListener) {
+    public ReservationListViewHolder(@NonNull View itemView, OnItemClickListener onItemClickListener) {
         super(itemView);
-        this.onItemClickListener=onItemClickListener;
+        this.onItemClickListener = onItemClickListener;
         initComponents(itemView);
         setOnCLickListeners();
-        view=itemView;
+        view = itemView;
+    }
+
+    public void setIdBook(int idBook) {
+        this.idBook = idBook;
     }
 
     private void initComponents(View itemView) {
-        imageBook=itemView.findViewById(R.id.reservation_item_list_image);
-        titleTextView=itemView.findViewById(R.id.reservation_item_list_text_title);
-        reservationTextView=itemView.findViewById(R.id.reservation_item_list_text_dateOfBorrow);
-        timeAgoTextView=itemView.findViewById(R.id.reservation_item_list_text_timeAgo);
-        cancel=itemView.findViewById(R.id.reservation_item_list_button_Cancel);
+        imageBook = itemView.findViewById(R.id.reservation_item_list_image);
+        titleTextView = itemView.findViewById(R.id.reservation_item_list_text_title);
+        reservationTextView = itemView.findViewById(R.id.reservation_item_list_text_dateOfBorrow);
+        timeAgoTextView = itemView.findViewById(R.id.reservation_item_list_text_timeAgo);
+        cancel = itemView.findViewById(R.id.reservation_item_list_button_Cancel);
     }
 
-    private  void setOnCLickListeners(){
+    private void setOnCLickListeners() {
         cancel.setOnClickListener(onCancelClicked);
     }
 
-    private  View.OnClickListener onCancelClicked=new View.OnClickListener() {
+    private View.OnClickListener onCancelClicked = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            //todo cancel reservation current book
-            // onItemClickListener.onClick();
+            onItemClickListener.onClick(idBook);
         }
     };
 
-    public void setImageBook(Uri bookUri){
-        Picasso.with(view.getContext()).load(bookUri).into(imageBook);;
+    public void setImageBook(Uri bookUri) {
+        Picasso.with(view.getContext()).load(bookUri).into(imageBook);
+        ;
     }
 
     public void setTitleTextView(String title) {
@@ -67,4 +72,5 @@ public class ReservationListViewHolder extends RecyclerView.ViewHolder{
     public void setTimeAgoTextView(String timeAgo) {
         this.timeAgoTextView.setText(timeAgo);
     }
+
 }

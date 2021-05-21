@@ -242,7 +242,7 @@ abstract class LibraryAPI {
         @Override
         public void onResponse(Call<Integer> call, Response<Integer> response) {
             if (response.isSuccessful()) {
-                listener.onCancelReservation();
+                listener.onCancelReservationReceive();
             } else {
                 ApiError apiError = ApiErrorParser.parseError(response);
                 listener.onErrorReceive(apiError);

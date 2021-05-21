@@ -1,5 +1,5 @@
 package kul.pl.biblioteka.ui.dialogs.passwordSecurity;
 
-public interface DialogListener {
+public interface DialogPasswordSecurityListener {
     void applyPassword(String password);
 }

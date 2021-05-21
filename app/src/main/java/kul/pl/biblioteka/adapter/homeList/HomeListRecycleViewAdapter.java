@@ -24,20 +24,20 @@ public class HomeListRecycleViewAdapter extends RecyclerView.Adapter<HomeListVie
     public HomeListRecycleViewAdapter(Context context, List<BookModel> booksList, OnItemClickListener onItemClickListener) {
         this.context = context;
         this.booksList = booksList;
-        this.onItemClickListener= onItemClickListener;
+        this.onItemClickListener = onItemClickListener;
     }
 
     @NonNull
     @Override
     public HomeListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(context);
-        View view =  mInflater.inflate(R.layout.item_list_book, parent, false);
-        return new HomeListViewHolder(view,onItemClickListener);
+        View view = mInflater.inflate(R.layout.item_list_book, parent, false);
+        return new HomeListViewHolder(view, onItemClickListener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull HomeListViewHolder holder, int position) {
-            setBookDetails(holder,position);
+        setBookDetails(holder, position);
     }
 
     private void setBookDetails(HomeListViewHolder holder, int position) {

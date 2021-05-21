@@ -1,6 +1,5 @@
 package kul.pl.biblioteka.ui.fragments.editProfile;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -20,13 +19,13 @@ import kul.pl.biblioteka.models.EditUserModel;
 import kul.pl.biblioteka.models.RegistrationUserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
-import kul.pl.biblioteka.ui.dialogs.passwordSecurity.DialogListener;
+import kul.pl.biblioteka.ui.dialogs.passwordSecurity.DialogPasswordSecurityListener;
 import kul.pl.biblioteka.ui.dialogs.passwordSecurity.PasswordSecurityDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.fragments.firstWindow.FirstWindowFragment;
 import kul.pl.biblioteka.ui.fragments.profile.ProfileFragment;
 
-public class EditProfile extends Fragment implements EditProfileContract.View, DialogListener, NoInternetDialogListener {
+public class EditProfile extends Fragment implements EditProfileContract.View, DialogPasswordSecurityListener, NoInternetDialogListener {
 
     private EditText editEmail;
     private CheckBox checkBoxEditPassword;

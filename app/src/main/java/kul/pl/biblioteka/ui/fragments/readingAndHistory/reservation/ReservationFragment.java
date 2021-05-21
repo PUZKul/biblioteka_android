@@ -15,35 +15,36 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import kul.pl.biblioteka.R;
+import kul.pl.biblioteka.adapter.OnItemClickListener;
 import kul.pl.biblioteka.adapter.VerticalSpaceItemDecoration;
 import kul.pl.biblioteka.adapter.darkList.small.DarkSmallListRecycleViewAdapter;
-import kul.pl.biblioteka.adapter.historyList.HistoryListRecycleViewAdapter;
-import kul.pl.biblioteka.adapter.readingList.ReadingListRecycleViewAdapter;
 import kul.pl.biblioteka.adapter.reservationList.ReservationListRecycleViewAdapter;
-import kul.pl.biblioteka.models.HistoryBookModel;
 import kul.pl.biblioteka.models.ReservationBookModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.dialogs.cancelReservationBook.CancelReservationBookDialog;
+import kul.pl.biblioteka.ui.dialogs.cancelReservationBook.DialogCancelReservationBookListener;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.fragments.readingAndHistory.empty.EmptyReservationsFragment;
 
-public class ReservationFragment extends Fragment implements ReservationFragmentContact.View , NoInternetDialogListener {
+public class ReservationFragment extends Fragment implements ReservationFragmentContact.View , NoInternetDialogListener, OnItemClickListener , DialogCancelReservationBookListener {
 
     private RecyclerView recyclerView;
     private ReservationFragmentPresenter presenter;
     private ProgressBar progressBar;
-    private NoInternetDialog dialog;
+    private NoInternetDialog noInternetDialog;
+    private CancelReservationBookDialog cancelReservationBookDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_reservation, container, false);
         initComponents(view);
-        dialog=new NoInternetDialog(this);
+        noInternetDialog =new NoInternetDialog(this);
+        cancelReservationBookDialog=new CancelReservationBookDialog();
         presenter=new ReservationFragmentPresenter(this);
         presenter.setList();
         return view;
     }
-
 
     private void initComponents(View view) {
         progressBar=view.findViewById(R.id.reservation_progressBar);
@@ -54,7 +55,7 @@ public class ReservationFragment extends Fragment implements ReservationFragment
 
     @Override
     public void setList(List<ReservationBookModel> books) {
-        recyclerView.setAdapter(new ReservationListRecycleViewAdapter(books));
+        recyclerView.setAdapter(new ReservationListRecycleViewAdapter(books,this));
     }
 
     @Override
@@ -82,8 +83,19 @@ public class ReservationFragment extends Fragment implements ReservationFragment
 
     @Override
     public void openOnInternetDialog() {
-        dialog.show(getActivity().getSupportFragmentManager(),"No Internet dialog");
-        dialog.setOnClickedBack();
+        noInternetDialog.show(getActivity().getSupportFragmentManager(),"No Internet dialog");
+        noInternetDialog.setOnClickedBack();
+    }
+
+    @Override
+    public void openCancelReservationDialog() {
+        cancelReservationBookDialog.show(getActivity().getSupportFragmentManager(),"Cancel book reservation");
+        cancelReservationBookDialog.setListener(this);
+    }
+
+    @Override
+    public void onSuccessCancelBookMessage() {
+        Toast.makeText(MainActivity.getAppContext(),"Reservation canceled", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -93,7 +105,7 @@ public class ReservationFragment extends Fragment implements ReservationFragment
             @Override
             public void run() {
                 presenter.setList();
-                dialog.closeDialog();
+                noInternetDialog.closeDialog();
             }
         },5000);
     }
@@ -101,5 +113,15 @@ public class ReservationFragment extends Fragment implements ReservationFragment
     @Override
     public void showToast() {
         Toast.makeText(MainActivity.getAppContext(),"Operation unavailable. Still no internet.", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onClick(int idBook) {
+        presenter.onCancelClicked(idBook);
+    }
+
+    @Override
+    public void onCancel() {
+        presenter.cancelBook();
     }
 }

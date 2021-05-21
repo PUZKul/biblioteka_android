@@ -18,8 +18,16 @@ public interface ReservationFragmentContact {
         void endProgressBar();
 
         void openOnInternetDialog();
+
+        void openCancelReservationDialog();
+
+        void onSuccessCancelBookMessage();
     }
     interface Presenter{
         void setList();
+
+        void onCancelClicked(int idBook);
+
+        void cancelBook();
     }
 }

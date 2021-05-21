@@ -16,6 +16,7 @@ public class ReservationFragmentPresenter extends APIAdapter implements Reservat
 
     private ReservationFragmentContact.View view;
     private LibraryAccess api;
+    private int idBook;
 
     public ReservationFragmentPresenter(ReservationFragmentContact.View view) {
         this.view = view;
@@ -29,11 +30,27 @@ public class ReservationFragmentPresenter extends APIAdapter implements Reservat
         setHistoryBookList();
     }
 
+    @Override
+    public void onCancelClicked(int idBook) {
+        this.idBook = idBook;
+        view.openCancelReservationDialog();
+    }
+
+    @Override
+    public void cancelBook() {
+        view.startProgressBar();
+        if (InternetConnection.isConnection(MainActivity.getAppContext())) {
+            api.cancelReservation(LocalDataAccess.getToken(), idBook);
+        } else {
+            openNoInternetDialog();
+        }
+    }
+
     private void setHistoryBookList() {
         view.startProgressBar();
-        if (InternetConnection.isConnection(MainActivity.getAppContext())){
-            api.getReservationBooks(10,0, LocalDataAccess.getToken());
-        }else {
+        if (InternetConnection.isConnection(MainActivity.getAppContext())) {
+            api.getReservationBooks(10, 0, LocalDataAccess.getToken());
+        } else {
             openNoInternetDialog();
         }
     }
@@ -48,15 +65,22 @@ public class ReservationFragmentPresenter extends APIAdapter implements Reservat
         }, 5000);
     }
 
-    //todo change to onReadingReceive
+    @Override
+    public void onCancelReservationReceive() {
+        view.endProgressBar();
+        view.onSuccessCancelBookMessage();
+        setList();
+    }
 
     @Override
     public void onReservationBooksReceive(PageHolder<ReservationBookModel> books) {
-        if (books.getContent().size() != 0)
-            view.setList(books.getContent());
-        else
-            view.setEmptyLayout();
+        view.setList(books.getContent());
         view.endProgressBar();
     }
 
+    @Override
+    public void onErrorReceive(ApiError error) {
+        System.out.println(error.getMessage());
+        System.out.println(error.getStatus());
+    }
 }
