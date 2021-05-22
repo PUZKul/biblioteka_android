@@ -172,82 +172,107 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/white_rounded_panel"
             android:elevation="5dp"
-            android:gravity="center_vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            app:layout_constraintVertical_bias="1.0">
 
-            <ImageView
-                android:id="@+id/profile_image_lvlLogo"
-                android:layout_width="84dp"
-                android:layout_height="125dp"
-                android:layout_marginStart="8dp"
-                android:src="@drawable/logo_png" />
-
-            <GridLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/profile_textView"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="12dp"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@id/profile_image_lvlLogo"
-                android:columnCount="2"
-                android:padding="8dp"
-                android:rowCount="3">
+                android:layout_marginTop="16dp"
+                android:text="@string/first_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/profile_textView_exp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/profile_textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/last_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profile_textView" />
 
-                    android:layout_row="0"
-                    android:layout_column="0"
-                    android:text="@string/Exp"
-                    android:textSize="18sp" />
+            <TextView
+                android:id="@+id/profile_textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/phone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profile_textView2" />
 
-                <ProgressBar
-                    android:id="@+id/profile_progressBar_exp"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_row="1"
-                    android:layout_column="0"
-                    android:layout_columnSpan="2"
-                    android:layout_gravity="fill_horizontal"
-                    android:progress="20"
-                    android:progressTint="@color/colorPrimaryGreen" />
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/address"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profile_textView3"
+                app:layout_constraintVertical_bias="0.0" />
 
-                <TextView
-                    android:id="@+id/profile_textView_currentLvl"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_row="2"
-                    android:layout_column="0"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="@string/level"
-                    android:textSize="18sp" />
+            <TextView
+                android:id="@+id/profile_firstName_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/empty"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toEndOf="@+id/profile_textView"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/profile_textView_nextLvl"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_row="2"
-                    android:layout_column="1"
-                    android:layout_gravity="end"
-                    android:text="@string/level" />
+            <TextView
+                android:id="@+id/profile_lastName_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="@string/empty"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toEndOf="@+id/profile_textView2"
+                app:layout_constraintTop_toBottomOf="@+id/profile_firstName_textView" />
 
+            <TextView
+                android:id="@+id/profile_phone_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/empty"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintStart_toEndOf="@+id/profile_textView3"
+                app:layout_constraintTop_toBottomOf="@+id/profile_lastName_textView" />
 
-            </GridLayout>
-        </RelativeLayout>
+            <TextView
+                android:id="@+id/profile_address_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:text="@string/empty"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toEndOf="@+id/textView8"
+                app:layout_constraintTop_toBottomOf="@+id/profile_phone_textView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

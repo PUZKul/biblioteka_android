@@ -7,17 +7,41 @@ public class UserModel {
     private UUID id;
     private String username;
     private String email;
+    private String firstName;
+    private String lastName;
+    private String address;
+    private String phone;
     private int maxBooks;
     private int points;
     private int warnings;
 
-    public UserModel(UUID id, String username, String email, int maxBooks, int points, int warnings) {
+    public UserModel(UUID id, String username, String email, String firstName, String lastName, String address, String phone, int maxBooks, int points, int warnings) {
         this.id = id;
         this.username = username;
         this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.phone = phone;
         this.maxBooks = maxBooks;
         this.points = points;
         this.warnings = warnings;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPhone() {
+        return phone;
     }
 
     public UUID getId() {

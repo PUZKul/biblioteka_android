@@ -8,11 +8,13 @@ public interface ProfileFragmentContact {
 
         void setCurrentBooks(String currentBooks);
 
-        void setCurrentLevel(String level);
+        void setLastName(String lastName);
 
-        void setNextLevel(String level);
+        void setFirstName(String firstName);
 
-        void setExperience(int experience);
+        void setAddress(String address);
+
+        void setPhone(String phone);
 
         void openMainActivity();
 
@@ -25,7 +27,7 @@ public interface ProfileFragmentContact {
 
     interface Presenter {
 
-        void setUSeaDetails();
+        void setUserDetails();
 
         void logoutUser();
 

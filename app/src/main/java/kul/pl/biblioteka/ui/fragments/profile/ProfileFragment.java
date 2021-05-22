@@ -30,9 +30,10 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
     private TextView nickText;
     private TextView readBooksText;
     private TextView currentBooksText;
-    private TextView currentLevelText;
-    private TextView nextLevelText;
-    private ProgressBar experienceProgress;
+    private TextView firstName;
+    private TextView lastName;
+    private TextView phone;
+    private TextView address;
     private ProgressBar progressBar;
     private NoInternetDialog dialog;
 
@@ -43,7 +44,7 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
         setOnClickListener();
         dialog=new NoInternetDialog(this);
         presenter=new ProfileFragmentPresenter(this);
-        presenter.setUSeaDetails();
+        presenter.setUserDetails();
         return view;
     }
 
@@ -54,10 +55,11 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
         nickText= view.findViewById(R.id.profile_textView_nick);
         readBooksText=view.findViewById(R.id.profile_textView_readBooks);
         currentBooksText=view.findViewById(R.id.profile_textView_currentBooks);
-        currentLevelText=view.findViewById(R.id.profile_textView_currentLvl);
-        nextLevelText=view.findViewById(R.id.profile_textView_nextLvl);
-        experienceProgress=view.findViewById(R.id.profile_progressBar_exp);
         progressBar=view.findViewById(R.id.progressBar);
+        firstName=view.findViewById(R.id.profile_firstName_textView);
+        lastName=view.findViewById(R.id.profile_lastName_textView);
+        phone=view.findViewById(R.id.profile_phone_textView);
+        address=view.findViewById(R.id.profile_address_textView);
     }
 
     private void setOnClickListener() {
@@ -133,19 +135,25 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
     }
 
     @Override
-    public void setCurrentLevel(String level) {
-    currentLevelText.setText(level);
+    public void setLastName(String lastName) {
+        this.lastName.setText(lastName);
     }
 
     @Override
-    public void setNextLevel(String level) {
-    nextLevelText.setText(level);
+    public void setFirstName(String firstName) {
+        this.firstName.setText(firstName);
     }
 
     @Override
-    public void setExperience(int experience) {
-        experienceProgress.setProgress(experience);
+    public void setAddress(String address) {
+        this.address.setText(address);
     }
+
+    @Override
+    public void setPhone(String phone) {
+        this.phone.setText(phone);
+    }
+
 
     @Override
     public void openOnInternetDialog() {
@@ -159,7 +167,7 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                presenter.setUSeaDetails();
+                presenter.setUserDetails();
                 dialog.closeDialog();
             }
         },5000);

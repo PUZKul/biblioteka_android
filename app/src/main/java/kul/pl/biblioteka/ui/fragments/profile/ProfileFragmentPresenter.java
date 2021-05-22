@@ -19,7 +19,6 @@ public class ProfileFragmentPresenter extends APIAdapter implements ProfileFragm
         this.view = view;
         api = LibraryAccess.getInstance();
         api.setListener(this);
-        view.startProgressBar();
     }
 
     @Override
@@ -31,15 +30,20 @@ public class ProfileFragmentPresenter extends APIAdapter implements ProfileFragm
 
     @Override
     public void onUserDetailsReceive(UserModel user) {
+        System.out.println(user.getFirstName());
+        System.out.println(user.getLastName());
         view.setNick(user.getUsername());
-        view.setExperience(user.getPoints());
+        view.setAddress(user.getAddress());
+        view.setFirstName(user.getFirstName());
+        view.setLastName(user.getLastName());
+        view.setPhone(user.getPhone());
         view.endProgressBar();
-        //todo create class counts level
     }
 
     @Override
-    public void setUSeaDetails() {
+    public void setUserDetails() {
         if(InternetConnection.isConnection(MainActivity.getAppContext())){
+            view.startProgressBar();
             api.getUserDetails(LocalDataAccess.getToken());
             api.getUserBooksDetails(LocalDataAccess.getToken());
         }else
