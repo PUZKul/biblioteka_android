@@ -47,16 +47,16 @@ public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<Cop
         holder.setBookId("#"+booksList.get(position).getId());
         if(!booksList.get(position).isBorrow()){
             if(booksList.get(position).isAccess()){
-                holder.setStatus("Available");
-                holder.setBalloon("Book is available to borrow and read at home");
+                holder.setStatus(String.valueOf(R.string.available_second));
+                holder.setBalloon(String.valueOf(R.string.book_available_borrow_home));
             } else{
-                holder.setStatus("Restricted access");
-                holder.setBalloon("Book is available to borrow but it can be read only inside of the library");
+                holder.setStatus(String.valueOf(R.string.restricted_access));
+                holder.setBalloon(String.valueOf(R.string.book_available_borrow_library));
             }
         }else {
             holder.setImage(R.drawable.bookmark_yellow);
-            holder.setStatus("Occupied ");
-            holder.setBalloon("Available from "+Helper.getShortDate(booksList.get(position).getApproximateDate()));
+            holder.setStatus(String.valueOf(R.string.occupied));
+            holder.setBalloon(String.valueOf(R.string.available_from)+Helper.getShortDate(booksList.get(position).getApproximateDate()));
         }
     }
 

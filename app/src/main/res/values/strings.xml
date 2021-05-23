@@ -110,4 +110,10 @@
     <string name="password_should_consist">Password should consist of numbers and letters and has between 3-12 characters</string>
     <string name="reservation_canceled">Reservation canceled</string>
     <string name="cancel_book_reservation">Cancel book reservation</string>
+    <string name="book_available_borrow_home">Book is available to borrow and read at home</string>
+    <string name="book_available_borrow_library">Book is available to borrow but it can be read only inside of the library</string>
+    <string name="available_second">Available</string>
+    <string name="restricted_access">Restricted access</string>
+    <string name="occupied">Occupied</string>
+    <string name="available_from">Available from </string>
 </resources>
