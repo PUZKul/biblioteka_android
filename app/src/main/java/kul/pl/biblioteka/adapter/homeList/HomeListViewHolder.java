@@ -30,7 +30,7 @@ public class HomeListViewHolder extends RecyclerView.ViewHolder {
     public HomeListViewHolder(@NonNull View itemView, OnItemClickListener onItemClickListener) {
         super(itemView);
         setComponents(itemView);
-        setOnClickListener(view);
+        setOnClickListener(itemView);
         view = itemView;
         this.onItemClickListener = onItemClickListener;
     }
@@ -41,7 +41,7 @@ public class HomeListViewHolder extends RecyclerView.ViewHolder {
 
 
     private void setOnClickListener(View view) {
-        moreButton.setOnClickListener(onMoreButtonClickListener);
+        view.setOnClickListener(onMoreButtonClickListener);
     }
 
     private View.OnClickListener onMoreButtonClickListener = new View.OnClickListener() {
