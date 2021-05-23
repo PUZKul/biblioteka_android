@@ -3,6 +3,7 @@ package kul.pl.biblioteka.ui.activity.register;
 import android.content.Context;
 import android.os.Handler;
 
+import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
@@ -83,7 +84,7 @@ public class RegisterActivityPresenter extends APIAdapter implements RegisterAct
     @Override
     public void onRegistrationSuccesses() {
         view.endProgressBar();
-        view.showToast("Successful registration");
+        view.showToast(String.valueOf(R.string.successful_registration));
         view.openMainActivity();
     }
 
@@ -91,7 +92,7 @@ public class RegisterActivityPresenter extends APIAdapter implements RegisterAct
     public void onErrorReceive(ApiError error) {
       view.endProgressBar();
       if(error.getStatus()==409)
-        view.showToast("User with given email or login already exist");
+        view.showToast(String.valueOf(R.string.user_with_given_email_or_logiin_exist));
     }
 
     @Override

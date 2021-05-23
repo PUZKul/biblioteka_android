@@ -83,19 +83,19 @@ public class ReservationFragment extends Fragment implements ReservationFragment
 
     @Override
     public void openOnInternetDialog() {
-        noInternetDialog.show(getActivity().getSupportFragmentManager(),"No Internet dialog");
+        noInternetDialog.show(getActivity().getSupportFragmentManager(),getString(R.string.no_internet_dialog));
         noInternetDialog.setOnClickedBack();
     }
 
     @Override
     public void openCancelReservationDialog() {
-        cancelReservationBookDialog.show(getActivity().getSupportFragmentManager(),"Cancel book reservation");
+        cancelReservationBookDialog.show(getActivity().getSupportFragmentManager(),getString(R.string.cancel_book_reservation));
         cancelReservationBookDialog.setListener(this);
     }
 
     @Override
     public void onSuccessCancelBookMessage() {
-        Toast.makeText(MainActivity.getAppContext(),"Reservation canceled", Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.getAppContext(),getString(R.string.reservation_canceled), Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -112,7 +112,7 @@ public class ReservationFragment extends Fragment implements ReservationFragment
 
     @Override
     public void showToast() {
-        Toast.makeText(MainActivity.getAppContext(),"Operation unavailable. Still no internet.", Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.getAppContext(),R.string.no_internet_message, Toast.LENGTH_LONG).show();
     }
 
     @Override

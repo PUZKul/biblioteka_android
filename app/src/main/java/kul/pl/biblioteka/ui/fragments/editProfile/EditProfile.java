@@ -184,23 +184,23 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
 
     @Override
     public void errorEmailIncorrect() {
-        editEmail.setError("Incorrect email!");
+        editEmail.setError(getString(R.string.incorrect_email));
     }
 
 
     @Override
     public void errorPasswordIncorrect() {
-        editPassword.setError("Password should include at least one numbers, one special character and one letter and has between 8-25 characters");
+        editPassword.setError(getString(R.string.password_should_include));
     }
 
     @Override
     public void errorRepeatPasswordAreNotIdentical() {
-        repeatEditedPassword.setError("Password are't identical!");
+        repeatEditedPassword.setError(getString(R.string.password_are_not_identical));
     }
 
     @Override
     public void openNoInternetDialog() {
-        dialog.show(getActivity().getSupportFragmentManager(),"No Internet dialog");
+        dialog.show(getActivity().getSupportFragmentManager(),getString(R.string.no_internet_dialog));
         dialog.setOnClickedBack();
     }
 
@@ -227,7 +227,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
 
     @Override
     public void showToast() {
-        Toast.makeText(MainActivity.getAppContext(),"Operation unavailable. Still no internet.", Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.getAppContext(),R.string.no_internet_message, Toast.LENGTH_LONG).show();
     }
 }
 

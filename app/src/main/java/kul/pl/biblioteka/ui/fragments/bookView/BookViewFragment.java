@@ -199,7 +199,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
 
     @Override
     public void openNoInternetDialog() {
-        noInternetDialog.show(getActivity().getSupportFragmentManager(),"No Internet dialog");
+        noInternetDialog.show(getActivity().getSupportFragmentManager(),getString(R.string.no_internet_dialog));
         noInternetDialog.setOnClickedBack();
     }
 
@@ -217,6 +217,6 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
 
     @Override
     public void showToast() {
-        Toast.makeText(MainActivity.getAppContext(),"Operation unavailable. Still no internet.", Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.getAppContext(),R.string.no_internet_message, Toast.LENGTH_LONG).show();
     }
 }

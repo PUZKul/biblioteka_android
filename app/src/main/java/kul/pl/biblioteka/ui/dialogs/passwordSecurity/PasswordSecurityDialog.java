@@ -27,9 +27,9 @@ public class PasswordSecurityDialog   extends AppCompatDialogFragment {
         View view = inflater.inflate(R.layout.dialog_password_security,null);
         initComponents(view);
         builder.setView(view)
-                .setTitle("Enter  old password")
-                .setNegativeButton("Back", onBackClicked)
-                .setPositiveButton("Edit data",onEditDataClicked);
+                .setTitle(R.string.enter_old_password)
+                .setNegativeButton(R.string.back, onBackClicked)
+                .setPositiveButton(R.string.edita_data,onEditDataClicked);
         return builder.create();
     }
 

@@ -90,5 +90,24 @@
     <string name="phone">Phone:</string>
     <string name="address">Address:</string>
     <string name="empty" />
-
+    <string name="books_sorted_by_title">Books sorted by title</string>
+    <string name="books_sorted_by_date">Books sorted by date</string>
+    <string name="discover_books">Discover books</string>
+    <string name="books_sorted_by_rating">Books sorted by rating</string>
+    <string name="the_data_has_been_edited">The data has been edited</string>
+    <string name="enter_old_password">Enter old password</string>
+    <string name="edita_data">Edit data</string>
+    <string name="cancel_reservation_book">Cancel reservation book</string>
+    <string name="cancel">Cancel</string>
+    <string name="successful_registration">Successful registration</string>
+    <string name="user_with_given_email_or_logiin_exist">User with email or login already exist</string>
+    <string name="nick_is_empty">Nick is Empty!</string>
+    <string name="incorrect_email">Incorrect email!</string>
+    <string name="email__is_empty">Email is empty!</string>
+    <string name="password_is_empty_two">Password is empty!</string>
+    <string name="password_are_not_identical">Password are\'t identical</string>
+    <string name="password_should_include">Password should include at least one numbers, one special character and one letter and has between 8-25 characters</string>
+    <string name="password_should_consist">Password should consist of numbers and letters and has between 3-12 characters</string>
+    <string name="reservation_canceled">Reservation canceled</string>
+    <string name="cancel_book_reservation">Cancel book reservation</string>
 </resources>

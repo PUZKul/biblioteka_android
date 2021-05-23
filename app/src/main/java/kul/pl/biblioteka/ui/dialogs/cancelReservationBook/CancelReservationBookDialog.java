@@ -21,9 +21,9 @@ public class CancelReservationBookDialog extends AppCompatDialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         builder.
-                setTitle("Cancel reservation book")
-                .setNegativeButton("Back", onBackClicked)
-                .setPositiveButton("Cancel", onCancelClicked);
+                setTitle(R.string.cancel_reservation_book)
+                .setNegativeButton(R.string.back, onBackClicked)
+                .setPositiveButton(R.string.cancel, onCancelClicked);
         return builder.create();
     }
 

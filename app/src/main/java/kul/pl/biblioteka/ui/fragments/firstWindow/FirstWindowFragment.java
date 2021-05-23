@@ -115,23 +115,23 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
                     if (item.getItemId() == R.id.bottom_sort_title) {
                         presenter.setListSortByTitle();
                         hideComponents();
-                        text1.setText("Books sorted by title");
+                        text1.setText(R.string.books_sorted_by_title);
                     } else if (item.getItemId() == R.id.bottom_sort_date) {
                         presenter.setListSortByDate();
                         hideComponents();
-                        text1.setText("Books sorted by date");
+                        text1.setText(R.string.books_sorted_by_date);
                     } else if (item.getItemId() == R.id.bottom_sort_discover) {
                         presenter.setListSortByDiscover();
-                        text1.setText("Discover books");
+                        text1.setText(R.string.discover_books);
                         hideComponents();
                     } else if (item.getItemId() == R.id.bottom_sort_ranting) {
                         presenter.setListSortByRating();
-                        text1.setText("Books sorted by rating");
+                        text1.setText(R.string.books_sorted_by_rating);
                         hideComponents();
                     } else {
                         presenter.setListTopBooks();
                         hideComponents();
-                        text1.setText("Top books");
+                        text1.setText(R.string.top_books);
                     }
                     return true;
                 }
@@ -208,7 +208,7 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
     @Override
     public void openOnInternetDialog() {
         setDarkList();
-        dialog.show(getActivity().getSupportFragmentManager(),"No Internet dialog");
+        dialog.show(getActivity().getSupportFragmentManager(),getString(R.string.no_internet_dialog));
         dialog.setOnClickedBack();
     }
 
@@ -231,6 +231,6 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
 
     @Override
     public void showToast() {
-        Toast.makeText(MainActivity.getAppContext(),"Operation unavailable. Still no internet.", Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.getAppContext(),R.string.no_internet_message, Toast.LENGTH_LONG).show();
     }
 }

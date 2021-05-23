@@ -157,7 +157,7 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
 
     @Override
     public void openOnInternetDialog() {
-        dialog.show(getActivity().getSupportFragmentManager(),"No Internet dialog");
+        dialog.show(getActivity().getSupportFragmentManager(),getString(R.string.no_internet_dialog));
         dialog.setOnClickedBack();
     }
 
@@ -175,6 +175,6 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
 
     @Override
     public void showToast() {
-        Toast.makeText(MainActivity.getAppContext(),"Operation unavailable. Still no internet.", Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.getAppContext(),R.string.no_internet_message, Toast.LENGTH_LONG).show();
     }
 }

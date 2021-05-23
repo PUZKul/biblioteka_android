@@ -78,7 +78,7 @@ public class HistoryFragment extends Fragment implements HistoryFragmentContact.
 
     @Override
     public void openOnInternetDialog() {
-        dialog.show(getActivity().getSupportFragmentManager(),"No Internet dialog");
+        dialog.show(getActivity().getSupportFragmentManager(),getString(R.string.no_internet_dialog));
         dialog.setOnClickedBack();
     }
 
@@ -96,6 +96,6 @@ public class HistoryFragment extends Fragment implements HistoryFragmentContact.
 
     @Override
     public void showToast() {
-        Toast.makeText(MainActivity.getAppContext(),"Operation unavailable. Still no internet.", Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.getAppContext(),R.string.no_internet_message, Toast.LENGTH_LONG).show();
     }
 }
