@@ -5,6 +5,7 @@ import java.util.List;
 import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.exception.ApiErrorParser;
+import kul.pl.biblioteka.exception.ApiExceptionHandler;
 import kul.pl.biblioteka.models.BookModel;
 import kul.pl.biblioteka.models.CopiesOfBookModel;
 import kul.pl.biblioteka.models.HistoryBookModel;
@@ -143,6 +144,7 @@ abstract class LibraryAPI {
                 listener.onUserDetailsReceive(userModel);
             } else {
                 ApiError apiError = ApiErrorParser.parseError(response);
+                ApiExceptionHandler.handle(apiError);
                 listener.onErrorReceive(apiError);
             }
         }
@@ -211,6 +213,7 @@ abstract class LibraryAPI {
                 listener.onHistoryBooksReceive(response.body());
             } else {
                 ApiError apiError = ApiErrorParser.parseError(response);
+                ApiExceptionHandler.handle(apiError);
                 listener.onErrorReceive(apiError);
             }
         }
@@ -262,6 +265,7 @@ abstract class LibraryAPI {
                 listener.onCurrentBooksReceive(response.body());
             } else {
                 ApiError apiError = ApiErrorParser.parseError(response);
+                ApiExceptionHandler.handle(apiError);
                 listener.onErrorReceive(apiError);
             }
         }
@@ -278,6 +282,7 @@ abstract class LibraryAPI {
                 listener.onReservationBooksReceive(response.body());
             } else {
                 ApiError apiError = ApiErrorParser.parseError(response);
+                ApiExceptionHandler.handle(apiError);
                 listener.onErrorReceive(apiError);
             }
         }
