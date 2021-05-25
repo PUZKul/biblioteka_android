@@ -1,8 +1,5 @@
 package kul.pl.biblioteka.ui.fragments.readingAndHistory.history;
 
-
-import android.view.View;
-
 import java.util.List;
 
 import kul.pl.biblioteka.models.HistoryBookModel;

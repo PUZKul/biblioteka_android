@@ -186,7 +186,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintVertical_bias="0.0">
 
             <TextView
                 android:id="@+id/profile_textView"
@@ -203,7 +203,7 @@
                 android:id="@+id/profile_textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/last_name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.1"
@@ -214,9 +214,10 @@
                 android:id="@+id/profile_textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/phone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.092"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profile_textView2" />
 
@@ -224,11 +225,11 @@
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/address"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintHorizontal_bias="0.095"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profile_textView3"
                 app:layout_constraintVertical_bias="0.0" />
@@ -237,9 +238,9 @@
                 android:id="@+id/profile_firstName_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/empty"
-                android:layout_marginStart="36dp"
+                android:layout_marginStart="34dp"
                 android:layout_marginTop="16dp"
+                android:text="@string/empty"
                 app:layout_constraintStart_toEndOf="@+id/profile_textView"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -248,8 +249,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/empty"
-                android:layout_marginTop="8dp"
                 app:layout_constraintStart_toEndOf="@+id/profile_textView2"
                 app:layout_constraintTop_toBottomOf="@+id/profile_firstName_textView" />
 
@@ -257,9 +258,9 @@
                 android:id="@+id/profile_phone_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="58dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/empty"
-                android:layout_marginStart="56dp"
-                android:layout_marginTop="4dp"
                 app:layout_constraintStart_toEndOf="@+id/profile_textView3"
                 app:layout_constraintTop_toBottomOf="@+id/profile_lastName_textView" />
 
@@ -267,9 +268,9 @@
                 android:id="@+id/profile_address_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/empty"
-                android:layout_marginTop="8dp"
                 app:layout_constraintStart_toEndOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/profile_phone_textView" />
         </androidx.constraintlayout.widget.ConstraintLayout>
