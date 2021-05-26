@@ -4,7 +4,6 @@ import android.net.Uri;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,45 +15,59 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.OnItemClickListener;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 
-public class ReadingListViewHolder extends RecyclerView.ViewHolder{
+public class ReadingListViewHolder extends RecyclerView.ViewHolder {
 
     private ImageView imageBook;
     private TextView titleTextView;
-    private RatingBar ratingBar;
-    private  TextView borrowedTextView;
+    private TextView borrowedTextView;
     private TextView timeAgoTextView;
+    private Button button;
+    private OnItemClickListener listener;
+    private int idBook;
 
-    public ReadingListViewHolder(@NonNull View itemView) {
+    public ReadingListViewHolder(@NonNull View itemView, OnItemClickListener listener) {
         super(itemView);
+        this.listener = listener;
         setComponents(itemView);
+        setOnclickListener();
     }
 
+    private void setOnclickListener() {
+        button.setOnClickListener(onButtonClicked);
+    }
+
+    private View.OnClickListener onButtonClicked = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            listener.onClick(idBook);
+        }
+    };
 
     private void setComponents(View view) {
-        imageBook=view.findViewById(R.id.reading_item_list_image);
-        titleTextView=view.findViewById(R.id.reading_item_list_textView_title);
-        borrowedTextView=view.findViewById(R.id.reading_item_list_textView_dateOfBorrow);
-        timeAgoTextView=view.findViewById(R.id.reading_item_list_textView_timeAgo);
+        imageBook = view.findViewById(R.id.reading_item_list_image);
+        titleTextView = view.findViewById(R.id.reading_item_list_textView_title);
+        borrowedTextView = view.findViewById(R.id.reading_item_list_textView_dateOfBorrow);
+        timeAgoTextView = view.findViewById(R.id.reading_item_list_textView_timeAgo);
+        button = view.findViewById(R.id.reading_item_list_button_extend_book);
     }
 
-    public void setTimeAgoText(String timeAgoText){
+    public void setTimeAgoText(String timeAgoText) {
         timeAgoTextView.setText(timeAgoText);
     }
 
-    public void setBorrowedText(String date){
+    public void setBorrowedText(String date) {
         borrowedTextView.setText(date);
     }
 
-    public void setRatingBar(float rating){
-        ratingBar.setRating(rating);
-    }
-
-    public void setTitleText(String title){
+    public void setTitleText(String title) {
         titleTextView.setText(title);
     }
 
-    public void setImageBook(Uri bookUri){
-        Picasso.with(MainActivity.getAppContext()).load(bookUri).into(imageBook);;
+    public void setImageBook(Uri bookUri) {
+        Picasso.with(MainActivity.getAppContext()).load(bookUri).into(imageBook);
     }
 
+    public void setIdBook(int idBook) {
+        this.idBook = idBook;
+    }
 }

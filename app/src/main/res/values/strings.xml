@@ -122,4 +122,5 @@
     <string name="choose_book">Choose book</string>
     <string name="one_of_fields_is_empty">One of the fields is empty.</string>
     <string name="fill_in_your_contact_details">Fill in your contact details</string>
+    <string name="extend_book_rental">Extend book rental</string>
 </resources>

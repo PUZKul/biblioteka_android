@@ -41,7 +41,7 @@
             android:layout_width="118dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="19dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:text="@string/borrowed"
             android:textColor="@color/colorSecondaryDark"
             app:layout_constraintEnd_toEndOf="parent"
@@ -54,11 +54,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="16dp"
             android:text="@string/how_much_days_ago"
             android:textColor="@color/colorPrimaryDark"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.025"
+            app:layout_constraintHorizontal_bias="0.067"
             app:layout_constraintStart_toEndOf="@+id/reading_item_list_image"
             app:layout_constraintTop_toBottomOf="@+id/reading_item_list__textView_borrowed" />
 
@@ -66,7 +66,7 @@
             android:id="@+id/reading_item_list_textView_dateOfBorrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="6dp"
             android:text="@string/yyyy_mm_dd"
             android:textColor="@color/colorPrimaryDark"
@@ -74,6 +74,19 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/reading_item_list__textView_borrowed"
             app:layout_constraintTop_toBottomOf="@+id/reading_item_list_textView_title" />
+
+        <Button
+            android:id="@+id/reading_item_list_button_extend_book"
+            android:layout_width="229dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_secondary"
+            android:text="@string/extend_book_rental"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.829"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.941" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

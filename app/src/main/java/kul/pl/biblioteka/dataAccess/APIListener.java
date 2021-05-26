@@ -45,4 +45,6 @@ public interface APIListener {
     void onCurrentBooksReceive(PageHolder<HistoryBookModel> books);
 
     void onReservationBooksReceive(PageHolder<ReservationBookModel> books);
+
+    void onExtendBookRentalReceive();
 }

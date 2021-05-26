@@ -96,4 +96,9 @@ public abstract class APIAdapter implements APIListener {
     public void onReservationBooksReceive(PageHolder<ReservationBookModel> books) {
 
     }
+
+    @Override
+    public void onExtendBookRentalReceive() {
+
+    }
 }

@@ -70,12 +70,12 @@ public interface HTTPMethods {
 
     @PUT("/api/library/users/edit")
     Call<Integer> editUserData(@Header("Authorization") String token,
-                                            @Body EditUserModel user);
+                               @Body EditUserModel user);
 
     @GET("/api/library/users/history")
     Call<PageHolder<HistoryBookModel>> getHistoryBooks(@Query("limit") int limit,
-                                                 @Query("page") int page,
-                                                 @Header("Authorization") String token);
+                                                       @Query("page") int page,
+                                                       @Header("Authorization") String token);
 
     @GET("/api/library/users/reserve/{bookCopyId}")
     Call<Long> reserveBook(@Header("Authorization") String token,
@@ -83,7 +83,7 @@ public interface HTTPMethods {
 
     @GET("/api/library/users/reservations/cancel/{reservationId}")
     Call<Integer> cancelReservation(@Header("Authorization") String token,
-                           @Path("reservationId") int reservationId);
+                                    @Path("reservationId") int reservationId);
 
     @GET("/api/library/users/currentBooks")
     Call<PageHolder<HistoryBookModel>> getCurrentBooks(@Query("limit") int limit,
@@ -94,4 +94,9 @@ public interface HTTPMethods {
     Call<PageHolder<ReservationBookModel>> getReservationBooks(@Query("limit") int limit,
                                                                @Query("page") int page,
                                                                @Header("Authorization") String token);
+
+    @GET("\n" +
+            "/api/library/users/currentBooks/extend/{borrowId}")
+    Call<Void> getExternalBookRental(@Path("borrowId") int borrowId,
+                                     @Header("Authorization") String token);
 }

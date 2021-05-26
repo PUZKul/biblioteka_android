@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import kul.pl.biblioteka.R;
+import kul.pl.biblioteka.adapter.OnItemClickListener;
 import kul.pl.biblioteka.adapter.VerticalSpaceItemDecoration;
 import kul.pl.biblioteka.adapter.darkList.small.DarkSmallListRecycleViewAdapter;
 import kul.pl.biblioteka.adapter.readingList.ReadingListRecycleViewAdapter;
@@ -25,7 +26,7 @@ import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.fragments.readingAndHistory.empty.EmptyReadingFragment;
 import kul.pl.biblioteka.ui.fragments.readingAndHistory.empty.EmptyReservationsFragment;
 
-public class ReadingFragment extends Fragment implements ReadingFragmentContact.View, NoInternetDialogListener {
+public class ReadingFragment extends Fragment implements ReadingFragmentContact.View, NoInternetDialogListener, OnItemClickListener {
 
     private RecyclerView recyclerView;
     private ReadingFragmentPresenter presenter;
@@ -52,7 +53,7 @@ public class ReadingFragment extends Fragment implements ReadingFragmentContact.
     @Override
     public void setList(List<HistoryBookModel> books) {
         if (books.size() != 0) {
-            recyclerView.setAdapter(new ReadingListRecycleViewAdapter(books));
+            recyclerView.setAdapter(new ReadingListRecycleViewAdapter(books,this));
         } else {
             getActivity().getSupportFragmentManager().beginTransaction().
                     add(((ViewGroup) getView().getParent()).getId(), new EmptyReadingFragment(), "Empty")
@@ -91,6 +92,18 @@ public class ReadingFragment extends Fragment implements ReadingFragmentContact.
     }
 
     @Override
+    public void showSuccessExtendBookRentalMessage() {
+        //todo add message
+        Toast.makeText(MainActivity.getAppContext(),"Przedłużono",Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showFailureExtendBookRentalMessage() {
+        //todo add message
+        Toast.makeText(MainActivity.getAppContext(),"NIEstetey nie",Toast.LENGTH_LONG).show();
+    }
+
+    @Override
     public void goBackToTheFragment() {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -105,5 +118,10 @@ public class ReadingFragment extends Fragment implements ReadingFragmentContact.
     @Override
     public void showNoInternetToast() {
         Toast.makeText(MainActivity.getAppContext(), R.string.no_internet_message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onClick(int idBook) {
+        presenter.onExtendBookRentalClicked(idBook);
     }
 }

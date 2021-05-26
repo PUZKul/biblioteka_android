@@ -25,14 +25,19 @@ public class ReadingFragmentPresenter extends APIAdapter implements ReadingFragm
     @Override
     public void setList() {
         view.setDarkList();
-        setHistoryBookList();
+        setReadingBookList();
     }
 
-    private void setHistoryBookList() {
+    @Override
+    public void onExtendBookRentalClicked(int idBook) {
+        api.getExternalBooksRental(LocalDataAccess.getToken(), idBook);
+    }
+
+    private void setReadingBookList() {
         view.startProgressBar();
-        if (InternetConnection.isConnection(MainActivity.getAppContext())){
-            api.getCurrentBooks(10,0,LocalDataAccess.getToken());
-        }else {
+        if (InternetConnection.isConnection(MainActivity.getAppContext())) {
+            api.getCurrentBooks(10, 0, LocalDataAccess.getToken());
+        } else {
             openNoInternetDialog();
         }
     }
@@ -58,6 +63,15 @@ public class ReadingFragmentPresenter extends APIAdapter implements ReadingFragm
 
     @Override
     public void onErrorReceive(ApiError error) {
+        view.endProgressBar();
+        if (error.getStatus() == 409)
+            view.showSuccessExtendBookRentalMessage();
+    }
 
+    @Override
+    public void onExtendBookRentalReceive() {
+        view.showSuccessExtendBookRentalMessage();
+        view.endProgressBar();
+        setReadingBookList();
     }
 }

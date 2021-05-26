@@ -5,7 +5,7 @@ import java.util.List;
 import kul.pl.biblioteka.models.HistoryBookModel;
 
 public interface ReadingFragmentContact {
-    interface View{
+    interface View {
         void setList(List<HistoryBookModel> books);
 
         void setDarkList();
@@ -17,8 +17,15 @@ public interface ReadingFragmentContact {
         void endProgressBar();
 
         void openOnInternetDialog();
+
+        void showSuccessExtendBookRentalMessage();
+
+        void showFailureExtendBookRentalMessage();
     }
-    interface Presenter{
+
+    interface Presenter {
         void setList();
+
+        void onExtendBookRentalClicked(int idBook);
     }
 }

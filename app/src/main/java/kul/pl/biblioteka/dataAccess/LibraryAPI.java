@@ -291,4 +291,21 @@ abstract class LibraryAPI {
             listener.onNoInternet();
         }
     };
+
+    protected Callback<Void> callbackExternalBooksRental = new Callback<Void>() {
+        @Override
+        public void onResponse(Call<Void> call, Response<Void> response) {
+            if (response.isSuccessful()) {
+                listener.onExtendBookRentalReceive();
+            } else {
+                ApiError apiError = ApiErrorParser.parseError(response);
+                ApiExceptionHandler.handle(apiError);
+                listener.onErrorReceive(apiError);
+            }
+        }
+        @Override
+        public void onFailure(Call<Void> call, Throwable t) {
+            listener.onNoInternet();
+        }
+    };
 }
