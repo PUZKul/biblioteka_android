@@ -119,4 +119,5 @@
     <string name="keep_browsing">Keep browsing</string>
     <string name="increase_the_limit">Increase the limit</string>
     <string name="extend_the_deadline">Extend the deadline</string>
+    <string name="choose_book">Choose book</string>
 </resources>

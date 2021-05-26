@@ -118,7 +118,7 @@ public class ReservationFragment extends Fragment implements ReservationFragment
     }
 
     @Override
-    public void showToast() {
+    public void showNoInternetToast() {
         Toast.makeText(MainActivity.getAppContext(),R.string.no_internet_message, Toast.LENGTH_LONG).show();
     }
 

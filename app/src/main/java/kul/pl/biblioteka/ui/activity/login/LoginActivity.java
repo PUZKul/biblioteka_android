@@ -141,7 +141,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
     }
 
     @Override
-    public void showToast() {
+    public void showNoInternetToast() {
         Toast.makeText(this, R.string.no_internet_message, Toast.LENGTH_LONG).show();
     }
 }

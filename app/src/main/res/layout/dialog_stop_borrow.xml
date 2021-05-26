@@ -30,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <Button
-        android:id="@+id/no_internet_button_login"
+        android:id="@+id/stopBorrow_login_button"
         android:layout_width="130dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
-        android:id="@+id/no_internet_button_register"
+        android:id="@+id/stopBorrow_registration_button"
         android:layout_width="130dp"
         android:layout_height="40dp"
         android:layout_marginTop="13dp"
@@ -58,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/stopBorrow_back_button"
         android:layout_width="130dp"
         android:layout_height="40dp"
         android:layout_marginStart="133dp"
@@ -70,6 +70,6 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/no_internet_button_login" />
+        app:layout_constraintTop_toBottomOf="@+id/stopBorrow_login_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -174,7 +174,7 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
     }
 
     @Override
-    public void showToast() {
+    public void showNoInternetToast() {
         Toast.makeText(MainActivity.getAppContext(),R.string.no_internet_message, Toast.LENGTH_LONG).show();
     }
 }

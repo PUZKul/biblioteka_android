@@ -26,6 +26,7 @@ import kul.pl.biblioteka.models.LoginUserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
+import kul.pl.biblioteka.ui.dialogs.stopBorrow.StopBorrowDialog;
 
 public class CopiesOfBooksDialog extends AppCompatDialogFragment implements CopiesOfBooksDialogContract.View, NoInternetDialogListener {
 
@@ -66,7 +67,6 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
     private View.OnClickListener onBorrowClicked=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            setDisableButtons();
             presenter.reserveBook(copiesOfBookListRecycleViewAdapter.getIdBook());
         }
     };
@@ -100,7 +100,7 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
     }
 
     @Override
-    public void showToast() {
+    public void showNoInternetToast() {
         Toast.makeText(MainActivity.getAppContext(), R.string.no_internet_message, Toast.LENGTH_LONG).show();
     }
 
@@ -126,13 +126,14 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
     }
 
     @Override
-    public void setEnableButtons() {
-        back.setEnabled(true);
-        borrow.setEnabled(true);
+    public void showToast(String message) {
+        Toast.makeText(MainActivity.getAppContext(), message, Toast.LENGTH_LONG).show();
     }
 
-    private void setDisableButtons(){
-        back.setEnabled(false);
-        borrow.setEnabled(false);
+    @Override
+    public void showStopBorrowDialog() {
+        StopBorrowDialog stopBorrowDialog=new StopBorrowDialog();
+        stopBorrowDialog.show(getActivity().getSupportFragmentManager(),getString(R.string.no_internet_dialog));
     }
+
 }

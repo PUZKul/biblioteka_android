@@ -230,7 +230,7 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
     }
 
     @Override
-    public void showToast() {
+    public void showNoInternetToast() {
         Toast.makeText(MainActivity.getAppContext(),R.string.no_internet_message, Toast.LENGTH_LONG).show();
     }
 }

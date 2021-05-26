@@ -227,7 +227,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
     }
 
     @Override
-    public void showToast() {
+    public void showNoInternetToast() {
         Toast.makeText(MainActivity.getAppContext(),R.string.no_internet_message, Toast.LENGTH_LONG).show();
     }
 }
