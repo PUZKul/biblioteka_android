@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.ui.activity.login.LoginActivity;
 import kul.pl.biblioteka.ui.activity.register.RegisterActivity;
+import kul.pl.biblioteka.ui.fragments.firstWindow.FirstWindowFragment;
 import kul.pl.biblioteka.ui.fragments.home.HomeFragment;
 
 public class NotLoggedInProfileFragment extends Fragment {
@@ -68,7 +69,7 @@ public class NotLoggedInProfileFragment extends Fragment {
 
     private void openHomeFragment(){
         getActivity().getSupportFragmentManager().beginTransaction().
-                replace(((ViewGroup) getView().getParent()).getId(),new HomeFragment())
+                replace(((ViewGroup) getView().getParent()).getId(),new FirstWindowFragment())
                 .addToBackStack(getView().getClass().getName())
                 .commit();
     }

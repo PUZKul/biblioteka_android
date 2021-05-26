@@ -9,5 +9,6 @@
     <color name="colorWhite">#fff</color>
     <color name="colorDarkGray">#ACACAC</color>
     <color name="colorGray">#80C3C3C3</color>
-    <color name="colorAquamarine">#E4F4ED</color>
+    <color name="colorAquamarine"></color>
+    <color name="colorBackgroundNoLogin">#50AA71</color>
 </resources>

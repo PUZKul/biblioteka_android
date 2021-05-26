@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     android:orientation="vertical"
     tools:context=".ui.fragments.notLoggedIn.historyAndReading.notLoggedInHistory.NotLoggedInHistory">
 
 
     <ImageView
         android:id="@+id/fragmentNoLoginHistory_image_LoginIn"
-        android:layout_width="187dp"
-        android:layout_height="168dp"
+        android:layout_width="190dp"
+        android:layout_height="170dp"
         android:layout_marginTop="140dp"
         android:clickable="true"
         android:contentDescription="@string/clicktologinin"
@@ -23,10 +24,13 @@
 
     <TextView
         android:id="@+id/fragmentNoLoginHistory_text_LoginIn"
-        android:layout_width="55dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="64dp"
+        android:layout_width="74dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="60dp"
         android:text="@string/login_in"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,22 +39,22 @@
 
     <TextView
         android:id="@+id/FragmentNoLogin_text_historyInfo"
-        android:layout_width="357dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="150dp"
-        android:background="@drawable/btn_primary"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/current_page"
         android:fontFamily="sans-serif-light"
         android:text="for creating your own \n history list"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryBackground"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:typeface="sans"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentNoLoginHistory_text_LoginIn"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="HardcodedText,MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

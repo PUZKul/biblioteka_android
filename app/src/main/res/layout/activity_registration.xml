@@ -2,6 +2,7 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
@@ -186,7 +187,7 @@
             android:id="@+id/registration_btn_register"
             android:layout_width="144dp"
             android:layout_height="37dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="40dp"
             android:background="@drawable/btn_primary"
             android:text="@string/register"
             android:textColor="@color/colorWhite"
@@ -199,7 +200,7 @@
             android:id="@+id/registration_textView_login"
             android:layout_width="236dp"
             android:layout_height="21dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="25dp"
             android:gravity="center"
             android:text="@string/login"
             android:textColor="@color/colorPrimaryDark"
@@ -221,6 +222,20 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/activity_register_textViev_Keep_browsing"
+            android:layout_width="411dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:paddingTop="15dp"
+            android:text="@string/keep_browsing"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryGreen"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registration_textView_login" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

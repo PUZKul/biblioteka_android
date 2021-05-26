@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +29,7 @@ import kul.pl.biblioteka.ui.fragments.profile.ProfileFragment;
 public class EditProfile extends Fragment implements EditProfileContract.View, DialogPasswordSecurityListener, NoInternetDialogListener {
 
     private EditText editEmail;
-    private CheckBox checkBoxEditPassword;
+    private Switch switchEditPassword;
     private TextView textEditPassword;
     private EditText editPassword;
     private TextView textRepeatEditPassword;
@@ -53,7 +54,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
 
     private void initComponents(View view) {
         editEmail = view.findViewById(R.id.editProfile_editText_email2);
-        checkBoxEditPassword = view.findViewById(R.id.editProfile_checkBox_changePasswordCheckBox2);
+        switchEditPassword = view.findViewById(R.id.fragment_edit_profile_switch_change_password);
         textEditPassword = view.findViewById(R.id.editProfile_textViev_newPassword2);
         editPassword = view.findViewById(R.id.editProfile_editText_newPassword2);
         textRepeatEditPassword = view.findViewById(R.id.editProfile_textViev_repeatPassword2);
@@ -66,7 +67,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
     private void setOnClickListeners() {
         cancelBtn.setOnClickListener(cancelOnClickListener());
         saveBtn.setOnClickListener(saveOnClickListener());
-        checkBoxEditPassword.setOnClickListener(checkBoxOnClickListener);
+        switchEditPassword.setOnClickListener(checkBoxOnClickListener);
     }
 
     private View.OnClickListener checkBoxOnClickListener = new View.OnClickListener() {
@@ -92,7 +93,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkBoxEditPassword.isChecked())
+                if(switchEditPassword.isChecked())
                     presenter.onSaveClicked(new RegistrationUserModel(
                             editPassword.getText().toString()
                             , repeatEditedPassword.getText().toString()
@@ -129,7 +130,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
     }
 
     private void checkBoxStatus() {
-        if (!checkBoxEditPassword.isChecked()) {
+        if (!switchEditPassword.isChecked()) {
             hideEditPasswordsFields();
         } else {
             showEditPasswordsFields();
@@ -172,7 +173,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
 
     @Override
     public boolean isCheckedBoxEditPassword() {
-        return checkBoxEditPassword.isChecked();
+        return switchEditPassword.isChecked();
     }
 
     @Override

@@ -57,7 +57,7 @@
     <string name="idBook">idBook</string>
     <string name="status">Status</string>
     <string name="title_of_the_book">Title of the book</string>
-    <string name="only_logged_in_users_can_borrow_the_book" />
+    <string name="only_logged_in_users_can_borrow_the_book">Only logged in users can borrow the book </string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="clicktologinin">ClickToLoginIn</string>
     <string name="login_in">Login In</string>
@@ -116,4 +116,5 @@
     <string name="restricted_access">Restricted access</string>
     <string name="occupied">Occupied</string>
     <string name="available_from">Available from </string>
+    <string name="keep_browsing">Keep browsing</string>
 </resources>

@@ -18,11 +18,13 @@ import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.activity.login.LoginActivity;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
+import kul.pl.biblioteka.ui.fragments.firstWindow.FirstWindowFragment;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterActivityContract.View , NoInternetDialogListener {
 
     private Button registrationBtn;
     private TextView loginText;
+    private TextView keepBrowsing;
     private EditText nickText;
     private EditText emailText;
     private EditText passwordText;
@@ -67,6 +69,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
 
     private void initComponents() {
         registrationBtn = findViewById(R.id.registration_btn_register);
+        keepBrowsing=findViewById(R.id.activity_register_textViev_Keep_browsing);
         loginText = findViewById(R.id.registration_textView_login);
         nickText = findViewById(R.id.registration_editText_nick);
         emailText = findViewById(R.id.registration_editText_email);
@@ -75,6 +78,12 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
         progressBar = findViewById(R.id.registration_progressBar);
     }
 
+    private View.OnClickListener keepBrowsingListener= new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+        Intent intent= new Intent(RegisterActivity.this, FirstWindowFragment.class);
+        }
+    };
     @Override
     public void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();

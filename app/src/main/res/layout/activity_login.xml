@@ -84,7 +84,7 @@
             android:layout_marginTop="36dp"
             android:text="@string/password"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.189"
+            app:layout_constraintHorizontal_bias="0.213"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_nick_editText" />
 
@@ -130,14 +130,16 @@
 
         <TextView
             android:id="@+id/login_textView_register"
-            android:layout_width="413dp"
-            android:layout_height="65dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="411dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:paddingTop="25dp"
+            android:paddingTop="15dp"
             android:text="@string/register"
+            android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_bottom_login" />
 
@@ -155,6 +157,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.442" />
+
+        <TextView
+            android:id="@+id/activity_login_keep_browsing"
+            android:layout_width="411dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:paddingTop="15dp"
+            android:text="@string/keep_browsing"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryGreen"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_textView_register" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

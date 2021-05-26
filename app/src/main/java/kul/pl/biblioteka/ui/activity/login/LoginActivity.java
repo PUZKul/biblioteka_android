@@ -18,11 +18,13 @@ import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.activity.register.RegisterActivity;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
+import kul.pl.biblioteka.ui.fragments.firstWindow.FirstWindowFragment;
 
 public class LoginActivity extends AppCompatActivity implements LoginActivityContract.View, NoInternetDialogListener {
 
     private EditText loginETex;
     private EditText passwordETex;
+    private TextView keepBrowsing;
     private Button loginBtn;
     private TextView registrationText;
     private ProgressBar progressBar;
@@ -68,9 +70,18 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
         }
     };
 
+    private View.OnClickListener keepBrowsingListener= new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent=new Intent(LoginActivity.this, FirstWindowFragment.class);
+            startActivity(intent);
+        }
+    };
+
     private void initComponents() {
         loginETex = findViewById(R.id.login_nick_editText);
         passwordETex = findViewById(R.id.login_editText_password);
+        keepBrowsing=findViewById(R.id.activity_login_keep_browsing);
         loginBtn = findViewById(R.id.login_bottom_login);
         registrationText = findViewById(R.id.login_textView_register);
         progressBar = findViewById(R.id.login_progressBar);
