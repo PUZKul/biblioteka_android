@@ -11,17 +11,23 @@ public class HistoryBookModel {
     private String title;
     private String imageUrl;
     private Date dateIssued;
+    private Date expectedDate;
     private Date dateReturn;
 
-    public HistoryBookModel(long id, String userId, long bookId, long bookCopyId, String title, String imageUri, Date dateIssued, Date dateReturn) {
+    public HistoryBookModel(long id, String userId, long bookId, long bookCopyId, String title, String imageUrl, Date dateIssued, Date expectedDate, Date dateReturn) {
         this.id = id;
         this.userId = userId;
         this.bookId = bookId;
         this.bookCopyId = bookCopyId;
         this.title = title;
-        this.imageUrl = imageUri;
+        this.imageUrl = imageUrl;
         this.dateIssued = dateIssued;
+        this.expectedDate = expectedDate;
         this.dateReturn = dateReturn;
+    }
+
+    public Date getExpectedDate() {
+        return expectedDate;
     }
 
     public long getBookCopyId() {

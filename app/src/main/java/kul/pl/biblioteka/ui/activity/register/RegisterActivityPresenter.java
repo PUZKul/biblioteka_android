@@ -17,32 +17,32 @@ public class RegisterActivityPresenter extends APIAdapter implements RegisterAct
     private LibraryAccess api;
     private Context context;
 
-    public RegisterActivityPresenter(RegisterActivityContract.View view,Context context) {
+    public RegisterActivityPresenter(RegisterActivityContract.View view, Context context) {
         this.view = view;
         api = LibraryAccess.getInstance();
         api.setListener(this);
-        this.context=context;
+        this.context = context;
     }
 
     @Override
     public void onRegisterClicked(RegistrationUserModel user) {
         if (!isEmptyFields(user)
                 && validateFields(user)) {
-            if(InternetConnection.isConnection(context)){
+            if (InternetConnection.isConnection(context)) {
                 view.startProgressBar();
                 api.getRegistration(new RegistrationApiUserModel(
                         user.getNick()
                         , user.getEmail()
                         , user.getPasswordFirst()
                 ));
-            }else{
-                Handler handler=new Handler();
+            } else {
+                Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         view.openOnInternetDialog();
                     }
-                },5000);
+                }, 5000);
             }
         }
     }
@@ -90,9 +90,9 @@ public class RegisterActivityPresenter extends APIAdapter implements RegisterAct
 
     @Override
     public void onErrorReceive(ApiError error) {
-      view.endProgressBar();
-      if(error.getStatus()==409)
-        view.showToast(String.valueOf(R.string.user_with_given_email_or_logiin_exist));
+        view.endProgressBar();
+        if (error.getStatus() == 409)
+            view.showToast(String.valueOf(R.string.user_with_given_email_or_logiin_exist));
     }
 
     @Override

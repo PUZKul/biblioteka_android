@@ -20,7 +20,6 @@ import kul.pl.biblioteka.utils.Helper;
 
 public class ReadingListRecycleViewAdapter extends RecyclerView.Adapter<ReadingListViewHolder> {
 
-
     private List<HistoryBookModel> booksList;
 
     public ReadingListRecycleViewAdapter(List<HistoryBookModel> booksList) {
@@ -41,7 +40,7 @@ public class ReadingListRecycleViewAdapter extends RecyclerView.Adapter<ReadingL
         holder.setBorrowedText(Helper.getShortDate(booksList.get(position).getDateIssued()));
         holder.setImageBook(Uri.parse(booksList.get(position).getImageUrl()));
         holder.setTitleText(booksList.get(position).getTitle());
-        holder.setTimeAgoText(Helper.getDefaultDateFormat(booksList.get(position).getDateIssued()));
+        holder.setTimeAgoText(Helper.getDefaultDateFormat(booksList.get(position).getExpectedDate()));
     }
 
     @Override
