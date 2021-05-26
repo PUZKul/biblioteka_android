@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
@@ -34,6 +35,11 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
     private TextView lastName;
     private TextView phone;
     private TextView address;
+    private TextView firstNameText;
+    private TextView lastNameText;
+    private TextView phoneText;
+    private TextView addressText;
+    private Button moreDetails;
     private ProgressBar progressBar;
     private NoInternetDialog dialog;
 
@@ -60,11 +66,26 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
         lastName=view.findViewById(R.id.profile_lastName_textView);
         phone=view.findViewById(R.id.profile_phone_textView);
         address=view.findViewById(R.id.profile_address_textView);
+        moreDetails=view.findViewById(R.id.profile_address_button_more_details);
+        phoneText=view.findViewById(R.id.textView8);
+        lastNameText=view.findViewById(R.id.profile_textView2);
+        addressText=view.findViewById(R.id.profile_textView3);
+        firstNameText=view.findViewById(R.id.profile_textView);
     }
 
     private void setOnClickListener() {
         menuButton.setOnClickListener(menuButtonOnClickListener());
+        moreDetails.setOnClickListener(onMoreDetailsButtonClicked());
     }
+    private View.OnClickListener onMoreDetailsButtonClicked() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openEditProfileFragment();
+            }
+        };
+    }
+
 
     private View.OnClickListener menuButtonOnClickListener() {
         return new View.OnClickListener() {
@@ -92,7 +113,7 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
 
     private void openEditProfileFragment() {
         getActivity().getSupportFragmentManager().beginTransaction().
-                add(((ViewGroup)getView().getParent()).getId(),new EditProfile(),"Edit profile")
+                add(((ViewGroup)getView().getParent()).getId(),new EditProfile(),"")
                 .addToBackStack(getView().getClass().getName())
                 .commit();
     }
@@ -100,7 +121,6 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
     @Override
     public void openMainActivity() {
         Intent intent = new Intent(getContext(), MainActivity.class);
-        //todo toast information
         startActivity(intent);
     }
 
@@ -159,6 +179,19 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
     public void openOnInternetDialog() {
         dialog.show(getActivity().getSupportFragmentManager(),getString(R.string.no_internet_dialog));
         dialog.setOnClickedBack();
+    }
+
+    @Override
+    public void setInvisibilityComponents() {
+        addressText.setVisibility(View.INVISIBLE);
+        firstNameText.setVisibility(View.INVISIBLE);
+        lastNameText.setVisibility(View.INVISIBLE);
+        phoneText.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void setVisibilityButton() {
+        moreDetails.setVisibility(View.VISIBLE);
     }
 
     @Override

@@ -30,14 +30,17 @@ public class ProfileFragmentPresenter extends APIAdapter implements ProfileFragm
 
     @Override
     public void onUserDetailsReceive(UserModel user) {
-        System.out.println(user.getFirstName());
-        System.out.println(user.getLastName());
-        view.setNick(user.getUsername());
-        view.setAddress(user.getAddress());
-        view.setFirstName(user.getFirstName());
-        view.setLastName(user.getLastName());
-        view.setPhone(user.getPhone());
-        view.endProgressBar();
+        if(user.getPhone()!=null){
+            view.setNick(user.getUsername());
+            view.setAddress(user.getAddress());
+            view.setFirstName(user.getFirstName());
+            view.setLastName(user.getLastName());
+            view.setPhone(user.getPhone());
+            view.endProgressBar();
+        }else{
+            view.setVisibilityButton();
+            view.setInvisibilityComponents();
+        }
     }
 
     @Override

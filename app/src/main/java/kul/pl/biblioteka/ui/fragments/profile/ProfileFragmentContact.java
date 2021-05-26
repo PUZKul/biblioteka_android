@@ -23,6 +23,11 @@ public interface ProfileFragmentContact {
         void endProgressBar();
 
         void openOnInternetDialog();
+
+        void setInvisibilityComponents();
+
+        void setVisibilityButton();
+
     }
 
     interface Presenter {
