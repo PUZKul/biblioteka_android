@@ -7,7 +7,6 @@ import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
 import kul.pl.biblioteka.exception.ApiError;
-import kul.pl.biblioteka.models.HistoryBookModel;
 import kul.pl.biblioteka.models.ReservationBookModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.utils.PageHolder;
@@ -49,7 +48,7 @@ public class ReservationFragmentPresenter extends APIAdapter implements Reservat
     private void setHistoryBookList() {
         view.startProgressBar();
         if (InternetConnection.isConnection(MainActivity.getAppContext())) {
-            api.getReservationBooks(10, 0, LocalDataAccess.getToken());
+            api.getReservationBooks(50, 0, LocalDataAccess.getToken());
         } else {
             openNoInternetDialog();
         }

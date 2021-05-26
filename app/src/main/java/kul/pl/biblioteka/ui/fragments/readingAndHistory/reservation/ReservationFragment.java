@@ -55,7 +55,14 @@ public class ReservationFragment extends Fragment implements ReservationFragment
 
     @Override
     public void setList(List<ReservationBookModel> books) {
-        recyclerView.setAdapter(new ReservationListRecycleViewAdapter(books,this));
+        if(books.size()!=0){
+            recyclerView.setAdapter(new ReservationListRecycleViewAdapter(books,this));
+        }else{
+            getActivity().getSupportFragmentManager().beginTransaction().
+                    add(((ViewGroup)getView().getParent()).getId(),new EmptyReservationsFragment(),"Empty")
+                    .addToBackStack(getView().getClass().getName())
+                    .commit();
+        }
     }
 
     @Override

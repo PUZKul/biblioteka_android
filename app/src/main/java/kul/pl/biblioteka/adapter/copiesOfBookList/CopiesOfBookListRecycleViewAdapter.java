@@ -14,6 +14,7 @@ import java.util.List;
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.OnItemClickListener;
 import kul.pl.biblioteka.models.CopiesOfBookModel;
+import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.utils.Helper;
 
 public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<CopiesOfBookListViewHolder> implements OnItemClickListener {
@@ -47,16 +48,16 @@ public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<Cop
         holder.setBookId("#"+booksList.get(position).getId());
         if(!booksList.get(position).isBorrow()){
             if(booksList.get(position).isAccess()){
-                holder.setStatus(String.valueOf(R.string.available_second));
-                holder.setBalloon(String.valueOf(R.string.book_available_borrow_home));
+                holder.setStatus(MainActivity.getAppContext().getString(R.string.available_second));
+                holder.setBalloon(MainActivity.getAppContext().getString(R.string.book_available_borrow_home));
             } else{
-                holder.setStatus(String.valueOf(R.string.restricted_access));
-                holder.setBalloon(String.valueOf(R.string.book_available_borrow_library));
+                holder.setStatus(MainActivity.getAppContext().getString(R.string.restricted_access));
+                holder.setBalloon(MainActivity.getAppContext().getString(R.string.book_available_borrow_library));
             }
         }else {
             holder.setImage(R.drawable.bookmark_yellow);
-            holder.setStatus(String.valueOf(R.string.occupied));
-            holder.setBalloon(String.valueOf(R.string.available_from)+Helper.getShortDate(booksList.get(position).getApproximateDate()));
+            holder.setStatus(MainActivity.getAppContext().getString(R.string.occupied));
+            holder.setBalloon(MainActivity.getAppContext().getString(R.string.available_from)+Helper.getShortDate(booksList.get(position).getApproximateDate()));
         }
     }
 

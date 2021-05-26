@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="160dp"
     android:orientation="vertical"
-    tools:src="@color/colorWhite"
-    tools:context=".ui.fragments.readingAndHistory.ReadingFragment">
+    tools:src="@color/colorWhite">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,6 +27,7 @@
             android:layout_marginStart="6dp"
             android:layout_marginTop="8dp"
             android:ellipsize="end"
+            android:maxLines="1"
             android:text="@string/title"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
@@ -71,7 +71,7 @@
             android:text="@string/yyyy_mm_dd"
             android:textColor="@color/colorPrimaryDark"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.657"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/reading_item_list__textView_borrowed"
             app:layout_constraintTop_toBottomOf="@+id/reading_item_list_textView_title" />
 

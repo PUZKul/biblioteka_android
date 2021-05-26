@@ -13,7 +13,6 @@ import kul.pl.biblioteka.models.HistoryBookModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.utils.PageHolder;
 import kul.pl.biblioteka.utils.PaginationBar;
-import kul.pl.biblioteka.utils.Sorting;
 
 import static kul.pl.biblioteka.utils.Constants.LIMIT;
 
@@ -106,6 +105,5 @@ public class HistoryFragmentPresenter extends APIAdapter implements HistoryFragm
 
     @Override
     public void onErrorReceive(ApiError error) {
-
     }
 }
