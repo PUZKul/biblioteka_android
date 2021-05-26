@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -17,9 +18,13 @@ import kul.pl.biblioteka.R;
 public class PasswordSecurityDialog   extends AppCompatDialogFragment {
 
     private EditText password;
+    private Button edit;
+    private Button back;
+
     private DialogPasswordSecurityListener listener;
 
-    public PasswordSecurityDialog() {
+    public PasswordSecurityDialog(DialogPasswordSecurityListener listener) {
+        this.listener=listener;
     }
 
     @NonNull
@@ -29,33 +34,36 @@ public class PasswordSecurityDialog   extends AppCompatDialogFragment {
         LayoutInflater inflater=getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_password_security,null);
         initComponents(view);
+        setOnClickListeners();
         builder.setView(view)
-                .setTitle(R.string.enter_old_password)
-                .setNegativeButton(R.string.back, onBackClicked)
-                .setPositiveButton(R.string.edita_data,onEditDataClicked);
+                .setTitle(R.string.enter_old_password);
         return builder.create();
     }
 
-    public void setListener(DialogPasswordSecurityListener listener) {
-        this.listener = listener;
+    private void setOnClickListeners(){
+        back.setOnClickListener(onBackClicked);
+        edit.setOnClickListener(onEditDataClicked);
+
     }
 
-    private DialogInterface.OnClickListener onEditDataClicked=new DialogInterface.OnClickListener() {
+    private View.OnClickListener onEditDataClicked=new View.OnClickListener() {
         @Override
-        public void onClick(DialogInterface dialog, int which) {
+        public void onClick(View v) {
             listener.applyPassword(password.getText().toString());
         }
     };
 
-    private DialogInterface.OnClickListener onBackClicked=new DialogInterface.OnClickListener() {
+    private View.OnClickListener onBackClicked=new View.OnClickListener() {
         @Override
-        public void onClick(DialogInterface dialog, int which) {
+        public void onClick(View v) {
             dismiss();
         }
     };
 
     private void initComponents(View view){
         password=view.findViewById(R.id.dialog_editText_password);
+        back=view.findViewById(R.id.password_security_btn_cancel);
+        edit=view.findViewById(R.id.password_security_btn_confirm);
     }
 
     private View.OnClickListener onClickedBack=new View.OnClickListener() {

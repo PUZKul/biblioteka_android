@@ -177,8 +177,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
 
     @Override
     public void openDialog() {
-        PasswordSecurityDialog dialog=new PasswordSecurityDialog();
-        dialog.setListener(this);
+        PasswordSecurityDialog dialog=new PasswordSecurityDialog(this);
         dialog.show(getActivity().getSupportFragmentManager(),"password dialog");
     }
 
