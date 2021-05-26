@@ -120,4 +120,5 @@
     <string name="increase_the_limit">Increase the limit</string>
     <string name="extend_the_deadline">Extend the deadline</string>
     <string name="choose_book">Choose book</string>
+    <string name="one_of_fields_is_empty">One of the fields is empty.</string>
 </resources>

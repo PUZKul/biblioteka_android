@@ -122,6 +122,7 @@
                     android:layout_weight="1"
                     android:fontFamily="sans-serif-light"
                     android:text="@string/more"
+                    android:visibility="invisible"
                     android:textAlignment="textEnd"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display3"
                     android:textColor="@color/colorSecondaryDark"

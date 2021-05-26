@@ -4,19 +4,20 @@ import android.os.Handler;
 
 import java.util.List;
 
-import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.CopiesOfBookModel;
+import kul.pl.biblioteka.models.UserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 
 public class CopiesOfBooksDialogPresenter extends APIAdapter implements CopiesOfBooksDialogContract.Presenter {
 
     private CopiesOfBooksDialogContract.View view;
     private LibraryAccess api;
+    private long idBook;
 
     public CopiesOfBooksDialogPresenter(CopiesOfBooksDialogContract.View view, int idBook) {
         this.view = view;
@@ -32,35 +33,47 @@ public class CopiesOfBooksDialogPresenter extends APIAdapter implements CopiesOf
 
     @Override
     public void reserveBook(long idBook) {
+        this.idBook = idBook;
         if (idBook != 0) {
+            if (InternetConnection.isConnection(MainActivity.getAppContext())) {
+                view.startProgressBar();
+                api.getUserDetails(LocalDataAccess.getToken());
+            } else {
+                openNoInternetDialog();
+            }
+        }
+    }
+
+    @Override
+    public void onUserDetailsReceive(UserModel user) {
+        if (user.getPhone() == null) {
+            view.openInformDialog();
+            view.endProgressBar();
+        } else {
             view.startProgressBar();
             if (InternetConnection.isConnection(MainActivity.getAppContext())) {
                 view.startProgressBar();
                 api.reserveBook(LocalDataAccess.getToken(), idBook);
             } else {
-                Handler handler=new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        view.openOnInternetDialog();
-                    }
-                },5000);
+                openNoInternetDialog();
             }
-        }else {
-            view.showToast(MainActivity.getAppContext().getString(R.string.choose_book));
         }
     }
 
-    @Override
-    public void onReserveBook() {
-        view.showSuccessReservationBookToast();
-        view.endProgressBar();
+    private void openNoInternetDialog() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                view.openOnInternetDialog();
+            }
+        }, 5000);
     }
 
     @Override
     public void onErrorReceive(ApiError error) {
         view.endProgressBar();
-        if(error.getStatus()==403){
+        if (error.getStatus() == 403) {
             view.showStopBorrowDialog();
         }
     }

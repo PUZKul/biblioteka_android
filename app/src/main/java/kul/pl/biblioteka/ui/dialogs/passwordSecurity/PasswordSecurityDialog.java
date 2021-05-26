@@ -19,6 +19,9 @@ public class PasswordSecurityDialog   extends AppCompatDialogFragment {
     private EditText password;
     private DialogPasswordSecurityListener listener;
 
+    public PasswordSecurityDialog() {
+    }
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

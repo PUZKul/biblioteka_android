@@ -24,6 +24,7 @@ import kul.pl.biblioteka.adapter.copiesOfBookList.CopiesOfBookListRecycleViewAda
 import kul.pl.biblioteka.models.CopiesOfBookModel;
 import kul.pl.biblioteka.models.LoginUserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.dialogs.editUserDetails.EditUserDetailsDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.dialogs.stopBorrow.StopBorrowDialog;
@@ -123,6 +124,11 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
     public void openOnInternetDialog() {
         dialog.show(getFragmentManager(),getString(R.string.no_internet_dialog));
         dialog.setOnClickedBack();
+    }
+
+    @Override
+    public void openInformDialog() {
+        //todo open dialog informs user that user need add more detalist when he want borrow
     }
 
     @Override

@@ -24,6 +24,8 @@ interface CopiesOfBooksDialogContract {
 
         void openOnInternetDialog();
 
+        void openInformDialog();
+
         void showToast(String message);
 
         void showStopBorrowDialog();
