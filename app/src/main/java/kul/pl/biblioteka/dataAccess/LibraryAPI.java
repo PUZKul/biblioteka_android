@@ -40,7 +40,7 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<PageHolder<BookModel>> call, Throwable t) {
-            listener.onNoInternet();
+            listener.onRefreshServer();
         }
     };
 
@@ -58,7 +58,7 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<PageHolder<BookModel>> call, Throwable t) {
-            listener.onNoInternet();
+            listener.onRefreshServer();
         }
     };
 
@@ -76,7 +76,7 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<BookModel> call, Throwable t) {
-            listener.onNoInternet();
+            listener.onRefreshServer();
         }
     };
 
@@ -94,7 +94,7 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<Integer> call, Throwable t) {
-            listener.onNoInternet();
+            listener.onRefreshServer();
         }
     };
 
@@ -115,7 +115,7 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<Void> call, Throwable t) {
-            listener.onNoInternet();
+            listener.onRefreshServer();
         }
     };
 
@@ -132,7 +132,7 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<ResponseBody> call, Throwable t) {
-            listener.onNoInternet();
+            listener.onRefreshServer();
         }
     };
 
@@ -151,7 +151,7 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<UserModel> call, Throwable t) {
-            listener.onNoInternet();
+            listener.onRefreshServer();
         }
     };
 
@@ -168,7 +168,7 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<List<CopiesOfBookModel>> call, Throwable t) {
-            listener.onNoInternet();
+            listener.onRefreshServer();
         }
     };
 
@@ -185,7 +185,7 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<UserBookDetails> call, Throwable t) {
-            listener.onNoInternet();
+            listener.onRefreshServer();
         }
     };
 
@@ -202,7 +202,7 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<Integer> call, Throwable t) {
-            listener.onNoInternet();
+            listener.onRefreshServer();
         }
     };
 
@@ -220,7 +220,7 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<PageHolder<HistoryBookModel>> call, Throwable t) {
-            listener.onNoInternet();
+            listener.onRefreshServer();
         }
     };
 
@@ -237,7 +237,7 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<Long> call, Throwable t) {
-            listener.onNoInternet();
+            listener.onRefreshServer();
         }
     };
 
@@ -254,7 +254,7 @@ abstract class LibraryAPI {
 
         @Override
         public void onFailure(Call<Integer> call, Throwable t) {
-            listener.onNoInternet();
+            listener.onRefreshServer();
         }
     };
 
@@ -271,7 +271,7 @@ abstract class LibraryAPI {
         }
         @Override
         public void onFailure(Call<PageHolder<HistoryBookModel>> call, Throwable t) {
-            listener.onNoInternet();
+            listener.onRefreshServer();
         }
     };
 
@@ -288,7 +288,7 @@ abstract class LibraryAPI {
         }
         @Override
         public void onFailure(Call<PageHolder<ReservationBookModel>> call, Throwable t) {
-            listener.onNoInternet();
+            listener.onRefreshServer();
         }
     };
 
@@ -305,7 +305,7 @@ abstract class LibraryAPI {
         }
         @Override
         public void onFailure(Call<Void> call, Throwable t) {
-            listener.onNoInternet();
+            listener.onRefreshServer();
         }
     };
 }

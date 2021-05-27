@@ -22,7 +22,7 @@ public interface APIListener {
 
     void onLoginSuccesses();
 
-    void onNoInternet();
+    void onRefreshServer();
 
     void onRegistrationSuccesses();
 

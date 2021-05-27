@@ -65,7 +65,7 @@ public class ReadingFragmentPresenter extends APIAdapter implements ReadingFragm
     public void onErrorReceive(ApiError error) {
         view.endProgressBar();
         if (error.getStatus() == 409)
-            view.showSuccessExtendBookRentalMessage();
+            view.showFailureExtendBookRentalMessage();
     }
 
     @Override

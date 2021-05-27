@@ -88,7 +88,7 @@ public class HomeFragmentPresenter extends APIAdapter implements HomeFragmentCon
     }
 
     @Override
-    public void onNoInternet() {
+    public void onRefreshServer() {
         view.openOnInternetActivity();
         view.endProgressBar();
     }

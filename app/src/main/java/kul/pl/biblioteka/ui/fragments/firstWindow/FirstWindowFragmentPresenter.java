@@ -134,7 +134,7 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
     }
 
     @Override
-    public void onNoInternet() {
+    public void onRefreshServer() {
         view.refreshWindow();
     }
 

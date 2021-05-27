@@ -67,7 +67,7 @@ public class BookViewFragmentPresenter extends APIAdapter implements BookViewFra
     }
 
     @Override
-    public void onNoInternet() {
+    public void onRefreshServer() {
         Handler handler=new Handler();
         handler.postDelayed(new Runnable() {
             @Override

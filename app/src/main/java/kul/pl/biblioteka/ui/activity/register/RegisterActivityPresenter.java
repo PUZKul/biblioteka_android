@@ -96,7 +96,7 @@ public class RegisterActivityPresenter extends APIAdapter implements RegisterAct
     }
 
     @Override
-    public void onNoInternet() {
+    public void onRefreshServer() {
         view.endProgressBar();
         view.openOnInternetDialog();
     }

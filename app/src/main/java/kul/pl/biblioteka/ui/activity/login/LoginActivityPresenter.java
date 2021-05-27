@@ -66,7 +66,7 @@ public class LoginActivityPresenter extends APIAdapter implements LoginActivityC
     }
 
     @Override
-    public void onNoInternet() {
+    public void onRefreshServer() {
         view.endProgressBar();
         view.openOnInternetDialog();
     }
