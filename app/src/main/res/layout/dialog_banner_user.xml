@@ -7,43 +7,12 @@
     android:background="#FFFFFF"
     android:backgroundTint="#FFFFFF">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/current_page"
-        android:backgroundTint="#A30000"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        android:text="@string/increase_the_limit"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/banner_user__textViev_Banned" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/current_page"
-        android:backgroundTint="#A30000"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        android:text="@string/extend_the_deadline"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/banner_user__textViev_Banned" />
-
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/banner_user_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="304dp"
+        android:layout_marginTop="348dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/info_icon" />
@@ -52,7 +21,7 @@
         android:id="@+id/banner_user_button_cancel"
         android:layout_width="177dp"
         android:layout_height="43dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="48dp"
         android:background="@drawable/current_page"
         android:text="@string/Cancel"
         android:textColor="#FFFFFF"
