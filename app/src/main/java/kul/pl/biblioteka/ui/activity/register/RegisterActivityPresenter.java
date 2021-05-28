@@ -85,7 +85,7 @@ public class RegisterActivityPresenter extends APIAdapter implements RegisterAct
     public void onRegistrationSuccesses() {
         view.endProgressBar();
         view.showToast(String.valueOf(R.string.successful_registration));
-        view.openMainActivity();
+        view.openContinueDialog();
     }
 
     @Override

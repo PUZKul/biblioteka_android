@@ -125,4 +125,7 @@
     <string name="extend_book_rental">Extend book rental</string>
     <string name="you_are">You are</string>
     <string name="banned">Banned</string>
+    <string name="do_you_want_to_continue_the_registration">Do you want to continue the registration?</string>
+    <string name="go_to_the_books">Go to the books</string>
+    <string name="complete_the_registration">Complete the registration</string>
 </resources>

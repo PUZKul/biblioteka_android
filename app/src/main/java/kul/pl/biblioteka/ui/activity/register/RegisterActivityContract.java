@@ -10,7 +10,7 @@ public interface RegisterActivityContract {
 
         void endProgressBar();
 
-        void openMainActivity();
+        void openContinueDialog();
 
         void errorNickIncorrect();
 

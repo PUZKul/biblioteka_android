@@ -16,11 +16,13 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.models.RegistrationUserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.activity.login.LoginActivity;
+import kul.pl.biblioteka.ui.dialogs.continueRegsistration.ContinueRegistrationDialog;
+import kul.pl.biblioteka.ui.dialogs.continueRegsistration.ContinueRegistrationDialogListener;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.fragments.firstWindow.FirstWindowFragment;
 
-public class RegisterActivity extends AppCompatActivity implements RegisterActivityContract.View , NoInternetDialogListener {
+public class RegisterActivity extends AppCompatActivity implements RegisterActivityContract.View , NoInternetDialogListener, ContinueRegistrationDialogListener {
 
     private Button registrationBtn;
     private TextView loginText;
@@ -100,9 +102,9 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
     }
 
     @Override
-    public void openMainActivity() {
-        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-        startActivity(intent);
+    public void openContinueDialog() {
+        ContinueRegistrationDialog dialog=new ContinueRegistrationDialog(this);
+        dialog.show(getSupportFragmentManager(),"");
     }
 
     @Override
@@ -165,5 +167,16 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
     @Override
     public void showNoInternetToast() {
         Toast.makeText(this, R.string.no_internet_message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onContinueClicked() {
+        //todo change it
+        startActivity(new Intent(this, MainActivity.class));
+    }
+
+    @Override
+    public void onGoToListBooksClicked() {
+        startActivity(new Intent(this, MainActivity.class));
     }
 }
