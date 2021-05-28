@@ -28,18 +28,18 @@ public class LoginActivityPresenter extends APIAdapter implements LoginActivityC
     public void onLoginClicked(LoginUserModel user) {
         view.startProgressBar();
         if (validateDate(user)) {
-           if(InternetConnection.isConnection(MainActivity.getAppContext()))
-               api.getAuthorization(new LoginApiUserModel(user.getNick(), user.getPassword()));
-           else{
-               Handler handler=new Handler();
-               handler.postDelayed(new Runnable() {
-                   @Override
-                   public void run() {
-                       view.openOnInternetDialog();
-                   }
-               },5000);
-           }
-        }else
+            if (InternetConnection.isConnection(MainActivity.getAppContext()))
+                api.getAuthorization(new LoginApiUserModel(user.getNick(), user.getPassword()));
+            else {
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        view.openOnInternetDialog();
+                    }
+                }, 5000);
+            }
+        } else
             view.endProgressBar();
     }
 

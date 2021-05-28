@@ -130,4 +130,7 @@
     <string name="complete_the_registration">Complete the registration</string>
     <string name="if_you_want_to_borrow_a_book_you_must_complete_the_registration">If you want to borrow a book, you must complete the registration</string>
     <string name="continue_registration">Continue registration</string>
+    <string name="send">send</string>
+    <string name="decryption">Decryption</string>
+    <string name="enter_a_reason_for_the_limit">Enter a reason for the limit.</string>
 </resources>

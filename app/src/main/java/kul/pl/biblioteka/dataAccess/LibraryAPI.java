@@ -124,6 +124,10 @@ abstract class LibraryAPI {
         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
             if (response.isSuccessful()) {
                 listener.onRegistrationSuccesses();
+                String token = response.headers().get("Authorization");
+                LibraryAccess.getInstance().setToken(token);
+                LocalDataAccess.setToken(token);
+                LocalDataAccess.setLogin(true);
             } else {
                 ApiError apiError = ApiErrorParser.parseError(response);
                 listener.onErrorReceive(apiError);
