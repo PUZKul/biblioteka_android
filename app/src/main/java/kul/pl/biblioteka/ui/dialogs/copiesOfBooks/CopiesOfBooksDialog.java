@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -26,12 +25,12 @@ import kul.pl.biblioteka.models.CopiesOfBookModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
-import kul.pl.biblioteka.ui.dialogs.requestToIncreaseTheLimit.RequestToIncreaseTheLimitDialog;
-import kul.pl.biblioteka.ui.dialogs.requestToIncreaseTheLimit.RequestToIncreaseTheLimitDialogListener;
+import kul.pl.biblioteka.ui.dialogs.filContactDetails.FilContactDetailsDialog;
+import kul.pl.biblioteka.ui.dialogs.filContactDetails.FilContactDetailsDialogListener;
 import kul.pl.biblioteka.ui.dialogs.stopBorrow.StopBorrowDialog;
 
 
-public class CopiesOfBooksDialog extends AppCompatDialogFragment implements CopiesOfBooksDialogContract.View, NoInternetDialogListener, RequestToIncreaseTheLimitDialogListener {
+public class CopiesOfBooksDialog extends AppCompatDialogFragment implements CopiesOfBooksDialogContract.View, NoInternetDialogListener, FilContactDetailsDialogListener {
 
     private RecyclerView recyclerView;
     private Button back;
@@ -134,7 +133,7 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
 
     @Override
     public void openInformDialog() {
-        RequestToIncreaseTheLimitDialog dialog = new RequestToIncreaseTheLimitDialog(this);
+        FilContactDetailsDialog dialog = new FilContactDetailsDialog(this);
         dialog.show(getFragmentManager(),"");
     }
 

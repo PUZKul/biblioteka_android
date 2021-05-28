@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.ui.dialogs.requestToIncreaseTheLimit;
+package kul.pl.biblioteka.ui.dialogs.filContactDetails;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -13,13 +13,13 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import kul.pl.biblioteka.R;
 
-public class RequestToIncreaseTheLimitDialog extends AppCompatDialogFragment {
+public class FilContactDetailsDialog extends AppCompatDialogFragment {
 
     private Button cancel;
     private Button continueRegistration;
-    private RequestToIncreaseTheLimitDialogListener limitDialogListener;
+    private FilContactDetailsDialogListener limitDialogListener;
 
-    public RequestToIncreaseTheLimitDialog(RequestToIncreaseTheLimitDialogListener limitDialogListener) {
+    public FilContactDetailsDialog(FilContactDetailsDialogListener limitDialogListener) {
         this.limitDialogListener = limitDialogListener;
     }
 
@@ -28,7 +28,7 @@ public class RequestToIncreaseTheLimitDialog extends AppCompatDialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_request_to_increase_the_limit, null);
+        View view = inflater.inflate(R.layout.dialog_fil_contact_detalist, null);
         initComponents(view);
         setOnClickListener();
         builder.setView(view);
