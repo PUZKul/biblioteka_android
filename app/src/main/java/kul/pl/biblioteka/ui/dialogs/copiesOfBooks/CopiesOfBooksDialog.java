@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -25,9 +26,12 @@ import kul.pl.biblioteka.models.CopiesOfBookModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
+import kul.pl.biblioteka.ui.dialogs.requestToIncreaseTheLimit.RequestToIncreaseTheLimitDialog;
+import kul.pl.biblioteka.ui.dialogs.requestToIncreaseTheLimit.RequestToIncreaseTheLimitDialogListener;
 import kul.pl.biblioteka.ui.dialogs.stopBorrow.StopBorrowDialog;
 
-public class CopiesOfBooksDialog extends AppCompatDialogFragment implements CopiesOfBooksDialogContract.View, NoInternetDialogListener {
+
+public class CopiesOfBooksDialog extends AppCompatDialogFragment implements CopiesOfBooksDialogContract.View, NoInternetDialogListener, RequestToIncreaseTheLimitDialogListener {
 
     private RecyclerView recyclerView;
     private Button back;
@@ -36,34 +40,39 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
     private CopiesOfBookListRecycleViewAdapter copiesOfBookListRecycleViewAdapter;
     private ProgressBar progressBar;
     private NoInternetDialog dialog;
+    private CopiesOfBooksListener listener;
+
+    public CopiesOfBooksDialog(CopiesOfBooksListener listener) {
+        this.listener = listener;
+    }
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-        LayoutInflater inflater=getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_copies_of_books,null);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        View view = inflater.inflate(R.layout.dialog_copies_of_books, null);
         initComponents(view);
-        presenter=new CopiesOfBooksDialogPresenter(this,this.getArguments().getInt("id"));
+        presenter = new CopiesOfBooksDialogPresenter(this, this.getArguments().getInt("id"));
         setOnClickListener();
         builder.setView(view);
-        dialog=new NoInternetDialog(this);
+        dialog = new NoInternetDialog(this);
         return builder.create();
     }
 
-    private void setOnClickListener(){
+    private void setOnClickListener() {
         back.setOnClickListener(onBackClicked);
         borrow.setOnClickListener(onBorrowClicked);
     }
 
-    private View.OnClickListener onBackClicked=new View.OnClickListener() {
+    private View.OnClickListener onBackClicked = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             dismiss();
         }
     };
 
-    private View.OnClickListener onBorrowClicked=new View.OnClickListener() {
+    private View.OnClickListener onBorrowClicked = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             presenter.reserveBook(copiesOfBookListRecycleViewAdapter.getIdBook());
@@ -71,31 +80,30 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
     };
 
     private void initComponents(View view) {
-        back=view.findViewById(R.id.chose_book_option_btn_cancel);
-        borrow=view.findViewById(R.id.chose_book_option_btn_confirm);
-        recyclerView=view.findViewById(R.id.chose_book_option_btn_recycle_view);
-        progressBar=view.findViewById(R.id.copiesOfBook_progressBar);
+        back = view.findViewById(R.id.chose_book_option_btn_cancel);
+        borrow = view.findViewById(R.id.chose_book_option_btn_confirm);
+        recyclerView = view.findViewById(R.id.chose_book_option_btn_recycle_view);
+        progressBar = view.findViewById(R.id.copiesOfBook_progressBar);
     }
 
     @Override
     public void setList(List<CopiesOfBookModel> books) {
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),1,GridLayoutManager.HORIZONTAL,false));
-        copiesOfBookListRecycleViewAdapter=new CopiesOfBookListRecycleViewAdapter(getContext(), books);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1, GridLayoutManager.HORIZONTAL, false));
+        copiesOfBookListRecycleViewAdapter = new CopiesOfBookListRecycleViewAdapter(getContext(), books);
         recyclerView.setAdapter(copiesOfBookListRecycleViewAdapter);
         recyclerView.addItemDecoration(new VerticalSpaceItemDecoration(25));
     }
 
     @Override
     public void goBackToTheFragment() {
-        Handler handler=new Handler();
+        Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 presenter.reserveBook(copiesOfBookListRecycleViewAdapter.getIdBook());
                 dialog.closeDialog();
             }
-        },5000);
-
+        }, 5000);
     }
 
     @Override
@@ -105,7 +113,7 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
 
     @Override
     public void showSuccessReservationBookToast() {
-        Toast.makeText(MainActivity.getAppContext(), getString(R.string.you_booked_a_book),Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.getAppContext(), getString(R.string.you_booked_a_book), Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -120,13 +128,14 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
 
     @Override
     public void openOnInternetDialog() {
-        dialog.show(getFragmentManager(),getString(R.string.no_internet_dialog));
+        dialog.show(getFragmentManager(), getString(R.string.no_internet_dialog));
         dialog.setOnClickedBack();
     }
 
     @Override
     public void openInformDialog() {
-        //todo open dialog informs user that user need add more detalist when he want borrow
+        RequestToIncreaseTheLimitDialog dialog = new RequestToIncreaseTheLimitDialog(this);
+        dialog.show(getFragmentManager(),"");
     }
 
     @Override
@@ -136,8 +145,13 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
 
     @Override
     public void showStopBorrowDialog() {
-        StopBorrowDialog stopBorrowDialog=new StopBorrowDialog();
-        stopBorrowDialog.show(getActivity().getSupportFragmentManager(),getString(R.string.no_internet_dialog));
+        StopBorrowDialog stopBorrowDialog = new StopBorrowDialog();
+        stopBorrowDialog.show(getActivity().getSupportFragmentManager(), getString(R.string.no_internet_dialog));
     }
 
+    @Override
+    public void onContinueRegistrationClicked() {
+        dismiss();
+        listener.openEditProfileFragment();
+    }
 }

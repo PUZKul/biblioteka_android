@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.ui.dialogs.continueRegsistration;
+package kul.pl.biblioteka.ui.dialogs.requestToIncreaseTheLimit;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -13,14 +13,14 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import kul.pl.biblioteka.R;
 
-public class ContinueRegistrationDialog  extends AppCompatDialogFragment  {
-    
-    private Button continueRegistration;
-    private Button goTo;
-    private ContinueRegistrationDialogListener listener;
+public class RequestToIncreaseTheLimitDialog extends AppCompatDialogFragment {
 
-    public ContinueRegistrationDialog(ContinueRegistrationDialogListener listener) {
-        this.listener = listener;
+    private Button cancel;
+    private Button continueRegistration;
+    private RequestToIncreaseTheLimitDialogListener limitDialogListener;
+
+    public RequestToIncreaseTheLimitDialog(RequestToIncreaseTheLimitDialogListener limitDialogListener) {
+        this.limitDialogListener = limitDialogListener;
     }
 
     @NonNull
@@ -28,7 +28,7 @@ public class ContinueRegistrationDialog  extends AppCompatDialogFragment  {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_continue_registration, null);
+        View view = inflater.inflate(R.layout.dialog_request_to_increase_the_limit, null);
         initComponents(view);
         setOnClickListener();
         builder.setView(view);
@@ -36,26 +36,27 @@ public class ContinueRegistrationDialog  extends AppCompatDialogFragment  {
     }
 
     private void initComponents(View view) {
-        continueRegistration=view.findViewById(R.id.dialog_conitinue_registration_comlpete);
-        goTo=view.findViewById(R.id.dialog_conitinue_registration_go_to);
+        continueRegistration=view.findViewById(R.id.dialog_request_to_increase_registration_comlpete);
+        cancel=view.findViewById(R.id.dialog_request_cancel);
     }
 
     private void setOnClickListener(){
+        cancel.setOnClickListener(onCancelClicked);
         continueRegistration.setOnClickListener(onContinueClicked);
-        goTo.setOnClickListener(onToGoBooksListClicked);
     }
+
+    private View.OnClickListener onCancelClicked=new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            dismiss();
+        }
+    };
 
     private View.OnClickListener onContinueClicked=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            listener.onContinueClicked();
-        }
-    };
-
-    private View.OnClickListener onToGoBooksListClicked=new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            listener.onGoToListBooksClicked();
+            dismiss();
+            limitDialogListener.onContinueRegistrationClicked();
         }
     };
 }

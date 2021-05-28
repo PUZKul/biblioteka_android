@@ -25,11 +25,13 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.dialogs.copiesOfBooks.CopiesOfBooksDialog;
+import kul.pl.biblioteka.ui.dialogs.copiesOfBooks.CopiesOfBooksListener;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
+import kul.pl.biblioteka.ui.fragments.editProfile.EditProfile;
 import kul.pl.biblioteka.ui.fragments.firstWindow.FirstWindowFragment;
 
-public class BookViewFragment extends Fragment implements BookViewFragmentContract.View, NoInternetDialogListener {
+public class BookViewFragment extends Fragment implements BookViewFragmentContract.View, NoInternetDialogListener, CopiesOfBooksListener {
 
     private ImageView imageView;
     private TextView titleTextView;
@@ -47,6 +49,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     private ImageView infoImage;
     private BookViewFragmentPresenter presenter;
     private NoInternetDialog noInternetDialog;
+    private CopiesOfBooksDialog copiesOfBooksDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,6 +57,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
        initComponents(view);
         noInternetDialog=new NoInternetDialog(this);
        presenter = new BookViewFragmentPresenter(this, this.getArguments().getInt("idBook"));
+        copiesOfBooksDialog =new CopiesOfBooksDialog(this);
        presenter.setBook();
        setOnClickListeners();
         return view;
@@ -85,11 +89,10 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
         public void onClick(View v) {
             if(InternetConnection.isConnection(MainActivity.getAppContext()))
             {
-                CopiesOfBooksDialog dialog=new CopiesOfBooksDialog();
                 Bundle bundle=new Bundle();
                 bundle.putInt("id",presenter.getIdBook());
-                dialog.setArguments(bundle);
-                dialog.show(getActivity().getSupportFragmentManager(),presenter.getIdBook()+"");
+                copiesOfBooksDialog.setArguments(bundle);
+                copiesOfBooksDialog.show(getActivity().getSupportFragmentManager(),presenter.getIdBook()+"");
             }
             else {
                 openNoInternetDialog();
@@ -223,5 +226,13 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     @Override
     public void showNoInternetToast() {
         Toast.makeText(MainActivity.getAppContext(),R.string.no_internet_message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void openEditProfileFragment() {
+        getActivity().getSupportFragmentManager().beginTransaction().
+                replace(((ViewGroup) getView().getParent()).getId(),new EditProfile())
+                .addToBackStack(getView().getClass().getName())
+                .commit();
     }
 }

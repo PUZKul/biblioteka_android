@@ -128,4 +128,6 @@
     <string name="do_you_want_to_continue_the_registration">Do you want to continue the registration?</string>
     <string name="go_to_the_books">Go to the books</string>
     <string name="complete_the_registration">Complete the registration</string>
+    <string name="if_you_want_to_borrow_a_book_you_must_complete_the_registration">If you want to borrow a book, you must complete the registration</string>
+    <string name="continue_registration">Continue registration</string>
 </resources>
