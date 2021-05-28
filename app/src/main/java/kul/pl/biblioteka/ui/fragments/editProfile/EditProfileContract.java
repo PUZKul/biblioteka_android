@@ -34,6 +34,22 @@ public interface EditProfileContract {
         boolean isCheckedBoxEditPassword();
 
         void openDialog();
+
+        void setPhone(String phone);
+
+        void setAddress(String address);
+
+        void setFistName(String fistName);
+
+        void setLastName(String lastName);
+
+        String getLastName();
+
+        String getFirstName();
+
+        String getAddress();
+
+        String getPhone();
     }
 
     interface Presenter {

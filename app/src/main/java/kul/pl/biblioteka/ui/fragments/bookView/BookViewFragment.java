@@ -173,6 +173,11 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     }
 
     @Override
+    public void onRefresh() {
+        presenter.setBook();
+    }
+
+    @Override
     public void setDate(String date) {
         yearTextView.setText(date);
     }

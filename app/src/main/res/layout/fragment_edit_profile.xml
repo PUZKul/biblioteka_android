@@ -5,8 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryBackground">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:background="@color/colorPrimaryBackground"
         android:layout_height="wrap_content">
 
         <EditText
@@ -34,10 +36,10 @@
             android:layout_marginTop="17dp"
             android:text="@string/phone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editProfile_editText_adress" />
+            app:layout_constraintTop_toBottomOf="@+id/editProfile_editText_address" />
 
         <EditText
-            android:id="@+id/editProfile_editText_adress"
+            android:id="@+id/editProfile_editText_address"
             android:layout_width="320dp"
             android:layout_height="35dp"
             android:layout_marginStart="40dp"

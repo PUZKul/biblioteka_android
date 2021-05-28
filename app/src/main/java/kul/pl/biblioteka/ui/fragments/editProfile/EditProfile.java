@@ -33,6 +33,10 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
     private EditText editPassword;
     private TextView textRepeatEditPassword;
     private EditText repeatEditedPassword;
+    private EditText firstName;
+    private EditText lastName;
+    private EditText address;
+    private EditText phone;
     private Button cancelBtn;
     private Button saveBtn;
     private ProgressBar progressBar;
@@ -61,6 +65,10 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
         progressBar = view.findViewById(R.id.editProfile_progresBar);
         cancelBtn = view.findViewById(R.id.editProfile_btn_cancel2);
         saveBtn = view.findViewById(R.id.editProfile_btn_save2);
+        firstName=view.findViewById(R.id.editProfile_editText_firstName);
+        lastName=view.findViewById(R.id.editProfile_editText_firstName2);
+        address=view.findViewById(R.id.editProfile_editText_address);
+        phone=view.findViewById(R.id.editProfile_editText_phone);
     }
 
     private void setOnClickListeners() {
@@ -182,6 +190,46 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
     }
 
     @Override
+    public void setPhone(String phone) {
+        this.phone.setText(phone);
+    }
+
+    @Override
+    public void setAddress(String address) {
+        this.address.setText(address);
+    }
+
+    @Override
+    public void setFistName(String fistName) {
+        this.firstName.setText(fistName);
+    }
+
+    @Override
+    public void setLastName(String lastName) {
+        this.lastName.setText(lastName);
+    }
+
+    @Override
+    public String getLastName() {
+        return lastName.getText().toString();
+    }
+
+    @Override
+    public String getFirstName() {
+        return firstName.getText().toString();
+    }
+
+    @Override
+    public String getAddress() {
+        return address.getText().toString();
+    }
+
+    @Override
+    public String getPhone() {
+        return phone.getText().toString();
+    }
+
+    @Override
     public void errorEmailIncorrect() {
         editEmail.setError(getString(R.string.incorrect_email));
     }
@@ -208,7 +256,11 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
         presenter.changeUserData(new EditUserModel(
                 editEmail.getText().toString(),
                 editPassword.getText().toString(),
-                password
+                password,
+                firstName.getText().toString(),
+                lastName.getText().toString(),
+                address.getText().toString(),
+                phone.getText().toString()
         ));
     }
 

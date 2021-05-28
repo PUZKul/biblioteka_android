@@ -30,14 +30,14 @@ public class ProfileFragmentPresenter extends APIAdapter implements ProfileFragm
 
     @Override
     public void onUserDetailsReceive(UserModel user) {
-        if(user.getPhone()!=null){
-            view.setNick(user.getUsername());
+        view.setNick(user.getUsername());
+        if (user.getPhone() != null) {
             view.setAddress(user.getAddress());
             view.setFirstName(user.getFirstName());
             view.setLastName(user.getLastName());
             view.setPhone(user.getPhone());
             view.endProgressBar();
-        }else{
+        } else {
             view.setVisibilityButton();
             view.setInvisibilityComponents();
         }
@@ -45,19 +45,18 @@ public class ProfileFragmentPresenter extends APIAdapter implements ProfileFragm
 
     @Override
     public void setUserDetails() {
-        if(InternetConnection.isConnection(MainActivity.getAppContext())){
+        if (InternetConnection.isConnection(MainActivity.getAppContext())) {
             view.startProgressBar();
             api.getUserDetails(LocalDataAccess.getToken());
             api.getUserBooksDetails(LocalDataAccess.getToken());
-        }else
-        {
-            Handler handler=new Handler();
+        } else {
+            Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     view.openOnInternetDialog();
                 }
-            },5000);
+            }, 5000);
         }
     }
 

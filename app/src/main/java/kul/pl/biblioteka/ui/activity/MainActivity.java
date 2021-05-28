@@ -20,6 +20,7 @@ import kul.pl.biblioteka.ui.fragments.profile.ProfileFragment;
 import kul.pl.biblioteka.ui.fragments.readingAndHistory.ReservationsReadingAndHistoryMainFragment;
 
 public class MainActivity extends AppCompatActivity {
+
     private BottomNavigationView bottom_nav;
     @SuppressLint("StaticFieldLeak")
     private static Context context;
@@ -43,21 +44,21 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment selectedFragment = null;
-                    switch (item.getItemId()){
+                    switch (item.getItemId()) {
                         case R.id.bottom_nav_profile:
-                            if(LocalDataAccess.isLogin())
-                                selectedFragment=new ProfileFragment();
+                            if (LocalDataAccess.isLogin())
+                                selectedFragment = new ProfileFragment();
                             else
                                 selectedFragment = new NotLoggedInProfileFragment();
                             break;
                         case R.id.bottom_nav_book:
-                            if(LocalDataAccess.isLogin())
-                                selectedFragment=new ReservationsReadingAndHistoryMainFragment();
+                            if (LocalDataAccess.isLogin())
+                                selectedFragment = new ReservationsReadingAndHistoryMainFragment();
                             else
                                 selectedFragment = new NotLoggedInReservationsReadingAndHistory();
                             break;
                         case R.id.bottom_nav_home:
-                                selectedFragment = new FirstWindowFragment();
+                            selectedFragment = new FirstWindowFragment();
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.mainActivity_fragment_container, selectedFragment).addToBackStack(null).commit();

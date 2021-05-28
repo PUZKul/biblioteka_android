@@ -67,14 +67,7 @@ public class BookViewFragmentPresenter extends APIAdapter implements BookViewFra
     }
 
     @Override
-    public void onRefreshServer() {
-        Handler handler=new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                view.endProgressBar();
-                view.openNoInternetDialog();
-            }
-        },5000);
+    public void onReserveBook() {
+        view.onRefresh();
     }
 }

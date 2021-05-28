@@ -10,14 +10,10 @@ public class EditUserModel {
     private String address;
     private String phone;
 
-
-    public EditUserModel(String email, String newPassword, String oldPassword) {
+    public EditUserModel(String email, String newPassword, String oldPassword, String firstName, String lastName, String address, String phone) {
         this.email = email;
         this.newPassword = newPassword;
         this.oldPassword = oldPassword;
-    }
-
-    public EditUserModel(String firstName, String lastName, String address, String phone) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;

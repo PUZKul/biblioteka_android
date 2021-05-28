@@ -28,6 +28,8 @@ public interface BookViewFragmentContract {
         void openNoInternetDialog();
 
         void setNumberOfStars(String number);
+
+        void onRefresh();
     }
 
     interface Presenter {

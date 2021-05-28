@@ -46,7 +46,7 @@ public class CopiesOfBooksDialogPresenter extends APIAdapter implements CopiesOf
 
     @Override
     public void onUserDetailsReceive(UserModel user) {
-        if (user.getPhone() != null) {
+        if (user.getPhone() == null) {
             view.openInformDialog();
             view.endProgressBar();
         } else {
