@@ -17,6 +17,8 @@ public interface LoginActivityContract {
         void errorEmptyLogin();
 
         void errorEmptyPassword();
+
+        void onRefresh();
     }
 
     interface Presenter {

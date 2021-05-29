@@ -18,7 +18,6 @@ import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.activity.register.RegisterActivity;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
-import kul.pl.biblioteka.ui.fragments.firstWindow.FirstWindowFragment;
 
 public class LoginActivity extends AppCompatActivity implements LoginActivityContract.View, NoInternetDialogListener {
 
@@ -123,6 +122,15 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
     @Override
     public void errorEmptyPassword() {
         passwordETex.setError(getString(R.string.password_is_empty));
+    }
+
+    @Override
+    public void onRefresh() {
+        presenter.onLoginClicked(new LoginUserModel(
+                loginETex.getText().toString(),
+                loginETex.getText().toString(),
+                passwordETex.getText().toString()
+        ));
     }
 
     @Override
