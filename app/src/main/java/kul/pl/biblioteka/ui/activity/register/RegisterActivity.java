@@ -22,7 +22,7 @@ import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.fragments.firstWindow.FirstWindowFragment;
 
-public class RegisterActivity extends AppCompatActivity implements RegisterActivityContract.View , NoInternetDialogListener, ContinueRegistrationDialogListener {
+public class RegisterActivity extends AppCompatActivity implements RegisterActivityContract.View, NoInternetDialogListener, ContinueRegistrationDialogListener {
 
     private Button registrationBtn;
     private TextView loginText;
@@ -41,13 +41,14 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
         setContentView(R.layout.activity_registration);
         initComponents();
         setOnClickListeners();
-        dialog=new NoInternetDialog(this);
-        presenter = new RegisterActivityPresenter(this,getApplicationContext());
+        dialog = new NoInternetDialog(this);
+        presenter = new RegisterActivityPresenter(this, getApplicationContext());
     }
 
     private void setOnClickListeners() {
         registrationBtn.setOnClickListener(registrationOnClickListener);
         loginText.setOnClickListener(loginOnClickListener);
+        keepBrowsing.setOnClickListener(keepBrowsingListener);
     }
 
     private View.OnClickListener loginOnClickListener = new View.OnClickListener() {
@@ -71,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
 
     private void initComponents() {
         registrationBtn = findViewById(R.id.registration_btn_register);
-        keepBrowsing=findViewById(R.id.activity_register_textViev_Keep_browsing);
+        keepBrowsing = findViewById(R.id.activity_register_textViev_Keep_browsing);
         loginText = findViewById(R.id.registration_textView_login);
         nickText = findViewById(R.id.registration_editText_nick);
         emailText = findViewById(R.id.registration_editText_email);
@@ -80,12 +81,13 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
         progressBar = findViewById(R.id.registration_progressBar);
     }
 
-    private View.OnClickListener keepBrowsingListener= new View.OnClickListener() {
+    private View.OnClickListener keepBrowsingListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-        Intent intent= new Intent(RegisterActivity.this, FirstWindowFragment.class);
+            startActivity(new Intent(RegisterActivity.this, MainActivity.class));
         }
     };
+
     @Override
     public void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
@@ -103,8 +105,8 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
 
     @Override
     public void openContinueDialog() {
-        ContinueRegistrationDialog dialog=new ContinueRegistrationDialog(this);
-        dialog.show(getSupportFragmentManager(),"");
+        ContinueRegistrationDialog dialog = new ContinueRegistrationDialog(this);
+        dialog.show(getSupportFragmentManager(), "");
     }
 
     @Override
@@ -144,13 +146,13 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
 
     @Override
     public void openOnInternetDialog() {
-        dialog.show(getSupportFragmentManager(),getString(R.string.no_internet_dialog));
+        dialog.show(getSupportFragmentManager(), getString(R.string.no_internet_dialog));
         dialog.setOnClickedBack();
     }
 
     @Override
     public void goBackToTheFragment() {
-        Handler handler=new Handler();
+        Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -161,7 +163,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
                         , emailText.getText().toString()));
                 dialog.closeDialog();
             }
-        },5000);
+        }, 5000);
     }
 
     @Override

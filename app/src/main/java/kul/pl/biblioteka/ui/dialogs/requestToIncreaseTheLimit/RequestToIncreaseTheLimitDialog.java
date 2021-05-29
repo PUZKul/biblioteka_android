@@ -33,7 +33,7 @@ public class RequestToIncreaseTheLimitDialog extends AppCompatDialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_password_security, null);
+        View view = inflater.inflate(R.layout.dialog_request_to_increase_limit, null);
         initComponents(view);
         setOnClickListeners();
         builder.setView(view);

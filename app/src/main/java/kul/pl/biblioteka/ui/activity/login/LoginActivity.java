@@ -44,6 +44,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
     private void setOnClickListeners() {
         loginBtn.setOnClickListener(loginOnClickListener);
         registrationText.setOnClickListener(registrationOnClickListener);
+        keepBrowsing.setOnClickListener(keepBrowsingListener);
     }
 
     private View.OnClickListener registrationOnClickListener = new View.OnClickListener() {
@@ -73,7 +74,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
     private View.OnClickListener keepBrowsingListener= new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent intent=new Intent(LoginActivity.this, FirstWindowFragment.class);
+            Intent intent=new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         }
     };

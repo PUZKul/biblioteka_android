@@ -36,8 +36,8 @@ public class FilContactDetailsDialog extends AppCompatDialogFragment {
     }
 
     private void initComponents(View view) {
-        continueRegistration=view.findViewById(R.id.dialog_request_to_increase_registration_comlpete);
-        cancel=view.findViewById(R.id.dialog_request_cancel);
+        continueRegistration=view.findViewById(R.id.fil_contact_details_comlpete);
+        cancel=view.findViewById(R.id.fil_contact_details_cancel);
     }
 
     private void setOnClickListener(){

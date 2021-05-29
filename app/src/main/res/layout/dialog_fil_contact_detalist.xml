@@ -7,12 +7,12 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/dialog_request_to_increase_text_view"
+        android:id="@+id/fil_contact_details_text_view"
         android:layout_width="311dp"
         android:layout_height="164dp"
-        android:layout_marginStart="20px"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="20px"
+        android:layout_marginEnd="20dp"
         android:text="@string/if_you_want_to_borrow_a_book_you_must_complete_the_registration"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryBlue"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/dialog_request_cancel"
+        android:id="@+id/fil_contact_details_cancel"
         android:layout_width="130dp"
         android:layout_height="71dp"
         android:layout_marginStart="5dp"
@@ -35,11 +35,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_request_to_increase_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/fil_contact_details_text_view"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/dialog_request_to_increase_registration_comlpete"
+        android:id="@+id/fil_contact_details_comlpete"
         android:layout_width="130dp"
         android:layout_height="70dp"
         android:background="@drawable/btn_secondary"
@@ -49,5 +49,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.912"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_request_to_increase_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/fil_contact_details_text_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>
