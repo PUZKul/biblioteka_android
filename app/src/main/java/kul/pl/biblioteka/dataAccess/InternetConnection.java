@@ -7,6 +7,6 @@ public class InternetConnection {
 
     public static  boolean isConnection(Context context){
         ConnectivityManager connectivityManager= (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        return !connectivityManager.isActiveNetworkMetered();
+        return connectivityManager.getActiveNetworkInfo()!=null&&connectivityManager.getActiveNetworkInfo().isConnected();
     }
 }
