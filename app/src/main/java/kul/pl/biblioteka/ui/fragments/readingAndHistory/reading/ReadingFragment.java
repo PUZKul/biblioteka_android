@@ -71,7 +71,7 @@ public class ReadingFragment extends Fragment implements ReadingFragmentContact.
     public void setEmptyLayout() {
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.readingAndHistory_fragmentContainer, new EmptyReservationsFragment())
+                .replace(R.id.readingAndHistory_fragmentContainer, new EmptyReadingFragment())
                 .addToBackStack(null).commit();
     }
 

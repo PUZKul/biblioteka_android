@@ -71,7 +71,7 @@ public class HistoryFragment extends Fragment implements HistoryFragmentContact.
     public void setEmptyLayout() {
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.readingAndHistory_fragmentContainer, new EmptyReservationsFragment())
+                .replace(R.id.readingAndHistory_fragmentContainer, new EmptyHistoryFragment())
                 .addToBackStack(null).commit();
     }
 
