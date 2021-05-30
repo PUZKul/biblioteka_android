@@ -108,7 +108,6 @@ public class RegisterActivityPresenter extends APIAdapter implements RegisterAct
 
     @Override
     public void onRefreshServer() {
-        view.endProgressBar();
-        view.openOnInternetDialog();
+        view.onRefresh();
     }
 }

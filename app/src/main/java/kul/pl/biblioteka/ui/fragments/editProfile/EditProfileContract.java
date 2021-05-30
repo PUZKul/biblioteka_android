@@ -2,7 +2,6 @@ package kul.pl.biblioteka.ui.fragments.editProfile;
 
 import kul.pl.biblioteka.models.EditUserModel;
 import kul.pl.biblioteka.models.RegistrationUserModel;
-import kul.pl.biblioteka.models.UserModel;
 
 
 public interface EditProfileContract {
@@ -50,6 +49,8 @@ public interface EditProfileContract {
         String getAddress();
 
         String getPhone();
+
+        void onRefresh();
     }
 
     interface Presenter {

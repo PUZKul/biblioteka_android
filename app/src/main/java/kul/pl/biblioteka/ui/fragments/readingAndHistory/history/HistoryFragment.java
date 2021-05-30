@@ -23,8 +23,6 @@ import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.fragments.readingAndHistory.empty.EmptyHistoryFragment;
-import kul.pl.biblioteka.ui.fragments.readingAndHistory.empty.EmptyReadingFragment;
-import kul.pl.biblioteka.ui.fragments.readingAndHistory.empty.EmptyReservationsFragment;
 
 public class HistoryFragment extends Fragment implements HistoryFragmentContact.View, NoInternetDialogListener {
 
@@ -89,6 +87,11 @@ public class HistoryFragment extends Fragment implements HistoryFragmentContact.
     public void openOnInternetDialog() {
         dialog.show(getActivity().getSupportFragmentManager(), getString(R.string.no_internet_dialog));
         dialog.setOnClickedBack();
+    }
+
+    @Override
+    public void onRefresh() {
+        presenter.setList();
     }
 
     @Override

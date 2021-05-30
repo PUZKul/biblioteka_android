@@ -74,4 +74,9 @@ public class ReadingFragmentPresenter extends APIAdapter implements ReadingFragm
         view.endProgressBar();
         setReadingBookList();
     }
+
+    @Override
+    public void onRefreshServer() {
+        view.onRefresh();
+    }
 }

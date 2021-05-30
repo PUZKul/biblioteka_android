@@ -206,6 +206,11 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
     }
 
     @Override
+    public void onRefresh() {
+        presenter.setUserDetails();
+    }
+
+    @Override
     public void goBackToTheFragment() {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

@@ -1,6 +1,5 @@
 package kul.pl.biblioteka.ui.fragments.home;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -160,5 +159,10 @@ public class HomeFragment extends Fragment implements HomeFragmentContract.View 
     @Override
     public void openOnInternetActivity() {
 
+    }
+
+    @Override
+    public void onRefresh() {
+        presenter.setListTopBooks();
     }
 }

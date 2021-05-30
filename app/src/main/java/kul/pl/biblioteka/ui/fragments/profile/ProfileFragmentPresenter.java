@@ -65,4 +65,9 @@ public class ProfileFragmentPresenter extends APIAdapter implements ProfileFragm
         LocalDataAccess.clean();
         view.openMainActivity();
     }
+
+    @Override
+    public void onRefreshServer() {
+        view.onRefresh();
+    }
 }

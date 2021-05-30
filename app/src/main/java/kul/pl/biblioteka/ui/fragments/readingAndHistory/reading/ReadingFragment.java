@@ -24,7 +24,6 @@ import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.fragments.readingAndHistory.empty.EmptyReadingFragment;
-import kul.pl.biblioteka.ui.fragments.readingAndHistory.empty.EmptyReservationsFragment;
 
 public class ReadingFragment extends Fragment implements ReadingFragmentContact.View, NoInternetDialogListener, OnItemClickListener {
 
@@ -93,14 +92,17 @@ public class ReadingFragment extends Fragment implements ReadingFragmentContact.
 
     @Override
     public void showSuccessExtendBookRentalMessage() {
-        //todo add message
-        Toast.makeText(MainActivity.getAppContext(),"Przedłużono",Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.getAppContext(), R.string.LoanExtend, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void showFailureExtendBookRentalMessage() {
-        //todo add message
-        Toast.makeText(MainActivity.getAppContext(),"NIEstetey nie",Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.getAppContext(), R.string.LoanDoesntExtend, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onRefresh() {
+        presenter.setList();
     }
 
     @Override

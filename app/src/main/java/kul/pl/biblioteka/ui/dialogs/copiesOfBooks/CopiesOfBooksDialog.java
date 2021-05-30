@@ -149,6 +149,11 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
     }
 
     @Override
+    public void onRefresh() {
+        presenter.reserveBook(copiesOfBookListRecycleViewAdapter.getIdBook());
+    }
+
+    @Override
     public void onContinueRegistrationClicked() {
         dismiss();
         listener.openEditProfileFragment();

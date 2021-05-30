@@ -28,6 +28,8 @@ public interface ProfileFragmentContact {
 
         void setVisibilityButton();
 
+        void onRefresh();
+
     }
 
     interface Presenter {

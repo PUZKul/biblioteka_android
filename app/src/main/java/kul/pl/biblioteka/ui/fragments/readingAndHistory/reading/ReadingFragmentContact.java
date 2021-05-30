@@ -21,6 +21,8 @@ public interface ReadingFragmentContact {
         void showSuccessExtendBookRentalMessage();
 
         void showFailureExtendBookRentalMessage();
+
+        void onRefresh();
     }
 
     interface Presenter {

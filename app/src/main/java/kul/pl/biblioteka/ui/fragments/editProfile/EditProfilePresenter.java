@@ -1,6 +1,5 @@
 package kul.pl.biblioteka.ui.fragments.editProfile;
 
-import android.os.CountDownTimer;
 import android.os.Handler;
 
 import kul.pl.biblioteka.dataAccess.APIAdapter;
@@ -115,16 +114,6 @@ public class EditProfilePresenter extends APIAdapter implements EditProfileContr
 
     @Override
     public void onRefreshServer() {
-        new CountDownTimer(6000, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-            }
-
-            @Override
-            public void onFinish() {
-                view.endProgressBar();
-                view.openNoInternetDialog();
-            }
-        }.start();
+        view.onRefresh();
     }
 }

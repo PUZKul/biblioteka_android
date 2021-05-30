@@ -83,4 +83,9 @@ public class CopiesOfBooksDialogPresenter extends APIAdapter implements CopiesOf
             view.showStopBorrowDialog();
         }
     }
+
+    @Override
+    public void onRefreshServer() {
+        view.onRefresh();
+    }
 }

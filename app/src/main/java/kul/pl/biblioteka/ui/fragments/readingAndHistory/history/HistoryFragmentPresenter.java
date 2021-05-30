@@ -106,4 +106,9 @@ public class HistoryFragmentPresenter extends APIAdapter implements HistoryFragm
     @Override
     public void onErrorReceive(ApiError error) {
     }
+
+    @Override
+    public void onRefreshServer() {
+        view.onRefresh();
+    }
 }

@@ -134,4 +134,6 @@
     <string name="decryption">Decryption</string>
     <string name="enter_a_reason_for_the_limit">Enter a reason for the limit.</string>
     <string name="decryption_is_empty">Decryption is empty</string>
+    <string name="LoanExtend">The loan has been extended</string>
+    <string name="LoanDoesntExtend">The loan not extended</string>
 </resources>

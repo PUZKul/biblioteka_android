@@ -21,7 +21,6 @@ import kul.pl.biblioteka.ui.dialogs.continueRegsistration.ContinueRegistrationDi
 import kul.pl.biblioteka.ui.dialogs.continueRegsistration.ContinueRegistrationDialogListener;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
-import kul.pl.biblioteka.ui.fragments.firstWindow.FirstWindowFragment;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterActivityContract.View, NoInternetDialogListener, ContinueRegistrationDialogListener {
 
@@ -156,6 +155,16 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
         presenter.loginUser(new LoginApiUserModel(
                 loginText.getText().toString(),
                 passwordText.getText().toString()
+        ));
+    }
+
+    @Override
+    public void onRefresh() {
+        presenter.onRegisterClicked(new RegistrationUserModel(
+                nickText.getText().toString()
+                , passwordText.getText().toString()
+                , repeatPasswordText.getText().toString()
+                , emailText.getText().toString()
         ));
     }
 

@@ -89,8 +89,7 @@ public class HomeFragmentPresenter extends APIAdapter implements HomeFragmentCon
 
     @Override
     public void onRefreshServer() {
-        view.openOnInternetActivity();
-        view.endProgressBar();
+        view.onRefresh();
     }
 
     private View.OnClickListener previousClickListener = new View.OnClickListener() {

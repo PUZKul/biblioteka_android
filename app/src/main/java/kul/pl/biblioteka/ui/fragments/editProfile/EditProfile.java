@@ -230,6 +230,11 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
     }
 
     @Override
+    public void onRefresh() {
+        presenter.setUserDetails();
+    }
+
+    @Override
     public void errorEmailIncorrect() {
         editEmail.setError(getString(R.string.incorrect_email));
     }

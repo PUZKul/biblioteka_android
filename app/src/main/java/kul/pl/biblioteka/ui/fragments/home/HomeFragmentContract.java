@@ -31,5 +31,7 @@ public interface HomeFragmentContract {
         void endProgressBar();
 
         void openOnInternetActivity();
+
+        void onRefresh();
     }
 }

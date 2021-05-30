@@ -18,6 +18,8 @@ public interface HistoryFragmentContact {
 
         void openOnInternetDialog();
 
+        void onRefresh();
+
 
     }
     interface Presenter{

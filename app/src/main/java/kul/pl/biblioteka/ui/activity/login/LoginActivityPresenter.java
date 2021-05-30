@@ -7,6 +7,7 @@ import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.exception.ApiError;
+import kul.pl.biblioteka.models.LoginApiUserModel;
 import kul.pl.biblioteka.models.LoginUserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.utils.StringHelper;

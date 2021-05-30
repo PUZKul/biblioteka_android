@@ -29,5 +29,7 @@ interface CopiesOfBooksDialogContract {
         void showToast(String message);
 
         void showStopBorrowDialog();
+
+        void onRefresh();
     }
 }

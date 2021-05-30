@@ -30,11 +30,15 @@ public interface RegisterActivityContract {
         void openOnInternetDialog();
 
         void onSuccessRegistration();
+
+        void onRefresh();
+
     }
 
     interface Presenter {
         void onRegisterClicked(RegistrationUserModel user);
 
         void loginUser(LoginApiUserModel model);
+
     }
 }
