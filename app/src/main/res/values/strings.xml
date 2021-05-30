@@ -136,4 +136,7 @@
     <string name="decryption_is_empty">Decryption is empty</string>
     <string name="LoanExtend">The loan has been extended</string>
     <string name="LoanDoesntExtend">The loan not extended</string>
+    <string name="create_your_own_reading_list">Create your own reading list</string>
+    <string name="create_your_own_history_list">Create your own history list</string>
+    <string name="create_your_own_reading_list">Create your own reading list</string>
 </resources>

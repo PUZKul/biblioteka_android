@@ -26,6 +26,8 @@
                 style="?android:attr/progressBarStyle"
                 android:layout_width="190dp"
                 android:layout_height="154dp"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/colorPrimaryGreen"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.506"

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,7 +17,7 @@ import kul.pl.biblioteka.ui.activity.login.LoginActivity;
 public class NotLoggedInReading  extends Fragment {
 
     private ImageView loginImage;
-    private TextView loginText;
+    private Button loginButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -28,11 +29,11 @@ public class NotLoggedInReading  extends Fragment {
 
     private void initComponents(View view) {
         loginImage=view.findViewById(R.id.fragmentNoLoginReading_image_LoginIn);
-        loginText=view.findViewById(R.id.fragmentNoLoginReading_text_LoginIn);
+        loginButton=view.findViewById(R.id.fragment_no_login_reading_button_login);
     }
 
     private void setOnClickListener(){
-        loginText.setOnClickListener(onLoginClicked);
+        loginButton.setOnClickListener(onLoginClicked);
         loginImage.setOnClickListener(onLoginClicked);
     }
 

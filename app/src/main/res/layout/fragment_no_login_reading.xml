@@ -21,37 +21,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/fragmentNoLoginReading_text_LoginIn"
-        android:layout_width="74dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="60dp"
-        android:text="@string/login_in"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/FragmentNoLogin_text_historyInfo"
+    <Button
+        android:id="@+id/fragment_no_login_reading_button_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/btn_primary"
+        android:text="@string/login"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentNoLoginReading_image_LoginIn"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/fragmentNoLoginReading_image_LoginIn" />
 
     <TextView
-        android:id="@+id/FragmentNoLogin_text_historyInfo"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/current_page"
-        android:fontFamily="sans-serif-light"
-        android:text="for creating your own \n reading list"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:id="@+id/fragment_no_login_reading_textView_CreateOwnReadingList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/create_your_own_reading_list"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:typeface="sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentNoLoginReading_text_LoginIn"
-        tools:ignore="HardcodedText,MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/fragment_no_login_reading_button_login" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

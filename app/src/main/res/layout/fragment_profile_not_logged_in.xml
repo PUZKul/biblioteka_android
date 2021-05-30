@@ -19,6 +19,8 @@
             android:layout_height="match_parent"
             android:background="@drawable/main_motive"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
 
@@ -86,35 +88,34 @@
 
             <TextView
                 android:id="@+id/no_internet_profile_welcome_btn_register"
-                android:layout_width="150dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_row="3"
-                android:layout_column="0"
+                android:layout_column="2"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="72dp"
+                android:layout_marginTop="70dp"
                 android:gravity="center"
                 android:text="@string/register"
                 android:textColor="@color/colorWhite"
                 android:textSize="22sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.509"
-                app:layout_constraintStart_toEndOf="@+id/separator"
+                app:layout_constraintStart_toEndOf="@+id/no_internet_profile_separator"
                 app:layout_constraintTop_toBottomOf="@+id/no_internet_profile_textView_nick" />
 
             <TextView
                 android:id="@+id/no_internet_profile_welcome_btn_login"
-                android:layout_width="150dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_row="3"
                 android:layout_column="2"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="72dp"
+                android:layout_marginTop="70dp"
                 android:text="@string/login"
                 android:textAlignment="center"
                 android:textColor="@color/colorWhite"
                 android:textSize="22sp"
-                app:layout_constraintEnd_toStartOf="@+id/no_internet_profile_separator"
-                app:layout_constraintHorizontal_bias="0.571"
+                app:layout_constraintEnd_toStartOf="@+id/no_internet_profile_welcome_btn_register"
+                app:layout_constraintHorizontal_bias="0.653"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/no_internet_profile_textView_nick" />
 
