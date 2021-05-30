@@ -11,6 +11,7 @@ import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.LoginApiUserModel;
 import kul.pl.biblioteka.models.RegistrationApiUserModel;
 import kul.pl.biblioteka.models.RegistrationUserModel;
+import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.utils.StringHelper;
 
 public class RegisterActivityPresenter extends APIAdapter implements RegisterActivityContract.Presenter {
@@ -81,7 +82,7 @@ public class RegisterActivityPresenter extends APIAdapter implements RegisterAct
             view.errorPasswordIsEmpty();
             return true;
         } else if (user.getPasswordSecond().isEmpty()) {
-            view.errorPasswordIsEmpty();
+            view.errorRepeatPasswordIsEmpty();
             return true;
         }
         return false;
@@ -95,15 +96,16 @@ public class RegisterActivityPresenter extends APIAdapter implements RegisterAct
     @Override
     public void onLoginSuccesses() {
         view.endProgressBar();
-        view.showToast(String.valueOf(R.string.successful_registration));
+        view.showToast(String.valueOf(MainActivity.getAppContext().getString(R.string.successful_registration)));
         view.openContinueDialog();
     }
 
     @Override
     public void onErrorReceive(ApiError error) {
         view.endProgressBar();
+        System.out.println(error.getStatus());
         if (error.getStatus() == 409)
-            view.showToast(String.valueOf(R.string.user_with_given_email_or_logiin_exist));
+            view.showToast(String.valueOf(MainActivity.getAppContext().getString(R.string.user_with_given_email_or_logiin_exist)));
     }
 
     @Override

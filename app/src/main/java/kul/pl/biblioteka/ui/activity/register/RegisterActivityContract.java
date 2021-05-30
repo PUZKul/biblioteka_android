@@ -33,6 +33,8 @@ public interface RegisterActivityContract {
 
         void onRefresh();
 
+        void errorRepeatPasswordIsEmpty();
+
     }
 
     interface Presenter {

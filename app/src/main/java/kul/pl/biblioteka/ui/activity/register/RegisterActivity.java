@@ -135,6 +135,11 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
     }
 
     @Override
+    public void errorRepeatPasswordIsEmpty() {
+        repeatPasswordText.setError(getString(R.string.password_is_empty_two));
+    }
+
+    @Override
     public void errorPasswordIncorrect() {
         passwordText.setError(getString(R.string.password_should_include));
     }
@@ -153,7 +158,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
     @Override
     public void onSuccessRegistration() {
         presenter.loginUser(new LoginApiUserModel(
-                loginText.getText().toString(),
+                nickText.getText().toString(),
                 passwordText.getText().toString()
         ));
     }

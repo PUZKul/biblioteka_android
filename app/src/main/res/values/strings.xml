@@ -105,9 +105,9 @@
     <string name="incorrect_email">Incorrect email!</string>
     <string name="email__is_empty">Email is empty!</string>
     <string name="password_is_empty_two">Password is empty!</string>
-    <string name="password_are_not_identical">Password are\'t identical</string>
+    <string name="password_are_not_identical">Passwords aren\'t identical</string>
     <string name="password_should_include">Password should include at least one numbers, one special character and one letter and has between 8-25 characters</string>
-    <string name="password_should_consist">Password should consist of numbers and letters and has between 3-12 characters</string>
+    <string name="password_should_consist">Login should consist of numbers and letters and has between 3-12 characters</string>
     <string name="reservation_canceled">Reservation canceled</string>
     <string name="cancel_book_reservation">Cancel book reservation</string>
     <string name="book_available_borrow_home">Book is available to borrow and read at home</string>
@@ -138,5 +138,4 @@
     <string name="LoanDoesntExtend">The loan not extended</string>
     <string name="create_your_own_reading_list">Create your own reading list</string>
     <string name="create_your_own_history_list">Create your own history list</string>
-    <string name="create_your_own_reading_list">Create your own reading list</string>
 </resources>

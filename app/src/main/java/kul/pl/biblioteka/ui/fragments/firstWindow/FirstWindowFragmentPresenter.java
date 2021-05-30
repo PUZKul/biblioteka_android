@@ -29,12 +29,12 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
     private Context context;
     private boolean firstOpen;
 
-    public FirstWindowFragmentPresenter(FirstWindowFragmentContract.View view,Context context) {
+    public FirstWindowFragmentPresenter(FirstWindowFragmentContract.View view, Context context) {
         this.view = view;
         this.api = LibraryAccess.getInstance();
         api.setListener(this);
-        this.context=context;
-        firstOpen=true;
+        this.context = context;
+        firstOpen = true;
     }
 
     public void setPaginationComponent(View view) {
@@ -49,18 +49,18 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
         if (InternetConnection.isConnection(context)) {
             currentSorting = Sorting.TITLE;
             api.getBooks(LIMIT, 0, currentSorting);
-        }else
+        } else
             openNoInternetDialog();
     }
 
-    private void openNoInternetDialog(){
-        Handler handler=new Handler();
+    private void openNoInternetDialog() {
+        Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 view.openOnInternetDialog();
             }
-        },5000);
+        }, 5000);
     }
 
     @Override
@@ -69,7 +69,7 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
             currentSorting = Sorting.RATING;
             currentDirection = Direction.DESC;
             api.getBooks(LIMIT, 0, currentSorting, currentDirection);
-        }else
+        } else
             openNoInternetDialog();
     }
 
@@ -79,22 +79,21 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
             currentSorting = Sorting.YEAR;
             currentDirection = Direction.DESC;
             api.getBooks(LIMIT, 0, currentSorting, currentDirection);
-        }else
+        } else
             openNoInternetDialog();
     }
 
     @Override
     public void setListTopBooks() {
-            setTopBooks();
-
+        setTopBooks();
     }
 
-    private void  setTopBooks(){
+    private void setTopBooks() {
         if (InternetConnection.isConnection(context)) {
             currentSorting = Sorting.POPULARITY;
             currentDirection = Direction.DESC;
             api.getBooks(LIMIT, 0, currentSorting, currentDirection);
-        }else
+        } else
             openNoInternetDialog();
     }
 
@@ -108,20 +107,20 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
 
     @Override
     public void setListByName(String search) {
-        if(InternetConnection.isConnection(context)){
+        if (InternetConnection.isConnection(context)) {
             currentSorting = Sorting.SEARCH;
             currentSearch = search;
             api.getSearchBooks(LIMIT, 0, currentSearch);
-        }else
+        } else
             openNoInternetDialog();
     }
 
     @Override
     public void setFirstLists() {
-        if(InternetConnection.isConnection(MainActivity.getAppContext())){
+        if (InternetConnection.isConnection(MainActivity.getAppContext())) {
             setListTopBooks();
             setListSortByDiscover();
-        }else
+        } else
             openNoInternetDialog();
     }
 
@@ -141,12 +140,12 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
     private View.OnClickListener previousClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if(InternetConnection.isConnection(context)){
+            if (InternetConnection.isConnection(context)) {
                 if (currentSorting.equals(Sorting.SEARCH))
                     api.getSearchBooks(LIMIT, pageBar.previousPage(), currentSearch);
                 else
                     api.getBooks(LIMIT, pageBar.previousPage(), currentSorting, currentDirection);
-            }else
+            } else
                 openNoInternetDialog();
         }
     };
@@ -154,20 +153,20 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
     private View.OnClickListener nextClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-           if(InternetConnection.isConnection(context)){
-               if (currentSorting.equals(Sorting.SEARCH))
-                   api.getSearchBooks(LIMIT, pageBar.nextPage(), currentSearch);
-               else
-                   api.getBooks(LIMIT, pageBar.nextPage(), currentSorting, currentDirection);
-           }else
-               openNoInternetDialog();
+            if (InternetConnection.isConnection(context)) {
+                if (currentSorting.equals(Sorting.SEARCH))
+                    api.getSearchBooks(LIMIT, pageBar.nextPage(), currentSearch);
+                else
+                    api.getBooks(LIMIT, pageBar.nextPage(), currentSorting, currentDirection);
+            } else
+                openNoInternetDialog();
         }
     };
 
     private final View.OnClickListener pageClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if(InternetConnection.isConnection(context)){
+            if (InternetConnection.isConnection(context)) {
                 TextView text = pageBar.getView().findViewById(v.getId());
                 String value = text.getText().toString();
                 int clickedPage = Integer.parseInt(value) - 1;
@@ -175,20 +174,20 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
                     api.getSearchBooks(LIMIT, clickedPage, currentSearch);
                 else
                     api.getBooks(LIMIT, clickedPage, currentSorting, currentDirection);
-            }else
+            } else
                 openNoInternetDialog();
         }
     };
 
     @Override
     public void onDiscoverBookListReceive(PageHolder<BookModel> page) {
-        if(InternetConnection.isConnection(context)){
-            if(firstOpen){
+        if (InternetConnection.isConnection(context)) {
+            if (firstOpen) {
                 view.setRecommendedList(page.getContent());
-                firstOpen=false;
-            }else
+                firstOpen = false;
+            } else
                 view.setTheMostPopularList(page.getContent());
-        }else
+        } else
             openNoInternetDialog();
     }
 }
