@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import kul.pl.biblioteka.R;
+import kul.pl.biblioteka.models.LoginApiUserModel;
 import kul.pl.biblioteka.models.RegistrationUserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.activity.login.LoginActivity;
@@ -148,6 +149,14 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
     public void openOnInternetDialog() {
         dialog.show(getSupportFragmentManager(), getString(R.string.no_internet_dialog));
         dialog.setOnClickedBack();
+    }
+
+    @Override
+    public void onSuccessRegistration() {
+        presenter.loginUser(new LoginApiUserModel(
+                loginText.getText().toString(),
+                passwordText.getText().toString()
+        ));
     }
 
     @Override

@@ -1,5 +1,6 @@
 package kul.pl.biblioteka.ui.activity.register;
 
+import kul.pl.biblioteka.models.LoginApiUserModel;
 import kul.pl.biblioteka.models.RegistrationUserModel;
 
 public interface RegisterActivityContract {
@@ -27,9 +28,13 @@ public interface RegisterActivityContract {
         void errorRepeatPasswordAreNotIdentical();
 
         void openOnInternetDialog();
+
+        void onSuccessRegistration();
     }
 
     interface Presenter {
         void onRegisterClicked(RegistrationUserModel user);
+
+        void loginUser(LoginApiUserModel model);
     }
 }

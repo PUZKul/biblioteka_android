@@ -8,6 +8,7 @@ import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.exception.ApiError;
+import kul.pl.biblioteka.models.LoginApiUserModel;
 import kul.pl.biblioteka.models.RegistrationApiUserModel;
 import kul.pl.biblioteka.models.RegistrationUserModel;
 import kul.pl.biblioteka.utils.StringHelper;
@@ -47,6 +48,11 @@ public class RegisterActivityPresenter extends APIAdapter implements RegisterAct
         }
     }
 
+    @Override
+    public void loginUser(LoginApiUserModel model) {
+        api.getAuthorization(model);
+    }
+
     private boolean validateFields(RegistrationUserModel user) {
         if (!StringHelper.validateLoginRegistration(user.getNick())) {
             view.errorNickIncorrect();
@@ -83,6 +89,11 @@ public class RegisterActivityPresenter extends APIAdapter implements RegisterAct
 
     @Override
     public void onRegistrationSuccesses() {
+        view.onSuccessRegistration();
+    }
+
+    @Override
+    public void onLoginSuccesses() {
         view.endProgressBar();
         view.showToast(String.valueOf(R.string.successful_registration));
         view.openContinueDialog();

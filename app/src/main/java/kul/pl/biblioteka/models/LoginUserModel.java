@@ -1,6 +1,6 @@
 package kul.pl.biblioteka.models;
 
-public class LoginUserModel {
+public class LoginApiUserModel {
 
     private String nick;
     private String email;
