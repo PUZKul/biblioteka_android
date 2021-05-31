@@ -4,6 +4,7 @@ import android.os.Handler;
 
 import java.util.List;
 
+import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
@@ -41,6 +42,8 @@ public class CopiesOfBooksDialogPresenter extends APIAdapter implements CopiesOf
             } else {
                 openNoInternetDialog();
             }
+        }else {
+            view.showToast(MainActivity.getAppContext().getString(R.string.choose_the_book));
         }
     }
 
@@ -52,7 +55,6 @@ public class CopiesOfBooksDialogPresenter extends APIAdapter implements CopiesOf
         } else {
             view.startProgressBar();
             if (InternetConnection.isConnection(MainActivity.getAppContext())) {
-                view.startProgressBar();
                 api.reserveBook(LocalDataAccess.getToken(), idBook);
             } else {
                 openNoInternetDialog();

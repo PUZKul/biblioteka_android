@@ -77,7 +77,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
         switchEditPassword.setOnClickListener(checkBoxOnClickListener);
     }
 
-    private View.OnClickListener checkBoxOnClickListener = new View.OnClickListener() {
+    private final View.OnClickListener checkBoxOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             checkBoxStatus();
@@ -88,10 +88,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().
-                        add(((ViewGroup)getView().getParent()).getId(),new ProfileFragment(),"Profile")
-                        .addToBackStack(getView().getClass().getName())
-                        .commit();
+                getActivity().onBackPressed();
             }
         };
     }

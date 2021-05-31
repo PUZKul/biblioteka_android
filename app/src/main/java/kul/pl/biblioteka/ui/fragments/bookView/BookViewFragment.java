@@ -80,7 +80,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     private final View.OnClickListener backOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            openHomeFragment();
+            getActivity().onBackPressed();
         }
     };
 
@@ -97,13 +97,6 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
             }
         }
     };
-
-    private void openHomeFragment() {
-        getActivity().getSupportFragmentManager().beginTransaction().
-                replace(((ViewGroup) getView().getParent()).getId(), new FirstWindowFragment())
-                .addToBackStack(getView().getClass().getName())
-                .commit();
-    }
 
     private void initComponents(View view) {
         imageView = view.findViewById(R.id.imageView);
