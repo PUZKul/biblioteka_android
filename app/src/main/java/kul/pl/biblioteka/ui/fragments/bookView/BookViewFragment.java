@@ -54,12 +54,12 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_book_view, container, false);
-       initComponents(view);
-        noInternetDialog=new NoInternetDialog(this);
-       presenter = new BookViewFragmentPresenter(this, this.getArguments().getInt("idBook"));
-        copiesOfBooksDialog =new CopiesOfBooksDialog(this);
-       presenter.setBook();
-       setOnClickListeners();
+        initComponents(view);
+        noInternetDialog = new NoInternetDialog(this);
+        presenter = new BookViewFragmentPresenter(this, this.getArguments().getInt("idBook"));
+        copiesOfBooksDialog = new CopiesOfBooksDialog(this);
+        presenter.setBook();
+        setOnClickListeners();
         return view;
     }
 
@@ -87,14 +87,12 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     private final View.OnClickListener borrowOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if(InternetConnection.isConnection(MainActivity.getAppContext()))
-            {
-                Bundle bundle=new Bundle();
-                bundle.putInt("id",presenter.getIdBook());
+            if (InternetConnection.isConnection(MainActivity.getAppContext())) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", presenter.getIdBook());
                 copiesOfBooksDialog.setArguments(bundle);
-                copiesOfBooksDialog.show(getActivity().getSupportFragmentManager(),presenter.getIdBook()+"");
-            }
-            else {
+                copiesOfBooksDialog.show(getActivity().getSupportFragmentManager(), presenter.getIdBook() + "");
+            } else {
                 openNoInternetDialog();
             }
         }
@@ -102,9 +100,9 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
 
     private void openHomeFragment() {
         getActivity().getSupportFragmentManager().beginTransaction().
-        replace(((ViewGroup) getView().getParent()).getId(),new FirstWindowFragment())
-        .addToBackStack(getView().getClass().getName())
-        .commit();
+                replace(((ViewGroup) getView().getParent()).getId(), new FirstWindowFragment())
+                .addToBackStack(getView().getClass().getName())
+                .commit();
     }
 
     private void initComponents(View view) {
@@ -117,14 +115,14 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
         availabilityStatus = view.findViewById(R.id.BookView_text_available);
         ratingBar = view.findViewById(R.id.ratingBar);
         backBtn = view.findViewById(R.id.BookView_button_back);
-        borrowBtn=view.findViewById(R.id.BookView_button_borrow);
-        infoImage=view.findViewById(R.id.BookView_image_info);
+        borrowBtn = view.findViewById(R.id.BookView_button_borrow);
+        infoImage = view.findViewById(R.id.BookView_image_info);
         progressBar = view.findViewById(R.id.BookView_progressBar);
-        numberOfStars=view.findViewById(R.id.BookView_text_numberOfStars);
+        numberOfStars = view.findViewById(R.id.BookView_text_numberOfStars);
     }
 
     private void initBalloon(String message) {
-        balloon= new Balloon.Builder(MainActivity.getAppContext())
+        balloon = new Balloon.Builder(MainActivity.getAppContext())
                 .setArrowSize(12)
                 .setArrowOrientation(ArrowOrientation.BOTTOM)
                 .setArrowVisible(true)
@@ -167,7 +165,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
 
     @Override
     public void setImage(Uri uriImage) {
-       Picasso.with(getContext()).load(uriImage).into(imageView);
+        Picasso.with(getContext()).load(uriImage).into(imageView);
     }
 
     @Override
@@ -192,46 +190,46 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
 
     @Override
     public void setStars(double number) {
-       ratingBar.setRating((float) number);
+        ratingBar.setRating((float) number);
     }
 
     @Override
     public void startProgressBar() {
-            progressBar.setIndeterminate(true);
+        progressBar.setIndeterminate(true);
     }
 
     @Override
     public void endProgressBar() {
-         progressBar.setIndeterminate(false);
+        progressBar.setIndeterminate(false);
     }
 
     @Override
     public void openNoInternetDialog() {
-        noInternetDialog.show(getActivity().getSupportFragmentManager(),getString(R.string.no_internet_dialog));
+        noInternetDialog.show(getActivity().getSupportFragmentManager(), getString(R.string.no_internet_dialog));
         noInternetDialog.setOnClickedBack();
     }
 
     @Override
     public void goBackToTheFragment() {
-        Handler handler=new Handler();
+        Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 presenter.setBook();
                 noInternetDialog.closeDialog();
             }
-        },5000);
+        }, 5000);
     }
 
     @Override
     public void showNoInternetToast() {
-        Toast.makeText(MainActivity.getAppContext(),R.string.no_internet_message, Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.getAppContext(), R.string.no_internet_message, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void openEditProfileFragment() {
         getActivity().getSupportFragmentManager().beginTransaction().
-                replace(((ViewGroup) getView().getParent()).getId(),new EditProfile())
+                replace(((ViewGroup) getView().getParent()).getId(), new EditProfile())
                 .addToBackStack(getView().getClass().getName())
                 .commit();
     }

@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
-    android:background="@color/colorGray"
+    android:background="@drawable/dialog_style"
     android:layout_height="wrap_content">
 
     <TextView
@@ -11,42 +11,44 @@
         android:layout_width="312dp"
         android:layout_height="113dp"
         android:layout_marginTop="32dp"
-        android:layout_marginStart="20px"
-        android:layout_marginEnd="20px"
-        android:textColor="@color/colorPrimaryBlue"
-        android:text="@string/do_you_want_to_continue_the_registration"
+        android:layout_margin="20dp"
+        android:text="@string/do_you_want_to_finish_setting_up_your_account"
         android:textAlignment="center"
+        android:textColor="@color/colorPrimaryBlue"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/dialog_conitinue_registration_go_to"
-        android:layout_width="130dp"
-        android:layout_height="71dp"
-        android:layout_marginStart="5dp"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
         android:layout_marginTop="40dp"
-        android:background="@drawable/btn_secondary"
-        android:padding="18dp"
-        android:text="@string/go_to_the_books"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/btn_primary"
+        android:text="@string/leter"
+        android:textColor="@color/colorPrimaryBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.185"
+        app:layout_constraintHorizontal_bias="0.169"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_conitinue_registration_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/dialog_conitinue_registration_text_view"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/dialog_conitinue_registration_comlpete"
-        android:layout_width="130dp"
-        android:layout_height="70dp"
-        android:background="@drawable/btn_secondary"
+        android:layout_width="104dp"
+        android:layout_height="40dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="5px"
-        android:text="@string/complete_the_registration"
+        android:background="@drawable/btn_primary"
+        android:text="@string/yes"
+        android:textColor="@color/colorPrimaryBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.912"
+        app:layout_constraintHorizontal_bias="0.838"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_conitinue_registration_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/dialog_conitinue_registration_text_view"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

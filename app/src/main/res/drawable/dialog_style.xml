@@ -4,11 +4,14 @@
     <solid
         android:color="@color/colorPrimaryBackground">
     </solid>
+    <stroke
+        android:width="3dp"
+        android:color="@color/colorPrimaryBlue" />
     <corners
-        android:topLeftRadius="30sp"
-        android:topRightRadius="30sp"
-        android:bottomLeftRadius="30sp"
-        android:bottomRightRadius="30sp">
+        android:topLeftRadius="3sp"
+        android:topRightRadius="3sp"
+        android:bottomLeftRadius="3sp"
+        android:bottomRightRadius="3sp">
     </corners>
 </shape>
 
