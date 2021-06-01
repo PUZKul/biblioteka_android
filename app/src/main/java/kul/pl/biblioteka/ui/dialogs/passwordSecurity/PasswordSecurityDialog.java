@@ -66,10 +66,8 @@ public class PasswordSecurityDialog   extends AppCompatDialogFragment {
         edit=view.findViewById(R.id.password_security_btn_confirm);
     }
 
-    private View.OnClickListener onClickedBack=new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-                dismiss();
-        }
-    };
+    public void closeDialog(){
+        dismiss();
+    }
+
 }
