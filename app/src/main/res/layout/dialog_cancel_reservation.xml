@@ -4,9 +4,21 @@
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:background="@drawable/dialog_style"
     android:padding="18dp">
 
+    <TextView
+        android:id="@+id/cancet_reservation_dialog_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel_book_reservation"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryBlue"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"

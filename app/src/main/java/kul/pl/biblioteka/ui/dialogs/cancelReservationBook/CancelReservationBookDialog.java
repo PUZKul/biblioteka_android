@@ -26,7 +26,6 @@ public class CancelReservationBookDialog extends AppCompatDialogFragment {
         View view = inflater.inflate(R.layout.dialog_cancel_reservation,null);
         initComponents(view);
         setOnClickListeners();
-        builder.setTitle(R.string.cancel_reservation_book);
         builder.setView(view);
         return builder.create();
     }
