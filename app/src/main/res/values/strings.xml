@@ -4,21 +4,21 @@
     <string name="book">Book</string>
     <string name="profile">Profile</string>
     <string name="menu">Menu</string>
-    <string name="avatar">Avatar</string>
-    <string name="nick">Nick</string>
+    <string name="avatar" translatable="false">Avatar</string>
+    <string name="nick" translatable="false">Nick</string>
     <string name="read_books">Read books</string>
     <string name="current_books">Current books</string>
-    <string name="zero">0</string>
-    <string name="Exp">exp</string>
+    <string name="zero" translatable="false">0</string>
+    <string name="Exp" translatable="false">exp</string>
     <string name="level">level</string>
     <string name="enter_your_password">Enter your password</string>
     <string name="create_account">Create account</string>
-    <string name="todo">todo</string>
-    <string name="email">Email</string>
+    <string name="todo" translatable="false">todo</string>
+    <string name="email" translatable="false">Email</string>
     <string name="password">Password</string>
     <string name="repeat_password">Repeat password</string>
     <string name="register">Register</string>
-    <string name="login">Login</string>
+    <string name="login" translatable="false">Login</string>
     <string name="library">Library</string>
     <string name="new_password">New password</string>
     <string name="Cancel">Cancel</string>
@@ -36,13 +36,13 @@
     <string name="top_books">Top books</string>
     <string name="discover">Discover</string>
     <string name="author">Author:</string>
-    <string name="one">1</string>
+    <string name="one" translatable="false">1</string>
     <string name="author_name_text">Author name</string>
     <string name="publisher_name_text">Publisher name</string>
     <string name="pages">Pages:</string>
     <string name="count_of_pages">Count of pages</string>
     <string name="year">Year:</string>
-    <string name="yyyy_mm_dd">YYYY-MM-DD</string>
+    <string name="yyyy_mm_dd" translatable="false">YYYY-MM-DD</string>
     <string name="available">Available:</string>
     <string name="count_of_available_copies">Count of available copies</string>
     <string name="back">Back</string>
@@ -58,7 +58,7 @@
     <string name="status">Status</string>
     <string name="title_of_the_book">Title of the book</string>
     <string name="only_logged_in_users_can_borrow_the_book">Only logged in users can borrow the book </string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="clicktologinin">ClickToLoginIn</string>
     <string name="login_in">Login In</string>
     <string name="incorect_data">Incorrect data</string>
@@ -80,7 +80,7 @@
     <string name="no_signal">No Signal</string>
     <string name="login_is_empty">Login is empty</string>
     <string name="password_is_empty">Password is empty</string>
-    <string name="no_internet_dialog">No Internet dialog</string>
+    <string name="no_internet_dialog" translatable="false">No Internet dialog</string>
     <string name="incorrect_data">Incorrect data</string>
     <string name="no_internet_message">Operation unavailable. Still no internet.</string>
     <string name="you_booked_a_book">You booked a book</string>
@@ -89,7 +89,7 @@
     <string name="last_name">Last name:</string>
     <string name="phone">Phone:</string>
     <string name="address">Address:</string>
-    <string name="empty" />
+    <string name="empty" translatable="false" />
     <string name="books_sorted_by_title">Books sorted by title</string>
     <string name="books_sorted_by_date">Books sorted by date</string>
     <string name="discover_books">Discover books</string>
