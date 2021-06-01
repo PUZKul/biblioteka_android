@@ -42,6 +42,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
     private ProgressBar progressBar;
     private EditProfileContract.Presenter presenter;
     private  NoInternetDialog dialog;
+   private PasswordSecurityDialog securityDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
         presenter.setUserDetails();
         hideEditPasswordsFields();
         dialog =new  NoInternetDialog(this);
+        securityDialog=new PasswordSecurityDialog(this);
         return view;
     }
 
@@ -182,8 +184,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
 
     @Override
     public void openDialog() {
-        PasswordSecurityDialog dialog=new PasswordSecurityDialog(this);
-        dialog.show(getActivity().getSupportFragmentManager(),"password dialog");
+        securityDialog.show(getActivity().getSupportFragmentManager(),"password dialog");
     }
 
     @Override
@@ -229,6 +230,12 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
     @Override
     public void onRefresh() {
         presenter.setUserDetails();
+    }
+
+    @Override
+    public void closeFragment() {
+        securityDialog.closeDialog();
+        getActivity().onBackPressed();
     }
 
     @Override
@@ -283,6 +290,3 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
         Toast.makeText(MainActivity.getAppContext(),R.string.no_internet_message, Toast.LENGTH_LONG).show();
     }
 }
-
-
-

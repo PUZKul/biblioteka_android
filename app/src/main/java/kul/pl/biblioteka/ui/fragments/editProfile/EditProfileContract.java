@@ -51,6 +51,8 @@ public interface EditProfileContract {
         String getPhone();
 
         void onRefresh();
+
+        void closeFragment();
     }
 
     interface Presenter {

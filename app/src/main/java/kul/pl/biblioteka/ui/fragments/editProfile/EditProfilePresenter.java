@@ -75,6 +75,7 @@ public class EditProfilePresenter extends APIAdapter implements EditProfileContr
     public void onEditUserReceive() {
         view.endProgressBar();
         view.showToast("The data has been edited");
+        view.closeFragment();
     }
 
     @Override
