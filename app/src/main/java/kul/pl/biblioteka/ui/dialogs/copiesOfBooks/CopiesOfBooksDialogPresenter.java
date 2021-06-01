@@ -83,6 +83,8 @@ public class CopiesOfBooksDialogPresenter extends APIAdapter implements CopiesOf
         view.endProgressBar();
         if (error.getStatus() == 403) {
             view.showStopBorrowDialog();
+        }else if(error.getStatus()==400){
+            view.openIncreaseTheLimitDialog();
         }
     }
 

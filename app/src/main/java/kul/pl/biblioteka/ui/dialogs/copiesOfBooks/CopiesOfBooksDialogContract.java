@@ -31,5 +31,7 @@ interface CopiesOfBooksDialogContract {
         void showStopBorrowDialog();
 
         void onRefresh();
+
+        void openIncreaseTheLimitDialog();
     }
 }
