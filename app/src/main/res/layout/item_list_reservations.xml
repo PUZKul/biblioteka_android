@@ -26,6 +26,7 @@
             android:id="@+id/reservation_item_list_text_title"
             android:layout_width="287dp"
             android:layout_height="22dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="16dp"
             android:ellipsize="end"
             android:maxLines="1"
@@ -46,7 +47,7 @@
             android:text="@string/reserved"
             android:textColor="@color/colorSecondaryDark"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.041"
+            app:layout_constraintHorizontal_bias="0.019"
             app:layout_constraintStart_toEndOf="@+id/reservation_item_list_image"
             app:layout_constraintTop_toBottomOf="@+id/reservation_item_list_text_title" />
 
@@ -69,28 +70,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="52dp"
-            android:text="@string/how_much_days_ago"
+            android:layout_marginTop="4dp"
+            android:text="@string/yyyy_mm_dd"
             android:textColor="@color/colorPrimaryDark"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.034"
+            app:layout_constraintHorizontal_bias="0.59"
             app:layout_constraintStart_toEndOf="@+id/reservation_item_list_image"
-            app:layout_constraintTop_toTopOf="@+id/reservation_item_list_text_dateOfBorrow" />
+            app:layout_constraintTop_toBottomOf="@+id/reservation_item_list_text_dateOfBorrow" />
+
+        <TextView
+            android:id="@+id/reservation_item_list_text_available"
+            android:layout_width="84dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/available_to"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.021"
+            app:layout_constraintStart_toEndOf="@+id/reservation_item_list_image"
+            app:layout_constraintTop_toBottomOf="@+id/reservation_item_list_text_title" />
 
         <Button
             android:id="@+id/reservation_item_list_button_Cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
             android:layout_marginTop="56dp"
+            android:layout_marginEnd="4dp"
             android:fontFamily="sans-serif-light"
             android:text="@string/Cancel"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorBackgroundNoLogin"
             android:textSize="10sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.938"
-            app:layout_constraintStart_toEndOf="@+id/reservation_item_list_text_timeAgo"
             app:layout_constraintTop_toTopOf="@+id/reservation_item_list_text_dateOfBorrow" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,6 +40,7 @@ public class ReservationListRecycleViewAdapter extends RecyclerView.Adapter<Rese
         holder.setImageBook(Uri.parse(booksLists.get(position).getImageUri()));
         holder.setReservationTextView(Helper.getShortDate(booksLists.get(position).getDateReservation()));
         holder.setTitleTextView(booksLists.get(position).getTitle());
+        holder.setTimeAgoTextView(Helper.getReservationDate(booksLists.get(position).getDateReservation()));
         holder.setIdBook(booksLists.get(position).getId());
     }
 
