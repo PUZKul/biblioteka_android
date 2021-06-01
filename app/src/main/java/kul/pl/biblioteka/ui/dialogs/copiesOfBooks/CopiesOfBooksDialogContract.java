@@ -10,6 +10,8 @@ interface CopiesOfBooksDialogContract {
 
         void reserveBook(long idBook);
 
+        void increaseLimit(String  decryption);
+
     }
 
     interface View{

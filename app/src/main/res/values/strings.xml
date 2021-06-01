@@ -145,4 +145,7 @@
     <string name="if_you_want_to_borrow_a_book_complete_the_contact_details_do_you_want_to_refill_now">If you want to borrow a book, complete the contact details. Do you want to refill now?</string>
     <string name="choose_the_book">Choose the book.</string>
     <string name="available_to">Available to:</string>
+    <string name="book_is_not_available">Book isn\'t available</string>
+    <string name="message_was_sent">Message was sent</string>
+    <string name="edit">edit</string>
 </resources>

@@ -101,4 +101,9 @@ public abstract class APIAdapter implements APIListener {
     public void onExtendBookRentalReceive() {
 
     }
+
+    @Override
+    public void onIncreaseLimitReceive() {
+
+    }
 }

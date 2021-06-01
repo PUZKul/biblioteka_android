@@ -95,8 +95,11 @@ public interface HTTPMethods {
                                                                @Query("page") int page,
                                                                @Header("Authorization") String token);
 
-    @GET("\n" +
-            "/api/library/users/currentBooks/extend/{borrowId}")
+    @GET("/api/library/users/currentBooks/extend/{borrowId}")
     Call<Void> getExternalBookRental(@Path("borrowId") int borrowId,
                                      @Header("Authorization") String token);
+    //todo change
+    @GET("/api/library/users/reservations/increase/{reservationId}")
+    Call<Void> increaseTheLimit(@Header("Authorization") String token,
+                                    @Path("reservationId") String decryption);
 }

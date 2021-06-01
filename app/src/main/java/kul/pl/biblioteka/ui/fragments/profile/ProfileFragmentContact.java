@@ -30,6 +30,8 @@ public interface ProfileFragmentContact {
 
         void onRefresh();
 
+        void showToast(String message);
+
     }
 
     interface Presenter {
@@ -38,5 +40,6 @@ public interface ProfileFragmentContact {
 
         void logoutUser();
 
+        void increaseLimit(String decryption);
     }
 }

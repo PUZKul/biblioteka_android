@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -21,6 +22,7 @@ import kul.pl.biblioteka.ui.dialogs.continueRegsistration.ContinueRegistrationDi
 import kul.pl.biblioteka.ui.dialogs.continueRegsistration.ContinueRegistrationDialogListener;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
+import kul.pl.biblioteka.ui.fragments.editProfile.EditProfile;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterActivityContract.View, NoInternetDialogListener, ContinueRegistrationDialogListener {
 
@@ -196,8 +198,9 @@ public class RegisterActivity extends AppCompatActivity implements RegisterActiv
 
     @Override
     public void onContinueClicked() {
-        //todo change it
-        startActivity(new Intent(this, MainActivity.class));
+        Intent intent=new Intent(this, MainActivity.class);
+        intent.putExtra(getString(R.string.edit),getString(R.string.edit));
+        startActivity(intent);
     }
 
     @Override

@@ -29,7 +29,6 @@ import kul.pl.biblioteka.ui.dialogs.copiesOfBooks.CopiesOfBooksListener;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.fragments.editProfile.EditProfile;
-import kul.pl.biblioteka.ui.fragments.firstWindow.FirstWindowFragment;
 
 public class BookViewFragment extends Fragment implements BookViewFragmentContract.View, NoInternetDialogListener, CopiesOfBooksListener {
 
@@ -56,7 +55,7 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
         View view = inflater.inflate(R.layout.fragment_book_view, container, false);
         initComponents(view);
         noInternetDialog = new NoInternetDialog(this);
-        presenter = new BookViewFragmentPresenter(this, this.getArguments().getInt("idBook"));
+        presenter = new BookViewFragmentPresenter(this, this.getArguments().getInt(MainActivity.getAppContext().getString(R.string.idBook)));
         copiesOfBooksDialog = new CopiesOfBooksDialog(this);
         presenter.setBook();
         setOnClickListeners();

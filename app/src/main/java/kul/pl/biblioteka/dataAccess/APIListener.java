@@ -47,4 +47,6 @@ public interface APIListener {
     void onReservationBooksReceive(PageHolder<ReservationBookModel> books);
 
     void onExtendBookRentalReceive();
+
+    void onIncreaseLimitReceive();
 }

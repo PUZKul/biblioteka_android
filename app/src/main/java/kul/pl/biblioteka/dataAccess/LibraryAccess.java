@@ -127,4 +127,9 @@ public final class LibraryAccess extends LibraryAPI{
         HTTPMethods.getExternalBookRental(idBook,token)
                 .enqueue(callbackExternalBooksRental);
     }
+
+    public void increaseLimit(String token,String decryption){
+        HTTPMethods.increaseTheLimit(token,decryption)
+                .enqueue(callbackForIncreaseLimit);
+    }
 }

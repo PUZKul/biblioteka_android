@@ -308,4 +308,21 @@ abstract class LibraryAPI {
             listener.onRefreshServer();
         }
     };
+    //todo change it
+    protected Callback<Void> callbackForIncreaseLimit = new Callback<Void>() {
+        @Override
+        public void onResponse(Call<Void> call, Response<Void> response) {
+            if (response.isSuccessful()) {
+                listener.onIncreaseLimitReceive();
+            } else {
+                ApiError apiError = ApiErrorParser.parseError(response);
+                ApiExceptionHandler.handle(apiError);
+                listener.onErrorReceive(apiError);
+            }
+        }
+        @Override
+        public void onFailure(Call<Void> call, Throwable t) {
+            listener.onRefreshServer();
+        }
+    };
 }

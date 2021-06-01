@@ -48,6 +48,16 @@ public class CopiesOfBooksDialogPresenter extends APIAdapter implements CopiesOf
     }
 
     @Override
+    public void increaseLimit(String decryption) {
+        api.increaseLimit(LocalDataAccess.getToken(),decryption);
+    }
+
+    @Override
+    public void onIncreaseLimitReceive() {
+        view.showToast(MainActivity.getAppContext().getString(R.string.message_was_sent));
+    }
+
+    @Override
     public void onUserDetailsReceive(UserModel user) {
         if (user.getPhone() == null) {
             view.openInformDialog();
@@ -85,6 +95,8 @@ public class CopiesOfBooksDialogPresenter extends APIAdapter implements CopiesOf
             view.showStopBorrowDialog();
         }else if(error.getStatus()==400){
             view.openIncreaseTheLimitDialog();
+        }else if(error.getStatus()==409){
+            view.showToast(MainActivity.getAppContext().getString(R.string.book_is_not_available));
         }
     }
 

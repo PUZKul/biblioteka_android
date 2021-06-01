@@ -2,6 +2,7 @@ package kul.pl.biblioteka.ui.fragments.profile;
 
 import android.os.Handler;
 
+import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
@@ -64,6 +65,17 @@ public class ProfileFragmentPresenter extends APIAdapter implements ProfileFragm
     public void logoutUser() {
         LocalDataAccess.clean();
         view.openMainActivity();
+    }
+
+    @Override
+    public void increaseLimit(String decryption) {
+        System.out.println(decryption);
+        api.increaseLimit(LocalDataAccess.getToken(),decryption);
+    }
+
+    @Override
+    public void onIncreaseLimitReceive() {
+        view.showToast(MainActivity.getAppContext().getString(R.string.message_was_sent));
     }
 
     @Override

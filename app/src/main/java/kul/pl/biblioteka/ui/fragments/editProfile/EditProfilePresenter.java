@@ -80,7 +80,6 @@ public class EditProfilePresenter extends APIAdapter implements EditProfileContr
 
     @Override
     public void onErrorReceive(ApiError error) {
-        //todo catch error
         view.endProgressBar();
     }
 

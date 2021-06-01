@@ -31,7 +31,6 @@ import kul.pl.biblioteka.ui.dialogs.filContactDetails.FilContactDetailsDialog;
 import kul.pl.biblioteka.ui.dialogs.filContactDetails.FilContactDetailsDialogListener;
 import kul.pl.biblioteka.ui.dialogs.stopBorrow.StopBorrowDialog;
 
-
 public class CopiesOfBooksDialog extends AppCompatDialogFragment implements CopiesOfBooksDialogContract.View, NoInternetDialogListener, FilContactDetailsDialogListener, IncreaseTheLimitDialogListener {
 
     private RecyclerView recyclerView;
@@ -44,7 +43,6 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
     private IncreaseTheLimitDialog increaseTheLimitDialog;
     private CopiesOfBooksListener listener;
 
-
     public CopiesOfBooksDialog(CopiesOfBooksListener listener) {
         this.listener = listener;
     }
@@ -52,10 +50,10 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(),2);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), 2);
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_copies_of_books, null);
-        increaseTheLimitDialog=new IncreaseTheLimitDialog(this);
+        increaseTheLimitDialog = new IncreaseTheLimitDialog(this);
         initComponents(view);
         presenter = new CopiesOfBooksDialogPresenter(this, this.getArguments().getInt("id"));
         setOnClickListener();
@@ -140,7 +138,7 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
     @Override
     public void openInformDialog() {
         FilContactDetailsDialog dialog = new FilContactDetailsDialog(this);
-        dialog.show(getFragmentManager(),"");
+        dialog.show(getFragmentManager(), "");
     }
 
     @Override
@@ -161,7 +159,7 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
 
     @Override
     public void openIncreaseTheLimitDialog() {
-        increaseTheLimitDialog.show(getFragmentManager(),"");
+        increaseTheLimitDialog.show(getFragmentManager(), "");
     }
 
     @Override
@@ -172,6 +170,7 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
 
     @Override
     public void onSendClicked(String message) {
-        //todo send to api
+        dismiss();
+        presenter.increaseLimit(message);
     }
 }

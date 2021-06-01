@@ -91,7 +91,6 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
         };
     }
 
-
     private View.OnClickListener menuButtonOnClickListener() {
         return new View.OnClickListener() {
             @Override
@@ -185,7 +184,6 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
         this.phone.setText(phone);
     }
 
-
     @Override
     public void openOnInternetDialog() {
         dialog.show(getActivity().getSupportFragmentManager(), getString(R.string.no_internet_dialog));
@@ -211,6 +209,11 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
     }
 
     @Override
+    public void showToast(String message) {
+        Toast.makeText(getContext(),message,Toast.LENGTH_LONG).show();
+    }
+
+    @Override
     public void goBackToTheFragment() {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -229,6 +232,6 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
 
     @Override
     public void onSendClicked(String message) {
-        //todo send to api
+        presenter.increaseLimit(message);
     }
 }
