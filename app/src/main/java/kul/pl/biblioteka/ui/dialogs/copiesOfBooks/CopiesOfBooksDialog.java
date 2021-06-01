@@ -24,6 +24,7 @@ import kul.pl.biblioteka.adapter.copiesOfBookList.CopiesOfBookListRecycleViewAda
 import kul.pl.biblioteka.models.CopiesOfBookModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.dialogs.increaseTheLimit.IncreaseTheLimitDialog;
+import kul.pl.biblioteka.ui.dialogs.increaseTheLimit.IncreaseTheLimitDialogListener;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.dialogs.filContactDetails.FilContactDetailsDialog;
@@ -31,7 +32,7 @@ import kul.pl.biblioteka.ui.dialogs.filContactDetails.FilContactDetailsDialogLis
 import kul.pl.biblioteka.ui.dialogs.stopBorrow.StopBorrowDialog;
 
 
-public class CopiesOfBooksDialog extends AppCompatDialogFragment implements CopiesOfBooksDialogContract.View, NoInternetDialogListener, FilContactDetailsDialogListener {
+public class CopiesOfBooksDialog extends AppCompatDialogFragment implements CopiesOfBooksDialogContract.View, NoInternetDialogListener, FilContactDetailsDialogListener, IncreaseTheLimitDialogListener {
 
     private RecyclerView recyclerView;
     private Button back;
@@ -54,8 +55,7 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(),2);
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_copies_of_books, null);
-        //todo change constructor increase the limit dialog
-        increaseTheLimitDialog=new IncreaseTheLimitDialog();
+        increaseTheLimitDialog=new IncreaseTheLimitDialog(this);
         initComponents(view);
         presenter = new CopiesOfBooksDialogPresenter(this, this.getArguments().getInt("id"));
         setOnClickListener();
@@ -168,5 +168,10 @@ public class CopiesOfBooksDialog extends AppCompatDialogFragment implements Copi
     public void onContinueRegistrationClicked() {
         dismiss();
         listener.openEditProfileFragment();
+    }
+
+    @Override
+    public void onSendClicked(String message) {
+        //todo send to api
     }
 }
