@@ -1,7 +1,6 @@
 package kul.pl.biblioteka.adapter.reservationList;
 
 import android.net.Uri;
-import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,5 +47,4 @@ public class ReservationListRecycleViewAdapter extends RecyclerView.Adapter<Rese
     public int getItemCount() {
         return booksLists.size();
     }
-
 }

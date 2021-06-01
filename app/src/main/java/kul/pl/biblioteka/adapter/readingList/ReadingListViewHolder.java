@@ -21,7 +21,7 @@ public class ReadingListViewHolder extends RecyclerView.ViewHolder {
     private TextView titleTextView;
     private TextView borrowedTextView;
     private TextView timeAgoTextView;
-    private Button button;
+    private TextView button;
     private OnItemClickListener listener;
     private int idBook;
 
@@ -47,7 +47,7 @@ public class ReadingListViewHolder extends RecyclerView.ViewHolder {
         imageBook = view.findViewById(R.id.reading_item_list_image);
         titleTextView = view.findViewById(R.id.reading_item_list_textView_title);
         borrowedTextView = view.findViewById(R.id.reading_item_list_textView_dateOfBorrow);
-        timeAgoTextView = view.findViewById(R.id.reading_item_list_textView_timeAgo);
+        timeAgoTextView = view.findViewById(R.id.reading_item_list_textView_dateOfBorrow2);
         button = view.findViewById(R.id.reading_item_list_button_extend_book);
     }
 

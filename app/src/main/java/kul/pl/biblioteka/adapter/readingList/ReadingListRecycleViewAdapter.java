@@ -43,7 +43,7 @@ public class ReadingListRecycleViewAdapter extends RecyclerView.Adapter<ReadingL
         holder.setBorrowedText(Helper.getShortDate(booksList.get(position).getDateIssued()));
         holder.setImageBook(Uri.parse(booksList.get(position).getImageUrl()));
         holder.setTitleText(booksList.get(position).getTitle());
-        holder.setTimeAgoText(Helper.getDefaultDateFormat(booksList.get(position).getExpectedDate()));
+        holder.setTimeAgoText(Helper.getReservationDate(booksList.get(position).getExpectedDate()));
         holder.setIdBook((int) booksList.get(position).getId());
     }
 
