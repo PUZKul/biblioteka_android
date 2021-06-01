@@ -125,11 +125,13 @@
     <string name="if_you_want_to_borrow_a_book_you_must_complete_the_registration">Jeśli chcesz wypożyczyć kiążke musisz dokończyć rejestrację</string>
     <string name="continue_registration">" Kontynuuj rejestrację"</string>
     <string name="decryption">Opis</string>
-    <string name="enter_a_reason_for_the_limit">Podaj powód zwiększenia limitu</string>
+    <string name="enter_a_reason_for_the_limit">Twój limit wypożyczania książek wynosi 3. Jeśli chcesz zwiększyć limit, podaj przyczynę i wyślij.</string>
     <string name="decryption_is_empty">Opis jest niedostępny</string>
-    <string name="do_you_want_to_finish_setting_up_your_account">Czy chcesz dokończyć konfigurację swojego konta</string>
+    <string name="do_you_want_to_finish_setting_up_your_account">Czy chcesz dokończyć konfigurację swojego konta?</string>
     <string name="create_your_own_reading_list">Utwórz własną listę przeczytanych książek</string>
     <string name="if_you_want_to_borrow_a_book_complete_the_contact_details_do_you_want_to_refill_now">Jeśli chcesz wypożyczyć książkę, uzupełnij dane kontaktowe, czy chcesz uzupełnić teraz?</string>
     <string name="LoanDoesntExtend">Limit nie został rozszerzony</string>
     <string name="LoanExtend">Limit został rozszerzony</string>
+    <string name="home">Ekran główny</string>
+    <string name="available_to">Dostępne od:</string>
 </resources>
