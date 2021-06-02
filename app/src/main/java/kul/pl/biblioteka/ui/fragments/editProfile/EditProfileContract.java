@@ -53,6 +53,26 @@ public interface EditProfileContract {
         void onRefresh();
 
         void closeFragment();
+
+        void emailIsEmpty();
+
+        void firstNameIsEmpty();
+
+        void lastNameIsEmpty();
+
+        void addressIsEmpty();
+
+        void phoneIsEmpty();
+
+        void emailErrorMessage();
+
+        void firstNameErrorMessage();
+
+        void lastNameErrorMessage();
+
+        void addressErrorMessage();
+
+        void phoneErrorMessage();
     }
 
     interface Presenter {

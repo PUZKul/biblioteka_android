@@ -7,6 +7,7 @@ import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
+import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.UserBookDetails;
 import kul.pl.biblioteka.models.UserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
@@ -69,8 +70,12 @@ public class ProfileFragmentPresenter extends APIAdapter implements ProfileFragm
 
     @Override
     public void increaseLimit(String decryption) {
-        System.out.println(decryption);
         api.increaseLimit(LocalDataAccess.getToken(),decryption);
+    }
+
+    @Override
+    public void onErrorReceive(ApiError error) {
+        System.out.println(error.getStatus());
     }
 
     @Override

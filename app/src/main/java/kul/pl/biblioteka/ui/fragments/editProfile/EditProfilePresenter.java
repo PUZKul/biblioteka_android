@@ -12,6 +12,7 @@ import kul.pl.biblioteka.models.RegistrationUserModel;
 import kul.pl.biblioteka.models.UserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.utils.StringHelper;
+import kul.pl.biblioteka.validators.EditUserValidator;
 
 public class EditProfilePresenter extends APIAdapter implements EditProfileContract.Presenter {
 
@@ -29,11 +30,8 @@ public class EditProfilePresenter extends APIAdapter implements EditProfileContr
     @Override
     public void onSaveClicked(RegistrationUserModel user) {
         if (!view.isCheckedBoxEditPassword()) {
-            if (StringHelper.validateEmailRegistration(user.getEmail())) {
-                view.errorEmailIncorrect();
-            } else {
+            if (EditProfileValidation.validateEditProfileFields(view))
                 view.openDialog();
-            }
         } else {
             if (validateFields(user)) {
                 view.openDialog();
@@ -61,7 +59,7 @@ public class EditProfilePresenter extends APIAdapter implements EditProfileContr
         }
     }
 
-    private void  openNoInternetDialog(){
+    private void openNoInternetDialog() {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override

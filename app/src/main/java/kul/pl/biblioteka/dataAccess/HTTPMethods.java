@@ -98,8 +98,8 @@ public interface HTTPMethods {
     @GET("/api/library/users/currentBooks/extend/{borrowId}")
     Call<Void> getExternalBookRental(@Path("borrowId") int borrowId,
                                      @Header("Authorization") String token);
-    //todo change
-    @GET("/api/library/users/reservations/increase/{reservationId}")
-    Call<Void> increaseTheLimit(@Header("Authorization") String token,
-                                    @Path("reservationId") String decryption);
+
+    @POST("/api/library/users/request/limit/{message}")
+    Call<Long> increaseTheLimit(@Header("Authorization") String token,
+                                    @Path("message") String decryption);
 }

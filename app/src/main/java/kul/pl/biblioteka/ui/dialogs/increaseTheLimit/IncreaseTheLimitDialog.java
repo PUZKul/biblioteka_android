@@ -26,9 +26,6 @@ public class IncreaseTheLimitDialog extends AppCompatDialogFragment {
         this.limitDialogListener = limitDialogListener;
     }
 
-    public IncreaseTheLimitDialog() {
-    }
-
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

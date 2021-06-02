@@ -239,6 +239,56 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
     }
 
     @Override
+    public void emailIsEmpty() {
+        editEmail.setError(getString(R.string.field_is_empty));
+    }
+
+    @Override
+    public void firstNameIsEmpty() {
+        firstName.setError(getString(R.string.field_is_empty));
+    }
+
+    @Override
+    public void lastNameIsEmpty() {
+        lastName.setError(getString(R.string.field_is_empty));
+    }
+
+    @Override
+    public void addressIsEmpty() {
+        address.setError(getString(R.string.field_is_empty));
+    }
+
+    @Override
+    public void phoneIsEmpty() {
+        phone.setError(getString(R.string.field_is_empty));
+    }
+
+    @Override
+    public void emailErrorMessage() {
+        editEmail.setError(getString(R.string.incorrect_email));
+    }
+
+    @Override
+    public void firstNameErrorMessage() {
+        firstName.setError(getString(R.string.incorrect_first_name));
+    }
+
+    @Override
+    public void lastNameErrorMessage() {
+        lastName.setError(getString(R.string.incorrect_last_name));
+    }
+
+    @Override
+    public void addressErrorMessage() {
+        address.setError(getString(R.string.incorrect_addres));
+    }
+
+    @Override
+    public void phoneErrorMessage() {
+        phone.setError(getString(R.string.incorresct_phone));
+    }
+
+    @Override
     public void errorEmailIncorrect() {
         editEmail.setError(getString(R.string.incorrect_email));
     }

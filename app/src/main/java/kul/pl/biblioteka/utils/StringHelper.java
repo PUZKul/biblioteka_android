@@ -25,4 +25,16 @@ public class StringHelper {
     public static boolean validateEmailRegistration(String email) {
         return email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$");
     }
+
+    public static boolean name(String name) {
+        return name.matches("^[\\p{L}'][ \\p{L}'-]*[\\p{L}]$");
+    }
+
+    public static boolean address(String address) {
+        return address.matches("^[#.0-9\\p{L}\\s\\/,-]+$");
+    }
+
+    public static boolean phone(String phone) {
+        return phone.matches("^[+]?[0-9]{9,11}$");
+    }
 }

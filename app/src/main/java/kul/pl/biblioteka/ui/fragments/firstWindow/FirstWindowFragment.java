@@ -32,7 +32,6 @@ import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.fragments.bookView.BookViewFragment;
 
-
 public class FirstWindowFragment extends Fragment implements FirstWindowFragmentContract.View, NoInternetDialogListener {
 
     private ImageButton sortBtn;
@@ -54,7 +53,7 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
         setDarkList();
         setOnClickListener();
         presenter = new FirstWindowFragmentPresenter(this, getContext());
-        dialog =new  NoInternetDialog(this);
+        dialog = new NoInternetDialog(this);
         presenter.setFirstLists();
         presenter.setPaginationComponent(view);
         return view;
@@ -208,7 +207,7 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
     @Override
     public void openOnInternetDialog() {
         setDarkList();
-        dialog.show(getActivity().getSupportFragmentManager(),getString(R.string.no_internet_dialog));
+        dialog.show(getActivity().getSupportFragmentManager(), getString(R.string.no_internet_dialog));
         dialog.setOnClickedBack();
     }
 
@@ -219,18 +218,18 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
 
     @Override
     public void goBackToTheFragment() {
-        Handler handler=new Handler();
+        Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 presenter.setFirstLists();
                 dialog.closeDialog();
             }
-        },5000);
+        }, 5000);
     }
 
     @Override
     public void showNoInternetToast() {
-        Toast.makeText(MainActivity.getAppContext(),R.string.no_internet_message, Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.getAppContext(), R.string.no_internet_message, Toast.LENGTH_LONG).show();
     }
 }
