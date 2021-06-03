@@ -52,10 +52,10 @@ public class ReadingFragment extends Fragment implements ReadingFragmentContact.
     @Override
     public void setList(List<HistoryBookModel> books) {
         if (books.size() != 0) {
-            recyclerView.setAdapter(new ReadingListRecycleViewAdapter(books,this));
+            recyclerView.setAdapter(new ReadingListRecycleViewAdapter(books, this));
         } else {
             getActivity().getSupportFragmentManager().beginTransaction().
-                    add(((ViewGroup) getView().getParent()).getId(), new EmptyReadingFragment(), "Empty")
+                    add(((ViewGroup) getView().getParent()).getId(), new EmptyReadingFragment(), "")
                     .addToBackStack(getView().getClass().getName())
                     .commit();
         }

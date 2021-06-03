@@ -45,11 +45,11 @@ public class HistoryFragmentPresenter extends APIAdapter implements HistoryFragm
     private View.OnClickListener previousClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if(InternetConnection.isConnection(MainActivity.getAppContext())){
+            if (InternetConnection.isConnection(MainActivity.getAppContext())) {
                 view.startProgressBar();
-                api.getHistoryBooks(LIMIT,pageBar.previousPage(),LocalDataAccess.getToken());
+                api.getHistoryBooks(LIMIT, pageBar.previousPage(), LocalDataAccess.getToken());
 
-            }else
+            } else
                 openNoInternetDialog();
         }
     };
@@ -57,9 +57,9 @@ public class HistoryFragmentPresenter extends APIAdapter implements HistoryFragm
     private View.OnClickListener nextClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if(InternetConnection.isConnection(MainActivity.getAppContext())){
-                    api.getHistoryBooks(LIMIT, pageBar.nextPage(), LocalDataAccess.getToken());
-            }else
+            if (InternetConnection.isConnection(MainActivity.getAppContext())) {
+                api.getHistoryBooks(LIMIT, pageBar.nextPage(), LocalDataAccess.getToken());
+            } else
                 openNoInternetDialog();
         }
     };
@@ -67,12 +67,12 @@ public class HistoryFragmentPresenter extends APIAdapter implements HistoryFragm
     private final View.OnClickListener pageClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if(InternetConnection.isConnection(MainActivity.getAppContext())){
+            if (InternetConnection.isConnection(MainActivity.getAppContext())) {
                 TextView text = pageBar.getView().findViewById(v.getId());
                 String value = text.getText().toString();
                 int clickedPage = Integer.parseInt(value) - 1;
-                api.getHistoryBooks(LIMIT,clickedPage,LocalDataAccess.getToken());
-            }else
+                api.getHistoryBooks(LIMIT, clickedPage, LocalDataAccess.getToken());
+            } else
                 openNoInternetDialog();
         }
     };
@@ -101,10 +101,6 @@ public class HistoryFragmentPresenter extends APIAdapter implements HistoryFragm
         else
             view.setEmptyLayout();
         view.endProgressBar();
-    }
-
-    @Override
-    public void onErrorReceive(ApiError error) {
     }
 
     @Override

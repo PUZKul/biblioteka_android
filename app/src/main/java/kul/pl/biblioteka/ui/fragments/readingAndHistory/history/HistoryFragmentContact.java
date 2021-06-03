@@ -5,7 +5,7 @@ import java.util.List;
 import kul.pl.biblioteka.models.HistoryBookModel;
 
 public interface HistoryFragmentContact {
-    interface View{
+    interface View {
         void setList(List<HistoryBookModel> books);
 
         void setDarkList();
@@ -19,10 +19,9 @@ public interface HistoryFragmentContact {
         void openOnInternetDialog();
 
         void onRefresh();
-
-
     }
-    interface Presenter{
+
+    interface Presenter {
         void setList();
 
         void setPaginationComponent(android.view.View view);

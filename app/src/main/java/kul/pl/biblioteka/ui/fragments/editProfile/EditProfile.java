@@ -23,7 +23,6 @@ import kul.pl.biblioteka.ui.dialogs.passwordSecurity.DialogPasswordSecurityListe
 import kul.pl.biblioteka.ui.dialogs.passwordSecurity.PasswordSecurityDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.fragments.firstWindow.FirstWindowFragment;
-import kul.pl.biblioteka.ui.fragments.profile.ProfileFragment;
 
 public class EditProfile extends Fragment implements EditProfileContract.View, DialogPasswordSecurityListener, NoInternetDialogListener {
 
@@ -41,8 +40,8 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
     private Button saveBtn;
     private ProgressBar progressBar;
     private EditProfileContract.Presenter presenter;
-    private  NoInternetDialog dialog;
-   private PasswordSecurityDialog securityDialog;
+    private NoInternetDialog dialog;
+    private PasswordSecurityDialog securityDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -52,8 +51,8 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
         presenter = new EditProfilePresenter(this);
         presenter.setUserDetails();
         hideEditPasswordsFields();
-        dialog =new  NoInternetDialog(this);
-        securityDialog=new PasswordSecurityDialog(this);
+        dialog = new NoInternetDialog(this);
+        securityDialog = new PasswordSecurityDialog(this);
         return view;
     }
 
@@ -67,10 +66,10 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
         progressBar = view.findViewById(R.id.editProfile_progresBar);
         cancelBtn = view.findViewById(R.id.editProfile_btn_cancel2);
         saveBtn = view.findViewById(R.id.editProfile_btn_save2);
-        firstName=view.findViewById(R.id.editProfile_editText_firstName);
-        lastName=view.findViewById(R.id.editProfile_editText_firstName2);
-        address=view.findViewById(R.id.editProfile_editText_address);
-        phone=view.findViewById(R.id.editProfile_editText_phone);
+        firstName = view.findViewById(R.id.editProfile_editText_firstName);
+        lastName = view.findViewById(R.id.editProfile_editText_firstName2);
+        address = view.findViewById(R.id.editProfile_editText_address);
+        phone = view.findViewById(R.id.editProfile_editText_phone);
     }
 
     private void setOnClickListeners() {
@@ -99,7 +98,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(switchEditPassword.isChecked())
+                if (switchEditPassword.isChecked())
                     presenter.onSaveClicked(new RegistrationUserModel(
                             editPassword.getText().toString()
                             , repeatEditedPassword.getText().toString()
@@ -130,7 +129,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
 
     public void openMainActivity() {
         getActivity().getSupportFragmentManager().beginTransaction().
-                add(((ViewGroup)getView().getParent()).getId(),new FirstWindowFragment(),"First window")
+                add(((ViewGroup) getView().getParent()).getId(), new FirstWindowFragment(), "")
                 .addToBackStack(getView().getClass().getName())
                 .commit();
     }
@@ -184,7 +183,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
 
     @Override
     public void openDialog() {
-        securityDialog.show(getActivity().getSupportFragmentManager(),"password dialog");
+        securityDialog.show(getActivity().getSupportFragmentManager(), "");
     }
 
     @Override
@@ -306,7 +305,7 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
 
     @Override
     public void openNoInternetDialog() {
-        dialog.show(getActivity().getSupportFragmentManager(),getString(R.string.no_internet_dialog));
+        dialog.show(getActivity().getSupportFragmentManager(), getString(R.string.no_internet_dialog));
         dialog.setOnClickedBack();
     }
 
@@ -325,18 +324,18 @@ public class EditProfile extends Fragment implements EditProfileContract.View, D
 
     @Override
     public void goBackToTheFragment() {
-        Handler handler=new Handler();
+        Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                    presenter.setUserDetails();
-                    dialog.closeDialog();
+                presenter.setUserDetails();
+                dialog.closeDialog();
             }
-        },5000);
+        }, 5000);
     }
 
     @Override
     public void showNoInternetToast() {
-        Toast.makeText(MainActivity.getAppContext(),R.string.no_internet_message, Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.getAppContext(), R.string.no_internet_message, Toast.LENGTH_LONG).show();
     }
 }

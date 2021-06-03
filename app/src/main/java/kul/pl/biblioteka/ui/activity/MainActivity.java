@@ -8,11 +8,13 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
+import kul.pl.biblioteka.ui.dialogs.banedUser.BanedUserDialog;
 import kul.pl.biblioteka.ui.fragments.firstWindow.FirstWindowFragment;
 import kul.pl.biblioteka.ui.fragments.notLoggedIn.historyAndReading.NotLoggedInReservationsReadingAndHistory;
 import kul.pl.biblioteka.ui.fragments.notLoggedIn.profile.NotLoggedInProfileFragment;

@@ -2,6 +2,7 @@ package kul.pl.biblioteka.ui.fragments.editProfile;
 
 import android.os.Handler;
 
+import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
@@ -12,7 +13,6 @@ import kul.pl.biblioteka.models.RegistrationUserModel;
 import kul.pl.biblioteka.models.UserModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.utils.StringHelper;
-import kul.pl.biblioteka.validators.EditUserValidator;
 
 public class EditProfilePresenter extends APIAdapter implements EditProfileContract.Presenter {
 
@@ -72,7 +72,7 @@ public class EditProfilePresenter extends APIAdapter implements EditProfileContr
     @Override
     public void onEditUserReceive() {
         view.endProgressBar();
-        view.showToast("The data has been edited");
+        view.showToast(MainActivity.getAppContext().getString(R.string.the_data_has_bben_edited));
         view.closeFragment();
     }
 

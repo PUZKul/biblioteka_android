@@ -6,15 +6,15 @@ import kul.pl.biblioteka.models.CopiesOfBookModel;
 
 interface CopiesOfBooksDialogContract {
 
-    interface Presenter{
+    interface Presenter {
 
         void reserveBook(long idBook);
 
-        void increaseLimit(String  decryption);
+        void increaseLimit(String decryption);
 
     }
 
-    interface View{
+    interface View {
 
         void setList(List<CopiesOfBookModel> books);
 

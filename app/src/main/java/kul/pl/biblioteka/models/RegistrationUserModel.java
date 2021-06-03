@@ -14,7 +14,7 @@ public class RegistrationUserModel {
         this.email = email;
     }
 
-    public RegistrationUserModel( String passwordFirst, String passwordSecond, String email) {
+    public RegistrationUserModel(String passwordFirst, String passwordSecond, String email) {
         this.passwordFirst = passwordFirst;
         this.passwordSecond = passwordSecond;
         this.email = email;

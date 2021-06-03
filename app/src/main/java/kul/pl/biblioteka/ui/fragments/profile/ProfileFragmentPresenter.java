@@ -66,6 +66,7 @@ public class ProfileFragmentPresenter extends APIAdapter implements ProfileFragm
     public void logoutUser() {
         LocalDataAccess.clean();
         view.openMainActivity();
+        view.showToast(MainActivity.getAppContext().getString(R.string.you_have_been_logged_out));
     }
 
     @Override

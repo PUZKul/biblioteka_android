@@ -1,10 +1,10 @@
 package kul.pl.biblioteka.ui.fragments.bookView;
 
 import android.net.Uri;
-import android.os.Handler;
 
 import java.text.DecimalFormat;
 
+import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
@@ -18,11 +18,11 @@ public class BookViewFragmentPresenter extends APIAdapter implements BookViewFra
     private BookViewFragmentContract.View view;
     private int idBook;
 
-    public BookViewFragmentPresenter(BookViewFragmentContract.View view,int idBook) {
+    public BookViewFragmentPresenter(BookViewFragmentContract.View view, int idBook) {
         this.view = view;
         api = LibraryAccess.getInstance();
         view.startProgressBar();
-        this.idBook=idBook;
+        this.idBook = idBook;
         api.setListener(this);
     }
 
@@ -34,7 +34,7 @@ public class BookViewFragmentPresenter extends APIAdapter implements BookViewFra
         view.setTitle(book.getTitle());
         view.setAuthor(book.getAuthors());
         view.setPublisher(book.getPublisher());
-        view.setPages(book.getPages()+"");
+        view.setPages(book.getPages() + "");
         view.setStars(book.getRating());
         view.setDate(Helper.getDefaultDateFormat(book.getYear()));
         view.setImage(Uri.parse(book.getImageUrl()));
@@ -44,15 +44,15 @@ public class BookViewFragmentPresenter extends APIAdapter implements BookViewFra
 
     private String getStringRating(double rating) {
         DecimalFormat format = new DecimalFormat("0.00");
-        return format.format(rating)+ "/5";
+        return format.format(rating) + MainActivity.getAppContext().getString(R.string.five);
     }
 
     @Override
     public void setBook() {
-        if(InternetConnection.isConnection(MainActivity.getAppContext())){
+        if (InternetConnection.isConnection(MainActivity.getAppContext())) {
             api.getBookById(idBook);
             api.getAvailableBookNumber(idBook);
-        }else
+        } else
             view.openNoInternetDialog();
     }
 

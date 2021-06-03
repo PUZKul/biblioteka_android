@@ -6,9 +6,9 @@ public class CopiesOfBookModel {
 
     private long id;
     private long bookId;
-    private  boolean borrow;
-    private  boolean access;
-    private  String code;
+    private boolean borrow;
+    private boolean access;
+    private String code;
     private Date approximateDate;
 
     public CopiesOfBookModel(long id, long bookId, boolean borrow, boolean access, String code, Date approximateDate) {

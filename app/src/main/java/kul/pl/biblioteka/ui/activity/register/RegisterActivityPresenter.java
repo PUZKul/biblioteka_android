@@ -15,6 +15,7 @@ import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.utils.StringHelper;
 
 public class RegisterActivityPresenter extends APIAdapter implements RegisterActivityContract.Presenter {
+
     private RegisterActivityContract.View view;
     private LibraryAccess api;
     private Context context;

@@ -15,7 +15,7 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.models.HistoryBookModel;
 import kul.pl.biblioteka.utils.Helper;
 
-public class HistoryListRecycleViewAdapter  extends RecyclerView.Adapter<HistoryListViewHolder>{
+public class HistoryListRecycleViewAdapter extends RecyclerView.Adapter<HistoryListViewHolder> {
 
     private Context context;
     private List<HistoryBookModel> booksList;
@@ -29,7 +29,7 @@ public class HistoryListRecycleViewAdapter  extends RecyclerView.Adapter<History
     @Override
     public HistoryListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(context);
-        View view =  mInflater.inflate(R.layout.item_list_history, parent, false);
+        View view = mInflater.inflate(R.layout.item_list_history, parent, false);
         return new HistoryListViewHolder(view);
     }
 

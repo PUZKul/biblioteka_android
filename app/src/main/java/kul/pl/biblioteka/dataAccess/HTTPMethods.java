@@ -101,5 +101,5 @@ public interface HTTPMethods {
 
     @POST("/api/library/users/request/limit/{message}")
     Call<Long> increaseTheLimit(@Header("Authorization") String token,
-                                    @Path("message") String decryption);
+                                @Path("message") String decryption);
 }

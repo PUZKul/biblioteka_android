@@ -28,16 +28,16 @@ public class EmptyHistoryFragment extends Fragment {
     }
 
     private void initComponents(View view) {
-        HomeImage=view.findViewById(R.id.imageEmptyBooksHistory_image_emptyHistory);
-        AddText=view.findViewById(R.id.emptyHistoryFragment_text_changeIt);
+        HomeImage = view.findViewById(R.id.imageEmptyBooksHistory_image_emptyHistory);
+        AddText = view.findViewById(R.id.emptyHistoryFragment_text_changeIt);
     }
 
-    private void setOnClickListener(){
+    private void setOnClickListener() {
         HomeImage.setOnClickListener(onLoginClicked);
         AddText.setOnClickListener(onLoginClicked);
     }
 
-    private View.OnClickListener onLoginClicked =new View.OnClickListener() {
+    private View.OnClickListener onLoginClicked = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(getActivity(), MainActivity.class);

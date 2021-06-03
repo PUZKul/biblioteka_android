@@ -41,8 +41,8 @@ public class StopBorrowDialog extends AppCompatDialogFragment {
 
     private void initComponents(View view) {
         back = view.findViewById(R.id.stopBorrow_back_button);
-        login=view.findViewById(R.id.stopBorrow_login_button);
-        registration=view.findViewById(R.id.stopBorrow_registration_button);
+        login = view.findViewById(R.id.stopBorrow_login_button);
+        registration = view.findViewById(R.id.stopBorrow_registration_button);
     }
 
     private void setOnClickListener() {

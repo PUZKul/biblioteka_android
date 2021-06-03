@@ -24,20 +24,20 @@ public class RecommendedListRecycleViewAdapter extends RecyclerView.Adapter<Reco
     public RecommendedListRecycleViewAdapter(Context context, List<BookModel> booksList, OnItemClickListener onItemClickListener) {
         this.context = context;
         this.booksList = booksList;
-        this.onItemClickListener= onItemClickListener;
+        this.onItemClickListener = onItemClickListener;
     }
 
     @NonNull
     @Override
     public RecommendedListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(context);
-        View view =  mInflater.inflate(R.layout.item_list_recommended_book, parent, false);
-        return new RecommendedListViewHolder(view,onItemClickListener);
+        View view = mInflater.inflate(R.layout.item_list_recommended_book, parent, false);
+        return new RecommendedListViewHolder(view, onItemClickListener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecommendedListViewHolder holder, int position) {
-            setBookDetails(holder,position);
+        setBookDetails(holder, position);
     }
 
     private void setBookDetails(RecommendedListViewHolder holder, int position) {

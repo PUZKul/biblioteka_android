@@ -23,11 +23,6 @@ public class BanedUserDialog extends AppCompatDialogFragment {
     private Button cancel;
     private Balloon balloon;
     private ImageView informationImage;
-    private BanedUserDialogListener listener;
-
-    public BanedUserDialog(BanedUserDialogListener listener) {
-        this.listener = listener;
-    }
 
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -41,10 +36,11 @@ public class BanedUserDialog extends AppCompatDialogFragment {
     }
 
     private void initComponents(View view) {
-        cancel=view.findViewById(R.id.banner_user_button_cancel);
-        informationImage=view.findViewById(R.id.banner_user_imageView);
+        cancel = view.findViewById(R.id.banner_user_button_cancel);
+        informationImage = view.findViewById(R.id.banner_user_imageView);
     }
-    private void setOnClickListeners(){
+
+    private void setOnClickListeners() {
         cancel.setOnClickListener(onCancelClicked);
         informationImage.setOnClickListener(onImageClicked);
     }
@@ -72,8 +68,7 @@ public class BanedUserDialog extends AppCompatDialogFragment {
     private View.OnClickListener onImageClicked = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            //todo add message to balloon
-            setBalloon("");
+            setBalloon(getString(R.string.If_you_want_to_learn));
             balloon.show(v);
         }
     };
@@ -81,7 +76,7 @@ public class BanedUserDialog extends AppCompatDialogFragment {
     private View.OnClickListener onCancelClicked = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            listener.onBanedUser();
+            dismiss();
         }
     };
 }

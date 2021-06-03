@@ -24,9 +24,9 @@ public class ReadingListRecycleViewAdapter extends RecyclerView.Adapter<ReadingL
     private List<HistoryBookModel> booksList;
     private OnItemClickListener listener;
 
-    public ReadingListRecycleViewAdapter(List<HistoryBookModel> booksList,OnItemClickListener listener) {
+    public ReadingListRecycleViewAdapter(List<HistoryBookModel> booksList, OnItemClickListener listener) {
         this.booksList = booksList;
-        this.listener=listener;
+        this.listener = listener;
     }
 
     @NonNull
@@ -34,7 +34,7 @@ public class ReadingListRecycleViewAdapter extends RecyclerView.Adapter<ReadingL
     public ReadingListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(MainActivity.getAppContext());
         View view = mInflater.inflate(R.layout.item_list_reading, parent, false);
-        return new ReadingListViewHolder(view,listener);
+        return new ReadingListViewHolder(view, listener);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

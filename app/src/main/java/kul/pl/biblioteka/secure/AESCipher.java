@@ -14,8 +14,8 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class AESCipher {
     private static final String ALGORITHM = "AES/ECB/PKCS5Padding";
-    private static SecretKeySpec getKey(String myKey)
-    {
+
+    private static SecretKeySpec getKey(String myKey) {
         MessageDigest sha = null;
         try {
             byte[] key = myKey.getBytes(StandardCharsets.UTF_8);
@@ -23,40 +23,29 @@ public class AESCipher {
             key = sha.digest(key);
             key = Arrays.copyOf(key, 16);
             return new SecretKeySpec(key, "AES");
-        }
-        catch (NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException e) {
             Log.d("SECURE", "Error while creating key: " + e.toString());
         }
         return null;
     }
 
-
-    public static String encrypt(String information, String secretKey)
-    {
-        try
-        {
+    public static String encrypt(String information, String secretKey) {
+        try {
             @SuppressLint("GetInstance") Cipher cipher = Cipher.getInstance(ALGORITHM);
             cipher.init(Cipher.ENCRYPT_MODE, getKey(secretKey));
             return Base64.encodeToString(cipher.doFinal(information.getBytes()), Base64.DEFAULT);
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             Log.d("SECURE", "Error while encrypting: " + e.toString());
         }
         return null;
     }
 
-
-    public static String decrypt(String information, String secretKey)
-    {
-        try
-        {
+    public static String decrypt(String information, String secretKey) {
+        try {
             @SuppressLint("GetInstance") Cipher cipher = Cipher.getInstance(ALGORITHM);
             cipher.init(Cipher.DECRYPT_MODE, getKey(secretKey));
             return new String(cipher.doFinal(android.util.Base64.decode(information, Base64.NO_PADDING)));
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             Log.d("SECURE", "Error while decrypting: " + e.toString());
         }
         return null;

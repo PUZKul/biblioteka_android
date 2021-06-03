@@ -16,22 +16,22 @@ import kul.pl.biblioteka.models.ReservationBookModel;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.utils.Helper;
 
-public class ReservationListRecycleViewAdapter extends RecyclerView.Adapter<ReservationListViewHolder>{
+public class ReservationListRecycleViewAdapter extends RecyclerView.Adapter<ReservationListViewHolder> {
 
     private List<ReservationBookModel> booksLists;
     private OnItemClickListener onItemClickListener;
 
-    public ReservationListRecycleViewAdapter(List<ReservationBookModel> booksLists,OnItemClickListener onItemClickListener) {
+    public ReservationListRecycleViewAdapter(List<ReservationBookModel> booksLists, OnItemClickListener onItemClickListener) {
         this.booksLists = booksLists;
-        this.onItemClickListener=onItemClickListener;
+        this.onItemClickListener = onItemClickListener;
     }
 
     @NonNull
     @Override
     public ReservationListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(MainActivity.getAppContext());
-        View view =  mInflater.inflate(R.layout.item_list_reservations, parent, false);
-        return new ReservationListViewHolder(view,onItemClickListener);
+        View view = mInflater.inflate(R.layout.item_list_reservations, parent, false);
+        return new ReservationListViewHolder(view, onItemClickListener);
     }
 
     @Override

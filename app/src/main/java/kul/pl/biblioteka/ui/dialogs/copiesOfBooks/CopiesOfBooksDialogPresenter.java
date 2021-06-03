@@ -42,14 +42,14 @@ public class CopiesOfBooksDialogPresenter extends APIAdapter implements CopiesOf
             } else {
                 openNoInternetDialog();
             }
-        }else {
+        } else {
             view.showToast(MainActivity.getAppContext().getString(R.string.choose_the_book));
         }
     }
 
     @Override
     public void increaseLimit(String decryption) {
-        api.increaseLimit(LocalDataAccess.getToken(),decryption);
+        api.increaseLimit(LocalDataAccess.getToken(), decryption);
     }
 
     @Override
@@ -93,9 +93,9 @@ public class CopiesOfBooksDialogPresenter extends APIAdapter implements CopiesOf
         view.endProgressBar();
         if (error.getStatus() == 403) {
             view.showStopBorrowDialog();
-        }else if(error.getStatus()==400){
+        } else if (error.getStatus() == 400) {
             view.openIncreaseTheLimitDialog();
-        }else if(error.getStatus()==409){
+        } else if (error.getStatus() == 409) {
             view.showToast(MainActivity.getAppContext().getString(R.string.book_is_not_available));
         }
     }

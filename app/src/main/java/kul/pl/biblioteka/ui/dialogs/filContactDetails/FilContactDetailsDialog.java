@@ -36,23 +36,23 @@ public class FilContactDetailsDialog extends AppCompatDialogFragment {
     }
 
     private void initComponents(View view) {
-        continueRegistration=view.findViewById(R.id.fil_contact_details_comlpete);
-        cancel=view.findViewById(R.id.fil_contact_details_cancel);
+        continueRegistration = view.findViewById(R.id.fil_contact_details_comlpete);
+        cancel = view.findViewById(R.id.fil_contact_details_cancel);
     }
 
-    private void setOnClickListener(){
+    private void setOnClickListener() {
         cancel.setOnClickListener(onCancelClicked);
         continueRegistration.setOnClickListener(onContinueClicked);
     }
 
-    private View.OnClickListener onCancelClicked=new View.OnClickListener() {
+    private View.OnClickListener onCancelClicked = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             dismiss();
         }
     };
 
-    private View.OnClickListener onContinueClicked=new View.OnClickListener() {
+    private View.OnClickListener onContinueClicked = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             dismiss();

@@ -3,7 +3,6 @@ package kul.pl.biblioteka.ui.fragments.editProfile;
 import kul.pl.biblioteka.models.EditUserModel;
 import kul.pl.biblioteka.models.RegistrationUserModel;
 
-
 public interface EditProfileContract {
     interface View {
         void showToast(String message);

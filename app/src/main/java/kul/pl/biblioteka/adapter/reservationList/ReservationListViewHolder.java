@@ -58,7 +58,6 @@ public class ReservationListViewHolder extends RecyclerView.ViewHolder {
 
     public void setImageBook(Uri bookUri) {
         Picasso.with(view.getContext()).load(bookUri).into(imageBook);
-        ;
     }
 
     public void setTitleTextView(String title) {

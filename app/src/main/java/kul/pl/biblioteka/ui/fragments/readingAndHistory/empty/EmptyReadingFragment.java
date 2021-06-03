@@ -25,17 +25,18 @@ public class EmptyReadingFragment extends Fragment {
         setOnClickListener();
         return view;
     }
+
     private void initComponents(View view) {
-        HomeImage=view.findViewById(R.id.imageEmptyReading_image_emptyReadingList);
-        AddText=view.findViewById(R.id.emptyReadingFragment_text_addBookNow);
+        HomeImage = view.findViewById(R.id.imageEmptyReading_image_emptyReadingList);
+        AddText = view.findViewById(R.id.emptyReadingFragment_text_addBookNow);
     }
 
-    private void setOnClickListener(){
+    private void setOnClickListener() {
         HomeImage.setOnClickListener(onLoginClicked);
         AddText.setOnClickListener(onLoginClicked);
     }
 
-    private View.OnClickListener onLoginClicked =new View.OnClickListener() {
+    private View.OnClickListener onLoginClicked = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(getActivity(), MainActivity.class);

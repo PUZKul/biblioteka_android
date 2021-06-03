@@ -15,7 +15,7 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 
-public class NoInternetDialog  extends AppCompatDialogFragment {
+public class NoInternetDialog extends AppCompatDialogFragment {
 
     private Button back;
     private NoInternetDialogListener listener;
@@ -27,36 +27,36 @@ public class NoInternetDialog  extends AppCompatDialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-        LayoutInflater inflater=getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_no_internet,null);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        View view = inflater.inflate(R.layout.dialog_no_internet, null);
         initComponents(view);
         setOnClickListener();
         builder.setView(view);
         return builder.create();
     }
 
-    public void setOnClickedBack(){
+    public void setOnClickedBack() {
         listener.goBackToTheFragment();
     }
 
-    public void closeDialog(){
+    public void closeDialog() {
         dismiss();
     }
 
-    private void initComponents(View view){
-        back=view.findViewById(R.id.no_internet_dialog_button_back);
+    private void initComponents(View view) {
+        back = view.findViewById(R.id.no_internet_dialog_button_back);
     }
 
-    private void setOnClickListener(){
+    private void setOnClickListener() {
         back.setOnClickListener(onClickedBack);
     }
 
-    private View.OnClickListener onClickedBack=new View.OnClickListener() {
+    private View.OnClickListener onClickedBack = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if(InternetConnection.isConnection(MainActivity.getAppContext()))
-                 listener.goBackToTheFragment();
+            if (InternetConnection.isConnection(MainActivity.getAppContext()))
+                listener.goBackToTheFragment();
             else
                 listener.showNoInternetToast();
         }

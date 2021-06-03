@@ -22,7 +22,7 @@ public class ReservationsReadingAndHistoryMainFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_reservations_reading_and_history, container, false);
+        View view = inflater.inflate(R.layout.fragment_reservations_reading_and_history, container, false);
         initComponents(view);
         setOnClickListeners();
         setReadingFragment();
@@ -31,56 +31,56 @@ public class ReservationsReadingAndHistoryMainFragment extends Fragment {
     }
 
     private void initComponents(View view) {
-        reading=view.findViewById(R.id.readingAndHistory_button_reading);
-        reservation=view.findViewById(R.id.readingAndHistory_button_reservations);
-        history=view.findViewById(R.id.readingAndHistory_button_history);
+        reading = view.findViewById(R.id.readingAndHistory_button_reading);
+        reservation = view.findViewById(R.id.readingAndHistory_button_reservations);
+        history = view.findViewById(R.id.readingAndHistory_button_history);
     }
 
-    private void  setOnClickListeners(){
+    private void setOnClickListeners() {
         reading.setOnClickListener(onReadingClickedListener);
         history.setOnClickListener(onHistoryClickedListener);
         reservation.setOnClickListener(onReservationClickedListener);
     }
 
-    private final View.OnClickListener onReadingClickedListener= new View.OnClickListener() {
+    private final View.OnClickListener onReadingClickedListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             setReadingFragment();
         }
     };
 
-    private final View.OnClickListener onHistoryClickedListener= new View.OnClickListener() {
+    private final View.OnClickListener onHistoryClickedListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             setHistoryFragment();
         }
     };
 
-    private final View.OnClickListener onReservationClickedListener= new View.OnClickListener() {
+    private final View.OnClickListener onReservationClickedListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             setReservationFragment();
         }
     };
 
-    private void setReservationFragment(){
+    private void setReservationFragment() {
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.readingAndHistory_fragmentContainer,new ReservationFragment())
+                .replace(R.id.readingAndHistory_fragmentContainer, new ReservationFragment())
                 .addToBackStack(null).commit();
     }
 
-    private void setReadingFragment(){
+    private void setReadingFragment() {
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.readingAndHistory_fragmentContainer,new ReadingFragment())
+                .replace(R.id.readingAndHistory_fragmentContainer, new ReadingFragment())
                 .addToBackStack(null).commit();
     }
 
-    private void setHistoryFragment(){
+    private void setHistoryFragment() {
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.readingAndHistory_fragmentContainer,new HistoryFragment())
+                .replace(R.id.readingAndHistory_fragmentContainer, new HistoryFragment())
                 .addToBackStack(null).commit();
     }
 }

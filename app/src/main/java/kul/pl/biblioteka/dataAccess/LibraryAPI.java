@@ -269,6 +269,7 @@ abstract class LibraryAPI {
                 listener.onErrorReceive(apiError);
             }
         }
+
         @Override
         public void onFailure(Call<PageHolder<HistoryBookModel>> call, Throwable t) {
             listener.onRefreshServer();
@@ -286,6 +287,7 @@ abstract class LibraryAPI {
                 listener.onErrorReceive(apiError);
             }
         }
+
         @Override
         public void onFailure(Call<PageHolder<ReservationBookModel>> call, Throwable t) {
             listener.onRefreshServer();
@@ -303,6 +305,7 @@ abstract class LibraryAPI {
                 listener.onErrorReceive(apiError);
             }
         }
+
         @Override
         public void onFailure(Call<Void> call, Throwable t) {
             listener.onRefreshServer();
@@ -320,6 +323,7 @@ abstract class LibraryAPI {
                 listener.onErrorReceive(apiError);
             }
         }
+
         @Override
         public void onFailure(Call<Long> call, Throwable t) {
             listener.onRefreshServer();

@@ -10,27 +10,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import kul.pl.biblioteka.R;
 
-public class DarkSmallListRecycleViewAdapter extends RecyclerView.Adapter<DarkSmallListViewHolder>{
+public class DarkSmallListRecycleViewAdapter extends RecyclerView.Adapter<DarkSmallListViewHolder> {
 
     private Context context;
     private int itemCount;
 
     public DarkSmallListRecycleViewAdapter(Context context) {
         this.context = context;
-        itemCount=10;
+        itemCount = 10;
     }
 
     @NonNull
     @Override
     public DarkSmallListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(context);
-        View view =  mInflater.inflate(R.layout.item_list_small_dark, parent, false);
+        View view = mInflater.inflate(R.layout.item_list_small_dark, parent, false);
         return new DarkSmallListViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull DarkSmallListViewHolder holder, int position) {
-
     }
 
     @Override

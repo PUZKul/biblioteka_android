@@ -54,7 +54,7 @@ public class HistoryFragment extends Fragment implements HistoryFragmentContact.
             recyclerView.setAdapter(new HistoryListRecycleViewAdapter(MainActivity.getAppContext(), books));
         else {
             getActivity().getSupportFragmentManager().beginTransaction().
-                    add(((ViewGroup) getView().getParent()).getId(), new EmptyHistoryFragment(), "Empty")
+                    add(((ViewGroup) getView().getParent()).getId(), new EmptyHistoryFragment(), "")
                     .addToBackStack(getView().getClass().getName())
                     .commit();
         }

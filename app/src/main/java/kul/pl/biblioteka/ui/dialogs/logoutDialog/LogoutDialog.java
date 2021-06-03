@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import kul.pl.biblioteka.R;
 
-public class LogoutDialog  extends AppCompatDialogFragment {
+public class LogoutDialog extends AppCompatDialogFragment {
 
     private Button yes;
     private Button no;
@@ -21,28 +21,27 @@ public class LogoutDialog  extends AppCompatDialogFragment {
     private LogoutDialogListener listener;
 
     public LogoutDialog(LogoutDialogListener listener) {
-        this.listener=listener;
+        this.listener = listener;
     }
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-        LayoutInflater inflater=getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_password_security,null);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        View view = inflater.inflate(R.layout.dialog_logout, null);
         initComponents(view);
         setOnClickListeners();
         builder.setView(view);
         return builder.create();
     }
 
-    private void setOnClickListeners(){
+    private void setOnClickListeners() {
         no.setOnClickListener(onNoCLicked);
         yes.setOnClickListener(onYesClicked);
-
     }
 
-    private View.OnClickListener onYesClicked =new View.OnClickListener() {
+    private View.OnClickListener onYesClicked = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             dismiss();
@@ -50,20 +49,19 @@ public class LogoutDialog  extends AppCompatDialogFragment {
         }
     };
 
-    private View.OnClickListener onNoCLicked =new View.OnClickListener() {
+    private View.OnClickListener onNoCLicked = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             dismiss();
         }
     };
 
-    private void initComponents(View view){
-        no =view.findViewById(R.id.password_security_btn_cancel);
-        yes =view.findViewById(R.id.password_security_btn_confirm);
+    private void initComponents(View view) {
+        no = view.findViewById(R.id.dialog_logout_button_no);
+        yes = view.findViewById(R.id.dialog_logout_button_yes);
     }
 
-    public void closeDialog(){
+    public void closeDialog() {
         dismiss();
     }
-
 }

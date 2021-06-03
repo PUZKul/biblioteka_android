@@ -78,6 +78,5 @@ public class HomeListViewHolder extends RecyclerView.ViewHolder {
 
     public void setImageBook(Uri bookUri) {
         Picasso.with(view.getContext()).load(bookUri).into(imageBook);
-        ;
     }
 }

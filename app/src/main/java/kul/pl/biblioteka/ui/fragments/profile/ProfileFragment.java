@@ -125,8 +125,8 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
         };
     }
 
-    private void openLogoutDialog(){
-        logoutDialog.show(getFragmentManager(),"");
+    private void openLogoutDialog() {
+        logoutDialog.show(getFragmentManager(), "");
     }
 
     private void openIncreaseLimitDialog() {

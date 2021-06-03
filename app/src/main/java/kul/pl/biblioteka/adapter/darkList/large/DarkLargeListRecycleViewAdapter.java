@@ -10,21 +10,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import kul.pl.biblioteka.R;
 
-public class DarkLargeListRecycleViewAdapter extends RecyclerView.Adapter<DarkLargeListViewHolder>{
+public class DarkLargeListRecycleViewAdapter extends RecyclerView.Adapter<DarkLargeListViewHolder> {
 
     private Context context;
     private int itemCount;
 
     public DarkLargeListRecycleViewAdapter(Context context) {
         this.context = context;
-        itemCount=5;
+        itemCount = 5;
     }
 
     @NonNull
     @Override
     public DarkLargeListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(context);
-        View view =  mInflater.inflate(R.layout.item_list_large_dark, parent, false);
+        View view = mInflater.inflate(R.layout.item_list_large_dark, parent, false);
         return new DarkLargeListViewHolder(view);
     }
 
