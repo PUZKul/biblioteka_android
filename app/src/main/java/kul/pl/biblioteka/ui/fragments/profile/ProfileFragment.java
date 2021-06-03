@@ -20,12 +20,14 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.dialogs.increaseTheLimit.IncreaseTheLimitDialog;
 import kul.pl.biblioteka.ui.dialogs.increaseTheLimit.IncreaseTheLimitDialogListener;
+import kul.pl.biblioteka.ui.dialogs.logoutDialog.LogoutDialog;
+import kul.pl.biblioteka.ui.dialogs.logoutDialog.LogoutDialogListener;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.fragments.editProfile.EditProfile;
 
-
-public class ProfileFragment extends Fragment implements ProfileFragmentContact.view, NoInternetDialogListener, IncreaseTheLimitDialogListener {
+public class ProfileFragment extends Fragment implements ProfileFragmentContact.view, NoInternetDialogListener,
+        IncreaseTheLimitDialogListener, LogoutDialogListener {
 
     private ProfileFragmentPresenter presenter;
     private PopupMenu menu;
@@ -44,18 +46,24 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
     private Button moreDetails;
     private ProgressBar progressBar;
     private NoInternetDialog dialog;
-    IncreaseTheLimitDialog increaseTheLimitDialog;
+    private IncreaseTheLimitDialog increaseTheLimitDialog;
+    private LogoutDialog logoutDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         initComponents(view);
         setOnClickListener();
-        increaseTheLimitDialog = new IncreaseTheLimitDialog((IncreaseTheLimitDialogListener) this);
-        dialog = new NoInternetDialog(this);
+        initDialogs();
         presenter = new ProfileFragmentPresenter(this);
         presenter.setUserDetails();
         return view;
+    }
+
+    private void initDialogs() {
+        increaseTheLimitDialog = new IncreaseTheLimitDialog((IncreaseTheLimitDialogListener) this);
+        logoutDialog = new LogoutDialog(this);
+        dialog = new NoInternetDialog(this);
     }
 
     private void initComponents(View view) {
@@ -110,11 +118,15 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
                 } else if (item.getItemId() == R.id.bottom_menu_increase_the_limit) {
                     openIncreaseLimitDialog();
                 } else {
-                    presenter.logoutUser();
+                    openLogoutDialog();
                 }
                 return true;
             }
         };
+    }
+
+    private void openLogoutDialog(){
+        logoutDialog.show(getFragmentManager(),"");
     }
 
     private void openIncreaseLimitDialog() {
@@ -210,7 +222,7 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
 
     @Override
     public void showToast(String message) {
-        Toast.makeText(getContext(),message,Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -233,5 +245,10 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
     @Override
     public void onSendClicked(String message) {
         presenter.increaseLimit(message);
+    }
+
+    @Override
+    public void onYesClicked() {
+        presenter.logoutUser();
     }
 }
