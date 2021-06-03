@@ -14,7 +14,7 @@ import java.util.List;
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.OnItemClickListener;
 import kul.pl.biblioteka.models.CopiesOfBookModel;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 import kul.pl.biblioteka.utils.Helper;
 
 public class CopiesOfBookListRecycleViewAdapter extends RecyclerView.Adapter<CopiesOfBookListViewHolder> implements OnItemClickListener {

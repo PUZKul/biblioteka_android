@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 
 public class NoInternetDialog extends AppCompatDialogFragment {
 

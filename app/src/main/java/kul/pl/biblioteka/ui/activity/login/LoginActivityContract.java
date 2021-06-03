@@ -19,6 +19,8 @@ public interface LoginActivityContract {
         void errorEmptyPassword();
 
         void onRefresh();
+
+        void openUserBanedDialog();
     }
 
     interface Presenter {

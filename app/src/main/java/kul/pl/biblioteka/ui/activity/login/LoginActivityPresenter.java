@@ -6,16 +6,18 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
+import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.LoginApiUserModel;
 import kul.pl.biblioteka.models.LoginUserModel;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 import kul.pl.biblioteka.utils.StringHelper;
 
 public class LoginActivityPresenter extends APIAdapter implements LoginActivityContract.Presenter {
 
     private LoginActivityContract.View view;
     private LibraryAccess api;
+    private LoginUserModel user;
 
     public LoginActivityPresenter(LoginActivityContract.View view) {
         this.view = view;
@@ -28,9 +30,10 @@ public class LoginActivityPresenter extends APIAdapter implements LoginActivityC
     public void onLoginClicked(LoginUserModel user) {
         view.startProgressBar();
         if (validateDate(user)) {
-            if (InternetConnection.isConnection(MainActivity.getAppContext()))
-                api.getAuthorization(new LoginApiUserModel(user.getNick(), user.getPassword()));
-            else {
+            this.user=user;
+            if (InternetConnection.isConnection(MainActivity.getAppContext())) {
+                api.isUserBanned(LocalDataAccess.getToken());
+            } else {
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -39,7 +42,15 @@ public class LoginActivityPresenter extends APIAdapter implements LoginActivityC
                     }
                 }, 5000);
             }
-        } else
+        }else
+            view.endProgressBar();
+    }
+
+    @Override
+    public void isUserNoBanned() {
+        if (validateDate(user))
+            api.getAuthorization(new LoginApiUserModel(user.getNick(), user.getPassword()));
+        else
             view.endProgressBar();
     }
 

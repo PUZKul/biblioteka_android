@@ -49,4 +49,8 @@ public interface APIListener {
     void onExtendBookRentalReceive();
 
     void onIncreaseLimitReceive();
+
+    void isUserBanned();
+
+    void isUserNoBanned();
 }

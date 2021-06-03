@@ -20,7 +20,7 @@ import kul.pl.biblioteka.adapter.VerticalSpaceItemDecoration;
 import kul.pl.biblioteka.adapter.darkList.small.DarkSmallListRecycleViewAdapter;
 import kul.pl.biblioteka.adapter.reservationList.ReservationListRecycleViewAdapter;
 import kul.pl.biblioteka.models.ReservationBookModel;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 import kul.pl.biblioteka.ui.dialogs.cancelReservationBook.CancelReservationBookDialog;
 import kul.pl.biblioteka.ui.dialogs.cancelReservationBook.DialogCancelReservationBookListener;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;

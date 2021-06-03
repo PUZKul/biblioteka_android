@@ -22,7 +22,7 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.VerticalSpaceItemDecoration;
 import kul.pl.biblioteka.adapter.copiesOfBookList.CopiesOfBookListRecycleViewAdapter;
 import kul.pl.biblioteka.models.CopiesOfBookModel;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 import kul.pl.biblioteka.ui.dialogs.increaseTheLimit.IncreaseTheLimitDialog;
 import kul.pl.biblioteka.ui.dialogs.increaseTheLimit.IncreaseTheLimitDialogListener;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;

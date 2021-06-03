@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import kul.pl.biblioteka.secure.SecureToken;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 
 import static kul.pl.biblioteka.utils.Constants.SP_LIBRARY;
 import static kul.pl.biblioteka.utils.Constants.SP_LOGIN;

@@ -10,7 +10,7 @@ import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.models.BookModel;
 
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 import kul.pl.biblioteka.utils.Direction;
 import kul.pl.biblioteka.utils.PageHolder;
 import kul.pl.biblioteka.utils.PaginationBar;

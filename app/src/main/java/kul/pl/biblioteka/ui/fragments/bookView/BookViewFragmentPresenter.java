@@ -9,7 +9,7 @@ import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.models.BookModel;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 import kul.pl.biblioteka.utils.Helper;
 
 public class BookViewFragmentPresenter extends APIAdapter implements BookViewFragmentContract.Presenter {

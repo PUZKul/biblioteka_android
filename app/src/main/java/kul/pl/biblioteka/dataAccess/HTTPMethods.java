@@ -102,4 +102,7 @@ public interface HTTPMethods {
     @POST("/api/library/users/request/limit/{message}")
     Call<Long> increaseTheLimit(@Header("Authorization") String token,
                                 @Path("message") String decryption);
+
+    @GET("/api/library/users/isBanned/")
+    Call<Boolean> isUserBanned(@Header("Authorization") String token);
 }

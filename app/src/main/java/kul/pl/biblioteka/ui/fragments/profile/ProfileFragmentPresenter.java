@@ -10,7 +10,7 @@ import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.UserBookDetails;
 import kul.pl.biblioteka.models.UserModel;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 
 public class ProfileFragmentPresenter extends APIAdapter implements ProfileFragmentContact.Presenter {
 

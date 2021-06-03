@@ -11,7 +11,7 @@ import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.EditUserModel;
 import kul.pl.biblioteka.models.RegistrationUserModel;
 import kul.pl.biblioteka.models.UserModel;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 import kul.pl.biblioteka.utils.StringHelper;
 
 public class EditProfilePresenter extends APIAdapter implements EditProfileContract.Presenter {

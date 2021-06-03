@@ -20,7 +20,7 @@ import kul.pl.biblioteka.adapter.VerticalSpaceItemDecoration;
 import kul.pl.biblioteka.adapter.darkList.small.DarkSmallListRecycleViewAdapter;
 import kul.pl.biblioteka.adapter.readingList.ReadingListRecycleViewAdapter;
 import kul.pl.biblioteka.models.HistoryBookModel;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.fragments.readingAndHistory.empty.EmptyReadingFragment;

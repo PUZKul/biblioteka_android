@@ -13,7 +13,7 @@ import com.skydoves.balloon.BalloonAnimation;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.OnItemClickListener;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 
 import static kul.pl.biblioteka.R.drawable.*;
 

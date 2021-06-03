@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
-import kul.pl.biblioteka.ui.activity.MainActivity;
 import kul.pl.biblioteka.ui.activity.login.LoginActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 
 public class LogoutHandler {
 

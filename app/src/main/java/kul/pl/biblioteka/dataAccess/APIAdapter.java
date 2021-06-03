@@ -106,4 +106,14 @@ public abstract class APIAdapter implements APIListener {
     public void onIncreaseLimitReceive() {
 
     }
+
+    @Override
+    public void isUserBanned() {
+
+    }
+
+    @Override
+    public void isUserNoBanned() {
+
+    }
 }

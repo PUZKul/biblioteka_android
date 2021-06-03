@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment;
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.models.EditUserModel;
 import kul.pl.biblioteka.models.RegistrationUserModel;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.dialogs.passwordSecurity.DialogPasswordSecurityListener;
 import kul.pl.biblioteka.ui.dialogs.passwordSecurity.PasswordSecurityDialog;

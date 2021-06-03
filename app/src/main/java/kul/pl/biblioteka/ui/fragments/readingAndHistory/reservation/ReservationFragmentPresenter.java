@@ -8,7 +8,7 @@ import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
 import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.ReservationBookModel;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 import kul.pl.biblioteka.utils.PageHolder;
 
 public class ReservationFragmentPresenter extends APIAdapter implements ReservationFragmentContact.Presenter {

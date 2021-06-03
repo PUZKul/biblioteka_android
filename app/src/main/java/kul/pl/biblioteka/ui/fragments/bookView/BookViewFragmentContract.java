@@ -3,7 +3,7 @@ package kul.pl.biblioteka.ui.fragments.bookView;
 import android.net.Uri;
 
 public interface BookViewFragmentContract {
-    interface View {
+    interface View{
 
         void setTitle(String title);
 

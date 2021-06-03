@@ -131,4 +131,9 @@ public final class LibraryAccess extends LibraryAPI {
         HTTPMethods.increaseTheLimit(token, decryption)
                 .enqueue(callbackForIncreaseLimit);
     }
+
+    public void isUserBanned(String token) {
+        HTTPMethods.isUserBanned(token)
+                .enqueue(callbackForIsUserBanned);
+    }
 }

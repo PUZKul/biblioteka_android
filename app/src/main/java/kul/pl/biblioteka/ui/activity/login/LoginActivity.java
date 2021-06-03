@@ -14,8 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.models.LoginUserModel;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 import kul.pl.biblioteka.ui.activity.register.RegisterActivity;
+import kul.pl.biblioteka.ui.dialogs.banedUser.BanedUserDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 
@@ -36,7 +37,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
         setContentView(R.layout.activity_login);
         initComponents();
         setOnClickListeners();
-        dialog=new NoInternetDialog(this);
+        dialog = new NoInternetDialog(this);
         presenter = new LoginActivityPresenter(this);
     }
 
@@ -70,10 +71,10 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
         }
     };
 
-    private View.OnClickListener keepBrowsingListener= new View.OnClickListener() {
+    private View.OnClickListener keepBrowsingListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent intent=new Intent(LoginActivity.this, MainActivity.class);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         }
     };
@@ -81,7 +82,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
     private void initComponents() {
         loginETex = findViewById(R.id.login_nick_editText);
         passwordETex = findViewById(R.id.login_editText_password);
-        keepBrowsing=findViewById(R.id.activity_login_keep_browsing);
+        keepBrowsing = findViewById(R.id.activity_login_keep_browsing);
         loginBtn = findViewById(R.id.login_bottom_login);
         registrationText = findViewById(R.id.login_textView_register);
         progressBar = findViewById(R.id.login_progressBar);
@@ -110,7 +111,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
 
     @Override
     public void openOnInternetDialog() {
-        dialog.show(getSupportFragmentManager(),getString(R.string.no_internet_dialog));
+        dialog.show(getSupportFragmentManager(), getString(R.string.no_internet_dialog));
         dialog.setOnClickedBack();
     }
 
@@ -134,8 +135,14 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
     }
 
     @Override
+    public void openUserBanedDialog() {
+        BanedUserDialog dialog = new BanedUserDialog();
+        dialog.show(getSupportFragmentManager(), "");
+    }
+
+    @Override
     public void goBackToTheFragment() {
-        Handler handler=new Handler();
+        Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -144,9 +151,9 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityCon
                         loginETex.getText().toString(),
                         passwordETex.getText().toString()
                 ));
-                    dialog.closeDialog();
+                dialog.closeDialog();
             }
-        },5000);
+        }, 5000);
     }
 
     @Override

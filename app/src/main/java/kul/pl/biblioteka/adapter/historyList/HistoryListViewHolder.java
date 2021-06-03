@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 
 import kul.pl.biblioteka.R;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 
 public class HistoryListViewHolder extends RecyclerView.ViewHolder {
 

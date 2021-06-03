@@ -17,7 +17,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import kul.pl.biblioteka.R;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 import kul.pl.biblioteka.ui.dialogs.increaseTheLimit.IncreaseTheLimitDialog;
 import kul.pl.biblioteka.ui.dialogs.increaseTheLimit.IncreaseTheLimitDialogListener;
 import kul.pl.biblioteka.ui.dialogs.logoutDialog.LogoutDialog;

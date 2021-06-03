@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.ui.activity;
+package kul.pl.biblioteka.ui.activity.main;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -21,11 +20,12 @@ import kul.pl.biblioteka.ui.fragments.notLoggedIn.profile.NotLoggedInProfileFrag
 import kul.pl.biblioteka.ui.fragments.profile.ProfileFragment;
 import kul.pl.biblioteka.ui.fragments.readingAndHistory.ReservationsReadingAndHistoryMainFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainActivityContract.View{
 
     private BottomNavigationView bottom_nav;
     @SuppressLint("StaticFieldLeak")
     private static Context context;
+    private MainActivityPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         bottom_nav = findViewById(R.id.mainActivity_bottom_nav);
         bottom_nav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().add(R.id.mainActivity_fragment_container, new FirstWindowFragment()).commit();
+        presenter=new MainActivityPresenter(this);
+        presenter.isBanedUser();
     }
 
     public static Context getAppContext() {
@@ -67,4 +69,10 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             };
+
+    @Override
+    public void showUserBanedDialog() {
+        BanedUserDialog dialog=new BanedUserDialog();
+        dialog.show(getSupportFragmentManager(),"");
+    }
 }

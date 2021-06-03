@@ -27,7 +27,7 @@ import kul.pl.biblioteka.adapter.darkList.small.DarkSmallListRecycleViewAdapter;
 import kul.pl.biblioteka.adapter.homeList.HomeListRecycleViewAdapter;
 import kul.pl.biblioteka.adapter.recommendedList.RecommendedListRecycleViewAdapter;
 import kul.pl.biblioteka.models.BookModel;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.fragments.bookView.BookViewFragment;

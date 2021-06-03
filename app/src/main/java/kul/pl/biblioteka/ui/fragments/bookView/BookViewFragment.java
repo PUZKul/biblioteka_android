@@ -13,6 +13,8 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
@@ -23,7 +25,7 @@ import com.squareup.picasso.Picasso;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 import kul.pl.biblioteka.ui.dialogs.copiesOfBooks.CopiesOfBooksDialog;
 import kul.pl.biblioteka.ui.dialogs.copiesOfBooks.CopiesOfBooksListener;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
@@ -50,16 +52,17 @@ public class BookViewFragment extends Fragment implements BookViewFragmentContra
     private NoInternetDialog noInternetDialog;
     private CopiesOfBooksDialog copiesOfBooksDialog;
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_book_view, container, false);
-        initComponents(view);
-        noInternetDialog = new NoInternetDialog(this);
-        presenter = new BookViewFragmentPresenter(this, this.getArguments().getInt(MainActivity.getAppContext().getString(R.string.idBook)));
-        copiesOfBooksDialog = new CopiesOfBooksDialog(this);
-        presenter.setBook();
-        setOnClickListeners();
-        return view;
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+            View view = inflater.inflate(R.layout.fragment_book_view, container, false);
+            initComponents(view);
+            noInternetDialog = new NoInternetDialog(this);
+            presenter = new BookViewFragmentPresenter(this, this.getArguments().getInt(MainActivity.getAppContext().getString(R.string.idBook)));
+            copiesOfBooksDialog = new CopiesOfBooksDialog(this);
+            presenter.setBook();
+            setOnClickListeners();
+            return view;
     }
 
     private void setOnClickListeners() {

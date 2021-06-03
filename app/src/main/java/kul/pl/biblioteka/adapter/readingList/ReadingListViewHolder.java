@@ -2,7 +2,6 @@ package kul.pl.biblioteka.adapter.readingList;
 
 import android.net.Uri;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,7 +12,7 @@ import com.squareup.picasso.Picasso;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.adapter.OnItemClickListener;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 
 public class ReadingListViewHolder extends RecyclerView.ViewHolder {
 

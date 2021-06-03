@@ -8,9 +8,8 @@ import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.InternetConnection;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
-import kul.pl.biblioteka.exception.ApiError;
 import kul.pl.biblioteka.models.HistoryBookModel;
-import kul.pl.biblioteka.ui.activity.MainActivity;
+import kul.pl.biblioteka.ui.activity.main.MainActivity;
 import kul.pl.biblioteka.utils.PageHolder;
 import kul.pl.biblioteka.utils.PaginationBar;
 
