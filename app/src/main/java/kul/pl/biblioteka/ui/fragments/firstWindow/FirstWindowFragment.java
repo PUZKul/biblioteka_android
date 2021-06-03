@@ -47,7 +47,7 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_first_window_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
         initComponents(view);
         setAdapters();
         setDarkList();

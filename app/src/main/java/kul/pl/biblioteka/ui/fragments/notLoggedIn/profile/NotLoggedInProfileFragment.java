@@ -14,7 +14,6 @@ import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.ui.activity.login.LoginActivity;
 import kul.pl.biblioteka.ui.activity.register.RegisterActivity;
 import kul.pl.biblioteka.ui.fragments.firstWindow.FirstWindowFragment;
-import kul.pl.biblioteka.ui.fragments.home.HomeFragment;
 
 public class NotLoggedInProfileFragment extends Fragment {
 

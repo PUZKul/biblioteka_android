@@ -17,7 +17,7 @@ import kul.pl.biblioteka.ui.activity.login.LoginActivity;
 public class NotLoggedInReservations extends Fragment {
 
     private ImageView loginImage;
-    private Button loginText;
+    private TextView loginText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

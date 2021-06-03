@@ -16,7 +16,7 @@ import kul.pl.biblioteka.ui.activity.login.LoginActivity;
 
 public class NotLoggedInHistory extends Fragment {
     private ImageView loginImage;
-    private Button loginButton;
+    private TextView loginButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

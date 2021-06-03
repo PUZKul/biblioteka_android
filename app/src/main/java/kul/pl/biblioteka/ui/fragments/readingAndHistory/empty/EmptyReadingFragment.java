@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import kul.pl.biblioteka.R;
-import kul.pl.biblioteka.ui.fragments.home.HomeFragment;
+import kul.pl.biblioteka.ui.activity.MainActivity;
 
 public class EmptyReadingFragment extends Fragment {
 
@@ -38,7 +38,7 @@ public class EmptyReadingFragment extends Fragment {
     private View.OnClickListener onLoginClicked =new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getActivity(), HomeFragment.class);
+            Intent intent = new Intent(getActivity(), MainActivity.class);
             startActivity(intent);
         }
     };

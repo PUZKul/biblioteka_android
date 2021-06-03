@@ -56,14 +56,14 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:autofillHints=""
-            android:paddingStart="5sp"
             android:background="@color/colorWhite"
             android:ems="10"
             android:hapticFeedbackEnabled="false"
             android:inputType="textPersonName"
+            android:paddingStart="5sp"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_textView_nick" />
 

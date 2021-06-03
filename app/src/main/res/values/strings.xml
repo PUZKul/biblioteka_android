@@ -33,7 +33,7 @@
     <string name="title">Title</string>
     <string name="ranking">Ranking</string>
     <string name="date">The latest books</string>
-    <string name="top_books">Top books</string>
+    <string name="top_books">The most popular</string>
     <string name="discover">Discover</string>
     <string name="author">Author:</string>
     <string name="one" translatable="false">1</string>
@@ -136,8 +136,8 @@
     <string name="decryption_is_empty">Decryption is empty</string>
     <string name="LoanExtend">The loan has been extended</string>
     <string name="LoanDoesntExtend">The loan not extended</string>
-    <string name="create_your_own_reading_list">Create your own reading list</string>
-    <string name="create_your_own_history_list">Create your own history list</string>
+    <string name="create_your_own_reading_list">Create your own reading list and</string>
+    <string name="create_your_own_history_list">Create your own history list and</string>
     <string name="do_you_want_to_finish_setting_up_your_account">Do you want to finish setting up your account?</string>
     <string name="yes">yes</string>
     <string name="leter">later</string>
@@ -153,4 +153,5 @@
     <string name="incorrect_last_name">Incorrect last name</string>
     <string name="incorrect_addres">Incorrect address.</string>
     <string name="incorresct_phone">Incorrect phone</string>
+    <string name="create_your_own_reservation_list">Create your own reservation list and</string>
 </resources>

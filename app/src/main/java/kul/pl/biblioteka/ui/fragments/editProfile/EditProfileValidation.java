@@ -1,4 +1,4 @@
-package kul.pl.biblioteka.ui.fragments.editProfile;
+    package kul.pl.biblioteka.ui.fragments.editProfile;
 
 import kul.pl.biblioteka.utils.StringHelper;
 
@@ -29,7 +29,7 @@ class EditProfileValidation {
             view.lastNameErrorMessage();
             return false;
         } else if (!StringHelper.phone(view.getPhone())) {
-            view.lastNameErrorMessage();
+            view.phoneErrorMessage();
             return false;
         } else if (!StringHelper.address(view.getAddress())) {
             view.addressErrorMessage();
