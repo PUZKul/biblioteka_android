@@ -78,8 +78,7 @@ public class ReservationFragmentPresenter extends APIAdapter implements Reservat
     }
 
     @Override
-    public void onErrorReceive(ApiError error) {
-        System.out.println(error.getMessage());
-        System.out.println(error.getStatus());
+    public void isUserBanned() {
+        view.showUserBannedDialog();
     }
 }

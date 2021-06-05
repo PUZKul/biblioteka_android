@@ -85,6 +85,11 @@ public class ProfileFragmentPresenter extends APIAdapter implements ProfileFragm
     }
 
     @Override
+    public void isUserBanned() {
+        view.showUserBanedDialog();
+    }
+
+    @Override
     public void onRefreshServer() {
         view.onRefresh();
     }

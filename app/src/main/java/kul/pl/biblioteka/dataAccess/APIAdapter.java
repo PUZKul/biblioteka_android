@@ -116,4 +116,9 @@ public abstract class APIAdapter implements APIListener {
     public void isUserNoBanned() {
 
     }
+
+    @Override
+    public void onLoginBanedResult() {
+
+    }
 }

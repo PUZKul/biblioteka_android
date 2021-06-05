@@ -53,4 +53,6 @@ public interface APIListener {
     void isUserBanned();
 
     void isUserNoBanned();
+
+    void onLoginBanedResult();
 }

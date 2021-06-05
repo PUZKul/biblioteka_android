@@ -330,14 +330,15 @@ abstract class LibraryAPI {
         }
     };
 
-    protected Callback<Boolean> callbackForIsUserBanned= new Callback<Boolean>() {
+    protected Callback<Boolean> callbackForIsUserBanned = new Callback<Boolean>() {
         @Override
         public void onResponse(Call<Boolean> call, Response<Boolean> response) {
-            if (response.isSuccessful()) {
+            if (response.body() == null||!response.body()) {
+                listener.isUserNoBanned();
+                listener.onLoginBanedResult();
+            } else {
                 listener.isUserBanned();
                 LocalDataAccess.clean();
-            } else {
-                listener.isUserNoBanned();
             }
         }
 

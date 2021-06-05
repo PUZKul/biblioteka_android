@@ -38,5 +38,6 @@ public interface FirstWindowFragmentContract {
 
         void refreshWindow();
 
+        void showUserBannedDialog();
     }
 }

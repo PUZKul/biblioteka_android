@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 
 import kul.pl.biblioteka.R;
 import kul.pl.biblioteka.ui.activity.main.MainActivity;
+import kul.pl.biblioteka.ui.dialogs.banedUser.BanedUserDialog;
 import kul.pl.biblioteka.ui.dialogs.increaseTheLimit.IncreaseTheLimitDialog;
 import kul.pl.biblioteka.ui.dialogs.increaseTheLimit.IncreaseTheLimitDialogListener;
 import kul.pl.biblioteka.ui.dialogs.logoutDialog.LogoutDialog;
@@ -223,6 +224,12 @@ public class ProfileFragment extends Fragment implements ProfileFragmentContact.
     @Override
     public void showToast(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showUserBanedDialog() {
+        BanedUserDialog banedUserDialog=new BanedUserDialog();
+        banedUserDialog.show(getFragmentManager(),"");
     }
 
     @Override

@@ -32,6 +32,8 @@ public interface ProfileFragmentContact {
 
         void showToast(String message);
 
+        void showUserBanedDialog();
+
     }
 
     interface Presenter {

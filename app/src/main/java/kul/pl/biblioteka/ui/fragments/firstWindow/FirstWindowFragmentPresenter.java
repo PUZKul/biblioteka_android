@@ -180,6 +180,11 @@ public class FirstWindowFragmentPresenter extends APIAdapter implements FirstWin
     };
 
     @Override
+    public void isUserBanned() {
+        view.showUserBannedDialog();
+    }
+
+    @Override
     public void onDiscoverBookListReceive(PageHolder<BookModel> page) {
         if (InternetConnection.isConnection(context)) {
             if (firstOpen) {

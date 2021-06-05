@@ -28,6 +28,7 @@ import kul.pl.biblioteka.adapter.homeList.HomeListRecycleViewAdapter;
 import kul.pl.biblioteka.adapter.recommendedList.RecommendedListRecycleViewAdapter;
 import kul.pl.biblioteka.models.BookModel;
 import kul.pl.biblioteka.ui.activity.main.MainActivity;
+import kul.pl.biblioteka.ui.dialogs.banedUser.BanedUserDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialogListener;
 import kul.pl.biblioteka.ui.fragments.bookView.BookViewFragment;
@@ -214,6 +215,12 @@ public class FirstWindowFragment extends Fragment implements FirstWindowFragment
     @Override
     public void refreshWindow() {
         presenter.setFirstLists();
+    }
+
+    @Override
+    public void showUserBannedDialog() {
+        BanedUserDialog banedUserDialog=new BanedUserDialog();
+        banedUserDialog.show(getFragmentManager(),"");
     }
 
     @Override

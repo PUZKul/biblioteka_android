@@ -47,6 +47,12 @@ public class LoginActivityPresenter extends APIAdapter implements LoginActivityC
     }
 
     @Override
+    public void onLoginBanedResult() {
+        view.openUserBanedDialog();
+        view.endProgressBar();
+    }
+
+    @Override
     public void isUserNoBanned() {
         if (validateDate(user))
             api.getAuthorization(new LoginApiUserModel(user.getNick(), user.getPassword()));
@@ -79,11 +85,5 @@ public class LoginActivityPresenter extends APIAdapter implements LoginActivityC
     @Override
     public void onRefreshServer() {
         view.onRefresh();
-    }
-
-    @Override
-    public void onErrorReceive(ApiError error) {
-        view.showToast(MainActivity.getAppContext().getString(R.string.incorrect_data));
-        view.endProgressBar();
     }
 }

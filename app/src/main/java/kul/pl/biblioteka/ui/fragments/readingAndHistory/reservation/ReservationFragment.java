@@ -21,6 +21,7 @@ import kul.pl.biblioteka.adapter.darkList.small.DarkSmallListRecycleViewAdapter;
 import kul.pl.biblioteka.adapter.reservationList.ReservationListRecycleViewAdapter;
 import kul.pl.biblioteka.models.ReservationBookModel;
 import kul.pl.biblioteka.ui.activity.main.MainActivity;
+import kul.pl.biblioteka.ui.dialogs.banedUser.BanedUserDialog;
 import kul.pl.biblioteka.ui.dialogs.cancelReservationBook.CancelReservationBookDialog;
 import kul.pl.biblioteka.ui.dialogs.cancelReservationBook.DialogCancelReservationBookListener;
 import kul.pl.biblioteka.ui.dialogs.noInternet.NoInternetDialog;
@@ -103,6 +104,12 @@ public class ReservationFragment extends Fragment implements ReservationFragment
     @Override
     public void onSuccessCancelBookMessage() {
         Toast.makeText(MainActivity.getAppContext(),getString(R.string.reservation_canceled), Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showUserBannedDialog() {
+        BanedUserDialog banedUserDialog=new BanedUserDialog();
+        banedUserDialog.show(getFragmentManager(),"");
     }
 
     @Override

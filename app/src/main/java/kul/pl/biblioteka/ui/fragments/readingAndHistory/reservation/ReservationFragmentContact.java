@@ -22,6 +22,8 @@ public interface ReservationFragmentContact {
         void openCancelReservationDialog();
 
         void onSuccessCancelBookMessage();
+
+        void showUserBannedDialog();
     }
     interface Presenter{
         void setList();

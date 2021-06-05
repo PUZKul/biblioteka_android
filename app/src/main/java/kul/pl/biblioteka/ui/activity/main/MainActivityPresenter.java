@@ -4,7 +4,7 @@ import kul.pl.biblioteka.dataAccess.APIAdapter;
 import kul.pl.biblioteka.dataAccess.LibraryAccess;
 import kul.pl.biblioteka.dataAccess.local.LocalDataAccess;
 
-public class MainActivityPresenter extends APIAdapter implements MainActivityContract.Presenter{
+public class MainActivityPresenter extends APIAdapter implements MainActivityContract.Presenter {
 
     private LibraryAccess api;
     private MainActivityContract.View view;
@@ -18,10 +18,5 @@ public class MainActivityPresenter extends APIAdapter implements MainActivityCon
     @Override
     public void isBanedUser() {
         api.isUserBanned(LocalDataAccess.getToken());
-    }
-
-    @Override
-    public void isUserNoBanned() {
-        view.showUserBanedDialog();
     }
 }

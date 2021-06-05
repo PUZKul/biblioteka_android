@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         bottom_nav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().add(R.id.mainActivity_fragment_container, new FirstWindowFragment()).commit();
         presenter=new MainActivityPresenter(this);
-        presenter.isBanedUser();
     }
 
     public static Context getAppContext() {
@@ -50,18 +49,21 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
                     Fragment selectedFragment = null;
                     switch (item.getItemId()) {
                         case R.id.bottom_nav_profile:
+                            presenter.isBanedUser();
                             if (LocalDataAccess.isLogin())
                                 selectedFragment = new ProfileFragment();
                             else
                                 selectedFragment = new NotLoggedInProfileFragment();
                             break;
                         case R.id.bottom_nav_book:
+                            presenter.isBanedUser();
                             if (LocalDataAccess.isLogin())
                                 selectedFragment = new ReservationsReadingAndHistoryMainFragment();
                             else
                                 selectedFragment = new NotLoggedInReservationsReadingAndHistory();
                             break;
                         case R.id.bottom_nav_home:
+                            presenter.isBanedUser();
                             selectedFragment = new FirstWindowFragment();
                             break;
                     }
@@ -69,10 +71,4 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
                     return true;
                 }
             };
-
-    @Override
-    public void showUserBanedDialog() {
-        BanedUserDialog dialog=new BanedUserDialog();
-        dialog.show(getSupportFragmentManager(),"");
-    }
 }
