@@ -134,4 +134,16 @@
     <string name="if_you_want_to_borrow_a_book_complete_the_contact_details_do_you_want_to_refill_now">Si vous souhaitez emprunter un livre, remplissez les coordonnées, voulez-vous le terminer maintenant ?</string>
     <string name="choose_the_book">Choisissez un livre.</string>
     <string name="available_to">Disponible depuis:</string>
+    <string name="book_is_not_available">Le livre n\'est pas disponible</string>
+    <string name="message_was_sent">Le message a été envoyé</string>
+    <string name="edit">Éditer</string>
+    <string name="field_is_empty">Le champ est vide</string>
+    <string name="incorrect_first_name">Prénom incorrect</string>
+    <string name="incorrect_last_name">Nom de famille incorrect</string>
+    <string name="incorrect_addres">Adresse incorrecte.</string>
+    <string name="incorresct_phone">Téléphone incorrect</string>
+    <string name="create_your_own_reservation_list">Créez votre propre liste de réservation et</string>
+    <string name="are_you_sure_you_want_to_log_out">Êtes-vous sûr de vouloir vous déconnecter?</string>
+    <string name="you_have_been_logged_out">vous avez été déconnecté</string>
+    <string name="If_you_want_to_learn">Si vous voulez savoir comment débloquer un compte, veuillez visiter la bibliothèque la plus proche.</string>
 </resources>

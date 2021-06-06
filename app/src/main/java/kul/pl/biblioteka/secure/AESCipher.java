@@ -35,7 +35,7 @@ public class AESCipher {
             cipher.init(Cipher.ENCRYPT_MODE, getKey(secretKey));
             return Base64.encodeToString(cipher.doFinal(information.getBytes()), Base64.DEFAULT);
         } catch (Exception e) {
-            Log.d("SECURE", "Error while encrypting: " + e.toString());
+            Log.d("SECURE",  "Error while encrypting: " + e.toString());
         }
         return null;
     }

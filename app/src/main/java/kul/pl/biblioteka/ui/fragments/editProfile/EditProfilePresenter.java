@@ -71,8 +71,9 @@ public class EditProfilePresenter extends APIAdapter implements EditProfileContr
 
     @Override
     public void onEditUserReceive() {
-        view.endProgressBar();
-        view.showToast(MainActivity.getAppContext().getString(R.string.the_data_has_bben_edited));
+        view.onRefresh();;
+        //view.endProgressBar();
+        view.showToast(MainActivity.getAppContext().getString(R.string.the_data_has_been_edited));
         view.closeFragment();
     }
 
@@ -110,8 +111,8 @@ public class EditProfilePresenter extends APIAdapter implements EditProfileContr
         return true;
     }
 
-    @Override
-    public void onRefreshServer() {
-        view.onRefresh();
-    }
+//    @Override
+//    public void onRefreshServer() {
+//        view.onRefresh();
+//    }
 }

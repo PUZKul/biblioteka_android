@@ -134,4 +134,16 @@
     <string name="LoanExtend">Limit został rozszerzony</string>
     <string name="home">Ekran główny</string>
     <string name="available_to">Dostępne od:</string>
+    <string name="book_is_not_available">Książka niedostępna</string>
+    <string name="message_was_sent">Wiadomość wysłana</string>
+    <string name="edit">Edytuj</string>
+    <string name="field_is_empty">Pole jest puste</string>
+    <string name="incorrect_first_name">nieprawidłowe imię</string>
+    <string name="incorrect_last_name">Nieprawidowe nazwisko</string>
+    <string name="incorrect_addres">Zły adres.</string>
+    <string name="incorresct_phone">Nieprawidłowy telefon</string>
+    <string name="create_your_own_reservation_list">Stwórz własną listę rezerwacji i</string>
+    <string name="are_you_sure_you_want_to_log_out">Czy na pewno chcesz się wylogować?</string>
+    <string name="you_have_been_logged_out">Zostałeś wylogowany</string>
+    <string name="If_you_want_to_learn">Jeśli chcesz dowiedzieć się, jak odblokować konto, odwiedź najbliższą bibliotekę.</string>
 </resources>

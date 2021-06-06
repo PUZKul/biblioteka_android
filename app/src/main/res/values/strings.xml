@@ -147,7 +147,7 @@
     <string name="available_to">Available to:</string>
     <string name="book_is_not_available">Book isn\'t available</string>
     <string name="message_was_sent">Message was sent</string>
-    <string name="edit">edit</string>
+    <string name="edit">Edit</string>
     <string name="field_is_empty">Field is empty</string>
     <string name="incorrect_first_name">Incorrect first name</string>
     <string name="incorrect_last_name">Incorrect last name</string>
@@ -157,6 +157,8 @@
     <string name="are_you_sure_you_want_to_log_out">Are you sure you want to log out?</string>
     <string name="you_have_been_logged_out">You have been logged out</string>
     <string name="If_you_want_to_learn">If you want to learn how to unban an account, please visit the nearest library.</string>
-    <string name="five">/5.0</string>
-    <string name="the_data_has_bben_edited">The data has been edited</string>
+    <string name="five" translatable="false">/5.0</string>
+    <string name="the_data_has_been_edited">The data has been edited</string>
+
+
 </resources>
